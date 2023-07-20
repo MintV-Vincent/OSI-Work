@@ -1,0 +1,30 @@
+{
+  "name": "next-js-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 10.34.211.56",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@mantine/core": "^6.0.14",
+    "@mantine/form": "^6.0.14",
+    "@mantine/hooks": "^6.0.14",
+    "@mantine/modals": "^6.0.14",
+    "@types/node": "20.3.1",
+    "@types/react": "18.2.13",
+    "@types/react-dom": "18.2.6",
+    "autoprefixer": "10.4.14",
+    "jotai": "^2.2.1",
+    "mantine-data-grid": "^0.2.3",
+    "next": "13.4.7",
+    "postcss": "8.4.24",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.1.3"
+  }
+}

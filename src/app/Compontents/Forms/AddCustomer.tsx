@@ -1,9 +1,7 @@
 import { Box, Button, Group } from "@mantine/core";
 import { upperCaseString } from "Functions/StringFunction";
 import React from "react";
-import { notifications } from "@mantine/notifications";
 import SuccessfulNotification from "Compontents/Notifcations/AddCustomer";
-import { IconX } from "@tabler/icons-react";
 import { createData } from "Functions/Create/MapCreate";
 import { createCode } from "Functions/SelectCodeCreate";
 import { addItem } from "Functions/SortArray";

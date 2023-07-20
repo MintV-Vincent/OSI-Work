@@ -4,7 +4,6 @@ import { Tabs, MantineProvider } from "@mantine/core";
 import Sales from "Pages/Sales";
 import Image from "next/image";
 import Logo from "Images/Logo.svg";
-import { Notifications } from "@mantine/notifications";
 import Check from "Pages/Check";
 
 //These atoms are cause a lot of re-renders on calculation need to do something about it !
@@ -26,7 +25,6 @@ function MainWebsite() {
         fontFamily: "Helvetica",
       }}
     >
-      <Notifications />
       <Tabs color="dark" defaultValue={"Front"}>
         <Tabs.List
           className="bg-light h-16 sticky top-0 left-0 px-2.5 pr-5 right-0 z-50 print:hidden"

@@ -1,7 +1,6 @@
 import { Box, Button, Group } from "@mantine/core";
 import { upperCaseString } from "Functions/StringFunction";
 import React from "react";
-import SuccessfulNotification from "Compontents/Notifcations/AddCustomer";
 import { createData } from "Functions/Create/MapCreate";
 import { createCode } from "Functions/SelectCodeCreate";
 import { addItem } from "Functions/SortArray";
@@ -13,7 +12,6 @@ import {
 } from "Compontents/Tables/FrontTable";
 import { useAtom } from "jotai";
 import TextInputForm from "./TextInputForm";
-import NotSuccessfulNotification from "Compontents/Notifcations/NotSuccessfulNotification";
 
 interface AddCustomerInterface {
   handleClick: any;

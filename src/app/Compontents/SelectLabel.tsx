@@ -8,7 +8,6 @@ import { PrimitiveAtom, useAtom } from "jotai";
 import SortArray, { addItem } from "Functions/SortArray";
 import { upperCaseString } from "Functions/StringFunction";
 import { dictionaryMap } from "Interface/Types";
-import SuccessfulNotification from "./Notifcations/AddCustomer";
 import AddCustomerForm from "./Forms/AddCustomer";
 import { IconPlus } from "@tabler/icons-react";
 
@@ -74,10 +73,6 @@ export default function SelectLabel({
         addItem(dataRow, createData(upperCaseString(query), newCode));
         setText(text);
         getCode(selector, dataRow, setText);
-        SuccessfulNotification({
-          message: newCode,
-          title: "Successful added new customer",
-        });
 
         return newCode;
       }}

@@ -1,10 +1,10 @@
 import { Box, Button, Group } from "@mantine/core";
+import { useForm } from "@mantine/form";
 import { upperCaseString } from "Functions/StringFunction";
 import React from "react";
 import { createData } from "Functions/Create/MapCreate";
 import { createCode } from "Functions/SelectCodeCreate";
 import { addItem } from "Functions/SortArray";
-import { useForm } from "@mantine/form";
 import {
   codeAtom,
   customerAtom,

@@ -1,3 +1,4 @@
+import React from "react";
 import { atom } from "jotai";
 
 //Sales (Materials and Process)

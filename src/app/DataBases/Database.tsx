@@ -1,5 +1,5 @@
 import { rowMapPrice } from "Interface/Types";
-import { createRowPrice, createTemp } from "../Functions/Create/MapCreate";
+import { createRowPrice } from "../Functions/Create/MapCreate";
 import { atom } from "jotai";
 import { Directus } from "@directus/sdk";
 import JsonToAtom from "JsonReader/JsonToAtom";

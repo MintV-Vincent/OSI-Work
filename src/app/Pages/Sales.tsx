@@ -26,22 +26,6 @@ export default function Sales() {
   const tabs: tabType[] = [
     { title: "Total", table: <TotalTab /> },
     {
-      title: laminateTitle,
-      table: <QuoteTable title={laminateTitle} code={"Code"} />,
-    },
-    {
-      title: coverTitle,
-      table: <QuoteTable title={coverTitle} code={"Code"} />,
-    },
-    {
-      title: stiffenerTitle,
-      table: <QuoteTable title={stiffenerTitle} code={"Thickness"} />,
-    },
-    {
-      title: tapeTitle,
-      table: <QuoteTable title={tapeTitle} code={"Model #"} />,
-    },
-    {
       title: filmTitle,
       table: <FilmTable custom={""} title={filmTitle} />,
     },

@@ -3,7 +3,6 @@ import { materialRowMap } from "Interface/Types";
 import { useAtom } from "jotai";
 import React, { useMemo } from "react";
 import { onAmount, onMaterial } from "Functions/Create/MaterialCreate";
-import { addTableTotal } from "Functions/MathFunctions";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
 import { processHeader } from "Interface/Headers";

@@ -1,7 +1,7 @@
 import { Table, Tooltip } from "@mantine/core";
 import { dictionaryMap, rowMap } from "Interface/Types";
 import HeaderRow from "./Rows/HeaderRow";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import { NumberInput, Select } from "@mantine/core";
 import { createData, createRow } from "Functions/Create/MapCreate";
 import GetDate from "Functions/GetDate";

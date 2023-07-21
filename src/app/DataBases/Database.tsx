@@ -1,23 +1,21 @@
 import { rowMapPrice } from "Interface/Types";
 import { createRowPrice } from "../Functions/Create/MapCreate";
-import { atom } from "jotai";
-import { Directus } from "@directus/sdk";
 import JsonToAtom from "JsonReader/JsonToAtom";
+import { atom } from "jotai";
+import {
+  getArlon,
+  getDupont,
+  getIsola,
+  getPanasonic,
+} from "Query/LaminateQuery";
+import { getStiffener } from "Query/StiffenerQuery";
+import { getFilm } from "Query/FilmQuery";
+import { getCoverCoat } from "Query/CoverCoatQuery";
 
-const directus = new Directus("http://localhost:8055/");
-
-async function getSDKData(text: string) {
-  const data = await directus.items(text).readByQuery({
-    fields: ["*"],
-  });
-
-  return data.data;
-}
-
-const isolaAtom = atom(JsonToAtom(getSDKData("Isola")));
-const arlonAtom = atom(JsonToAtom(getSDKData("Arlon")));
-const dupontAtom = atom(JsonToAtom(getSDKData("Dupont")));
-const panasonicAtom = atom(JsonToAtom(getSDKData("Panasonic")));
+const isolaAtom = atom(JsonToAtom(getIsola()));
+const arlonAtom = atom(JsonToAtom(getArlon()));
+const dupontAtom = atom(JsonToAtom(getDupont()));
+const panasonicAtom = atom(JsonToAtom(getPanasonic()));
 export const laminateAtom = atom(
   async (get) => {
     const isola = get(isolaAtom);
@@ -52,7 +50,7 @@ export const laminateAtom = atom(
 
 const addedAtom = atom<rowMapPrice[]>([]);
 
-const coverAtom = atom(JsonToAtom(getSDKData("Cover_Coat")));
+const coverAtom = atom(JsonToAtom(getCoverCoat()));
 const addedAtom3 = atom<rowMapPrice[]>([]);
 export const coverCoatAtom = atom(
   async (get) => {
@@ -80,7 +78,7 @@ export const coverCoatAtom = atom(
   }
 );
 
-const stiffAtom = atom(JsonToAtom(getSDKData("Stiffiner")));
+const stiffAtom = atom(JsonToAtom(getStiffener()));
 const addedAtom2 = atom<rowMapPrice[]>([]);
 export const stiffenerAtom = atom(
   async (get) => {
@@ -108,9 +106,7 @@ export const stiffenerAtom = atom(
   }
 );
 
-export const filmProcessAtom = atom(
-  JsonToAtom(getSDKData("Dry_Film_Wet_Process"))
-);
+export const filmProcessAtom = atom(JsonToAtom(getFilm()));
 export const process = atom<string>("");
 export const unitPrice = atom<string>("");
 export const filmAtom = atom(

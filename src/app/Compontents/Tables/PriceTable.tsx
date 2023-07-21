@@ -6,7 +6,6 @@ import {
   onMaterial,
   onSupplier,
 } from "Functions/Create/MaterialCreate";
-import { addTableTotal } from "Functions/MathFunctions";
 import SelectLogic, {
   filterMaterials,
 } from "Compontents/Tables/CustomCompontents/SelectLogic";

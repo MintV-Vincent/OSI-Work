@@ -1,15 +1,15 @@
 "use client";
 import MainWebsite from "./MainWebsite";
-import Logo from "Images/Logo.svg";
+import { QueryClientProvider, QueryClient } from "react-query";
 
-/*
-            <tr key={row.custom? row.custom + row.label + "label" : row.label + "label"}>
-*/
+const queryCleint = new QueryClient();
 
 export default function Home() {
   return (
     <div>
-      <MainWebsite />
+      <QueryClientProvider client={queryCleint}>
+        <MainWebsite />
+      </QueryClientProvider>
     </div>
   );
 }

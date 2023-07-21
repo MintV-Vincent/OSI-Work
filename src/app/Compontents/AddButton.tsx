@@ -8,11 +8,7 @@ import {
   Box,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import {
-  createMaterialRow,
-  createRow,
-  createTemp,
-} from "Functions/Create/MapCreate";
+import { createMaterialRow, createTemp } from "Functions/Create/MapCreate";
 import { materialRowMap } from "Interface/Types";
 import { useAtom } from "jotai";
 import TextInputForm from "./Forms/TextInputForm";

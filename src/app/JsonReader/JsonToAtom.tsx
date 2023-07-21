@@ -1,11 +1,6 @@
 import { atom } from "jotai";
 import { createRowPrice } from "Functions/Create/MapCreate";
 
-interface materialAtom {
-  Material: string;
-  Price: string;
-}
-
 export const isolaAtom = atom([{ label: "1", value: "1" }]);
 
 export default function JsonToAtom(json: any) {

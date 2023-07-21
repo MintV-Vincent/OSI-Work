@@ -23,17 +23,7 @@ export default function Sales() {
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
   const [panel, setPanel] = useAtom(panelAtom);
 
-  const tabs: tabType[] = [
-    { title: "Total", table: <TotalTab /> },
-    {
-      title: filmTitle,
-      table: <FilmTable custom={""} title={filmTitle} />,
-    },
-    {
-      title: mechanicalTitle,
-      table: <FilmTable custom={""} title={mechanicalTitle} />,
-    },
-  ];
+  const tabs: tabType[] = [{ title: "Total", table: <TotalTab /> }];
 
   return (
     <Tabs defaultValue={"Total"} orientation="vertical" color="dark">

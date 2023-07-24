@@ -3,16 +3,19 @@ import { createRowPrice, createTemp } from "../Functions/Create/MapCreate";
 import { atom } from "jotai";
 import { Directus } from "@directus/sdk";
 import JsonToAtom from "JsonReader/JsonToAtom";
+import { notFound } from "next/navigation";
 
 const directus = new Directus("http://localhost:8055/");
 
 async function getSDKData(text: string) {
   try {
     const data = await directus.items(text).readByQuery({
-      fields: ["*"],
+      fields: ["slug", "Material", "Price", "Formula", "Supplier", "Section"],
     });
     return data.data;
-  } catch {}
+  } catch {
+    notFound();
+  }
 }
 
 const isolaAtom = atom(JsonToAtom(getSDKData("Isola")));

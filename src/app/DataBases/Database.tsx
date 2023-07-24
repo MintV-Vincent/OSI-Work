@@ -7,14 +7,14 @@ import { notFound } from "next/navigation";
 
 const directus = new Directus("http://localhost:8055/");
 
-async function getSDKData(text: string) {
+export async function getSDKData(text: string) {
   try {
     const data = await directus.items(text).readByQuery({
-      fields: ["slug", "Material", "Price", "Formula", "Supplier", "Section"],
+      fields: ["*"],
     });
     return data.data;
   } catch {
-    notFound();
+    return [{ slug: "slug" }];
   }
 }
 

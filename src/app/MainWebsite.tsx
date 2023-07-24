@@ -5,6 +5,7 @@ import Sales from "Pages/Sales";
 import Image from "next/image";
 import Logo from "Images/Logo.svg";
 import Check from "Pages/Check";
+import HomePage from "tester";
 
 //These atoms are cause a lot of re-renders on calculation need to do something about it !
 export const exchangeRateAtom = atom<number | "">(1);
@@ -78,7 +79,7 @@ function MainWebsite() {
           <Front />
         </Tabs.Panel>
         <Tabs.Panel className="p-0 h-screen" value="Sales" pt="xs">
-          <Sales />
+          <HomePage />
         </Tabs.Panel>
         <Tabs.Panel className="p-0 h-screen" value="Test" pt="xs">
           <Check />

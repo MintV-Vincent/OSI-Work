@@ -5,9 +5,7 @@ export default function JsonToAtom(json: any) {
   for (let i: number = 0; i < json.length; i++) {
     array.push(
       createRowPrice(
-        json[i].supplier
-          ? json[i].material + json[i].supplier
-          : json[i].material,
+        json[i].material,
         json[i].material,
         json[i].price,
         json[i].formula,

@@ -1,4 +1,4 @@
-import { Box, Button, Group, NumberInput, TextInput } from "@mantine/core";
+import { Box, Button, Group, NumberInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { filmAtom } from "DataBases/Database";
 import { useAtom } from "jotai";

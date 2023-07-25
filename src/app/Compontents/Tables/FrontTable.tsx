@@ -4,7 +4,7 @@ import HeaderRow from "./Rows/HeaderRow";
 import { useState } from "react";
 import { NumberInput, Select } from "@mantine/core";
 import { createData, createRow } from "Functions/Create/MapCreate";
-import GetDate from "Functions/GetDate";
+import GetDate from "Functions/GetFunction/GetDate";
 import { atom, useAtom } from "jotai";
 import { exchangeRateAtom, freightAtom, panelAtom } from "MainWebsite";
 import { useInputState } from "@mantine/hooks";
@@ -13,14 +13,12 @@ import { panelRow } from "Interface/SelectMap";
 import { IconCurrencyDollar } from "@tabler/icons-react";
 import { frontHeader } from "Interface/Headers";
 import SelectLabel from "Compontents/SelectLabel";
+import GetQuote from "Functions/GetFunction/GetQuote";
+import { customer } from "DataBases/Customer";
+import JsonToCustomer from "JsonReader/JsonToCustomer";
 
 export const customerAtom = atom<string>("");
-export const customerRowAtom = atom([
-  createData("Advanced Optical Components", "C0001"),
-  createData("Action Manufacturing Company", "C0002"),
-  createData("Acumentrics Corporation", "C0003"),
-  createData("Adeptron Technologies Corp.", "C0004"),
-]);
+export const customerRowAtom = atom(JsonToCustomer(customer));
 export const codeAtom = atom<string>("");
 
 const rowClassName = "h-14 ";
@@ -158,12 +156,7 @@ export function FrontTable() {
         data={assemblyRow}
       />
     ),
-    createRow(
-      "Quote Number",
-      <Tooltip label={321}>
-        <label>321</label>
-      </Tooltip>
-    ),
+    createRow("Quote Number", <GetQuote />),
     createRow("Date", <label>{GetDate()}</label>),
   ];
 

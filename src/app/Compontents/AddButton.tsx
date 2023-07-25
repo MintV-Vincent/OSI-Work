@@ -8,7 +8,7 @@ import {
   Box,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { createMaterialRow, createTemp } from "Functions/Create/MapCreate";
+import { createMaterialRow } from "Functions/Create/MapCreate";
 import { materialRowMap } from "Interface/Types";
 import { useAtom } from "jotai";
 import TextInputForm from "./Forms/TextInputForm";
@@ -52,12 +52,14 @@ export function AddButton({ atom, data, setData }: AddButtonInterface) {
                 values.price != undefined &&
                 values.material != ""
               ) {
-                const newMaterial = createTemp(
-                  values.custom.toString(),
-                  values.price.toString(),
-                  data.length
+                setMaterial(
+                  values.material,
+                  values.material,
+                  values.price,
+                  "cost * exchange",
+                  values.custom,
+                  "Added"
                 );
-                setMaterial(newMaterial);
                 const newRow = createMaterialRow(data.length + 1);
                 setData([...data, newRow]);
 

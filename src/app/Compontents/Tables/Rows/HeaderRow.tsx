@@ -9,7 +9,6 @@ const HeaderRow = memo(function HeaderRow({
   columns,
   titles,
 }: HeaderRowInterface) {
-  console.log(columns);
   return (
     <thead className={"bg-light"}>
       <tr>

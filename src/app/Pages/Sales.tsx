@@ -64,6 +64,9 @@ export default function Sales() {
             key={row.title + " header"}
             value={row.title}
             className="py-3.5"
+            style={{
+              color: "#22223B",
+            }}
           >
             {row.title === filmTitle ? (
               <label>

@@ -83,6 +83,9 @@ export default function Check({}) {
             key={row.title + " header"}
             value={row.title}
             className="py-3.5"
+            style={{
+              color: "#22223B",
+            }}
           >
             {row.title}
           </Tabs.Tab>

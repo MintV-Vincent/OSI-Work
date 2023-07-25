@@ -12,7 +12,7 @@ const queryCleint = new QueryClient({
   },
 });
 
-export default function Home() {
+export default function page() {
   return (
     <div>
       <QueryClientProvider client={queryCleint}>

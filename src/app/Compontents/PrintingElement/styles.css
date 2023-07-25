@@ -1,0 +1,339 @@
+@media print {
+  /* its an example */
+  .noPrint {
+    display: none;
+  }
+}
+
+.letter-head {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.letter-head .div {
+  background-color: #ffffff;
+  border: 0.53px none;
+  height: 792px;
+  position: relative;
+  width: 612px;
+}
+
+.letter-head .layer {
+  height: 41px;
+  left: 20px;
+  position: absolute;
+  top: 13px;
+  width: 257px;
+}
+
+.letter-head .group {
+  height: 22px;
+  left: 390px;
+  position: absolute;
+  top: 28px;
+  width: 169px;
+}
+
+.letter-head .text-wrapper {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1px;
+  width: 28px;
+}
+
+.letter-head .rectangle {
+  height: 22px;
+  left: 37px;
+  position: absolute;
+  top: 0;
+  width: 130px;
+}
+
+.letter-head .group-2 {
+  height: 125px;
+  left: 48px;
+  position: absolute;
+  top: 351px;
+  width: 509px;
+}
+
+.letter-head .img {
+  height: 100px;
+  left: 0;
+  position: absolute;
+  top: 24px;
+  width: 507px;
+}
+
+.letter-head .text-wrapper-2 {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 1px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 75px;
+}
+
+.letter-head .group-3 {
+  height: 124px;
+  left: 48px;
+  position: absolute;
+  top: 500px;
+  width: 509px;
+}
+
+.letter-head .text-wrapper-3 {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 1px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 162px;
+}
+
+.letter-head .text-wrapper-4 {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 50px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 93px;
+  width: 101px;
+}
+
+.letter-head .rectangle-2 {
+  height: 22px;
+  left: 166px;
+  position: absolute;
+  top: 94px;
+  width: 130px;
+}
+
+.letter-head .text-wrapper-5 {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 311px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 93px;
+  width: 101px;
+}
+
+.letter-head .rectangle-3 {
+  height: 22px;
+  left: 427px;
+  position: absolute;
+  top: 94px;
+  width: 130px;
+}
+
+.letter-head .text-wrapper-6 {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 50px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 131px;
+  width: 101px;
+}
+
+.letter-head .rectangle-4 {
+  height: 22px;
+  left: 166px;
+  position: absolute;
+  top: 132px;
+  width: 130px;
+}
+
+.letter-head .text-wrapper-7 {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 311px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 131px;
+}
+
+.letter-head .rectangle-5 {
+  height: 22px;
+  left: 427px;
+  position: absolute;
+  top: 132px;
+  width: 130px;
+}
+
+.letter-head .text-wrapper-8 {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 50px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 169px;
+  width: 101px;
+}
+
+.letter-head .rectangle-6 {
+  height: 22px;
+  left: 166px;
+  position: absolute;
+  top: 170px;
+  width: 130px;
+}
+
+.letter-head .text-wrapper-9 {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 311px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 169px;
+  width: 101px;
+}
+
+.letter-head .rectangle-7 {
+  height: 21px;
+  left: 427px;
+  position: absolute;
+  top: 170px;
+  width: 130px;
+}
+
+.letter-head .text-wrapper-10 {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 50px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 207px;
+  width: 101px;
+}
+
+.letter-head .rectangle-8 {
+  height: 22px;
+  left: 166px;
+  position: absolute;
+  top: 208px;
+  width: 130px;
+}
+
+.letter-head .text-wrapper-11 {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 311px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 207px;
+  width: 101px;
+}
+
+.letter-head .rectangle-9 {
+  height: 21px;
+  left: 427px;
+  position: absolute;
+  top: 208px;
+  width: 130px;
+}
+
+.letter-head .text-wrapper-12 {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 50px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 245px;
+  width: 101px;
+}
+
+.letter-head .rectangle-10 {
+  height: 22px;
+  left: 166px;
+  position: absolute;
+  top: 246px;
+  width: 130px;
+}
+
+.letter-head .text-wrapper-13 {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 311px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 245px;
+  width: 101px;
+}
+
+.letter-head .rectangle-11 {
+  height: 22px;
+  left: 427px;
+  position: absolute;
+  top: 246px;
+  width: 130px;
+}
+
+.letter-head .text-wrapper-14 {
+  color: #000000;
+  font-family: "Inika", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 50px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 283px;
+  width: 101px;
+}
+
+.letter-head .rectangle-12 {
+  height: 22px;
+  left: 166px;
+  position: absolute;
+  top: 284px;
+  width: 130px;
+}

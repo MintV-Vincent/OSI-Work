@@ -1,9 +1,9 @@
-import Front from "Pages/Front";
+import Front from "Tabs/Front";
 import { atom } from "jotai";
 import { Tabs, MantineProvider } from "@mantine/core";
 import Image from "next/image";
-import Check from "Pages/Check";
-import Sales from "Pages/Sales";
+import Check from "Tabs/Check";
+import Sales from "Tabs/Sales";
 
 const Logo = require("Images/Logo.svg") as string;
 

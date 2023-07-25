@@ -1,4 +1,4 @@
-import { Table, Tooltip } from "@mantine/core";
+import { Table } from "@mantine/core";
 import { dictionaryMap, rowMap } from "Interface/Types";
 import HeaderRow from "./Rows/HeaderRow";
 import { useState } from "react";
@@ -162,30 +162,32 @@ export function FrontTable() {
 
   // This table consist of only two columns. The data points should be of type row map
   return (
-    <Table miw={700} striped withBorder>
-      <HeaderRow
-        columns={[
-          "text-left h-14 w-1/5",
-          "text-left h-14 w-1/5",
-          "text-left h-14 w-3/5",
-        ]}
-        titles={frontHeader}
-      />
-      <tbody>
-        {FrontTableRows.map((row: rowMap, index: number) => (
-          <tr className={" text-primary"} key={row.label + " row " + index}>
-            <td className={rows[index] + "w-1/5"}>{row.label}</td>
-            {row.label === "Customer" ? (
-              <td className={rows[index] + "w-1/5 text-center"}>
-                {customerCode}
-              </td>
-            ) : (
-              <td></td>
-            )}
-            <td className={rows[index] + "w-3/5 text-left"}>{row.value}</td>
-          </tr>
-        ))}
-      </tbody>
-    </Table>
+    <>
+      <Table miw={700} striped withBorder>
+        <HeaderRow
+          columns={[
+            "text-left h-14 w-1/5",
+            "text-left h-14 w-1/5",
+            "text-left h-14 w-3/5",
+          ]}
+          titles={frontHeader}
+        />
+        <tbody>
+          {FrontTableRows.map((row: rowMap, index: number) => (
+            <tr className={" text-primary"} key={row.label + " row " + index}>
+              <td className={rows[index] + "w-1/5"}>{row.label}</td>
+              {row.label === "Customer" ? (
+                <td className={rows[index] + "w-1/5 text-center"}>
+                  {customerCode}
+                </td>
+              ) : (
+                <td></td>
+              )}
+              <td className={rows[index] + "w-3/5 text-left"}>{row.value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </>
   );
 }

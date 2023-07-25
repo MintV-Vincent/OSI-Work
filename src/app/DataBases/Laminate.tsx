@@ -1,4 +1,6 @@
-export const panasonic: any[] = [
+import { jsonMap } from "Interface/Types";
+
+export const panasonic: jsonMap[] = [
   {
     id: 1,
     material: "FLP 09/12.5/09",

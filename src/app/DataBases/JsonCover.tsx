@@ -1,4 +1,6 @@
-export const cover: any[] = [
+import { jsonMap } from "Interface/Types";
+
+export const cover: jsonMap[] = [
   {
     id: 1,
     material: "FR0110",

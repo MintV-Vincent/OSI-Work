@@ -1,4 +1,6 @@
-export const isola: any[] = [
+import { jsonMap } from "Interface/Types";
+
+export const isola: jsonMap[] = [
   {
     id: 1,
     material: "370HR 0.0030 H/H (2113)",

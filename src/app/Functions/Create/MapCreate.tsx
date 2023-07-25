@@ -3,7 +3,6 @@ import {
   rowMapPrice,
   rowMap,
   dictionaryMap,
-  supplierMap,
   rowTotalMap,
   rowMap2,
 } from "Interface/Types";
@@ -38,14 +37,6 @@ export function createRowPrice(
   supplier: string = ""
 ): rowMapPrice {
   return { label, value, price, custom, supplier, formula };
-}
-
-export function createTemp(
-  value: string,
-  label: string,
-  arr: any
-): supplierMap {
-  return { value, label, arr };
 }
 
 export function createMaterialRow(id: number): materialRowMap {

@@ -1,4 +1,6 @@
-export const arlon: any[] = [
+import { jsonMap } from "Interface/Types";
+
+export const arlon: jsonMap[] = [
   {
     id: 1,
     material: "P95_P96 0.0030 H/H (1-1080)",

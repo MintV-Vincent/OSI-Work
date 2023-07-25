@@ -52,7 +52,12 @@ export default function Sales() {
   ];
 
   return (
-    <Tabs defaultValue={"Total"} orientation="vertical" color="dark">
+    <Tabs
+      defaultValue={"Total"}
+      orientation="vertical"
+      color="yellow"
+      variant="pills"
+    >
       <Tabs.List className="bg-tab w-40 pt-6 h-screen fixed">
         {tabs.map((row: tabType) => (
           <Tabs.Tab

@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function GetDate(): string {
   //Return todays date as a string formated in day/month/year
   //Return: displayTodaysDate

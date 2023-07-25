@@ -90,12 +90,13 @@ export function CustomCheckTable({ titles }: checkTable) {
     <Table miw={700} striped withBorder verticalSpacing="md">
       <HeaderRow
         columns={[
-          "text-left h-14 w-1/3",
-          "text-center h-14 w-1/3",
-          "text-right h-14 w-1/4",
           "text-left h-14 w-1/4",
+          "text-center h-14 w-1/4",
+          "text-left h-14 w-1/6",
+          "text-left h-14 w-1/6",
+          "text-left h-14 w-1/6",
         ]}
-        titles={["Service", "Status", "Price ($)", ""]}
+        titles={["Service", "Status", "", "Price ($)", ""]}
       />
       <tbody>
         {checkTableRow.map((row: rowMap2, index: number) => (
@@ -104,14 +105,16 @@ export function CustomCheckTable({ titles }: checkTable) {
             <td>
               <Center>{row.value}</Center>
             </td>
+            <td></td>
             <td className="text-right">{row.value2}</td>
             <td>{}</td>
           </tr>
         ))}
         <tr>
           <td></td>
-          <td className="text-right font-semibold">Total</td>
-          <td className="text-right font-semibold">{total.toFixed(2)}</td>
+          <td></td>
+          <td className="text-center font-semibold">Total</td>
+          <td className="text-left font-semibold">{total.toFixed(2)}</td>
           <td></td>
         </tr>
       </tbody>

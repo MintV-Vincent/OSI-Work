@@ -70,9 +70,13 @@ export default function Check({}) {
     },
   ];
 
-  const [value, setValue] = useState<string[]>([]);
   return (
-    <Tabs defaultValue={"Assembly Tooling"} orientation="vertical" color="dark">
+    <Tabs
+      defaultValue={"Assembly Tooling"}
+      orientation="vertical"
+      color="yellow"
+      variant="pills"
+    >
       <Tabs.List className="bg-tab pt-6 w-40 h-screen fixed">
         {tabs.map((row: tabType) => (
           <Tabs.Tab

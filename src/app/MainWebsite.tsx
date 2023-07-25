@@ -26,7 +26,7 @@ function MainWebsite() {
         fontFamily: "Helvetica",
       }}
     >
-      <Tabs color="dark" defaultValue={"Front"}>
+      <Tabs color="yellow" variant="pills" defaultValue={"Front"}>
         <Tabs.List
           className="bg-light h-16 sticky top-0 left-0 px-2.5 pr-5 right-0 z-50 print:hidden"
           position="right"

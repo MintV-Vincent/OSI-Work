@@ -24,29 +24,27 @@ export interface dictionaryMap {
   value: string;
 }
 
+export interface jsonMap {
+  id: number;
+  material: string;
+  formula: string;
+  price: number | string;
+  supplier: string;
+}
+
 export interface rowMapPrice extends dictionaryMap {
   custom: string;
   formula: string;
   price: number | string;
   supplier: string;
 }
-
-export interface supplierMap {
-  value: string;
-  label: string;
-  arr: rowMapPrice[];
-}
-
-export interface processRowMap {
+export interface materialRowMap {
   material: string;
   id: number;
   amount: number;
   unitPrice: number;
   price: number;
   formula: string;
-}
-
-export interface materialRowMap extends processRowMap {
   supplier: string;
   custom: string | number;
 }

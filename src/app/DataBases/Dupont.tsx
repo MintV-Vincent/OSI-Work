@@ -1,4 +1,6 @@
-export const dupont: any[] = [
+import { jsonMap } from "Interface/Types";
+
+export const dupont: jsonMap[] = [
   {
     id: 1,
     material: "AC121200R",

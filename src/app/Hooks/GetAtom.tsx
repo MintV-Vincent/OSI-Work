@@ -1,4 +1,9 @@
-import { coverCoatAtom, filmAtom, stiffenerAtom } from "DataBases/Database";
+import {
+  coverCoatAtom,
+  filmAtom,
+  laminateAtom,
+  stiffenerAtom,
+} from "DataBases/Database";
 import {
   coverTotalAtom,
   filmTotalAtom,
@@ -7,7 +12,6 @@ import {
   stiffenerTotalAtom,
   tapeTotalAtom,
 } from "DataBases/TotalDataBase";
-import { createRowPrice } from "Functions/Create/MapCreate";
 import {
   coverTitle,
   filmTitle,
@@ -17,9 +21,7 @@ import {
   tapeTitle,
 } from "Interface/Headers";
 import { rowMapPrice } from "Interface/Types";
-import JsonToAtom from "JsonReader/JsonToAtom";
-import { getArlon, getDupont, getIsola, getPanasonic } from "Query/query";
-import { atom, useAtom } from "jotai";
+import { useAtom } from "jotai";
 
 interface useUpdateTotal {
   title: string;
@@ -30,44 +32,6 @@ interface returnAtom {
   setData: any;
   setTotal: any;
 }
-
-const isolaAtom = atom(JsonToAtom(getIsola()));
-const arlonAtom = atom(JsonToAtom(getArlon()));
-const dupontAtom = atom(JsonToAtom(getDupont()));
-const panasonicAtom = atom(JsonToAtom(getPanasonic()));
-export const laminateAtom = atom(
-  async (get) => {
-    const isola = get(isolaAtom);
-    const arlon = get(arlonAtom);
-    const dupont = get(dupontAtom);
-    const panasonic = get(panasonicAtom);
-    const added = get(addedAtom);
-    return [isola, arlon, dupont, panasonic, added];
-  },
-  (
-    get,
-    set,
-    value: string,
-    label: string,
-    price: number,
-    formula: string,
-    custom: string,
-    supplier: string = "Added"
-  ) => {
-    const isola = get(isolaAtom);
-    const arlon = get(arlonAtom);
-    const dupont = get(dupontAtom);
-    const panasonic = get(panasonicAtom);
-    const added = get(addedAtom);
-    set(addedAtom, [
-      ...added,
-      createRowPrice(value, label, price, formula, custom, supplier),
-    ]);
-    return [isola, dupont, arlon, panasonic, added];
-  }
-);
-
-const addedAtom = atom<rowMapPrice[]>([]);
 
 function getAtom({ title }: useUpdateTotal): returnAtom {
   switch (title) {

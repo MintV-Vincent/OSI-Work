@@ -1,13 +1,54 @@
 import { rowMapPrice } from "Interface/Types";
 import { createRowPrice } from "../Functions/Create/MapCreate";
-import JsonToAtom from "JsonReader/JsonToAtom";
 import { atom } from "jotai";
-import { getArlon, getDupont, getIsola, getPanasonic } from "Query/query";
-import { getStiffener } from "Query/StiffenerQuery";
-import { getFilm } from "Query/FilmQuery";
-import { getCoverCoat } from "Query/CoverCoatQuery";
+import { isola } from "./JsonIsola";
+import { arlon } from "./Arlon";
+import { dupont } from "./Dupont";
+import { panasonic } from "./Laminate";
+import { cover } from "./JsonCover";
+import { stiffener } from "./JsonString";
+import { dryFilm } from "./JsonString";
+import JsonToAtom from "JsonReader/JsonToAtom";
 
-const coverAtom = atom(JsonToAtom(getCoverCoat()));
+const isolaAtom = atom(JsonToAtom(isola));
+const arlonAtom = atom(JsonToAtom(arlon));
+const dupontAtom = atom(JsonToAtom(dupont));
+const panasonicAtom = atom(JsonToAtom(panasonic));
+export const laminateAtom = atom(
+  async (get) => {
+    const isola = get(isolaAtom);
+    const arlon = get(arlonAtom);
+    const dupont = get(dupontAtom);
+    const panasonic = get(panasonicAtom);
+    const added = get(addedAtom);
+    return [isola, arlon, dupont, panasonic, added];
+  },
+  (
+    get,
+    set,
+    value: string,
+    label: string,
+    price: number,
+    formula: string,
+    custom: string,
+    supplier: string = "Added"
+  ) => {
+    const isola = get(isolaAtom);
+    const arlon = get(arlonAtom);
+    const dupont = get(dupontAtom);
+    const panasonic = get(panasonicAtom);
+    const added = get(addedAtom);
+    set(addedAtom, [
+      ...added,
+      createRowPrice(value, label, price, formula, custom, supplier),
+    ]);
+    return [isola, dupont, arlon, panasonic, added];
+  }
+);
+
+const addedAtom = atom<rowMapPrice[]>([]);
+
+const coverAtom = atom(JsonToAtom(cover));
 const addedAtom3 = atom<rowMapPrice[]>([]);
 export const coverCoatAtom = atom(
   async (get) => {
@@ -35,7 +76,7 @@ export const coverCoatAtom = atom(
   }
 );
 
-const stiffAtom = atom(JsonToAtom(getStiffener()));
+const stiffAtom = atom(JsonToAtom(stiffener));
 const addedAtom2 = atom<rowMapPrice[]>([]);
 export const stiffenerAtom = atom(
   async (get) => {
@@ -63,7 +104,7 @@ export const stiffenerAtom = atom(
   }
 );
 
-export const filmProcessAtom = atom(JsonToAtom(getFilm()));
+export const filmProcessAtom = atom(JsonToAtom(dryFilm));
 export const process = atom<string>("");
 export const unitPrice = atom<string>("");
 export const filmAtom = atom(

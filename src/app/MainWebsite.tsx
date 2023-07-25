@@ -1,10 +1,9 @@
 import Front from "Pages/Front";
 import { atom } from "jotai";
 import { Tabs, MantineProvider } from "@mantine/core";
-import Sales from "Pages/Sales";
 import Image from "next/image";
 import Check from "Pages/Check";
-import HomePage from "tester";
+import Sales from "Pages/Sales";
 
 const Logo = require("Images/Logo.svg") as string;
 
@@ -80,7 +79,7 @@ function MainWebsite() {
           <Front />
         </Tabs.Panel>
         <Tabs.Panel className="p-0 h-screen" value="Sales" pt="xs">
-          <HomePage />
+          <Sales />
         </Tabs.Panel>
         <Tabs.Panel className="p-0 h-screen" value="Test" pt="xs">
           <Check />

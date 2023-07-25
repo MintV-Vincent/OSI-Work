@@ -8,7 +8,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@directus/sdk": "^10.3.5",
     "@emotion/react": "^11.11.1",
     "@mantine/core": "^6.0.17",
     "@mantine/form": "^6.0.17",
@@ -18,7 +17,6 @@
     "@types/react": "18.2.13",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
-    "directus": "^10.4.3",
     "jotai": "^2.2.2",
     "mantine-data-grid": "^0.2.3",
     "next": "13.4.7",

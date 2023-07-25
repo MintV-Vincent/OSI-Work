@@ -4,6 +4,7 @@ import { Tabs, MantineProvider } from "@mantine/core";
 import Sales from "Pages/Sales";
 import Image from "next/image";
 import Check from "Pages/Check";
+import HomePage from "tester";
 
 const Logo = require("Images/Logo.svg") as string;
 
@@ -79,7 +80,7 @@ function MainWebsite() {
           <Front />
         </Tabs.Panel>
         <Tabs.Panel className="p-0 h-screen" value="Sales" pt="xs">
-          <Sales />
+          <HomePage />
         </Tabs.Panel>
         <Tabs.Panel className="p-0 h-screen" value="Test" pt="xs">
           <Check />

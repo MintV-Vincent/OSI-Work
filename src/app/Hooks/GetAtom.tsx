@@ -36,7 +36,7 @@ interface returnAtom {
 function getAtom({ title }: useUpdateTotal): returnAtom {
   switch (title) {
     case laminateTitle: {
-      const [data, setData] = useAtom(laminateAtom);
+      const [data, setData] = useAtom(coverCoatAtom);
       const [, setTotal] = useAtom(laminateTotalAtom);
       return {
         supplier: data,
@@ -63,7 +63,7 @@ function getAtom({ title }: useUpdateTotal): returnAtom {
       };
     }
     case tapeTitle: {
-      const [cover, setData] = useAtom(laminateAtom);
+      const [cover, setData] = useAtom(coverCoatAtom);
       const [, setCoverTotal] = useAtom(tapeTotalAtom);
       return {
         supplier: cover,

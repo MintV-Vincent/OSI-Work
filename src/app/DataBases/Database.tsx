@@ -8,12 +8,14 @@ import { panasonic } from "./Laminate";
 import { cover } from "./JsonCover";
 import { stiffener } from "./JsonString";
 import { dryFilm } from "./JsonString";
+import { Directus } from "@directus/sdk";
 import JsonToAtom from "JsonReader/JsonToAtom";
 
 const isolaAtom = atom(JsonToAtom(isola));
 const arlonAtom = atom(JsonToAtom(arlon));
 const dupontAtom = atom(JsonToAtom(dupont));
 const panasonicAtom = atom(JsonToAtom(panasonic));
+
 export const laminateAtom = atom(
   async (get) => {
     const isola = get(isolaAtom);
@@ -47,7 +49,6 @@ export const laminateAtom = atom(
 );
 
 const addedAtom = atom<rowMapPrice[]>([]);
-
 const coverAtom = atom(JsonToAtom(cover));
 const addedAtom3 = atom<rowMapPrice[]>([]);
 export const coverCoatAtom = atom(

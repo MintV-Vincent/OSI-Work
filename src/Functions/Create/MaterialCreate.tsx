@@ -96,6 +96,7 @@ export function onMaterial(
       return {
         ...row,
         material: value,
+        amount: 0,
         custom: custom,
         supplier: supplier,
         unitPrice: price,

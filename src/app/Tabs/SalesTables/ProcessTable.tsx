@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { createTable } from "Functions/Create/MapCreate";
 import { materialRowMap } from "Interface/Types";
-import { ProcessTable } from "Compontents/Tables/ProcessTable";
+import { ProcessTable } from "app/Compontents/Tables/ProcessTable";
 import getAtom from "Hooks/GetAtom";
-import { AddModal } from "Compontents/AddModal";
-import AddMaterialForm from "Compontents/Forms/AddMaterialForm";
+import { AddModal } from "app/Compontents/AddModal";
+import AddMaterialForm from "app/Compontents/Forms/AddMaterialForm";
 import { Button } from "@mantine/core";
 
 interface QuoteTableInterface {

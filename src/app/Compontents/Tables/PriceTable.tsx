@@ -8,7 +8,7 @@ import {
 } from "Functions/Create/MaterialCreate";
 import SelectLogic, {
   filterMaterials,
-} from "Compontents/Tables/CustomCompontents/SelectLogic";
+} from "app/Compontents/Tables/CustomCompontents/SelectLogic";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
 import { materialHeader } from "Interface/Headers";

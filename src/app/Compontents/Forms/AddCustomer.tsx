@@ -9,7 +9,7 @@ import {
   codeAtom,
   customerAtom,
   customerRowAtom,
-} from "Compontents/Tables/FrontTable";
+} from "app/Compontents/Tables/FrontTable";
 import { useAtom } from "jotai";
 import TextInputForm from "./TextInputForm";
 

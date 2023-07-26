@@ -1,7 +1,7 @@
 import { Table } from "@mantine/core";
 import HeaderRow from "./Rows/HeaderRow";
 import { useAtom } from "jotai";
-import { fullTotalAtom } from "MainWebsite";
+import { fullTotalAtom } from "app/MainWebsite";
 import { titles, totalHeader } from "Interface/Headers";
 import { totalAtom } from "DataBases/TotalDataBase";
 

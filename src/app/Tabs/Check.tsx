@@ -1,7 +1,7 @@
-import { Checkbox, Tabs } from "@mantine/core";
-import { CheckTable } from "Compontents/Tables/CheckTable";
-import { CustomCheckTable } from "Compontents/Tables/CustomCheckTable";
-import { ProtoTable } from "Compontents/Tables/ProtoTable";
+import { Tabs } from "@mantine/core";
+import { CheckTable } from "app/Compontents/Tables/CheckTable";
+import { CustomCheckTable } from "app/Compontents/Tables/CustomCheckTable";
+import { ProtoTable } from "app/Compontents/Tables/ProtoTable";
 import {
   assyTotalAtom,
   processTotalAtom,

@@ -60,7 +60,7 @@ function MainWebsite() {
               color: "#22223B",
             }}
           >
-            Sales
+            Materials
           </Tabs.Tab>
           <Tabs.Tab
             className={"p-5"}

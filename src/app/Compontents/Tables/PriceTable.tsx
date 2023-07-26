@@ -106,18 +106,7 @@ export function PriceTable({
             <td className={tableSize + "text-right"}>
               {Number(row.unitPrice).toFixed(2)}
             </td>
-            <td className={tableSize + "text-right"}>
-              {
-                <ToolTipLabel
-                  unitPrice={row.unitPrice}
-                  amount={row.amount}
-                  formula={row.formula}
-                  id={index}
-                  rowsAtom={rowsAtom}
-                  useRowsAtom={useRowsAtom}
-                />
-              }
-            </td>
+            <td className={tableSize + "text-right"}>{row.price.toFixed(2)}</td>
           </tr>
         ))}
         <TotalRows text={"Total"} total={total} columns={6} />

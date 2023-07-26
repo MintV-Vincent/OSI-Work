@@ -75,18 +75,7 @@ export function ProcessTable({
               }
             </td>
             <td className="text-right">{Number(row.unitPrice).toFixed(2)}</td>
-            <td className="text-right">
-              {
-                <ToolTipLabel
-                  unitPrice={row.unitPrice}
-                  amount={row.amount}
-                  formula={row.formula}
-                  id={index}
-                  rowsAtom={rowsAtom}
-                  useRowsAtom={useRowsAtom}
-                />
-              }
-            </td>
+            <td className="text-right">{row.price.toFixed(2)}</td>
           </tr>
         ))}
         <TotalRows text={"Total"} total={total} columns={4} />

@@ -5,7 +5,7 @@ import { useAtom } from "jotai";
 import React from "react";
 import { materialRowMap } from "Interface/Types";
 import { createMaterialRow } from "Functions/Create/MapCreate";
-import TextInputForm from "./TextInputForm";
+import TextInputForm from "app/Compontents/Forms/TextInputForm";
 
 interface AddButtonInterface {
   handleClick: any;

@@ -11,7 +11,7 @@ import { useForm } from "@mantine/form";
 import { createMaterialRow } from "Functions/Create/MapCreate";
 import { materialRowMap } from "Interface/Types";
 import { useAtom } from "jotai";
-import TextInputForm from "./Forms/TextInputForm";
+import TextInputForm from "app/Compontents/Forms/TextInputForm";
 interface AddButtonInterface {
   atom: any;
   data: materialRowMap[];

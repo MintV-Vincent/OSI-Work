@@ -1,8 +1,8 @@
 import React from "react";
 import { Tabs, Select, NumberInput } from "@mantine/core";
-import QuoteTable from "./SalesTables/QuoteTab";
+import QuoteTable from "app/Tabs/SalesTables/QuoteTab";
 import { useAtom, atom } from "jotai";
-import { exchangeRateAtom, panelAtom } from "MainWebsite";
+import { exchangeRateAtom, panelAtom } from "app/MainWebsite";
 import { panelRow } from "Interface/SelectMap";
 import TotalTab from "./SalesTables/TotalTab";
 import { IconCurrencyDollar } from "@tabler/icons-react";

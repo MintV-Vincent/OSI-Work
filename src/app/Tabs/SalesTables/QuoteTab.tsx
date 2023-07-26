@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { PriceTable } from "Compontents/Tables/PriceTable";
+import { PriceTable } from "app/Compontents/Tables/PriceTable";
 import { createTable } from "Functions/Create/MapCreate";
 import { materialRowMap } from "Interface/Types";
-import { AddModal } from "Compontents/AddModal";
+import { AddModal } from "app/Compontents/AddModal";
 import { Button } from "@mantine/core";
-import AddSupplierForm from "Compontents/Forms/AddSupplierForm";
+import AddSupplierForm from "app/Compontents/Forms/AddSupplierForm";
 import getAtom from "Hooks/GetAtom";
 
 interface QuoteTableInterface {

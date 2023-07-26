@@ -1,6 +1,14 @@
 "use client";
-import MainWebsite from "./MainWebsite";
+
+import Layout from "./Compontents/Layout";
+import Front from "./Tabs/Front";
+
+//Compontents need to be in app for styles to apply, reason UNKNOWN
 
 export default function page() {
-  return <MainWebsite />;
+  return (
+    <Layout>
+      <Front />
+    </Layout>
+  );
 }

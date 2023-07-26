@@ -8,7 +8,7 @@ import { panasonic } from "./Laminate";
 import { cover } from "./JsonCover";
 import { stiffener } from "./JsonString";
 import { dryFilm } from "./JsonString";
-import JsonToAtom from "JsonReader/JsonToAtom";
+import JsonToAtom from "../JsonReader/JsonToAtom";
 
 const isolaAtom = atom(JsonToAtom(isola));
 const arlonAtom = atom(JsonToAtom(arlon));

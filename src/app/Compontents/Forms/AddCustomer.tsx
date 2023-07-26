@@ -9,9 +9,9 @@ import {
   codeAtom,
   customerAtom,
   customerRowAtom,
-} from "Compontents/Tables/FrontTable";
+} from "app/Compontents/Tables/FrontTable";
 import { useAtom } from "jotai";
-import TextInputForm from "./TextInputForm";
+import TextInputForm from "app/Compontents/Forms/TextInputForm";
 
 interface AddCustomerInterface {
   handleClick: any;

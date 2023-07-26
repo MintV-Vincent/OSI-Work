@@ -4,7 +4,7 @@ import {
   marginAtom,
   panelAtom,
   yeildAtom,
-} from "../../MainWebsite";
+} from "app/MainWebsite";
 import { useAtom } from "jotai";
 
 export function createFormula(formula: string, cost: number): string {

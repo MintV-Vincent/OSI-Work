@@ -1,3 +1,4 @@
+"use client";
 import { Tabs } from "@mantine/core";
 import { CheckTable } from "app/Compontents/Tables/CheckTable";
 import { CustomCheckTable } from "app/Compontents/Tables/CustomCheckTable";
@@ -21,7 +22,8 @@ import {
 import { tabType } from "Interface/Types";
 import { useAtom } from "jotai";
 import React from "react";
-import TotalTab from "./SalesTables/TotalTab";
+import TotalTab from "app/Tabs/SalesTables/TotalTab";
+import Layout from "app/Compontents/Layout";
 
 export default function Check({}) {
   const [, setAssy] = useAtom(assyTotalAtom);
@@ -71,38 +73,40 @@ export default function Check({}) {
   ];
 
   return (
-    <Tabs
-      defaultValue={"Assembly Tooling"}
-      orientation="vertical"
-      color="yellow"
-      variant="pills"
-    >
-      <Tabs.List className="bg-tab pt-6 w-40 h-screen fixed">
+    <Layout>
+      <Tabs
+        defaultValue={"Assembly Tooling"}
+        orientation="vertical"
+        color="yellow"
+        variant="pills"
+      >
+        <Tabs.List className="bg-tab pt-6 w-40 h-screen fixed">
+          {tabs.map((row: tabType) => (
+            <Tabs.Tab
+              key={row.title + " header"}
+              value={row.title}
+              className="py-3.5"
+              style={{
+                color: "#22223B",
+              }}
+            >
+              {row.title}
+            </Tabs.Tab>
+          ))}
+        </Tabs.List>
         {tabs.map((row: tabType) => (
-          <Tabs.Tab
-            key={row.title + " header"}
+          <Tabs.Panel
+            className="py-0 ml-40"
+            key={row.title + " tab"}
             value={row.title}
-            className="py-3.5"
-            style={{
-              color: "#22223B",
-            }}
           >
-            {row.title}
-          </Tabs.Tab>
+            <div className="mx-8">
+              <h1 className="text-primary text-center">{row.title}</h1>
+              {row.table}
+            </div>
+          </Tabs.Panel>
         ))}
-      </Tabs.List>
-      {tabs.map((row: tabType) => (
-        <Tabs.Panel
-          className="py-0 ml-40"
-          key={row.title + " tab"}
-          value={row.title}
-        >
-          <div className="mx-8">
-            <h1 className="text-primary text-center">{row.title}</h1>
-            {row.table}
-          </div>
-        </Tabs.Panel>
-      ))}
-    </Tabs>
+      </Tabs>
+    </Layout>
   );
 }

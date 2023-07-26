@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { NumberInput } from "@mantine/core";
 import { useAtom } from "jotai";
-import { TotalTable } from "Compontents/Tables/TotalTable";
+import { TotalTable } from "app/Compontents/Tables/TotalTable";
 import { addArrayTotal, newTotal } from "Functions/MathFunctions";
-import { fullTotalAtom, marginAtom, yeildAtom } from "MainWebsite";
+import { fullTotalAtom, marginAtom, yeildAtom } from "app/MainWebsite";
 import { totalAtom } from "DataBases/TotalDataBase";
 import { IconPercentage, IconHash } from "@tabler/icons-react";
 

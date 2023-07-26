@@ -1,7 +1,6 @@
 import Logo from "Images/Logo.svg";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@mantine/core";
 import { usePathname } from "next/navigation";
 
 interface LinkProps {

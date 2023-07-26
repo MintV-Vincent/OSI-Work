@@ -106,7 +106,9 @@ export function PriceTable({
             <td className={tableSize + "text-right"}>
               {Number(row.unitPrice).toFixed(2)}
             </td>
-            <td className={tableSize + "text-right"}>{row.price.toFixed(2)}</td>
+            <td className={tableSize + "text-right"}>
+              {Number(row.price).toFixed(2)}
+            </td>
           </tr>
         ))}
         <TotalRows text={"Total"} total={total} columns={6} />

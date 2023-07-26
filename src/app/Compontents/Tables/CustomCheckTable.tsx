@@ -1,5 +1,5 @@
 import { Center, NumberInput, Table } from "@mantine/core";
-import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
+import HeaderRow from "./Rows/HeaderRow";
 import { rowMap2 } from "Interface/Types";
 import React, { useEffect, useState } from "react";
 import { addArrayTotal } from "Functions/MathFunctions";

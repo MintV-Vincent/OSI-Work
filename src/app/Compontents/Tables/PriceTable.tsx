@@ -8,10 +8,11 @@ import {
 } from "Functions/Create/MaterialCreate";
 import SelectLogic, {
   filterMaterials,
-} from "app/Compontents/Tables/CustomCompontents/SelectLogic";
-import TotalRows from "app/Compontents/Tables/Rows/TotalRows";
-import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
+} from "Compontents/Tables/CustomCompontents/SelectLogic";
+import TotalRows from "./Rows/TotalRows";
+import HeaderRow from "./Rows/HeaderRow";
 import { materialHeader } from "Interface/Headers";
+import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import useUpdateTotal from "Hooks/UseUpdateTotal";
 
 const tableSize: string = "w-40 ";
@@ -105,7 +106,7 @@ export function PriceTable({
             <td className={tableSize + "text-right"}>
               {Number(row.unitPrice).toFixed(2)}
             </td>
-            <td className={tableSize + "text-right"}>{row.price}</td>
+            <td className={tableSize + "text-right"}>{row.price.toFixed(2)}</td>
           </tr>
         ))}
         <TotalRows text={"Total"} total={total} columns={6} />

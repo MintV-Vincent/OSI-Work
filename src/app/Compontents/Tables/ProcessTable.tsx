@@ -3,11 +3,11 @@ import { materialRowMap } from "Interface/Types";
 import { useAtom } from "jotai";
 import React, { useMemo } from "react";
 import { onAmount, onMaterial } from "Functions/Create/MaterialCreate";
-import TotalRows from "app/Compontents/Tables/Rows/TotalRows";
-import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
+import TotalRows from "./Rows/TotalRows";
+import HeaderRow from "./Rows/HeaderRow";
 import { processHeader } from "Interface/Headers";
 import { filmProcessAtom } from "DataBases/Database";
-import ToolTipLabel from "app/Compontents/Tables/CustomCompontents/ToolTipLabel";
+import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import useUpdateTotal from "Hooks/UseUpdateTotal";
 
 const columns: string[] = [
@@ -75,18 +75,7 @@ export function ProcessTable({
               }
             </td>
             <td className="text-right">{Number(row.unitPrice).toFixed(2)}</td>
-            <td className="text-right">
-              {
-                <ToolTipLabel
-                  unitPrice={row.unitPrice}
-                  amount={row.amount}
-                  formula={row.formula}
-                  id={index}
-                  rowsAtom={rowsAtom}
-                  useRowsAtom={useRowsAtom}
-                />
-              }
-            </td>
+            <td className="text-right">{row.price.toFixed(2)}</td>
           </tr>
         ))}
         <TotalRows text={"Total"} total={total} columns={4} />

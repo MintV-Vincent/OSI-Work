@@ -1,14 +1,14 @@
 import { ActionIcon, Select } from "@mantine/core";
 import { createData } from "Functions/Create/MapCreate";
 import React, { useEffect, useState } from "react";
-import { AddModal } from "app/Compontents/AddModal";
+import { AddModal } from "./AddModal";
 import { createCode } from "Functions/SelectCodeCreate";
 import { getCode } from "Functions/GetFunction/GetCode";
 import { PrimitiveAtom, useAtom } from "jotai";
 import SortArray, { addItem } from "Functions/SortArray";
 import { upperCaseString } from "Functions/StringFunction";
 import { dictionaryMap } from "Interface/Types";
-import AddCustomerForm from "app/Compontents/Forms/AddCustomer";
+import AddCustomerForm from "./Forms/AddCustomer";
 import { IconPlus } from "@tabler/icons-react";
 
 interface SelectLabelInterface {

@@ -1,5 +1,5 @@
 import { Select, Table } from "@mantine/core";
-import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
+import HeaderRow from "./Rows/HeaderRow";
 import { protoHeader } from "Interface/Headers";
 import { useState } from "react";
 import { dictionaryMap } from "Interface/Types";

@@ -1,5 +1,5 @@
 import { Textarea } from "@mantine/core";
-import { FrontTable } from "app/Compontents/Tables/FrontTable";
+import { FrontTable } from "Compontents/Tables/FrontTable";
 
 export default function Front() {
   return (

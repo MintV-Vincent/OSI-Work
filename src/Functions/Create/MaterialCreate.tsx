@@ -27,7 +27,7 @@ export function onAmount(
       return {
         ...row,
         amount: Number(value),
-        price: Number(unitPrice * value),
+        price: Number(value * unitPrice),
       };
     })
   );
@@ -57,7 +57,6 @@ export function onSupplier(
       }
       return {
         ...row,
-        amount: 0,
         custom: "",
         material: "",
         supplier: supplier,
@@ -96,13 +95,12 @@ export function onMaterial(
       }
       return {
         ...row,
-        amount: 0,
         custom: custom,
         formula: formula,
         material: value,
         supplier: supplier,
-        price: 0,
         unitPrice: price,
+        price: Number(row.amount * Number(price)),
       };
     })
   );

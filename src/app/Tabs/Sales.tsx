@@ -8,20 +8,42 @@ import TotalTab from "app/Tabs/SalesTables/TotalTab";
 import { IconCurrencyDollar } from "@tabler/icons-react";
 import FilmTable from "app/Tabs/SalesTables/ProcessTable";
 import {
+  NRETitle,
+  assyTooling,
+  checkTableTitle,
   coverTitle,
   filmTitle,
   laminateTitle,
   mechanicalTitle,
+  processTitle,
+  qualityServiceTitle,
   stiffenerTitle,
   tapeTitle,
 } from "Interface/Headers";
 import { tabType } from "Interface/Types";
+import { CheckTable } from "app/Compontents/Tables/CheckTable";
+import {
+  assyTotalAtom,
+  processTotalAtom,
+  qualityTotalAtom,
+} from "DataBases/TotalDataBase";
+import {
+  AssyToolValues,
+  checkValuesTable,
+  processValues,
+  qualityValues,
+} from "Interface/CheckValues";
+import { ProtoTable } from "app/Compontents/Tables/ProtoTable";
+import { CustomCheckTable } from "app/Compontents/Tables/CustomCheckTable";
 
 export const supplierAtom = atom(new Map<string, Map<string, string>>());
 
 export default function Sales() {
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
   const [panel, setPanel] = useAtom(panelAtom);
+  const [, setAssy] = useAtom(assyTotalAtom);
+  const [, setQual] = useAtom(qualityTotalAtom);
+  const [, setProc] = useAtom(processTotalAtom);
 
   const tabs: tabType[] = [
     { title: "Total", table: <TotalTab /> },
@@ -48,6 +70,24 @@ export default function Sales() {
     {
       title: mechanicalTitle,
       table: <FilmTable custom={""} title={mechanicalTitle} />,
+    },
+    {
+      title: "Proto Type",
+      table: <ProtoTable />,
+    },
+    {
+      title: "Quality Service",
+      table: (
+        <CheckTable
+          titles={checkTableTitle}
+          values={checkValuesTable}
+          setAtom={setQual}
+        />
+      ),
+    },
+    {
+      title: "NRE",
+      table: <CustomCheckTable titles={NRETitle} />,
     },
   ];
 

@@ -103,3 +103,21 @@ export const NRETitle: string[] = [
   prod,
   hasl,
 ];
+
+export const checkTableTitle: string[] = [
+  tooling,
+  standard,
+  fine,
+  wood,
+  milled,
+  maleFemale,
+  fai,
+  class3,
+  tQ,
+  pPAP,
+  aS9102,
+  failure,
+  finish,
+  goldFinger,
+  fill,
+];

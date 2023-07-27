@@ -127,6 +127,7 @@
 }
 
 .letter-head .text-wrapper-7 {
+  white-space: pre-wrap;
   color: #000000;
   font-family: "Open Sans-Regular", Helvetica;
   font-size: 18px;

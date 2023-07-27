@@ -14,6 +14,15 @@ import HeaderRow from "./Rows/HeaderRow";
 import { materialHeader } from "Interface/Headers";
 import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import useUpdateTotal from "Hooks/UseUpdateTotal";
+import { createFormula } from "Functions/Create/CreateFormula";
+import { useAtom } from "jotai";
+import {
+  exchangeRateAtom,
+  freightAtom,
+  marginAtom,
+  panelAtom,
+  yeildAtom,
+} from "app/MainWebsite";
 
 const tableSize: string = "w-40 ";
 
@@ -43,7 +52,7 @@ export function PriceTable({
   const array = SelectLogic(database);
   const materials: rowMapPrice[] = array.material;
   const supplier: dictionaryMap[] = array.supplier;
-  //Calculate the total
+
   const total: number = useMemo(() => {
     return rowsAtom.reduce(
       (previousScore: number, currentScore: materialRowMap) =>
@@ -107,7 +116,14 @@ export function PriceTable({
               {Number(row.unitPrice).toFixed(2)}
             </td>
             <td className={tableSize + "text-right"}>
-              {Number(row.price).toFixed(2)}
+              <ToolTipLabel
+                formula={row.formula}
+                amount={row.amount}
+                unitPrice={row.unitPrice}
+                id={row.id}
+                useRowsAtom={useRowsAtom}
+                rowsAtom={rowsAtom}
+              />
             </td>
           </tr>
         ))}

@@ -1,21 +1,23 @@
 import { Table } from "@mantine/core";
 import { dictionaryMap, rowMap } from "Interface/Types";
-import HeaderRow from "./Rows/HeaderRow";
 import { useState } from "react";
 import { NumberInput, Select } from "@mantine/core";
 import { createData, createRow } from "Functions/Create/MapCreate";
 import GetDate from "Functions/GetFunction/GetDate";
 import { atom, useAtom } from "jotai";
 import { exchangeRateAtom, freightAtom, panelAtom } from "app/MainWebsite";
-import { useInputState } from "@mantine/hooks";
 import { TextInput } from "@mantine/core";
 import { panelRow } from "Interface/SelectMap";
 import { IconCurrencyDollar } from "@tabler/icons-react";
-import { frontHeader } from "Interface/Headers";
 import SelectLabel from "app/Compontents/SelectLabel";
 import GetQuote from "Functions/GetFunction/GetQuote";
 import { customer } from "DataBases/Customer";
 import JsonToCustomer from "JsonReader/JsonToCustomer";
+
+interface SplitTable {
+  left: rowMap;
+  right: rowMap;
+}
 
 export const customerAtom = atom<string>("");
 export const customerRowAtom = atom(JsonToCustomer(customer));
@@ -24,7 +26,6 @@ export const codeAtom = atom<string>("");
 const rowClassName = "h-14 ";
 
 const rows: string[] = [
-  rowClassName + "text font-semibold ",
   rowClassName,
   rowClassName,
   rowClassName,
@@ -47,14 +48,25 @@ function createLoop(number: number) {
   return indents;
 }
 
-export function FrontTable({ partNumberInput, setPartInput }: any) {
+interface frontTable {
+  partNumberInput: string;
+  revisionInput: string;
+  setPartInput: any;
+  setRevisionInput: any;
+}
+
+export function FrontTable({
+  partNumberInput,
+  setPartInput,
+  revisionInput,
+  setRevisionInput,
+}: frontTable) {
   const [freight, setFreight] = useAtom(freightAtom);
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
   const [panel, setPanel] = useAtom(panelAtom);
   const [layers, setLayers] = useState<string>("1");
   const [technology, setTechnology] = useState<string>("1");
   const [assembly, setAssembly] = useState<string>("1");
-  const [revisoinInput, setRevisionInput] = useInputState<string>("");
 
   const assemblyRow: dictionaryMap[] = [
     createData("Yes", "1"),
@@ -76,113 +88,133 @@ export function FrontTable({ partNumberInput, setPartInput }: any) {
   });
   const selectCustomer: React.JSX.Element = selectLabel[0];
   const customerCode: React.JSX.Element = selectLabel[1];
-
-  const FrontTableRows = [
-    createRow("Customer", selectCustomer),
-    createRow(
-      "Part Number",
-      <TextInput value={partNumberInput} onChange={setPartInput} />
-    ),
-    createRow(
-      "Revision",
-      <TextInput value={revisoinInput} onChange={setRevisionInput} />
-    ),
-    createRow(
-      "# of Layers",
-      <Select
-        searchable
-        defaultValue={"1"}
-        searchValue={layers}
-        onSearchChange={setLayers}
-        data={layersRow}
-      />
-    ),
-    createRow(
-      "Panel Size",
-      <Select
-        defaultValue={"1.5"}
-        value={panel}
-        onChange={setPanel}
-        data={panelRow}
-      />
-    ),
-    createRow(
-      "Technology",
-      <Select
-        searchable
-        searchValue={technology}
-        defaultValue={"1"}
-        onSearchChange={setTechnology}
-        data={technologyRow}
-      />
-    ),
-    createRow(
-      "Exchange Rate",
-      <NumberInput
-        hideControls
-        precision={2}
-        value={exchangeRate}
-        onChange={(event: number | "") => {
-          setExchangeRate(event);
-        }}
-        rightSection={
-          <IconCurrencyDollar
-            size={"1.25rem"}
-            style={{ display: "block", opacity: 0.5 }}
-          />
-        }
-        rightSectionWidth={36}
-      />
-    ),
-    createRow(
-      "Freight",
-      <NumberInput
-        hideControls
-        precision={2}
-        value={freight}
-        onChange={(event: number | "") => {
-          setFreight(event);
-        }}
-      />
-    ),
-    createRow(
-      "Assembly",
-      <Select
-        searchable
-        searchValue={assembly}
-        defaultValue={"1"}
-        onSearchChange={setAssembly}
-        data={assemblyRow}
-      />
-    ),
-    createRow("Quote Number", <GetQuote />),
-    createRow("Date", <label>{GetDate()}</label>),
+  const partNumber = createRow(
+    "Part Number",
+    <TextInput value={partNumberInput} onChange={setPartInput} />
+  );
+  const revision = createRow(
+    "Revision",
+    <TextInput value={revisionInput} onChange={setRevisionInput} />
+  );
+  const numberOfLayers = createRow(
+    "# of Layers",
+    <Select
+      searchable
+      defaultValue={"1"}
+      searchValue={layers}
+      onSearchChange={setLayers}
+      data={layersRow}
+    />
+  );
+  const panelSize = createRow(
+    "Panel Size",
+    <Select
+      defaultValue={"1.5"}
+      value={panel}
+      onChange={setPanel}
+      data={panelRow}
+    />
+  );
+  const technologyTable = createRow(
+    "Technology",
+    <Select
+      searchable
+      searchValue={technology}
+      defaultValue={"1"}
+      onSearchChange={setTechnology}
+      data={technologyRow}
+    />
+  );
+  const exchangeTable = createRow(
+    "Exchange Rate",
+    <NumberInput
+      hideControls
+      precision={2}
+      value={exchangeRate}
+      onChange={(event: number | "") => {
+        setExchangeRate(event);
+      }}
+      rightSection={
+        <IconCurrencyDollar
+          size={"1.25rem"}
+          style={{ display: "block", opacity: 0.5 }}
+        />
+      }
+      rightSectionWidth={36}
+    />
+  );
+  const freightTable = createRow(
+    "Freight",
+    <NumberInput
+      hideControls
+      precision={2}
+      value={freight}
+      onChange={(event: number | "") => {
+        setFreight(event);
+      }}
+    />
+  );
+  const assymblyTable = createRow(
+    "Assembly",
+    <Select
+      searchable
+      searchValue={assembly}
+      defaultValue={"1"}
+      onSearchChange={setAssembly}
+      data={assemblyRow}
+    />
+  );
+  const leftTable: SplitTable[] = [
+    {
+      right: createRow("Quote Number", <GetQuote />),
+      left: createRow("Date", <label>{GetDate()}</label>),
+    },
+    { left: partNumber, right: numberOfLayers },
+    { left: revision, right: panelSize },
+    { left: freightTable, right: assymblyTable },
+    { left: exchangeTable, right: technologyTable },
   ];
 
   // This table consist of only two columns. The data points should be of type row map
   return (
     <>
-      <Table miw={700} striped withBorder>
-        <HeaderRow
-          columns={[
-            "text-left h-14 w-1/5",
-            "text-left h-14 w-1/5",
-            "text-left h-14 w-3/5",
-          ]}
-          titles={frontHeader}
-        />
+      <Table miw={700} striped withBorder verticalSpacing="md">
+        <thead className={"bg-light"}>
+          <tr>
+            <td colSpan={1}></td>
+            <td
+              colSpan={11}
+              className={"text-xl font-semibold py-2 px-3 text-primary"}
+            >
+              Front
+            </td>
+          </tr>
+        </thead>
         <tbody>
-          {FrontTableRows.map((row: rowMap, index: number) => (
-            <tr className={" text-primary"} key={row.label + " row " + index}>
-              <td className={rows[index] + "w-1/5"}>{row.label}</td>
-              {row.label === "Customer" ? (
-                <td className={rows[index] + "w-1/5 text-center"}>
-                  {customerCode}
-                </td>
-              ) : (
-                <td></td>
-              )}
-              <td className={rows[index] + "w-3/5 text-left"}>{row.value}</td>
+          <tr>
+            <td colSpan={1}></td>
+            <td className={"text font-semibold"} colSpan={1}>
+              {"Customer"}
+            </td>
+            <td colSpan={5}>{customerCode}</td>
+            <td colSpan={5}>{selectCustomer}</td>
+          </tr>
+          {leftTable.map((row: SplitTable, index: number) => (
+            <tr className={" text-primary"} key={row.left + " row " + index}>
+              <td colSpan={1}></td>
+              <td className={rows[index]} colSpan={1}>
+                {row.left.label}
+              </td>
+              <td className={rows[index]} colSpan={3}>
+                {row.left.value}
+              </td>
+              <td colSpan={2}></td>
+              <td className={rows[index]} colSpan={1}>
+                {row.right.label}
+              </td>
+              <td className={rows[index]} colSpan={3}>
+                {row.right.value}
+              </td>
             </tr>
           ))}
         </tbody>

@@ -3,15 +3,21 @@ import "./styles.css";
 import Logo from "Images/LogoColor.svg";
 import Image from "next/image";
 import GetDate from "Functions/GetFunction/GetDate";
+import GetQuote from "Functions/GetFunction/GetQuote";
 
 interface PrintingProps {
   notes: string;
   parts: string;
   partNumber: string;
+  customer: string;
+  revision: string;
 }
 
 export const FrontPagePrint = React.forwardRef(
-  ({ notes, parts, partNumber }: PrintingProps, ref: any) => {
+  (
+    { notes, parts, customer, partNumber, revision }: PrintingProps,
+    ref: any
+  ) => {
     return (
       <div className="letter-head" ref={ref}>
         <div className="div">
@@ -47,11 +53,11 @@ export const FrontPagePrint = React.forwardRef(
               <div className="frame">
                 <div className="text-wrapper-9">Sold To</div>
                 <p className="EMPTY-TEXT-EMPTY">
-                  EMPTY TEXT
+                  {customer}
                   <br />
-                  EMPTY TEXT
+                  {partNumber}
                   <br />
-                  EMPTY TEXT
+                  {revision}
                   <br />
                   EMPTY TEXT
                   <br />
@@ -82,7 +88,7 @@ export const FrontPagePrint = React.forwardRef(
             <div className="text-wrapper-17">{GetDate()}</div>
           </div>
           <div className="text-wrapper-18">Quotation Number</div>
-          <div className="text-wrapper-19">EMPTY TEXT</div>
+          <div className="text-wrapper-19">{GetQuote()}</div>
           <div className="frame-4">
             <div className="text-wrapper-20">Quantity</div>
             <div className="text-wrapper-21">EMPTY TEXT</div>

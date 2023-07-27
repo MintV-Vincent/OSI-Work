@@ -1,45 +1,19 @@
 import { Tooltip } from "@mantine/core";
-import { createFormula } from "Functions/Create/CreateFormula";
-import { materialRowMap } from "Interface/Types";
-import React, { useEffect } from "react";
-
+import React from "react";
 interface toolTipInterface {
   formula: string;
-  unitPrice: number;
   amount: number;
-  id: any;
-  rowsAtom: any;
+  unitPrice: number;
+  id: number;
   useRowsAtom: any;
+  rowsAtom: any;
 }
 
 export default function ToolTipLabel({
   formula,
-  unitPrice,
   amount,
-  id,
-  rowsAtom,
-  useRowsAtom,
+  unitPrice,
 }: toolTipInterface): React.JSX.Element {
-  let price = eval(createFormula(formula, unitPrice * amount));
-
-  if (price == undefined) {
-    price = 0;
-  }
-
-  useEffect(() => {
-    useRowsAtom(
-      rowsAtom.map((row: materialRowMap) => {
-        if (row.id != id) {
-          return row;
-        }
-        return {
-          ...row,
-          price: price,
-        };
-      })
-    );
-  }, [price]);
-
   return (
     <Tooltip
       multiline
@@ -47,7 +21,7 @@ export default function ToolTipLabel({
       label={formula}
       transitionProps={{ duration: 200 }}
     >
-      <label>{(price ? price : 0).toFixed(2)}</label>
+      <label>{Number(amount * unitPrice).toFixed(2)}</label>
     </Tooltip>
   );
 }

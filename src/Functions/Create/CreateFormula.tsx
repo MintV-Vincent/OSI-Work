@@ -15,12 +15,12 @@ export function createFormula(formula: string, cost: number): string {
   //
   // Return:
   // String of the formula with only numbers and math symbols. The string should be able to be passed to eval()
-  try {
-    const [exchangeRate] = useAtom(exchangeRateAtom);
-    const [freight] = useAtom(freightAtom);
-    const [panel] = useAtom(panelAtom);
-    const [yeild] = useAtom(yeildAtom);
-    const [margin] = useAtom(marginAtom);
+  const [exchangeRate] = useAtom(exchangeRateAtom);
+  const [freight] = useAtom(freightAtom);
+  const [panel] = useAtom(panelAtom);
+  const [yeild] = useAtom(yeildAtom);
+  const [margin] = useAtom(marginAtom);
+  if (formula.indexOf(" ") > 0) {
     const arrayFormula: string[] = formula.split(" ");
     let equation: string = "";
     for (let i: number = 0; i < arrayFormula.length; i++) {
@@ -60,10 +60,8 @@ export function createFormula(formula: string, cost: number): string {
       } catch {
         console.log("FORMULA ERROR wrong formula format");
       }
-      return equation;
     }
-  } catch {
-    console.log("String Error, no spaces");
+    return equation;
   }
-  return "ERROR";
+  return "0";
 }

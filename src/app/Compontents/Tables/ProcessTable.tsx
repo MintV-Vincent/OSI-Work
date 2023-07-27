@@ -77,7 +77,14 @@ export function ProcessTable({
             </td>
             <td className="text-right">{Number(row.unitPrice).toFixed(2)}</td>
             <td className="text-right">
-              {eval(createFormula(row.formula, row.price))}
+              <ToolTipLabel
+                formula={row.formula}
+                amount={row.amount}
+                unitPrice={row.unitPrice}
+                id={row.id}
+                useRowsAtom={useRowsAtom}
+                rowsAtom={rowsAtom}
+              />
             </td>
           </tr>
         ))}

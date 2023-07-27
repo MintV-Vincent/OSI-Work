@@ -9,6 +9,7 @@ import { processHeader } from "Interface/Headers";
 import { filmProcessAtom } from "DataBases/Database";
 import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import useUpdateTotal from "Hooks/UseUpdateTotal";
+import { createFormula } from "Functions/Create/CreateFormula";
 
 const columns: string[] = [
   "w-80",
@@ -75,7 +76,9 @@ export function ProcessTable({
               }
             </td>
             <td className="text-right">{Number(row.unitPrice).toFixed(2)}</td>
-            <td className="text-right">{Number(row.price).toFixed(2)}</td>
+            <td className="text-right">
+              {eval(createFormula(row.formula, row.price))}
+            </td>
           </tr>
         ))}
         <TotalRows text={"Total"} total={total} columns={4} />

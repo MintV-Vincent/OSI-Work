@@ -19,8 +19,10 @@ const TotalRows = memo(function TotalRows({ text, total, columns }: totalRow) {
       {array.map((i: number) => (
         <td className={sharedClass} key={"total filler column" + i}></td>
       ))}
-      <td className={sharedClass + " font-semibold text-right"}>{text}</td>
-      <td className={sharedClass + " font-semibold text-right"}>
+      <td className={sharedClass + " font-semibold text-right text-xl"}>
+        {text}
+      </td>
+      <td className={sharedClass + " font-semibold text-right text-xl"}>
         {Number(total).toFixed(2)}
       </td>
     </tr>

@@ -57,11 +57,12 @@ export function onSupplier(
       }
       return {
         ...row,
-        supplier: supplier,
-        material: "",
+        amount: 0,
         custom: "",
-        unitPrice: 0,
+        material: "",
+        supplier: supplier,
         price: 0,
+        unitPrice: 0,
       };
     })
   );
@@ -95,12 +96,13 @@ export function onMaterial(
       }
       return {
         ...row,
-        material: value,
         amount: 0,
         custom: custom,
-        supplier: supplier,
-        unitPrice: price,
         formula: formula,
+        material: value,
+        supplier: supplier,
+        price: 0,
+        unitPrice: price,
       };
     })
   );

@@ -19,7 +19,7 @@ export default function GetDate(): string {
   const month: string = monthNames[showdate.getMonth()];
 
   const displayTodaysDate: string =
-    month + " " + showdate.getDate() + " " + showdate.getFullYear();
+    month + " " + showdate.getDate() + ", " + showdate.getFullYear();
 
   return displayTodaysDate;
 }

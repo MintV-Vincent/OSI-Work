@@ -47,14 +47,13 @@ function createLoop(number: number) {
   return indents;
 }
 
-export function FrontTable() {
+export function FrontTable({ partNumberInput, setPartInput }: any) {
   const [freight, setFreight] = useAtom(freightAtom);
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
   const [panel, setPanel] = useAtom(panelAtom);
   const [layers, setLayers] = useState<string>("1");
   const [technology, setTechnology] = useState<string>("1");
   const [assembly, setAssembly] = useState<string>("1");
-  const [partNumberInput, setPartInput] = useInputState<string>("");
   const [revisoinInput, setRevisionInput] = useInputState<string>("");
 
   const assemblyRow: dictionaryMap[] = [

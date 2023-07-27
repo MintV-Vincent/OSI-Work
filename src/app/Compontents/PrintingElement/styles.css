@@ -1,10 +1,3 @@
-@media print {
-  /* its an example */
-  .noPrint {
-    display: none;
-  }
-}
-
 .letter-head {
   background-color: #ffffff;
   display: flex;
@@ -16,324 +9,518 @@
 .letter-head .div {
   background-color: #ffffff;
   border: 0.53px none;
-  height: 792px;
+  height: 1074px;
   position: relative;
-  width: 612px;
+  width: 830px;
 }
 
 .letter-head .layer {
-  height: 41px;
-  left: 20px;
+  height: 53px;
+  left: 29px;
   position: absolute;
-  top: 13px;
-  width: 257px;
-}
-
-.letter-head .group {
-  height: 22px;
-  left: 390px;
-  position: absolute;
-  top: 28px;
-  width: 169px;
+  top: 17px;
+  width: 331px;
 }
 
 .letter-head .text-wrapper {
   color: #000000;
-  font-family: "Inika", Helvetica;
-  font-size: 12px;
-  font-weight: 400;
-  left: 0;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-size: 18px;
+  font-weight: 700;
+  left: 65px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 1px;
-  width: 28px;
+  top: 624px;
+  width: 57px;
 }
 
-.letter-head .rectangle {
-  height: 22px;
-  left: 37px;
+.letter-head .p {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 65px;
+  letter-spacing: 0;
+  line-height: normal;
   position: absolute;
-  top: 0;
-  width: 130px;
-}
-
-.letter-head .group-2 {
-  height: 125px;
-  left: 48px;
-  position: absolute;
-  top: 351px;
-  width: 509px;
-}
-
-.letter-head .img {
-  height: 100px;
-  left: 0;
-  position: absolute;
-  top: 24px;
-  width: 507px;
+  top: 562px;
+  width: 288px;
 }
 
 .letter-head .text-wrapper-2 {
   color: #000000;
-  font-family: "Inika", Helvetica;
-  font-size: 12px;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
   font-weight: 400;
-  left: 1px;
+  left: 63px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 0;
-  width: 75px;
-}
-
-.letter-head .group-3 {
-  height: 124px;
-  left: 48px;
-  position: absolute;
-  top: 500px;
-  width: 509px;
+  top: 824px;
+  width: 289px;
 }
 
 .letter-head .text-wrapper-3 {
   color: #000000;
-  font-family: "Inika", Helvetica;
+  font-family: "Open Sans-Regular", Helvetica;
   font-size: 12px;
   font-weight: 400;
-  left: 1px;
+  left: 42px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 0;
-  width: 162px;
+  top: 1001px;
+  width: 75px;
 }
 
 .letter-head .text-wrapper-4 {
   color: #000000;
-  font-family: "Inika", Helvetica;
+  font-family: "Open Sans-Regular", Helvetica;
   font-size: 12px;
   font-weight: 400;
-  left: 50px;
+  left: 734px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 93px;
-  width: 101px;
+  top: 1001px;
+  width: 40px;
 }
 
-.letter-head .rectangle-2 {
-  height: 22px;
-  left: 166px;
+.letter-head .NAME-GOES-HERE-NAME {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 65px;
+  letter-spacing: 0;
+  line-height: 30px;
   position: absolute;
-  top: 94px;
-  width: 130px;
+  top: 865px;
+  width: 300px;
 }
 
 .letter-head .text-wrapper-5 {
   color: #000000;
-  font-family: "Inika", Helvetica;
-  font-size: 12px;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
   font-weight: 400;
-  left: 311px;
+  left: 389px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 93px;
-  width: 101px;
-}
-
-.letter-head .rectangle-3 {
-  height: 22px;
-  left: 427px;
-  position: absolute;
-  top: 94px;
-  width: 130px;
+  top: 579px;
+  width: 288px;
 }
 
 .letter-head .text-wrapper-6 {
   color: #000000;
-  font-family: "Inika", Helvetica;
-  font-size: 12px;
-  font-weight: 400;
-  left: 50px;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-size: 18px;
+  font-weight: 700;
+  left: 63px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 131px;
-  width: 101px;
-}
-
-.letter-head .rectangle-4 {
-  height: 22px;
-  left: 166px;
-  position: absolute;
-  top: 132px;
-  width: 130px;
+  top: 538px;
+  width: 152px;
 }
 
 .letter-head .text-wrapper-7 {
   color: #000000;
-  font-family: "Inika", Helvetica;
-  font-size: 12px;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
   font-weight: 400;
-  left: 311px;
+  left: 188px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 131px;
-}
-
-.letter-head .rectangle-5 {
-  height: 22px;
-  left: 427px;
-  position: absolute;
-  top: 132px;
-  width: 130px;
+  top: 630px;
+  width: 507px;
 }
 
 .letter-head .text-wrapper-8 {
   color: #000000;
-  font-family: "Inika", Helvetica;
-  font-size: 12px;
-  font-weight: 400;
-  left: 50px;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 66px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 169px;
-  width: 101px;
+  top: 730px;
+  white-space: nowrap;
+  width: 90px;
 }
 
-.letter-head .rectangle-6 {
-  height: 22px;
-  left: 166px;
+.letter-head .QUOTATION-VALID-FOR {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 226px;
+  letter-spacing: 0;
+  line-height: 30px;
   position: absolute;
-  top: 170px;
-  width: 130px;
+  top: 730px;
+  width: 393px;
+}
+
+.letter-head .overlap {
+  height: 196px;
+  left: 67px;
+  position: absolute;
+  top: 172px;
+  width: 701px;
+}
+
+.letter-head .overlap-group {
+  height: 196px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 701px;
+}
+
+.letter-head .frame {
+  align-items: flex-start;
+  display: flex;
+  gap: 14px;
+  height: 125px;
+  left: 0;
+  position: absolute;
+  top: 2px;
+  width: 311px;
 }
 
 .letter-head .text-wrapper-9 {
   color: #000000;
-  font-family: "Inika", Helvetica;
-  font-size: 12px;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
   font-weight: 400;
-  left: 311px;
+  height: 24px;
   letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 169px;
-  width: 101px;
+  line-height: 30px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 70px;
 }
 
-.letter-head .rectangle-7 {
-  height: 21px;
-  left: 427px;
-  position: absolute;
-  top: 170px;
-  width: 130px;
+.letter-head .EMPTY-TEXT-EMPTY {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 95px;
+  letter-spacing: 0;
+  line-height: 30px;
+  margin-top: -1px;
+  position: relative;
+  width: 203px;
 }
 
 .letter-head .text-wrapper-10 {
   color: #000000;
-  font-family: "Inika", Helvetica;
-  font-size: 12px;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
   font-weight: 400;
-  left: 50px;
+  left: 305px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 207px;
-  width: 101px;
-}
-
-.letter-head .rectangle-8 {
-  height: 22px;
-  left: 166px;
-  position: absolute;
-  top: 208px;
-  width: 130px;
+  top: 0;
+  width: 200px;
 }
 
 .letter-head .text-wrapper-11 {
   color: #000000;
-  font-family: "Inika", Helvetica;
-  font-size: 12px;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
   font-weight: 400;
-  left: 311px;
+  left: 305px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 207px;
-  width: 101px;
-}
-
-.letter-head .rectangle-9 {
-  height: 21px;
-  left: 427px;
-  position: absolute;
-  top: 208px;
-  width: 130px;
+  top: 42px;
+  width: 296px;
 }
 
 .letter-head .text-wrapper-12 {
   color: #000000;
-  font-family: "Inika", Helvetica;
-  font-size: 12px;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
   font-weight: 400;
-  left: 50px;
+  left: 305px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 245px;
-  width: 101px;
+  top: 83px;
+  width: 200px;
 }
 
-.letter-head .rectangle-10 {
-  height: 22px;
-  left: 166px;
+.letter-head .frame-2 {
+  align-items: flex-start;
+  display: flex;
+  gap: 56px;
+  height: 70px;
+  left: 305px;
   position: absolute;
-  top: 246px;
-  width: 130px;
+  top: 126px;
+  width: 396px;
 }
 
 .letter-head .text-wrapper-13 {
   color: #000000;
-  font-family: "Inika", Helvetica;
-  font-size: 12px;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
   font-weight: 400;
-  left: 311px;
+  height: 18px;
   letter-spacing: 0;
   line-height: normal;
-  position: absolute;
-  top: 245px;
-  width: 101px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 86px;
 }
 
-.letter-head .rectangle-11 {
-  height: 22px;
-  left: 427px;
-  position: absolute;
-  top: 246px;
-  width: 130px;
+.letter-head .PFC-flexible {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 99px;
+  letter-spacing: 0;
+  line-height: 30px;
+  margin-bottom: -28px;
+  margin-top: -1px;
+  position: relative;
+  width: 232px;
 }
 
 .letter-head .text-wrapper-14 {
   color: #000000;
-  font-family: "Inika", Helvetica;
-  font-size: 12px;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
   font-weight: 400;
-  left: 50px;
+  left: 506px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 283px;
-  width: 101px;
+  top: 0;
+  width: 182px;
 }
 
-.letter-head .rectangle-12 {
-  height: 22px;
-  left: 166px;
+.letter-head .text-wrapper-15 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 506px;
+  letter-spacing: 0;
+  line-height: normal;
   position: absolute;
-  top: 284px;
-  width: 130px;
+  top: 83px;
+  width: 182px;
+}
+
+.letter-head .frame-3 {
+  align-items: flex-start;
+  display: flex;
+  gap: 19px;
+  height: 24px;
+  left: 67px;
+  position: absolute;
+  top: 132px;
+  width: 249px;
+}
+
+.letter-head .text-wrapper-16 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: 70px;
+}
+
+.letter-head .text-wrapper-17 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: 132px;
+}
+
+.letter-head .text-wrapper-18 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 372px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 130px;
+  width: 200px;
+}
+
+.letter-head .text-wrapper-19 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 573px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 130px;
+  width: 182px;
+}
+
+.letter-head .frame-4 {
+  align-items: flex-start;
+  display: flex;
+  gap: 24px;
+  height: 23px;
+  left: 64px;
+  position: absolute;
+  top: 465px;
+  width: 283px;
+}
+
+.letter-head .text-wrapper-20 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 140px;
+}
+
+.letter-head .text-wrapper-21 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: -49px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 168px;
+}
+
+.letter-head .frame-5 {
+  align-items: flex-start;
+  display: flex;
+  gap: 24px;
+  height: 23px;
+  left: 64px;
+  position: absolute;
+  top: 506px;
+  width: 283px;
+}
+
+.letter-head .text-wrapper-22 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: -41px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 160px;
+}
+
+.letter-head .frame-6 {
+  align-items: flex-start;
+  display: flex;
+  gap: 24px;
+  height: 23px;
+  left: 66px;
+  position: absolute;
+  top: 424px;
+  width: 282px;
+}
+
+.letter-head .text-wrapper-23 {
+  color: #000000;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-size: 18px;
+  font-weight: 700;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 140px;
+}
+
+.letter-head .text-wrapper-24 {
+  color: #000000;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-size: 18px;
+  font-weight: 700;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: -50px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 168px;
+}
+
+.letter-head .h-1 {
+  color: #000000;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-size: 36px;
+  font-weight: 700;
+  left: 554px;
+  letter-spacing: 2.16px;
+  line-height: normal;
+  position: absolute;
+  top: 16px;
+  white-space: nowrap;
+  width: 207px;
+}
+
+.letter-head .rectangle {
+  background-color: #000000;
+  height: 2px;
+  left: 25px;
+  position: absolute;
+  top: 98px;
+  width: 766px;
+}
+
+.letter-head .rectangle-2 {
+  background-color: #000000;
+  height: 3px;
+  left: 25px;
+  position: absolute;
+  top: 981px;
+  width: 766px;
 }

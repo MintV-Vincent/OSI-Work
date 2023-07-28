@@ -23,12 +23,13 @@ import {
   panelAtom,
   qualityTotalAtom,
 } from "Library/AtomStorage";
+import { useHydrateAtoms } from "jotai/utils";
 
 export default function Sales() {
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
   const [panel, setPanel] = useAtom(panelAtom);
   const [, setQual] = useAtom(qualityTotalAtom);
-
+  useHydrateAtoms([[exchangeRateAtom, 1.24]]);
   const tabs: tabType[] = [
     { title: "Total", table: <TotalTab /> },
     {

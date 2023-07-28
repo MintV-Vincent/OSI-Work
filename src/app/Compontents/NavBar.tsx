@@ -10,7 +10,7 @@ interface LinkProps {
 }
 
 const linkStyle =
-  "flex items-center pl-[30px] pr-[30px] h-full no-underline hover:text-amber-600 duration-300";
+  "flex items-center pl-[30px] pr-[30px] h-full no-underline hover:text-amber-600 duration-300 text-xl font-semibold";
 const activeStyle = linkStyle + " text-primary bg-amber-300";
 const nonActiveStyle = linkStyle + " text-primary";
 
@@ -29,7 +29,7 @@ export function NavBar() {
       passHref
       shallow
     >
-      <label className="text-xl font-semibold">{item.label}</label>
+      {item.label}
     </Link>
   ));
 

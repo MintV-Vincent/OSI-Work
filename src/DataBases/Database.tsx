@@ -14,15 +14,20 @@ const isolaAtom = atom(JsonToAtom(isola));
 const arlonAtom = atom(JsonToAtom(arlon));
 const dupontAtom = atom(JsonToAtom(dupont));
 const panasonicAtom = atom(JsonToAtom(panasonic));
+const coverAtom = atom(JsonToAtom(cover));
+const stiffAtom = atom(JsonToAtom(stiffener));
+const addedAtom = atom<rowMapPrice[]>([]);
 
-export const laminateAtom = atom(
+export const materialAtom = atom(
   (get) => {
     const isola = get(isolaAtom);
     const arlon = get(arlonAtom);
     const dupont = get(dupontAtom);
     const panasonic = get(panasonicAtom);
+    const cover = get(coverAtom);
+    const stiff = get(stiffAtom);
     const added = get(addedAtom);
-    return [isola, arlon, dupont, panasonic, added];
+    return [stiff, cover, isola, arlon, dupont, panasonic, added];
   },
   (
     get,
@@ -38,69 +43,14 @@ export const laminateAtom = atom(
     const arlon = get(arlonAtom);
     const dupont = get(dupontAtom);
     const panasonic = get(panasonicAtom);
+    const cover = get(coverAtom);
+    const stiff = get(stiffAtom);
     const added = get(addedAtom);
     set(addedAtom, [
       ...added,
       createRowPrice(value, label, price, formula, custom, supplier),
     ]);
-    return [isola, dupont, arlon, panasonic, added];
-  }
-);
-
-const addedAtom = atom<rowMapPrice[]>([]);
-const coverAtom = atom(JsonToAtom(cover));
-const addedAtom3 = atom<rowMapPrice[]>([]);
-export const coverCoatAtom = atom(
-  (get) => {
-    const cover = get(coverAtom);
-    const added = get(addedAtom3);
-    return [cover, added];
-  },
-  (
-    get,
-    set,
-    value: string,
-    label: string,
-    price: number,
-    formula: string,
-    custom: string,
-    supplier: string = "Added"
-  ) => {
-    const cover = get(coverAtom);
-    const added = get(addedAtom3);
-    set(addedAtom3, [
-      ...added,
-      createRowPrice(value, label, price, formula, custom, supplier),
-    ]);
-    return [cover, added];
-  }
-);
-
-const stiffAtom = atom(JsonToAtom(stiffener));
-const addedAtom2 = atom<rowMapPrice[]>([]);
-export const stiffenerAtom = atom(
-  (get) => {
-    const stiff = get(stiffAtom);
-    const added = get(addedAtom2);
-    return [stiff, added];
-  },
-  (
-    get,
-    set,
-    value: string,
-    label: string,
-    price: number,
-    formula: string,
-    custom: string,
-    supplier: string = "Added"
-  ) => {
-    const stiff = get(stiffAtom);
-    const added = get(addedAtom2);
-    set(addedAtom2, [
-      ...added,
-      createRowPrice(value, label, price, formula, custom, supplier),
-    ]);
-    return [stiff, added];
+    return [stiff, cover, isola, dupont, arlon, panasonic, added];
   }
 );
 

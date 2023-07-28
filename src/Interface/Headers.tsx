@@ -19,27 +19,15 @@ export function materialHeader(custom: string): string[] {
   ];
 }
 
-export const laminateTitle = "Laminate Material";
-export const coverTitle = "Cover Coat";
-export const stiffenerTitle = "Stiffener";
-export const tapeTitle = "3M Tape";
-export const filmTitle = "Dry Film & Wet Process";
-export const mechanicalTitle = "Mechanical Process";
-export const assy = "Assymbel Tooling";
+export const materialsTitle = "Materials";
+export const processFilmTitle = "Processes & Film";
 export const service = "Quality Services";
-export const proc = "Processing";
 export const nre = "NRE";
 
 export const titles: string[] = [
-  laminateTitle,
-  coverTitle,
-  stiffenerTitle,
-  tapeTitle,
-  filmTitle,
-  mechanicalTitle,
-  assy,
+  materialsTitle,
+  processFilmTitle,
   service,
-  proc,
   nre,
 ];
 

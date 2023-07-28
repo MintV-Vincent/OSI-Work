@@ -5,7 +5,7 @@ import { materialRowMap } from "Interface/Types";
 import { AddModal } from "app/Compontents/AddModal";
 import { Button } from "@mantine/core";
 import AddSupplierForm from "app/Compontents/Forms/AddSupplierForm";
-import getAtom from "Hooks/GetAtom";
+import getAtom from "Functions/GetFunction/GetAtom";
 
 interface QuoteTableInterface {
   title: string;
@@ -13,7 +13,7 @@ interface QuoteTableInterface {
 }
 
 export default function QuoteTable({ title, code }: QuoteTableInterface) {
-  const [rowsAtom, useRowsAtom] = useState<materialRowMap[]>(createTable(6));
+  const [rowsAtom, useRowsAtom] = useState<materialRowMap[]>(createTable(9));
   const [status, setState] = useState(false);
   const { supplier: database, setData, setTotal } = getAtom({ title });
   const handleClick = () => {

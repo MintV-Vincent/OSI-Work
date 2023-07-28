@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createTable } from "Functions/Create/MapCreate";
 import { materialRowMap } from "Interface/Types";
 import { ProcessTable } from "app/Compontents/Tables/ProcessTable";
-import getAtom from "Hooks/GetAtom";
+import getAtom from "Functions/GetFunction/GetAtom";
 import { AddModal } from "app/Compontents/AddModal";
 import AddMaterialForm from "app/Compontents/Forms/AddMaterialForm";
 import { Button } from "@mantine/core";
@@ -12,7 +12,7 @@ interface QuoteTableInterface {
   title: string;
 }
 
-export default function FilmTable({ custom, title }: QuoteTableInterface) {
+export default function ProcessTab({ custom, title }: QuoteTableInterface) {
   const [rowsAtom, useRowsAtom] = useState<materialRowMap[]>(createTable(6));
   const { supplier, setTotal } = getAtom({ title });
   const [status, setState] = useState(false);
@@ -22,7 +22,6 @@ export default function FilmTable({ custom, title }: QuoteTableInterface) {
 
   return (
     <>
-      {" "}
       <ProcessTable
         data={rowsAtom}
         custom={custom}

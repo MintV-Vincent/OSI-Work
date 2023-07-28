@@ -100,6 +100,7 @@ export function PriceTable({
                 <NumberInput
                   hideControls
                   value={row.amount}
+                  precision={4}
                   onChange={(event: number) => {
                     onAmount(
                       index,

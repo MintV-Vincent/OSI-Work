@@ -3,7 +3,6 @@ import { atom } from "jotai";
 import { Tabs, MantineProvider } from "@mantine/core";
 import Image from "next/image";
 import Sales from "app/Tabs/Sales";
-import Check from "./Tabs/Check";
 
 const Logo = require("Images/Logo.svg") as string;
 
@@ -62,27 +61,12 @@ function MainWebsite() {
           >
             Materials
           </Tabs.Tab>
-          <Tabs.Tab
-            className={"p-5"}
-            value="Test"
-            style={{
-              width: 100,
-              fontSize: 18,
-              fontWeight: "bold",
-              color: "#22223B",
-            }}
-          >
-            Proto Type
-          </Tabs.Tab>
         </Tabs.List>
         <Tabs.Panel className="p-0 h-screen" value="Front" pt="xs">
           <Front />
         </Tabs.Panel>
         <Tabs.Panel className="p-0 h-screen" value="Sales" pt="xs">
           <Sales />
-        </Tabs.Panel>
-        <Tabs.Panel className="p-0 h-screen" value="Test" pt="xs">
-          <Check />
         </Tabs.Panel>
       </Tabs>
     </MantineProvider>

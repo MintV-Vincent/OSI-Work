@@ -6,70 +6,36 @@ import { exchangeRateAtom, panelAtom } from "app/MainWebsite";
 import { panelRow } from "Interface/SelectMap";
 import TotalTab from "app/Tabs/SalesTables/TotalTab";
 import { IconCurrencyDollar } from "@tabler/icons-react";
-import FilmTable from "app/Tabs/SalesTables/ProcessTable";
 import {
+  materialsTitle,
   NRETitle,
-  assyTooling,
   checkTableTitle,
-  coverTitle,
-  filmTitle,
-  laminateTitle,
-  mechanicalTitle,
-  processTitle,
-  qualityServiceTitle,
-  stiffenerTitle,
-  tapeTitle,
+  processFilmTitle,
 } from "Interface/Headers";
 import { tabType } from "Interface/Types";
 import { CheckTable } from "app/Compontents/Tables/CheckTable";
-import {
-  assyTotalAtom,
-  processTotalAtom,
-  qualityTotalAtom,
-} from "DataBases/TotalDataBase";
-import {
-  AssyToolValues,
-  checkValuesTable,
-  processValues,
-  qualityValues,
-} from "Interface/CheckValues";
+import { qualityTotalAtom } from "DataBases/TotalDataBase";
+import { checkValuesTable } from "Interface/CheckValues";
 import { ProtoTable } from "app/Compontents/Tables/ProtoTable";
 import { CustomCheckTable } from "app/Compontents/Tables/CustomCheckTable";
+import ProcessTab from "app/Tabs/SalesTables/ProcessTable";
 
 export const supplierAtom = atom(new Map<string, Map<string, string>>());
 
 export default function Sales() {
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
   const [panel, setPanel] = useAtom(panelAtom);
-  const [, setAssy] = useAtom(assyTotalAtom);
   const [, setQual] = useAtom(qualityTotalAtom);
-  const [, setProc] = useAtom(processTotalAtom);
 
   const tabs: tabType[] = [
     { title: "Total", table: <TotalTab /> },
     {
-      title: laminateTitle,
-      table: <QuoteTable title={laminateTitle} code={"Code"} />,
+      title: materialsTitle,
+      table: <QuoteTable title={materialsTitle} code={"Code"} />,
     },
     {
-      title: coverTitle,
-      table: <QuoteTable title={coverTitle} code={"Code"} />,
-    },
-    {
-      title: stiffenerTitle,
-      table: <QuoteTable title={stiffenerTitle} code={"Thickness"} />,
-    },
-    {
-      title: tapeTitle,
-      table: <QuoteTable title={tapeTitle} code={"Model #"} />,
-    },
-    {
-      title: filmTitle,
-      table: <FilmTable custom={""} title={filmTitle} />,
-    },
-    {
-      title: mechanicalTitle,
-      table: <FilmTable custom={""} title={mechanicalTitle} />,
+      title: processFilmTitle,
+      table: <ProcessTab custom={""} title={processFilmTitle} />,
     },
     {
       title: "Proto Type",
@@ -108,14 +74,7 @@ export default function Sales() {
               color: "#22223B",
             }}
           >
-            {row.title === filmTitle ? (
-              <label>
-                Dry Film & <br />
-                <span>Wet Process</span>
-              </label>
-            ) : (
-              row.title
-            )}
+            {row.title}
           </Tabs.Tab>
         ))}
       </Tabs.List>

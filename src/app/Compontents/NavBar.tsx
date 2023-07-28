@@ -1,3 +1,4 @@
+"use client";
 import Logo from "Images/Logo.svg";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,8 +18,7 @@ export function NavBar() {
   const currentRoute = usePathname();
   const mainLinks: LinkProps[] = [
     { link: "/", label: "Front" },
-    { link: "/sales", label: "Material" },
-    { link: "/prototype", label: "Prototype" },
+    { link: "/material", label: "Material" },
   ];
 
   const mainItems = mainLinks.map((item: LinkProps, index) => (

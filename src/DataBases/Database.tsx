@@ -1,5 +1,5 @@
 import { rowMapPrice } from "Interface/Types";
-import { createRowPrice } from "../Functions/Create/MapCreate";
+import { createRowPrice } from "../Functions/GetFunction/Create/MapCreate";
 import { atom } from "jotai";
 import { isola } from "./JsonIsola";
 import { arlon } from "./Arlon";

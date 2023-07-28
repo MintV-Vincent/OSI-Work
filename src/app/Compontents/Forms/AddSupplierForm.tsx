@@ -2,7 +2,7 @@ import { Box, Button, Group, NumberInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import React from "react";
 import { materialRowMap } from "Interface/Types";
-import { createMaterialRow } from "Functions/Create/MapCreate";
+import { createMaterialRow } from "Functions/GetFunction/Create/MapCreate";
 import TextInputForm from "./TextInputForm";
 
 interface AddButtonInterface {

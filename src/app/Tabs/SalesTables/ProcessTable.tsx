@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createTable } from "Functions/Create/MapCreate";
+import { createTable } from "Functions/GetFunction/Create/MapCreate";
 import { materialRowMap } from "Interface/Types";
 import { ProcessTable } from "app/Compontents/Tables/ProcessTable";
 import getAtom from "Functions/GetFunction/GetAtom";

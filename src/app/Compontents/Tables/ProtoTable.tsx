@@ -3,7 +3,7 @@ import HeaderRow from "./Rows/HeaderRow";
 import { protoHeader } from "Interface/Headers";
 import { useState } from "react";
 import { dictionaryMap } from "Interface/Types";
-import { createData } from "Functions/Create/MapCreate";
+import { createData } from "Functions/GetFunction/Create/MapCreate";
 
 export function ProtoTable() {
   // This table consist of only two columns. The data points should be of type row map

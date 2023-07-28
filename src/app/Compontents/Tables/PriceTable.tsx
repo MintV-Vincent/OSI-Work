@@ -5,7 +5,7 @@ import {
   onAmount,
   onMaterial,
   onSupplier,
-} from "Functions/Create/MaterialCreate";
+} from "Functions/GetFunction/Create/MaterialCreate";
 import SelectLogic, {
   filterMaterials,
 } from "app/Compontents/Tables/CustomCompontents/SelectLogic";
@@ -14,7 +14,7 @@ import HeaderRow from "./Rows/HeaderRow";
 import { materialHeader } from "Interface/Headers";
 import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import useUpdateTotal from "Hooks/UseUpdateTotal";
-import { createFormula } from "Functions/Create/CreateFormula";
+import { createFormula } from "Functions/GetFunction/Create/CreateFormula";
 import { useAtom } from "jotai";
 import {
   exchangeRateAtom,

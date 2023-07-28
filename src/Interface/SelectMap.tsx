@@ -1,4 +1,4 @@
-import { createData } from "Functions/Create/MapCreate";
+import { createData } from "Functions/GetFunction/Create/MapCreate";
 import { dictionaryMap } from "./Types";
 
 export const panelRow: dictionaryMap[] = [

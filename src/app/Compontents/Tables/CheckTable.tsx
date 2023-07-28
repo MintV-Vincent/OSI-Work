@@ -3,7 +3,7 @@ import HeaderRow from "./Rows/HeaderRow";
 import { rowMap2 } from "Interface/Types";
 import React, { useEffect, useState } from "react";
 import { addStringArrayTotal } from "Functions/MathFunctions";
-import { createCheckRow } from "Functions/Create/MapCreate";
+import { createCheckRow } from "Functions/GetFunction/Create/MapCreate";
 import { Checkbox } from "@mantine/core";
 
 interface checkTable {

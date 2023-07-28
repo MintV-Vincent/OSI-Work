@@ -1,5 +1,5 @@
 import { ActionIcon, Select } from "@mantine/core";
-import { createData } from "Functions/Create/MapCreate";
+import { createData } from "Functions/GetFunction/Create/MapCreate";
 import React, { useEffect, useState } from "react";
 import { AddModal } from "./AddModal";
 import { createCode } from "Functions/SelectCodeCreate";

@@ -9,7 +9,7 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { createMaterialRow } from "Functions/Create/MapCreate";
-import { materialRowMap } from "Interface/Types";
+import { materialRowMap } from "Library/Types";
 import { useAtom } from "jotai";
 import TextInputForm from "./Forms/TextInputForm";
 interface AddButtonInterface {

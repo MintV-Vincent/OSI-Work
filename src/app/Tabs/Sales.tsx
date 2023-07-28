@@ -1,9 +1,8 @@
 import React from "react";
 import { Tabs, Select, NumberInput } from "@mantine/core";
 import QuoteTable from "app/Tabs/SalesTables/QuoteTab";
-import { useAtom, atom } from "jotai";
-import { exchangeRateAtom, panelAtom } from "app/MainWebsite";
-import { panelRow } from "Interface/SelectMap";
+import { useAtom } from "jotai";
+import { panelRow } from "Library/SelectMap";
 import TotalTab from "app/Tabs/SalesTables/TotalTab";
 import { IconCurrencyDollar } from "@tabler/icons-react";
 import {
@@ -11,16 +10,18 @@ import {
   NRETitle,
   checkTableTitle,
   processFilmTitle,
-} from "Interface/Headers";
-import { tabType } from "Interface/Types";
+} from "Library/Headers";
+import { tabType } from "Library/Types";
 import { CheckTable } from "app/Compontents/Tables/CheckTable";
-import { qualityTotalAtom } from "DataBases/TotalDataBase";
-import { checkValuesTable } from "Interface/CheckValues";
+import {
+  exchangeRateAtom,
+  panelAtom,
+  qualityTotalAtom,
+} from "Library/AtomStorage";
+import { checkValuesTable } from "Library/CheckValues";
 import { ProtoTable } from "app/Compontents/Tables/ProtoTable";
 import { CustomCheckTable } from "app/Compontents/Tables/CustomCheckTable";
 import ProcessTab from "app/Tabs/SalesTables/ProcessTable";
-
-export const supplierAtom = atom(new Map<string, Map<string, string>>());
 
 export default function Sales() {
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);

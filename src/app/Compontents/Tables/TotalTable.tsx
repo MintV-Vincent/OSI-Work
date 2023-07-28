@@ -1,9 +1,8 @@
 import { Table } from "@mantine/core";
 import HeaderRow from "./Rows/HeaderRow";
 import { useAtom } from "jotai";
-import { fullTotalAtom } from "app/MainWebsite";
-import { titles, totalHeader } from "Interface/Headers";
-import { totalAtom } from "DataBases/TotalDataBase";
+import { titles, totalHeader } from "Library/Headers";
+import { fullTotalAtom, totalAtom } from "Library/AtomStorage";
 
 export function TotalTable() {
   const [total] = useAtom(totalAtom);

@@ -1,5 +1,5 @@
 import { createData } from "Functions/Create/MapCreate";
-import { dictionaryMap } from "Interface/Types";
+import { dictionaryMap } from "Library/Types";
 
 export default function JsonToCustomer(json: any[]): dictionaryMap[] {
   let array: dictionaryMap[] = [];

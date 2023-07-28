@@ -3,9 +3,13 @@ import { NumberInput } from "@mantine/core";
 import { useAtom } from "jotai";
 import { TotalTable } from "app/Compontents/Tables/TotalTable";
 import { addArrayTotal, newTotal } from "Functions/MathFunctions";
-import { fullTotalAtom, marginAtom, yeildAtom } from "app/MainWebsite";
-import { totalAtom } from "DataBases/TotalDataBase";
 import { IconPercentage, IconHash } from "@tabler/icons-react";
+import {
+  fullTotalAtom,
+  marginAtom,
+  totalAtom,
+  yeildAtom,
+} from "Library/AtomStorage";
 
 const sharedTotal: string = "text-xl py-1.5 w-1/4 text-left";
 

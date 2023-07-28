@@ -1,12 +1,12 @@
 import { Center, NumberInput, Table } from "@mantine/core";
 import HeaderRow from "./Rows/HeaderRow";
-import { rowMap2 } from "Interface/Types";
+import { rowMap2 } from "Library/Types";
 import React, { useEffect, useState } from "react";
 import { addArrayTotal } from "Functions/MathFunctions";
 import { createCheckRow } from "Functions/Create/MapCreate";
 import { Checkbox } from "@mantine/core";
 import { useAtom } from "jotai";
-import { NRETotalAtom } from "DataBases/TotalDataBase";
+import { NRETotalAtom } from "Library/AtomStorage";
 
 interface checkTable {
   titles: string[];

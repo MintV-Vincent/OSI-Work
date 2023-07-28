@@ -1,4 +1,4 @@
-import { dictionaryMap } from "Interface/Types";
+import { dictionaryMap } from "Library/Types";
 
 export function createCode(data: dictionaryMap[]): string {
   const lengthData: number = data.length;

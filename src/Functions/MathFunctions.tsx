@@ -1,4 +1,4 @@
-import { materialRowMap } from "Interface/Types";
+import { materialRowMap } from "Library/Types";
 
 export function addArrayTotal(array: number[]): number {
   // Add the total of an array and returns it as a number

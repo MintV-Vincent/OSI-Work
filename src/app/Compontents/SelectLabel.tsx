@@ -4,33 +4,23 @@ import React, { useEffect, useState } from "react";
 import { AddModal } from "./AddModal";
 import { createCode } from "Functions/SelectCodeCreate";
 import { getCode } from "Functions/GetFunction/GetCode";
-import { PrimitiveAtom, useAtom } from "jotai";
+import { useAtom } from "jotai";
 import SortArray, { addItem } from "Functions/SortArray";
 import { upperCaseString } from "Functions/StringFunction";
-import { dictionaryMap } from "Interface/Types";
 import AddCustomerForm from "./Forms/AddCustomer";
 import { IconPlus } from "@tabler/icons-react";
+import { codeAtom, customerAtom, customerRowAtom } from "Library/AtomStorage";
 
-interface SelectLabelInterface {
-  select: PrimitiveAtom<string>;
-  label: PrimitiveAtom<string>;
-  dataSet: PrimitiveAtom<dictionaryMap[]>;
-}
-
-export default function SelectLabel({
-  select,
-  label,
-  dataSet,
-}: SelectLabelInterface) {
+export default function SelectLabel() {
   useEffect(() => {
     //Use effect should be up here, it should only sort on load, not every render.
     //When inserting a new element, selectCodeCreate should be sorting. Moving this down will cause multiple useless sorts.
     SortArray(dataRow, setDataRow);
   }, []);
 
-  const [selector, setSelector] = useAtom(select);
-  const [dataRow, setDataRow] = useAtom(dataSet);
-  const [text, setText] = useAtom(label);
+  const [selector, setSelector] = useAtom(customerAtom);
+  const [dataRow, setDataRow] = useAtom(customerRowAtom);
+  const [text, setText] = useAtom(codeAtom);
   const [status, setState] = useState(false);
   const handleClick = () => {
     setState((prevStatus) => !prevStatus);
@@ -51,7 +41,14 @@ export default function SelectLabel({
       rightSection={
         <AddModal
           title={"Add Customer"}
-          form={<AddCustomerForm handleClick={handleClick} />}
+          form={
+            <AddCustomerForm
+              handleClick={handleClick}
+              customerAtom={customerAtom}
+              codeAtom={codeAtom}
+              customerRowAtom={customerRowAtom}
+            />
+          }
           button={
             <ActionIcon
               title="Add Customer"

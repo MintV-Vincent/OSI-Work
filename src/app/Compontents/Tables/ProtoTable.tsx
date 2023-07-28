@@ -1,8 +1,8 @@
 import { Select, Table } from "@mantine/core";
 import HeaderRow from "./Rows/HeaderRow";
-import { protoHeader } from "Interface/Headers";
+import { protoHeader } from "Library/Headers";
 import { useState } from "react";
-import { dictionaryMap } from "Interface/Types";
+import { dictionaryMap } from "Library/Types";
 import { createData } from "Functions/Create/MapCreate";
 
 export function ProtoTable() {

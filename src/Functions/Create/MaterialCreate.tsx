@@ -1,4 +1,4 @@
-import { rowMapPrice, materialRowMap } from "Interface/Types";
+import { rowMapPrice, materialRowMap } from "Library/Types";
 
 export function onAmount(
   id: number,

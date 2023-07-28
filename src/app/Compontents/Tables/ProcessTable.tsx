@@ -1,15 +1,14 @@
 import { NumberInput, Select, Table } from "@mantine/core";
-import { materialRowMap } from "Interface/Types";
+import { materialRowMap } from "Library/Types";
 import { useAtom } from "jotai";
 import React, { useMemo } from "react";
 import { onAmount, onMaterial } from "Functions/Create/MaterialCreate";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
-import { processHeader } from "Interface/Headers";
-import { filmProcessAtom } from "DataBases/Database";
+import { processHeader } from "Library/Headers";
 import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import useUpdateTotal from "Hooks/UseUpdateTotal";
-import { createFormula } from "Functions/Create/CreateFormula";
+import { filmProcessAtom } from "Library/AtomStorage";
 
 const columns: string[] = [
   "w-80",

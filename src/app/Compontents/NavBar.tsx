@@ -26,6 +26,7 @@ export function NavBar() {
       className={currentRoute === item.link ? activeStyle : nonActiveStyle}
       href={item.link}
       key={item.label + index}
+      shallow
     >
       <label className="text-xl font-semibold">{item.label}</label>
     </Link>

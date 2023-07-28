@@ -1,4 +1,4 @@
-import { jsonMap } from "Interface/Types";
+import { jsonMap } from "Library/Types";
 
 export const isola: jsonMap[] = [
   {

@@ -5,7 +5,7 @@ import {
   dictionaryMap,
   rowTotalMap,
   rowMap2,
-} from "Interface/Types";
+} from "Library/Types";
 // These functions return the types of rows used for the tables. These are needed to create the tables
 
 export function createRow(label: string, value: React.JSX.Element): rowMap {

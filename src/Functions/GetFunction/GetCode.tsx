@@ -1,4 +1,4 @@
-import { dictionaryMap } from "Interface/Types";
+import { dictionaryMap } from "Library/Types";
 import { Dispatch, SetStateAction } from "react";
 
 export function getCode(

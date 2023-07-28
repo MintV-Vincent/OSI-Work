@@ -1,4 +1,4 @@
-import { dictionaryMap, rowMapPrice } from "Interface/Types";
+import { dictionaryMap, rowMapPrice } from "Library/Types";
 
 interface selectLogic {
   supplier: dictionaryMap[];

@@ -1,6 +1,6 @@
 import { Center, Table } from "@mantine/core";
 import HeaderRow from "./Rows/HeaderRow";
-import { rowMap2 } from "Interface/Types";
+import { rowMap2 } from "Library/Types";
 import React, { useEffect, useState } from "react";
 import { addStringArrayTotal } from "Functions/MathFunctions";
 import { createCheckRow } from "Functions/Create/MapCreate";

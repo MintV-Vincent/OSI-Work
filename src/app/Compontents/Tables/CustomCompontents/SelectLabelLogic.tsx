@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { rowMapPrice } from "Interface/Types";
+import { rowMapPrice } from "Library/Types";
 
 interface selectLogic {
   funct: React.Dispatch<any>;

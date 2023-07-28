@@ -1,13 +1,14 @@
 import { Button, Radio, Textarea, TextInput } from "@mantine/core";
 //import FrontPagePrint from "app/Compontents/PrintingElement/FrontPagePrint";
 import FrontPagePrint from "app/Compontents/PrintingElement/FrontPagePrint";
-import { FrontTable, customerAtom } from "app/Compontents/Tables/FrontTable";
+import { FrontTable } from "app/Compontents/Tables/FrontTable";
 import ReactToPrint from "react-to-print";
 import React, { useRef } from "react";
 import { useState } from "react";
 import { useInputState } from "@mantine/hooks";
 import { useAtom } from "jotai";
 import { IconPrinter } from "@tabler/icons-react";
+import { customerAtom } from "Library/AtomStorage";
 //white-space: pre-wrap; TO MAK BREAK LINES
 
 const gus: string = "Gus Tarkas, ";

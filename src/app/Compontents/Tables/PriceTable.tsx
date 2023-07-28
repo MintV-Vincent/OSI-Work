@@ -1,5 +1,5 @@
 import { NumberInput, Select, Table } from "@mantine/core";
-import { dictionaryMap, materialRowMap, rowMapPrice } from "Interface/Types";
+import { dictionaryMap, materialRowMap, rowMapPrice } from "Library/Types";
 import React, { useMemo } from "react";
 import {
   onAmount,
@@ -11,7 +11,7 @@ import SelectLogic, {
 } from "app/Compontents/Tables/CustomCompontents/SelectLogic";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
-import { materialHeader } from "Interface/Headers";
+import { materialHeader } from "Library/Headers";
 import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import useUpdateTotal from "Hooks/UseUpdateTotal";
 

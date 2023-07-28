@@ -5,19 +5,23 @@ import React from "react";
 import { createData } from "Functions/Create/MapCreate";
 import { createCode } from "Functions/SelectCodeCreate";
 import { addItem } from "Functions/SortArray";
-import {
-  codeAtom,
-  customerAtom,
-  customerRowAtom,
-} from "app/Compontents/Tables/FrontTable";
-import { useAtom } from "jotai";
+import { PrimitiveAtom, useAtom } from "jotai";
 import TextInputForm from "./TextInputForm";
+import { dictionaryMap } from "Library/Types";
 
 interface AddCustomerInterface {
   handleClick: any;
+  customerAtom: any;
+  codeAtom: any;
+  customerRowAtom: PrimitiveAtom<dictionaryMap[]>;
 }
 
-export default function AddCustomerForm({ handleClick }: AddCustomerInterface) {
+export default function AddCustomerForm({
+  handleClick,
+  customerAtom,
+  codeAtom,
+  customerRowAtom,
+}: AddCustomerInterface) {
   const [, setCustomer] = useAtom(customerAtom);
   const [, setCode] = useAtom(codeAtom);
   const [customerRow] = useAtom(customerRowAtom);

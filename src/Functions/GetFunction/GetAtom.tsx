@@ -1,7 +1,11 @@
-import { filmAtom, materialAtom } from "DataBases/Database";
-import { filmTotalAtom, materialTotalAtom } from "DataBases/TotalDataBase";
-import { materialsTitle, processFilmTitle } from "Interface/Headers";
-import { rowMapPrice } from "Interface/Types";
+import {
+  filmAtom,
+  materialAtom,
+  filmTotalAtom,
+  materialTotalAtom,
+} from "Library/AtomStorage";
+import { materialsTitle, processFilmTitle } from "Library/Headers";
+import { rowMapPrice } from "Library/Types";
 import { useAtom } from "jotai";
 
 interface useUpdateTotal {

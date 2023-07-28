@@ -1,27 +1,20 @@
 import { Table } from "@mantine/core";
-import { dictionaryMap, rowMap } from "Interface/Types";
+import { dictionaryMap, rowMap } from "Library/Types";
 import { useState } from "react";
 import { NumberInput, Select } from "@mantine/core";
 import { createData, createRow } from "Functions/Create/MapCreate";
 import GetDate from "Functions/GetFunction/GetDate";
-import { atom, useAtom } from "jotai";
-import { exchangeRateAtom, freightAtom, panelAtom } from "app/MainWebsite";
+import { useAtom } from "jotai";
 import { TextInput } from "@mantine/core";
-import { panelRow } from "Interface/SelectMap";
+import { panelRow } from "Library/SelectMap";
 import { IconCurrencyDollar } from "@tabler/icons-react";
 import SelectLabel from "app/Compontents/SelectLabel";
 import GetQuote from "Functions/GetFunction/GetQuote";
-import { customer } from "DataBases/Customer";
-import JsonToCustomer from "JsonReader/JsonToCustomer";
-
+import { exchangeRateAtom, freightAtom, panelAtom } from "Library/AtomStorage";
 interface SplitTable {
   left: rowMap;
   right: rowMap;
 }
-
-export const customerAtom = atom<string>("");
-export const customerRowAtom = atom(JsonToCustomer(customer));
-export const codeAtom = atom<string>("");
 
 const rowClassName = "h-14 ";
 
@@ -81,11 +74,7 @@ export function FrontTable({
   ];
 
   const layersRow: dictionaryMap[] = createLoop(20);
-  const selectLabel: React.JSX.Element[] = SelectLabel({
-    select: customerAtom,
-    dataSet: customerRowAtom,
-    label: codeAtom,
-  });
+  const selectLabel: React.JSX.Element[] = SelectLabel();
   const selectCustomer: React.JSX.Element = selectLabel[0];
   const customerCode: React.JSX.Element = selectLabel[1];
   const partNumber = createRow(

@@ -1,5 +1,5 @@
 import { createRowPrice } from "Functions/Create/MapCreate";
-import { jsonMap, rowMapPrice } from "Interface/Types";
+import { jsonMap, rowMapPrice } from "Library/Types";
 
 export default function JsonToAtom(json: jsonMap[]): rowMapPrice[] {
   let array: rowMapPrice[] = [];

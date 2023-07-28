@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createTable } from "Functions/Create/MapCreate";
-import { materialRowMap } from "Interface/Types";
+import { materialRowMap } from "Library/Types";
 import { ProcessTable } from "app/Compontents/Tables/ProcessTable";
 import getAtom from "Functions/GetFunction/GetAtom";
 import { AddModal } from "app/Compontents/AddModal";

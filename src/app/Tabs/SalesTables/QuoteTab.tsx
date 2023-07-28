@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { PriceTable } from "app/Compontents/Tables/PriceTable";
 import { createTable } from "Functions/Create/MapCreate";
-import { materialRowMap } from "Interface/Types";
+import { materialRowMap } from "Library/Types";
 import { AddModal } from "app/Compontents/AddModal";
 import { Button } from "@mantine/core";
 import AddSupplierForm from "app/Compontents/Forms/AddSupplierForm";

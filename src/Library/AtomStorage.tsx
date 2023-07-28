@@ -1,14 +1,16 @@
-import { rowMapPrice } from "Interface/Types";
+import { rowMapPrice } from "Library/Types";
 import { createRowPrice } from "../Functions/Create/MapCreate";
 import { atom } from "jotai";
-import { isola } from "./JsonIsola";
-import { arlon } from "./Arlon";
-import { dupont } from "./Dupont";
-import { panasonic } from "./Laminate";
-import { cover } from "./JsonCover";
-import { stiffener } from "./JsonString";
-import { dryFilm } from "./JsonString";
-import JsonToAtom from "../JsonReader/JsonToAtom";
+import { isola } from "DataBases/JsonIsola";
+import { arlon } from "DataBases/Arlon";
+import { dupont } from "DataBases/Dupont";
+import { panasonic } from "DataBases/Laminate";
+import { cover } from "DataBases/JsonCover";
+import { stiffener } from "DataBases/JsonString";
+import { dryFilm } from "DataBases/JsonString";
+import JsonToAtom from "JsonReader/JsonToAtom";
+import JsonToCustomer from "JsonReader/JsonToCustomer";
+import { customer } from "DataBases/Customer";
 
 const isolaAtom = atom(JsonToAtom(isola));
 const arlonAtom = atom(JsonToAtom(arlon));
@@ -17,6 +19,25 @@ const panasonicAtom = atom(JsonToAtom(panasonic));
 const coverAtom = atom(JsonToAtom(cover));
 const stiffAtom = atom(JsonToAtom(stiffener));
 const addedAtom = atom<rowMapPrice[]>([]);
+
+//Sales (Materials and Process)
+export const materialTotalAtom = atom(0);
+export const filmTotalAtom = atom(0);
+
+//Services
+export const assyTotalAtom = atom(0);
+export const qualityTotalAtom = atom(0);
+export const processTotalAtom = atom(0);
+export const NRETotalAtom = atom(0);
+
+export const totalAtom = atom((get) => {
+  const material = get(materialTotalAtom);
+  const film = get(filmTotalAtom);
+
+  const qual = get(qualityTotalAtom);
+  const nre = get(NRETotalAtom);
+  return [material, film, qual, nre];
+});
 
 export const materialAtom = atom(
   (get) => {
@@ -71,3 +92,16 @@ export const filmAtom = atom(
     return [film];
   }
 );
+
+//These atoms are cause a lot of re-renders on calculation need to do something about it !
+export const exchangeRateAtom = atom<number | "">(1);
+export const freightAtom = atom<number | "">(1);
+export const yeildAtom = atom<number | "">(1);
+export const marginAtom = atom<number | "">(1);
+export const fullTotalAtom = atom<number>(0);
+// Note that Select value should always be either **string** or **null**: -Mantine
+export const panelAtom = atom<string | null>("1.5");
+
+export const customerAtom = atom<string>("");
+export const customerRowAtom = atom(JsonToCustomer(customer));
+export const codeAtom = atom<string>("");

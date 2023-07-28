@@ -21,8 +21,6 @@ import { ProtoTable } from "app/Compontents/Tables/ProtoTable";
 import { CustomCheckTable } from "app/Compontents/Tables/CustomCheckTable";
 import ProcessTab from "app/Tabs/SalesTables/ProcessTable";
 
-export const supplierAtom = atom(new Map<string, Map<string, string>>());
-
 export default function Sales() {
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
   const [panel, setPanel] = useAtom(panelAtom);

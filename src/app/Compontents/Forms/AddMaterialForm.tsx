@@ -4,7 +4,7 @@ import { filmAtom } from "DataBases/Database";
 import { useAtom } from "jotai";
 import React from "react";
 import { materialRowMap } from "Interface/Types";
-import { createMaterialRow } from "Functions/GetFunction/Create/MapCreate";
+import { createMaterialRow } from "Functions/Create/MapCreate";
 import TextInputForm from "./TextInputForm";
 
 interface AddButtonInterface {

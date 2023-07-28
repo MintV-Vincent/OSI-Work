@@ -2,7 +2,7 @@ import { Table } from "@mantine/core";
 import { dictionaryMap, rowMap } from "Interface/Types";
 import { useState } from "react";
 import { NumberInput, Select } from "@mantine/core";
-import { createData, createRow } from "Functions/GetFunction/Create/MapCreate";
+import { createData, createRow } from "Functions/Create/MapCreate";
 import GetDate from "Functions/GetFunction/GetDate";
 import { atom, useAtom } from "jotai";
 import { exchangeRateAtom, freightAtom, panelAtom } from "app/MainWebsite";

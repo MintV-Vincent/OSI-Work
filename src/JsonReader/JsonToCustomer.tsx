@@ -1,4 +1,4 @@
-import { createData } from "Functions/GetFunction/Create/MapCreate";
+import { createData } from "Functions/Create/MapCreate";
 import { dictionaryMap } from "Interface/Types";
 
 export default function JsonToCustomer(json: any[]): dictionaryMap[] {

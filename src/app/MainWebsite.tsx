@@ -1,11 +1,5 @@
 import Front from "app/Tabs/Front";
 import { atom } from "jotai";
-import { Tabs, MantineProvider } from "@mantine/core";
-import Image from "next/image";
-import Sales from "app/Tabs/Sales";
-import Link from "next/link";
-
-const Logo = require("Images/Logo.svg") as string;
 
 //These atoms are cause a lot of re-renders on calculation need to do something about it !
 export const exchangeRateAtom = atom<number | "">(1);

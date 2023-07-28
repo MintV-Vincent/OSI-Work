@@ -1,4 +1,4 @@
-import { createRowPrice } from "Functions/GetFunction/Create/MapCreate";
+import { createRowPrice } from "Functions/Create/MapCreate";
 import { jsonMap, rowMapPrice } from "Interface/Types";
 
 export default function JsonToAtom(json: jsonMap[]): rowMapPrice[] {

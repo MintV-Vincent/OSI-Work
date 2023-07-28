@@ -1,0 +1,435 @@
+.div-div {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.div-div .div {
+  background-color: #ffffff;
+  border: 1px none;
+  height: 1074px;
+  position: relative;
+  width: 830px;
+}
+
+.div-div .group {
+  height: 226px;
+  left: 78px;
+  position: absolute;
+  top: 150px;
+  width: 308px;
+}
+
+.div-div .text-wrapper {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 56px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 0;
+  width: 55px;
+}
+
+.div-div .customer-partnumber {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 226px;
+  left: 88px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 0;
+  width: 216px;
+}
+
+.div-div .sales {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 22px;
+  left: 414px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 187px;
+  width: 342px;
+}
+
+.div-div .sales-text {
+  color: #000000;
+  white-space: pre-wrap;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 22px;
+  left: 505px;
+  letter-spacing: 0;
+  line-height: 150%;
+  position: absolute;
+  top: 187px;
+  width: 342px;
+}
+
+.div-div .group-2 {
+  height: 120px;
+  left: 414px;
+  position: absolute;
+  top: 242px;
+  width: 346px;
+}
+
+.div-div .text-wrapper-3 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 30px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.div-div .PFC-flexible {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 120px;
+  left: 91px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 0;
+  width: 251px;
+}
+
+.div-div .text-wrapper-2 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 22px;
+  left: 414px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 149px;
+  width: 342px;
+}
+
+.div-div .group-3 {
+  height: 22px;
+  left: 78px;
+  position: absolute;
+  top: 116px;
+  width: 682px;
+}
+
+.div-div .date-getdate {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 22px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 263px;
+}
+
+.div-div .quotation-number {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 22px;
+  left: 336px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 342px;
+}
+
+.div-div .group-4 {
+  height: 22px;
+  left: 78px;
+  position: absolute;
+  top: 421px;
+  width: 671px;
+}
+
+.div-div .text-wrapper-4 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 22px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.div-div .text-wrapper-5 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 22px;
+  left: 88px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 579px;
+}
+
+.div-div .group-5 {
+  height: 22px;
+  left: 78px;
+  position: absolute;
+  top: 465px;
+  width: 671px;
+}
+
+.div-div .text-wrapper-6 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 22px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 81px;
+}
+
+.div-div .text-wrapper-7 {
+  color: #000000;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  height: 22px;
+  left: 78px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 386px;
+}
+
+.div-div .heading-quotation {
+  color: #000000;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-size: 36px;
+  font-weight: 700;
+  height: 21px;
+  left: 554px;
+  letter-spacing: 2.16px;
+  line-height: normal;
+  position: absolute;
+  top: 18px;
+  white-space: nowrap;
+  width: 202px;
+}
+
+.div-div .text-wrapper-8 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 14px;
+  left: 78px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 981px;
+  white-space: nowrap;
+  width: 96px;
+}
+
+.div-div .text-wrapper-9 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 14px;
+  left: 718px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 981px;
+  white-space: nowrap;
+  width: 38px;
+}
+
+.div-div .NAME-GOES-HERE-NAME {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 60px;
+  left: 78px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 875px;
+  width: 678px;
+}
+
+.div-div .group-6 {
+  height: 22px;
+  left: 78px;
+  position: absolute;
+  top: 520px;
+  width: 682px;
+}
+
+.div-div .p {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 22px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 275px;
+}
+
+.div-div .text-wrapper-10 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 22px;
+  left: 602px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 76px;
+}
+
+.div-div .text-wrapper-11 {
+  color: #000000;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  height: 17px;
+  left: 78px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 499px;
+  white-space: nowrap;
+  width: 34px;
+}
+
+.div-div .text-wrapper-12 {
+  color: #000000;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  height: 22px;
+  left: 78px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 575px;
+  width: 99px;
+}
+
+.div-div .notes {
+  white-space: pre-wrap;
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 103px;
+  left: 193px;
+  letter-spacing: 0;
+  line-height: 175%;
+  position: absolute;
+  top: 575px;
+  width: 563px;
+}
+
+.div-div .text-wrapper-13 {
+  color: #000000;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  height: 22px;
+  left: 78px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 694px;
+}
+
+.div-div .QUOTATION-VALID-FOR {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 90px;
+  left: 193px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 694px;
+  width: 524px;
+}
+
+.div-div .text-wrapper-14 {
+  color: #000000;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 17px;
+  left: 78px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 816px;
+  white-space: nowrap;
+  width: 115px;
+}
+
+.div-div .rectangle {
+  background-color: #000000;
+  height: 2px;
+  left: 62px;
+  position: absolute;
+  top: 98px;
+  width: 706px;
+}
+
+.div-div .rectangle-2 {
+  background-color: #000000;
+  height: 2px;
+  left: 62px;
+  position: absolute;
+  top: 968px;
+  width: 706px;
+}

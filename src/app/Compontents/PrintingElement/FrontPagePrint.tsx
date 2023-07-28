@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css";
+import "./style.css";
 import Logo from "Images/LogoColor.svg";
 import Image from "next/image";
 import GetDate from "Functions/GetFunction/GetDate";
@@ -11,36 +11,90 @@ interface PrintingProps {
   partNumber: string;
   customer: string;
   revision: string;
+  sales: string;
+  sold: string;
 }
 
 export const FrontPagePrint = React.forwardRef(
   (
-    { notes, parts, customer, partNumber, revision }: PrintingProps,
+    {
+      notes,
+      parts,
+      customer,
+      partNumber,
+      revision,
+      sales,
+      sold,
+    }: PrintingProps,
     ref: any
   ) => {
     return (
-      <div className="letter-head" ref={ref}>
+      <div className="div-div" ref={ref}>
         <div className="div">
           <Image
-            className="w-auto h-20 p-2.5 m-5"
+            className="w-auto h-12 px-10 m-8 absolute left-200"
             src={Logo}
             priority={true}
             alt="PFC FLEX LOGO"
           />
-          <div className="text-wrapper">Notes</div>
-          <p className="p">Gerber Adjustment for new end</p>
-          <div className="text-wrapper-2">Sincerely,</div>
-          <div className="text-wrapper-3">Form # 102</div>
-          <div className="text-wrapper-4">Page 1</div>
+          <div className="group">
+            <div className="text-wrapper">Sold To</div>
+            <div className="customer-partnumber">
+              {customer}
+              <br />
+              {partNumber}
+              <br />
+              {revision}
+              <br />
+              {}
+            </div>
+          </div>
+          <div className="group-2">
+            <div className="text-wrapper-3">Build Site</div>
+            <div className="PFC-flexible">
+              PFC Flexible Circuits
+              <br />
+              11 Canadian Road, Unit #7
+              <br />
+              Toronto, ON M1R5G1
+              <br />
+              CANADA
+            </div>
+          </div>
+          <div className="text-wrapper-2">PFC Flexible Circuits Limited</div>
+          <div className="sales">Sales: </div>
+          <div className="sales-text">{sales}</div>
+          <div className="group-3">
+            <div className="date-getdate">{"Date: " + GetDate()}</div>
+            <div className="quotation-number">
+              {"Quotation Number: " + GetQuote()}
+            </div>
+          </div>
+          <div className="group-4">
+            <div className="text-wrapper-4">Quantity:</div>
+            <div className="text-wrapper-5">EMPTY TEXT</div>
+          </div>
+          <div className="group-5">
+            <div className="text-wrapper-6">Unit Price:</div>
+            <div className="text-wrapper-5">EMPTY TEXT</div>
+          </div>
+          <div className="text-wrapper-7">{"Part Number: " + partNumber}</div>
+          <h1 className="heading-quotation">Quotation</h1>
+          <div className="text-wrapper-8">Form # 102</div>
+          <div className="text-wrapper-9">Page 1</div>
           <p className="NAME-GOES-HERE-NAME">
             NAME GOES HERE NAME GOES HERE
             <br />
             PFC FLEXIBLE CIRCUITS LIMITED
           </p>
-          <div className="text-wrapper-5">$250</div>
-          <div className="text-wrapper-6">NRE</div>
-          <p className="text-wrapper-7">{notes}</p>
-          <div className="text-wrapper-8">TERMS</div>
+          <div className="group-6">
+            <p className="p">Gerber Adjustment for new end</p>
+            <div className="text-wrapper-10">$250</div>
+          </div>
+          <div className="text-wrapper-11">NRE</div>
+          <div className="text-wrapper-12">Notes</div>
+          <div className="notes">{notes}</div>
+          <div className="text-wrapper-13">TERMS</div>
           <p className="QUOTATION-VALID-FOR">
             QUOTATION VALID FOR 90 DAYS
             <br />
@@ -48,60 +102,7 @@ export const FrontPagePrint = React.forwardRef(
             <br />
             NET 30.FOB PFC.
           </p>
-          <div className="overlap">
-            <div className="overlap-group">
-              <div className="frame">
-                <div className="text-wrapper-9">Sold To</div>
-                <p className="EMPTY-TEXT-EMPTY">
-                  {customer}
-                  <br />
-                  {partNumber}
-                  <br />
-                  {revision}
-                  <br />
-                  EMPTY TEXT
-                  <br />
-                  Email:
-                </p>
-              </div>
-              <div className="text-wrapper-10">From</div>
-              <div className="text-wrapper-11">
-                PFC Flexible Circuits Limited
-              </div>
-              <div className="text-wrapper-12">Email:</div>
-              <div className="frame-2">
-                <div className="text-wrapper-13">Build Site</div>
-                <p className="PFC-flexible">
-                  PFC Flexible Circuits
-                  <br />
-                  11 Canadian Road, Unit #7
-                  <br />
-                  Toronto, ON M1R5G1 CANADA
-                </p>
-              </div>
-            </div>
-            <div className="text-wrapper-14">EMPTY TEXT</div>
-            <div className="text-wrapper-15">EMPTY TEXT</div>
-          </div>
-          <div className="frame-3">
-            <div className="text-wrapper-16">Date</div>
-            <div className="text-wrapper-17">{GetDate()}</div>
-          </div>
-          <div className="text-wrapper-18">Quotation Number</div>
-          <div className="text-wrapper-19">{GetQuote()}</div>
-          <div className="frame-4">
-            <div className="text-wrapper-20">Quantity</div>
-            <div className="text-wrapper-21">EMPTY TEXT</div>
-          </div>
-          <div className="frame-5">
-            <div className="text-wrapper-20">Unit Price</div>
-            <div className="text-wrapper-22">EMPTY TEXT</div>
-          </div>
-          <div className="frame-6">
-            <div className="text-wrapper-23">Part Number</div>
-            <div className="text-wrapper-24">{partNumber}</div>
-          </div>
-          <h1 className="h-1">Quotation</h1>
+          <div className="text-wrapper-14">Sincerely,</div>
           <div className="rectangle" />
           <div className="rectangle-2" />
         </div>

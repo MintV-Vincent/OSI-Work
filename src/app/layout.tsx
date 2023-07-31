@@ -1,4 +1,5 @@
 "use client";
+import { MantineProvider } from "@mantine/core";
 import { NavBar } from "./Compontents/NavBar";
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -13,8 +14,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " p-0 m-0"}>
-        <NavBar />
-        {children}
+        <MantineProvider
+          withCSSVariables
+          withNormalizeCSS
+          withGlobalStyles
+          theme={{
+            fontFamily: "Helvetica",
+          }}
+        >
+          <NavBar />
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );

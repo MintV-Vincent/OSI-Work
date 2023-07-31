@@ -1,18 +1,27 @@
 "use client";
-import { MantineProvider } from "@mantine/core";
-import MainWebsite from "./MainWebsite";
+import Front from "./Tabs/Front";
+import { useHydrateAtoms } from "jotai/utils";
+import { useAtom } from "jotai";
+import {
+  yeildAtom,
+  marginAtom,
+  exchangeRateAtom,
+  freightAtom,
+  panelAtom,
+} from "Library/AtomStorage";
 
 export default function page() {
-  return (
-    <MantineProvider
-      withCSSVariables
-      withNormalizeCSS
-      withGlobalStyles
-      theme={{
-        fontFamily: "Helvetica",
-      }}
-    >
-      <MainWebsite />
-    </MantineProvider>
-  );
+  const [exchangeRate] = useAtom(exchangeRateAtom);
+  const [freight] = useAtom(freightAtom);
+  const [margin] = useAtom(marginAtom);
+  const [panel] = useAtom(panelAtom);
+  const [yeild] = useAtom(yeildAtom);
+  useHydrateAtoms([
+    [exchangeRateAtom, exchangeRate],
+    [freightAtom, freight],
+    [marginAtom, margin],
+    [panelAtom, panel],
+    [yeildAtom, yeild],
+  ]);
+  return <Front />;
 }

@@ -2,7 +2,7 @@
 import React from "react";
 import { Tabs, Select, NumberInput } from "@mantine/core";
 import QuoteTable from "app/Tabs/SalesTables/QuoteTab";
-import { useAtom, atom } from "jotai";
+import { useAtom } from "jotai";
 import { panelRow } from "Library/SelectMap";
 import TotalTab from "app/Tabs/SalesTables/TotalTab";
 import { IconCurrencyDollar } from "@tabler/icons-react";
@@ -23,13 +23,11 @@ import {
   panelAtom,
   qualityTotalAtom,
 } from "Library/AtomStorage";
-import { useHydrateAtoms } from "jotai/utils";
 
 export default function Sales() {
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
   const [panel, setPanel] = useAtom(panelAtom);
   const [, setQual] = useAtom(qualityTotalAtom);
-  useHydrateAtoms([[exchangeRateAtom, 1.24]]);
   const tabs: tabType[] = [
     { title: "Total", table: <TotalTab /> },
     {

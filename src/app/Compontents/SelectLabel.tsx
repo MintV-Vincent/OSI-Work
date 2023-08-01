@@ -9,7 +9,11 @@ import SortArray, { addItem } from "Functions/SortArray";
 import { upperCaseString } from "Functions/StringFunction";
 import AddCustomerForm from "./Forms/AddCustomer";
 import { IconPlus } from "@tabler/icons-react";
-import { codeAtom, customerAtom, customerRowAtom } from "Library/AtomStorage";
+import {
+  codeAtom,
+  customerAtom,
+  customerRowAtom,
+} from "Library/Atoms/FrontPageAtoms";
 
 export default function SelectLabel() {
   useEffect(() => {
@@ -21,6 +25,7 @@ export default function SelectLabel() {
   const [selector, setSelector] = useAtom(customerAtom);
   const [dataRow, setDataRow] = useAtom(customerRowAtom);
   const [text, setText] = useAtom(codeAtom);
+
   const [status, setState] = useState(false);
   const handleClick = () => {
     setState((prevStatus) => !prevStatus);
@@ -31,8 +36,10 @@ export default function SelectLabel() {
       allowDeselect
       searchValue={selector}
       onSearchChange={(e) => {
-        setSelector(e);
-        getCode(selector, dataRow, setText);
+        if (e != "") {
+          setSelector(e);
+          getCode(selector, dataRow, setText);
+        }
       }}
       data={dataRow}
       searchable

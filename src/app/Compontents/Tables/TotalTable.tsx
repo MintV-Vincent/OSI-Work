@@ -2,7 +2,7 @@ import { Table } from "@mantine/core";
 import HeaderRow from "./Rows/HeaderRow";
 import { useAtom } from "jotai";
 import { titles, totalHeader } from "Library/Headers";
-import { fullTotalAtom, totalAtom } from "Library/AtomStorage";
+import { fullTotalAtom, totalAtom } from "Library/Atoms/AtomStorage";
 
 export function TotalTable() {
   const [total] = useAtom(totalAtom);

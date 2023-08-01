@@ -1,16 +1,26 @@
 import { Table } from "@mantine/core";
 import { dictionaryMap, rowMap } from "Library/Types";
-import { useState } from "react";
 import { NumberInput, Select } from "@mantine/core";
 import { createData, createRow } from "Functions/Create/MapCreate";
 import GetDate from "Functions/GetFunction/GetDate";
-import { useAtom } from "jotai";
+import { atom, useAtom } from "jotai";
 import { TextInput } from "@mantine/core";
 import { panelRow } from "Library/SelectMap";
 import { IconCurrencyDollar } from "@tabler/icons-react";
 import SelectLabel from "app/Compontents/SelectLabel";
 import GetQuote from "Functions/GetFunction/GetQuote";
-import { exchangeRateAtom, freightAtom, panelAtom } from "Library/AtomStorage";
+import {
+  exchangeRateAtom,
+  freightAtom,
+  panelAtom,
+} from "Library/Atoms/AtomStorage";
+import {
+  assemblyAtom,
+  layerAtom,
+  partsInputAtom,
+  revAtom,
+  technologyAtom,
+} from "Library/Atoms/FrontPageAtoms";
 interface SplitTable {
   left: rowMap;
   right: rowMap;
@@ -34,84 +44,65 @@ const rows: string[] = [
 ];
 
 function createLoop(number: number) {
-  let indents: dictionaryMap[] = [];
+  let indents: string[] = [];
   for (let i: number = 1; i < number + 1; i++) {
-    indents.push(createData(i.toString(), i.toString()));
+    indents.push("‎" + i.toString());
   }
   return indents;
 }
 
-interface frontTable {
-  partNumberInput: string;
-  revisionInput: string;
-  setPartInput: any;
-  setRevisionInput: any;
-}
-
-export function FrontTable({
-  partNumberInput,
-  setPartInput,
-  revisionInput,
-  setRevisionInput,
-}: frontTable) {
+export function FrontTable({}) {
   const [freight, setFreight] = useAtom(freightAtom);
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
   const [panel, setPanel] = useAtom(panelAtom);
-  const [layers, setLayers] = useState<string>("1");
-  const [technology, setTechnology] = useState<string>("1");
-  const [assembly, setAssembly] = useState<string>("1");
-
-  const assemblyRow: dictionaryMap[] = [
-    createData("Yes", "1"),
-    createData("No", "2"),
-  ];
-
-  const technologyRow: dictionaryMap[] = [
-    createData("A", "1"),
-    createData("B", "2"),
-    createData("C", "3"),
-    createData("D", "4"),
-  ];
-
-  const layersRow: dictionaryMap[] = createLoop(20);
+  const [layers, setLayers] = useAtom(layerAtom);
+  const [technology, setTechnology] = useAtom(technologyAtom);
+  const [assembly, setAssembly] = useAtom(assemblyAtom);
+  const [partNumberInput, setPartInput] = useAtom(partsInputAtom);
+  const [revisionInput, setRevisionInput] = useAtom(revAtom);
   const selectLabel: React.JSX.Element[] = SelectLabel();
   const selectCustomer: React.JSX.Element = selectLabel[0];
   const customerCode: React.JSX.Element = selectLabel[1];
+
   const partNumber = createRow(
     "Part Number",
-    <TextInput value={partNumberInput} onChange={setPartInput} />
+    <TextInput
+      value={partNumberInput}
+      onChange={(event) => setPartInput(event.currentTarget.value)}
+    />
   );
   const revision = createRow(
     "Revision",
-    <TextInput value={revisionInput} onChange={setRevisionInput} />
+    <TextInput
+      value={revisionInput}
+      onChange={(event) => setRevisionInput(event.currentTarget.value)}
+    />
   );
   const numberOfLayers = createRow(
     "# of Layers",
     <Select
       searchable
-      defaultValue={"1"}
+      clearable
       searchValue={layers}
-      onSearchChange={setLayers}
-      data={layersRow}
+      onSearchChange={(e) => {
+        console.log(e);
+        if (e != "") {
+          setLayers(e);
+        }
+      }}
+      data={createLoop(20)}
     />
   );
   const panelSize = createRow(
     "Panel Size",
-    <Select
-      defaultValue={"1.5"}
-      value={panel}
-      onChange={setPanel}
-      data={panelRow}
-    />
+    <Select value={panel} onChange={setPanel} data={panelRow} />
   );
   const technologyTable = createRow(
     "Technology",
     <Select
-      searchable
-      searchValue={technology}
-      defaultValue={"1"}
-      onSearchChange={setTechnology}
-      data={technologyRow}
+      value={technology}
+      onChange={setTechnology}
+      data={["A", "B", "C", "D"]}
     />
   );
   const exchangeTable = createRow(
@@ -146,11 +137,10 @@ export function FrontTable({
   const assymblyTable = createRow(
     "Assembly",
     <Select
-      searchable
-      searchValue={assembly}
-      defaultValue={"1"}
-      onSearchChange={setAssembly}
-      data={assemblyRow}
+      nothingFound="No options"
+      value={assembly}
+      onChange={setAssembly}
+      data={["Yes", "No"]}
     />
   );
   const leftTable: SplitTable[] = [

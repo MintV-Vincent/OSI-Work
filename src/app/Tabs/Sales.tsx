@@ -17,7 +17,7 @@ import {
   exchangeRateAtom,
   panelAtom,
   qualityTotalAtom,
-} from "Library/AtomStorage";
+} from "Library/Atoms/AtomStorage";
 import { checkValuesTable } from "Library/CheckValues";
 import { ProtoTable } from "app/Compontents/Tables/ProtoTable";
 import { CustomCheckTable } from "app/Compontents/Tables/CustomCheckTable";

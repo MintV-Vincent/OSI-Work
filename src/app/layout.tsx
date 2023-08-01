@@ -1,8 +1,8 @@
 "use client";
-import { MantineProvider } from "@mantine/core";
 import { NavBar } from "./Compontents/NavBar";
-import "./globals.css";
 import { Inter } from "next/font/google";
+import "./globals.css";
+import { JotaiProvider } from "./Compontents/JotaiProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,17 +14,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " p-0 m-0"}>
-        <MantineProvider
-          withCSSVariables
-          withNormalizeCSS
-          withGlobalStyles
-          theme={{
-            fontFamily: "Helvetica",
-          }}
-        >
+        <JotaiProvider>
           <NavBar />
           {children}
-        </MantineProvider>
+        </JotaiProvider>
       </body>
     </html>
   );

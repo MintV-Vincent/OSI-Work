@@ -53,3 +53,5 @@ export interface tabType {
   title: string;
   table: React.JSX.Element;
 }
+
+export type sType = [string, React.Dispatch<React.SetStateAction<string>>];

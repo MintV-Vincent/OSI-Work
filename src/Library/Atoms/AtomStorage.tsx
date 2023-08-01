@@ -1,6 +1,5 @@
 import { rowMapPrice } from "Library/Types";
-import { createRowPrice } from "../Functions/Create/MapCreate";
-import { atom } from "jotai";
+import { createRowPrice } from "../../Functions/Create/MapCreate";
 import { isola } from "DataBases/JsonIsola";
 import { arlon } from "DataBases/Arlon";
 import { dupont } from "DataBases/Dupont";
@@ -9,8 +8,7 @@ import { cover } from "DataBases/JsonCover";
 import { stiffener } from "DataBases/JsonString";
 import { dryFilm } from "DataBases/JsonString";
 import JsonToAtom from "JsonReader/JsonToAtom";
-import JsonToCustomer from "JsonReader/JsonToCustomer";
-import { customer } from "DataBases/Customer";
+import { atom } from "jotai";
 
 const isolaAtom = atom(JsonToAtom(isola));
 const arlonAtom = atom(JsonToAtom(arlon));
@@ -101,7 +99,3 @@ export const marginAtom = atom<number | "">(1);
 export const fullTotalAtom = atom<number>(0);
 // Note that Select value should always be either **string** or **null**: -Mantine
 export const panelAtom = atom<string | null>("1.5");
-
-export const customerAtom = atom<string>("");
-export const customerRowAtom = atom(JsonToCustomer(customer));
-export const codeAtom = atom<string>("");

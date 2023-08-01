@@ -6,7 +6,7 @@ import { addArrayTotal } from "Functions/MathFunctions";
 import { createCheckRow } from "Functions/Create/MapCreate";
 import { Checkbox } from "@mantine/core";
 import { useAtom } from "jotai";
-import { NRETotalAtom } from "Library/AtomStorage";
+import { NRETotalAtom } from "Library/Atoms/AtomStorage";
 
 interface checkTable {
   titles: string[];

@@ -9,7 +9,7 @@ import {
   marginAtom,
   totalAtom,
   yeildAtom,
-} from "Library/AtomStorage";
+} from "Library/Atoms/AtomStorage";
 
 const sharedTotal: string = "text-xl py-1.5 w-1/4 text-left";
 

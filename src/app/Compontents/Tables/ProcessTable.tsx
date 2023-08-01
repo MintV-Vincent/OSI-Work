@@ -8,7 +8,7 @@ import HeaderRow from "./Rows/HeaderRow";
 import { processHeader } from "Library/Headers";
 import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import useUpdateTotal from "Hooks/UseUpdateTotal";
-import { filmProcessAtom } from "Library/AtomStorage";
+import { filmProcessAtom } from "Library/Atoms/AtomStorage";
 
 const columns: string[] = [
   "w-80",

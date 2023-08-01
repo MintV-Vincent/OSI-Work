@@ -7,6 +7,18 @@ import { createCheckRow } from "Functions/Create/MapCreate";
 import { Checkbox } from "@mantine/core";
 import { useAtom } from "jotai";
 import { NRETotalAtom } from "Library/Atoms/AtomStorage";
+import {
+  assyPallAtom,
+  assyStenAtom,
+  customCheckTableAtom,
+  designAtom,
+  elecAtom,
+  haslAtom,
+  outlineAtom,
+  photoAtom,
+  productAtom,
+  secondaryAtom,
+} from "Library/Atoms/TableAtoms";
 
 interface checkTable {
   titles: string[];
@@ -24,16 +36,16 @@ function getValues(textInputArray: any[], active: string[]): number[] {
 }
 
 export function CustomCheckTable({ titles }: checkTable) {
-  const [value, setValue] = useState<string[]>([]);
-  const [photoTools, setPhoto] = useState<number | "">(0);
-  const [electric, setElec] = useState<number | "">(0);
-  const [outline, setOutline] = useState<number | "">(0);
-  const [secondary, setSecondary] = useState<number | "">(0);
-  const [assySten, setAssySten] = useState<number | "">(0);
-  const [assyPall, setAssyPall] = useState<number | "">(0);
-  const [design, setDesign] = useState<number | "">(0);
-  const [product, setProduct] = useState<number | "">(0);
-  const [hasl, sethasl] = useState<number | "">(0);
+  const [value, setValue] = useAtom(customCheckTableAtom);
+  const [photoTools, setPhoto] = useAtom(photoAtom);
+  const [electric, setElec] = useAtom(elecAtom);
+  const [outline, setOutline] = useAtom(outlineAtom);
+  const [secondary, setSecondary] = useAtom(secondaryAtom);
+  const [assySten, setAssySten] = useAtom(assyStenAtom);
+  const [assyPall, setAssyPall] = useAtom(assyPallAtom);
+  const [design, setDesign] = useAtom(designAtom);
+  const [product, setProduct] = useAtom(productAtom);
+  const [hasl, sethasl] = useAtom(haslAtom);
 
   const [, setTotal] = useAtom(NRETotalAtom);
 

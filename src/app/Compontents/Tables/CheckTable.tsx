@@ -5,6 +5,8 @@ import React, { useEffect, useState } from "react";
 import { addStringArrayTotal } from "Functions/MathFunctions";
 import { createCheckRow } from "Functions/Create/MapCreate";
 import { Checkbox } from "@mantine/core";
+import { checkTableAtom } from "Library/Atoms/TableAtoms";
+import { useAtom } from "jotai";
 
 interface checkTable {
   titles: string[];
@@ -13,7 +15,7 @@ interface checkTable {
 }
 
 export function CheckTable({ titles, values, setAtom }: checkTable) {
-  const [value, setValue] = useState<string[]>([]);
+  const [value, setValue] = useAtom(checkTableAtom);
   const total = addStringArrayTotal(value);
 
   useEffect(() => {
@@ -25,7 +27,7 @@ export function CheckTable({ titles, values, setAtom }: checkTable) {
     checkTableRow.push(
       createCheckRow(
         titles[i],
-        <Checkbox.Group value={value} onChange={setValue} size="md">
+        <Checkbox.Group value={value} onChange={(e) => setValue(e)} size="md">
           <Checkbox value={values[i]} key={i} />
         </Checkbox.Group>,
         values[i]

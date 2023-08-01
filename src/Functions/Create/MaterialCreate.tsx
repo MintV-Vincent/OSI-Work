@@ -27,7 +27,6 @@ export function onAmount(
       return {
         ...row,
         amount: Number(value),
-        price: Number(value * unitPrice),
       };
     })
   );
@@ -100,7 +99,6 @@ export function onMaterial(
         material: value,
         supplier: supplier,
         unitPrice: price,
-        price: Number(row.amount * Number(price)),
       };
     })
   );

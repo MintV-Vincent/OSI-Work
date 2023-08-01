@@ -6,18 +6,14 @@ import { materialRowMap } from "Library/Types";
 import { createMaterialRow } from "Functions/Create/MapCreate";
 import TextInputForm from "./TextInputForm";
 import { filmAtom } from "Library/Atoms/AtomStorage";
+import { processTableAtom } from "Library/Atoms/TableAtoms";
 
 interface AddButtonInterface {
   handleClick: any;
-  data: materialRowMap[];
-  setData: React.Dispatch<React.SetStateAction<materialRowMap[]>>;
 }
 
-export default function AddMaterialForm({
-  handleClick,
-  data,
-  setData,
-}: AddButtonInterface) {
+export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
+  const [data, setData] = useAtom(processTableAtom);
   const [, setMaterial] = useAtom(filmAtom);
   const form = useForm<{
     material: string;

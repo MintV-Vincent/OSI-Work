@@ -8,6 +8,7 @@ import {
   fullTotalAtom,
   marginAtom,
   totalAtom,
+  unitAtom,
   yeildAtom,
 } from "Library/Atoms/AtomStorage";
 
@@ -16,7 +17,7 @@ const sharedTotal: string = "text-xl py-1.5 w-1/4 text-left";
 export default function TotalTab() {
   const [yeild, setYeild] = useAtom(yeildAtom);
   const [margin, setMargin] = useAtom(marginAtom);
-  const [units, setUnit] = useState<number | "">(1);
+  const [units, setUnit] = useAtom(unitAtom);
   const [total] = useAtom(totalAtom);
   const [, setTotal] = useAtom(fullTotalAtom);
 
@@ -69,7 +70,7 @@ export default function TotalTab() {
           className="pb-1.5 w-1/4"
           hideControls
           value={units}
-          onChange={(event: number | "") => setUnit(event)}
+          onChange={(event: number) => setUnit(event)}
           rightSection={
             <IconHash
               size={"1.25rem"}

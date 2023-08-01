@@ -4,20 +4,19 @@ import React from "react";
 import { materialRowMap } from "Library/Types";
 import { createMaterialRow } from "Functions/Create/MapCreate";
 import TextInputForm from "./TextInputForm";
+import { useAtom } from "jotai";
+import { materialTableAtom } from "Library/Atoms/TableAtoms";
 
 interface AddButtonInterface {
   setMaterial: any;
   handleClick: any;
-  data: materialRowMap[];
-  setData: React.Dispatch<React.SetStateAction<materialRowMap[]>>;
 }
 
 export default function AddSupplierForm({
   setMaterial,
   handleClick,
-  data,
-  setData,
 }: AddButtonInterface) {
+  const [data, setData] = useAtom(materialTableAtom);
   const form = useForm<{
     custom: string;
     formula: string;

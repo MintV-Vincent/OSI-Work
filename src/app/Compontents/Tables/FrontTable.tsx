@@ -127,7 +127,7 @@ export function FrontTable({}) {
     "Freight",
     <NumberInput
       hideControls
-      precision={2}
+      precision={4}
       value={freight}
       onChange={(event: number | "") => {
         setFreight(event);

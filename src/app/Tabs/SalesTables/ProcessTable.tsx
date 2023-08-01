@@ -13,7 +13,6 @@ interface QuoteTableInterface {
 }
 
 export default function ProcessTab({ custom, title }: QuoteTableInterface) {
-  const [rowsAtom, useRowsAtom] = useState<materialRowMap[]>(createTable(6));
   const { supplier, setTotal } = getAtom({ title });
   const [status, setState] = useState(false);
   const handleClick = () => {
@@ -22,24 +21,11 @@ export default function ProcessTab({ custom, title }: QuoteTableInterface) {
 
   return (
     <>
-      <ProcessTable
-        data={rowsAtom}
-        custom={custom}
-        rowsAtom={rowsAtom}
-        useRowsAtom={useRowsAtom}
-        setTotal={setTotal}
-        title={title}
-      />
+      <ProcessTable custom={custom} setTotal={setTotal} title={title} />
       <div className="p-10">
         <AddModal
           title={"Add Material"}
-          form={
-            <AddMaterialForm
-              handleClick={handleClick}
-              data={rowsAtom}
-              setData={useRowsAtom}
-            />
-          }
+          form={<AddMaterialForm handleClick={handleClick} />}
           button={
             <Button onClick={() => handleClick()} className="z-50">
               Add Material

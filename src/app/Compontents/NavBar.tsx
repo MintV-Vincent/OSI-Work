@@ -14,8 +14,20 @@ const linkStyle =
 const activeStyle = linkStyle + " text-primary bg-amber-300";
 const nonActiveStyle = linkStyle + " text-primary";
 
+function currentTab(currentRoute: string) {
+  const newArray: string[] = currentRoute.split("/");
+  for (let i: number = 0; i < newArray.length; i++) {
+    if (newArray[i] === "material") {
+      return "/material";
+    }
+  }
+  return "/";
+}
+
 export function NavBar() {
   const currentRoute = usePathname();
+  const newRoute = currentTab(currentRoute);
+
   const mainLinks: LinkProps[] = [
     { link: "/", label: "Front" },
     { link: "/material", label: "Material" },
@@ -23,7 +35,7 @@ export function NavBar() {
 
   const mainItems = mainLinks.map((item: LinkProps, index) => (
     <Link
-      className={currentRoute === item.link ? activeStyle : nonActiveStyle}
+      className={newRoute === item.link ? activeStyle : nonActiveStyle}
       href={item.link}
       key={item.label + index}
       passHref

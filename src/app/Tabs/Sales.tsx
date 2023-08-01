@@ -59,70 +59,37 @@ export default function Sales() {
   ];
 
   return (
-    <Tabs
-      defaultValue={"Total"}
-      orientation="vertical"
-      color="yellow"
-      variant="pills"
-    >
-      <Tabs.List className="bg-tab w-40 pt-6 h-screen fixed">
-        {tabs.map((row: tabType) => (
-          <Tabs.Tab
-            key={row.title + " header"}
-            value={row.title}
-            className="py-3.5"
-            style={{
-              color: "#22223B",
-            }}
-          >
-            {row.title}
-          </Tabs.Tab>
-        ))}
-      </Tabs.List>
-      {tabs.map((row: tabType) => (
-        <Tabs.Panel
-          className="py-0 ml-40"
-          key={row.title + " tab"}
-          value={row.title}
-        >
-          <div className="mx-8">
-            <h1 className="text-primary text-center">{row.title}</h1>
-            <div className="flex justify-between">
-              <label className="text-xl w-1/4 text-left">
-                USD Exchange Rate
-              </label>
-              <label className="text-xl w-1/4 text-left">Panel Size</label>
-            </div>
-            <div className="flex justify-between">
-              <NumberInput
-                className="w-1/4 pb-3"
-                hideControls
-                precision={2}
-                value={exchangeRate}
-                onChange={(event: number | "") => {
-                  setExchangeRate(event);
-                }}
-                rightSection={
-                  <IconCurrencyDollar
-                    size={"1.25rem"}
-                    style={{ display: "block", opacity: 0.5 }}
-                  />
-                }
-                rightSectionWidth={36}
-              />
-              <Select
-                className="w-1/4 pb-3"
-                defaultValue={"1.5"}
-                value={panel}
-                onChange={setPanel as any}
-                data={panelRow}
-                title={"Panel Size"}
-              />
-            </div>
-            <div>{row.table}</div>
-          </div>
-        </Tabs.Panel>
-      ))}
-    </Tabs>
+    <div className="m-8 w-full">
+      <div className="flex justify-between">
+        <label className="text-xl w-1/4 text-left">USD Exchange Rate</label>
+        <label className="text-xl w-1/4 text-left">Panel Size</label>
+      </div>
+      <div className="flex justify-between">
+        <NumberInput
+          className="w-1/4 pb-3"
+          hideControls
+          precision={2}
+          value={exchangeRate}
+          onChange={(event: number | "") => {
+            setExchangeRate(event);
+          }}
+          rightSection={
+            <IconCurrencyDollar
+              size={"1.25rem"}
+              style={{ display: "block", opacity: 0.5 }}
+            />
+          }
+          rightSectionWidth={36}
+        />
+        <Select
+          className="w-1/4 pb-3"
+          defaultValue={"1.5"}
+          value={panel}
+          onChange={setPanel as any}
+          data={panelRow}
+          title={"Panel Size"}
+        />
+      </div>
+    </div>
   );
 }

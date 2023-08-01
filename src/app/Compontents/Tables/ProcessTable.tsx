@@ -9,6 +9,7 @@ import { processHeader } from "Library/Headers";
 import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import useUpdateTotal from "Hooks/UseUpdateTotal";
 import { filmProcessAtom } from "Library/Atoms/AtomStorage";
+import { processTableAtom } from "Library/Atoms/TableAtoms";
 
 const columns: string[] = [
   "w-80",
@@ -16,23 +17,15 @@ const columns: string[] = [
   "w-40 text-right",
   "w-40 text-right",
 ];
-
 interface PriceTableInterface {
-  data: materialRowMap[];
   title: string;
   custom?: string;
-  rowsAtom: any;
-  useRowsAtom: any;
   setTotal: any;
 }
 
-export function ProcessTable({
-  data,
-  rowsAtom,
-  useRowsAtom,
-  setTotal,
-}: PriceTableInterface) {
+export function ProcessTable({ setTotal }: PriceTableInterface) {
   const [processing] = useAtom(filmProcessAtom);
+  const [rowsAtom, useRowsAtom] = useAtom(processTableAtom);
 
   //Calculate the total
   const total: number = useMemo(() => {
@@ -48,7 +41,7 @@ export function ProcessTable({
     <Table miw={700} striped withBorder verticalSpacing="md">
       <HeaderRow columns={columns} titles={processHeader} />
       <tbody>
-        {data.map((row: materialRowMap, index: number) => (
+        {rowsAtom.map((row: materialRowMap, index: number) => (
           <tr key={index}>
             <td>
               {

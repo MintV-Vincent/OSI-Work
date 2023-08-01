@@ -14,6 +14,8 @@ import HeaderRow from "./Rows/HeaderRow";
 import { materialHeader } from "Library/Headers";
 import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import useUpdateTotal from "Hooks/UseUpdateTotal";
+import { useAtom } from "jotai";
+import { materialTableAtom } from "Library/Atoms/TableAtoms";
 
 const tableSize: string = "w-40 ";
 
@@ -27,19 +29,16 @@ const columns: string[] = [
 ];
 interface PriceTableInterface {
   customString: string;
-  rowsAtom: materialRowMap[];
-  useRowsAtom: any;
   database: any;
   setTotal: any;
 }
 
 export function PriceTable({
   customString,
-  rowsAtom,
-  useRowsAtom,
   database,
   setTotal,
 }: PriceTableInterface) {
+  const [rowsAtom, useRowsAtom] = useAtom(materialTableAtom);
   const array = SelectLogic(database);
   const materials: rowMapPrice[] = array.material;
   const supplier: dictionaryMap[] = array.supplier;
@@ -62,8 +61,9 @@ export function PriceTable({
             <td className={tableSize}>
               <Select
                 placeholder="Supplier"
-                value={row.supplier}
-                onChange={(e: string) => {
+                searchable
+                searchValue={row.supplier}
+                onSearchChange={(e: string) => {
                   onSupplier(index, e, rowsAtom, useRowsAtom);
                 }}
                 data={supplier}

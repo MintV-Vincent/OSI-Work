@@ -33,7 +33,7 @@ export function createFormula(formula: string, cost: number): string {
             equation = equation + exchangeRate;
             break;
           case "size":
-            equation = equation + panel;
+            equation = equation + "1";
             break;
           case "freight":
             equation = equation + freight;

@@ -8,7 +8,7 @@ import HeaderRow from "./Rows/HeaderRow";
 import { processHeader } from "Library/Headers";
 import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import useUpdateTotal from "Hooks/UseUpdateTotal";
-import { filmProcessAtom } from "Library/Atoms/AtomStorage";
+import { filmProcessAtom, filmTotalAtom } from "Library/Atoms/AtomStorage";
 import { processTableAtom } from "Library/Atoms/TableAtoms";
 
 const columns: string[] = [
@@ -17,13 +17,9 @@ const columns: string[] = [
   "w-40 text-right",
   "w-40 text-right",
 ];
-interface PriceTableInterface {
-  title: string;
-  custom?: string;
-  setTotal: any;
-}
 
-export function ProcessTable({ setTotal }: PriceTableInterface) {
+export function ProcessTable() {
+  const [, setTotal] = useAtom(filmTotalAtom);
   const [processing] = useAtom(filmProcessAtom);
   const [rowsAtom, useRowsAtom] = useAtom(processTableAtom);
 

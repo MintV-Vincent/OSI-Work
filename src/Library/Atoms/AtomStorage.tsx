@@ -5,7 +5,6 @@ import { arlon } from "DataBases/Arlon";
 import { dupont } from "DataBases/Dupont";
 import { panasonic } from "DataBases/Laminate";
 import { cover } from "DataBases/JsonCover";
-import { stiffener } from "DataBases/Processes";
 import { dryFilm } from "DataBases/Processes";
 import JsonToAtom from "JsonReader/JsonToAtom";
 import { atom } from "jotai";

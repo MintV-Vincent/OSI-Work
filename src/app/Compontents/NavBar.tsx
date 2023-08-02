@@ -1,4 +1,3 @@
-"use client";
 import Logo from "Images/Logo.svg";
 import Link from "next/link";
 import Image from "next/image";
@@ -48,7 +47,7 @@ export function NavBar() {
   return (
     <nav className="h-16 flex justify-between items-center bg-light drop-shadow-lg">
       <Image
-        className="w-auto h-16 p-2.5"
+        className="w-72 h-16 p-2.5"
         src={Logo}
         priority={true}
         alt="PFC FLEX LOGO"

@@ -5,7 +5,6 @@ import { useAtom } from "jotai";
 import { exchangeRateAtom, panelAtom } from "Library/Atoms/AtomStorage";
 import { panelRow } from "Library/SelectMap";
 import { IconCurrencyDollar } from "@tabler/icons-react";
-import { JotaiProvider } from "app/Compontents/JotaiProvider";
 
 export default function MaterialLayout({
   children,
@@ -20,15 +19,15 @@ export default function MaterialLayout({
       <div className="m-8 w-full">
         <div className="flex justify-between">
           <div className="flex justify-between w-1/2">
-            <label className="text-xl text-left">USD</label>
-            <label className="text-xl text-left">CAD Exchange Rate</label>
+            <label className="text-xl text-left w-60">USD</label>
+            <label className="text-xl text-left w-60">CAD Exchange Rate</label>
           </div>
           <label className="text-xl w-1/4 text-left">Panel Size</label>
         </div>
         <div className="flex justify-between">
           <div className="flex justify-between w-1/2">
             <NumberInput
-              className="pb-3"
+              className="pb-3 w-60"
               hideControls
               precision={2}
               value={1.0}
@@ -41,7 +40,7 @@ export default function MaterialLayout({
               rightSectionWidth={36}
             />
             <NumberInput
-              className="pb-3"
+              className="pb-3 w-60"
               hideControls
               precision={2}
               value={exchangeRate}

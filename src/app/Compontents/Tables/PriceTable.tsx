@@ -16,6 +16,7 @@ import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import useUpdateTotal from "Hooks/UseUpdateTotal";
 import { useAtom } from "jotai";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
+import { materialAtom, materialTotalAtom } from "Library/Atoms/AtomStorage";
 
 const tableSize: string = "w-40 ";
 
@@ -29,16 +30,12 @@ const columns: string[] = [
 ];
 interface PriceTableInterface {
   customString: string;
-  database: any;
-  setTotal: any;
 }
 
-export function PriceTable({
-  customString,
-  database,
-  setTotal,
-}: PriceTableInterface) {
+export function PriceTable({ customString }: PriceTableInterface) {
   const [rowsAtom, useRowsAtom] = useAtom(materialTableAtom);
+  const [, setTotal] = useAtom(materialTotalAtom);
+  const [database] = useAtom(materialAtom);
   const array = SelectLogic(database);
   const materials: rowMapPrice[] = array.material;
   const supplier: dictionaryMap[] = array.supplier;

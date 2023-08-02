@@ -26,22 +26,7 @@ interface SplitTable {
   right: rowMap;
 }
 
-const rowClassName = "h-14 ";
-
-const rows: string[] = [
-  rowClassName,
-  rowClassName,
-  rowClassName,
-  rowClassName,
-  rowClassName,
-  rowClassName,
-  rowClassName,
-  rowClassName,
-  rowClassName,
-  rowClassName,
-  rowClassName,
-  rowClassName,
-];
+const rowClassName = "h-14";
 
 function createLoop(number: number) {
   let indents: string[] = [];
@@ -85,7 +70,6 @@ export function FrontTable({}) {
       clearable
       searchValue={layers}
       onSearchChange={(e) => {
-        console.log(e);
         if (e != "") {
           setLayers(e);
         }
@@ -156,13 +140,13 @@ export function FrontTable({}) {
 
   // This table consist of only two columns. The data points should be of type row map
   return (
-    <>
+    <div className="pt-10">
       <Table miw={700} striped withBorder verticalSpacing="md">
         <thead className={"bg-light"}>
           <tr>
             <td colSpan={1}></td>
             <td
-              colSpan={11}
+              colSpan={6}
               className={"text-xl font-semibold py-2 px-3 text-primary"}
             >
               Front
@@ -172,32 +156,39 @@ export function FrontTable({}) {
         <tbody>
           <tr>
             <td colSpan={1}></td>
-            <td className={"text font-semibold"} colSpan={1}>
+            <td className={"text font-semibold " + rowClassName} colSpan={1}>
               {"Customer"}
             </td>
-            <td colSpan={5}>{customerCode}</td>
-            <td colSpan={5}>{selectCustomer}</td>
+            <td className={rowClassName} colSpan={1}>
+              {selectCustomer}
+            </td>
+            <td colSpan={1}></td>
+            <td className={"text font-semibold " + rowClassName} colSpan={2}>
+              {customerCode}
+            </td>
+            <td colSpan={1}></td>
           </tr>
           {leftTable.map((row: SplitTable, index: number) => (
-            <tr className={" text-primary"} key={row.left + " row " + index}>
+            <tr key={row.left + " row " + index}>
               <td colSpan={1}></td>
-              <td className={rows[index]} colSpan={1}>
+              <td className={rowClassName} colSpan={1}>
                 {row.left.label}
               </td>
-              <td className={rows[index]} colSpan={3}>
+              <td className={rowClassName} colSpan={1}>
                 {row.left.value}
               </td>
-              <td colSpan={2}></td>
-              <td className={rows[index]} colSpan={1}>
+              <td colSpan={1}></td>
+              <td className={rowClassName} colSpan={1}>
                 {row.right.label}
               </td>
-              <td className={rows[index]} colSpan={3}>
+              <td className={rowClassName} colSpan={1}>
                 {row.right.value}
               </td>
+              <td colSpan={1}></td>
             </tr>
           ))}
         </tbody>
       </Table>
-    </>
+    </div>
   );
 }

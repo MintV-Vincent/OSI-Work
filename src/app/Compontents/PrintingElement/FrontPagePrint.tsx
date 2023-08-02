@@ -6,19 +6,35 @@ import GetDate from "Functions/GetFunction/GetDate";
 import GetQuote from "Functions/GetFunction/GetQuote";
 import { useAtom } from "jotai";
 import {
+  customerAtom,
   noteAtom,
   partsInputAtom,
   revAtom,
   salesAtom,
-  soldAtom,
 } from "Library/Atoms/FrontPageAtoms";
+
+const gus: string = "Gus Tarkas, ";
+const chris: string = "Chris Keirstead, ";
+const micheal: string = "Micheal Mordando, ";
+
+function chooseSales(value: string): string {
+  switch (value) {
+    case "gus":
+      return gus + "VP\ngtrakas@pfcflex.com";
+    case "chris":
+      return chris + "Sales Manager\nckeirstead@pfcflex.com";
+    case "micheal":
+      return micheal + "Director of sales\nmmorando@pfcflex.com";
+  }
+  return "";
+}
+
 export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
   const [notes] = useAtom(noteAtom);
-  const [sold] = useAtom(soldAtom);
   const [sales] = useAtom(salesAtom);
   const [partNumber] = useAtom(partsInputAtom);
   const [revision] = useAtom(revAtom);
-  const customer = "123";
+  const [customer] = useAtom(customerAtom);
   return (
     <div className="div-div" ref={ref}>
       <div className="div">
@@ -54,7 +70,7 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
         </div>
         <div className="text-wrapper-2">PFC Flexible Circuits Limited</div>
         <div className="sales">Sales: </div>
-        <div className="sales-text">{sales}</div>
+        <div className="sales-text">{chooseSales(sales)}</div>
         <div className="group-3">
           <div className="date-getdate">{"Date: " + GetDate()}</div>
           <div className="quotation-number">

@@ -26,7 +26,6 @@ export function AddModal({
       >
         {form}
       </Modal>
-
       {button}
     </Group>
   );

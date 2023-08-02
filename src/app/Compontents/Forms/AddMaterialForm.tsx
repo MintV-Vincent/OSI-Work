@@ -1,12 +1,11 @@
-import { Box, Button, Group, NumberInput } from "@mantine/core";
+import { Box, Button, Group, NumberInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useAtom } from "jotai";
 import React from "react";
-import { materialRowMap } from "Library/Types";
 import { createMaterialRow } from "Functions/Create/MapCreate";
-import TextInputForm from "./TextInputForm";
 import { filmAtom } from "Library/Atoms/AtomStorage";
 import { processTableAtom } from "Library/Atoms/TableAtoms";
+import ModalForm from "app/Compontents/Forms/ModalForm";
 
 interface AddButtonInterface {
   handleClick: any;
@@ -32,7 +31,6 @@ export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
           : null,
     }),
   });
-
   return (
     <Box maw={340} mx="auto">
       <form
@@ -59,21 +57,7 @@ export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
           }
         })}
       >
-        <TextInputForm form={form} text={"Formula"} />
-        <TextInputForm form={form} text={"Material"} />
-        <NumberInput
-          required
-          mt="sm"
-          label="Price"
-          placeholder="Price"
-          {...form.getInputProps("price")}
-        />
-
-        <Group position="right" mt="md">
-          <Button type="submit" className="">
-            Submit
-          </Button>
-        </Group>
+        <ModalForm form={form} />
       </form>
     </Box>
   );

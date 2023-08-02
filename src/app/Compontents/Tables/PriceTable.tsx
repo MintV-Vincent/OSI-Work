@@ -1,6 +1,6 @@
 import { NumberInput, Select, Table } from "@mantine/core";
 import { dictionaryMap, materialRowMap, rowMapPrice } from "Library/Types";
-import React, { useMemo } from "react";
+import React from "react";
 import {
   onAmount,
   onMaterial,
@@ -13,16 +13,16 @@ import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
 import { materialHeader } from "Library/Headers";
 import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
-import useUpdateTotal from "Hooks/UseUpdateTotal";
 import { useAtom } from "jotai";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
-import { materialAtom, materialTotalAtom } from "Library/Atoms/AtomStorage";
+import { materialAtom } from "Library/Atoms/AtomStorage";
+import { materialTotalAtom } from "Library/Atoms/TotalAtom";
 
 const tableSize: string = "w-40 h-14 ";
 
 const columns: string[] = [
   tableSize,
-  "w-80",
+  "w-80 h-14",
   tableSize,
   tableSize,
   tableSize + "text-right",
@@ -34,20 +34,11 @@ interface PriceTableInterface {
 
 export function PriceTable({ customString }: PriceTableInterface) {
   const [rowsAtom, useRowsAtom] = useAtom(materialTableAtom);
-  const [, setTotal] = useAtom(materialTotalAtom);
+  const [total] = useAtom(materialTotalAtom);
   const [database] = useAtom(materialAtom);
   const array = SelectLogic(database);
   const materials: rowMapPrice[] = array.material;
   const supplier: dictionaryMap[] = array.supplier;
-
-  const total: number = useMemo(() => {
-    return rowsAtom.reduce(
-      (previousScore: number, currentScore: materialRowMap) =>
-        previousScore + currentScore.price,
-      0
-    );
-  }, [rowsAtom]);
-  useUpdateTotal({ setTotal, total });
 
   return (
     <Table miw={700} striped withBorder verticalSpacing="md">

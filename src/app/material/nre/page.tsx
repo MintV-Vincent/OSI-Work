@@ -7,7 +7,6 @@ import { addArrayTotal } from "Functions/MathFunctions";
 import { createCheckRow } from "Functions/Create/MapCreate";
 import { Checkbox } from "@mantine/core";
 import { useAtom } from "jotai";
-import { NRETotalAtom } from "Library/Atoms/AtomStorage";
 import {
   assyPallAtom,
   assyStenAtom,
@@ -22,6 +21,7 @@ import {
 } from "Library/Atoms/TableAtoms";
 import { NRETitle } from "Library/Headers";
 import { getValues } from "Functions/GetFunction/GetInputValue";
+import { NRETotalAtom } from "Library/Atoms/TotalAtom";
 
 export default function page() {
   const [value, setValue] = useAtom(customCheckTableAtom);

@@ -8,7 +8,6 @@ import { cover } from "DataBases/JsonCover";
 import { dryFilm } from "DataBases/Processes";
 import JsonToAtom from "JsonReader/JsonToAtom";
 import { atom } from "jotai";
-import { get } from "http";
 
 const isolaAtom = atom(JsonToAtom(isola));
 const arlonAtom = atom(JsonToAtom(arlon));
@@ -16,24 +15,6 @@ const dupontAtom = atom(JsonToAtom(dupont));
 const panasonicAtom = atom(JsonToAtom(panasonic));
 const coverAtom = atom(JsonToAtom(cover));
 const addedAtom = atom<rowMapPrice[]>([]);
-
-//Sales (Materials and Process)
-export const materialTotalAtom = atom(0);
-export const filmTotalAtom = atom(0);
-
-//Services
-export const assyTotalAtom = atom(0);
-export const qualityTotalAtom = atom(0);
-export const processTotalAtom = atom(0);
-export const NRETotalAtom = atom(0);
-
-export const totalAtom = atom((get) => {
-  const material = get(materialTotalAtom);
-  const film = get(filmTotalAtom);
-  const qual = get(qualityTotalAtom);
-  const nre = get(NRETotalAtom);
-  return [material, film, qual, nre];
-});
 
 export const materialAtom = atom(
   (get) => {
@@ -94,10 +75,3 @@ export const yeildAtom = atom<number | "">(1);
 export const marginAtom = atom<number | "">(1);
 export const unitAtom = atom<number>(1);
 export const panelAtom = atom<string | "">("1.5");
-
-export const fullTotalAtom = atom((get) => {
-  return get(totalAtom).reduce(
-    (accumulator, currentValue) => accumulator + currentValue,
-    0
-  );
-});

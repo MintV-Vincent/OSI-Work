@@ -1,11 +1,5 @@
-import {
-  filmAtom,
-  materialAtom,
-  filmTotalAtom,
-  materialTotalAtom,
-} from "Library/Atoms/AtomStorage";
+import { filmTotalAtom, materialTotalAtom } from "Library/Atoms/TotalAtom";
 import { materialsTitle, processFilmTitle } from "Library/Headers";
-import { rowMapPrice } from "Library/Types";
 import { useAtom } from "jotai";
 interface returnAtom {
   setTotal: any;

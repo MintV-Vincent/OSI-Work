@@ -6,7 +6,6 @@ import {
   exchangeRateAtom,
   freightAtom,
   panelAtom,
-  fullTotalAtom,
 } from "Library/Atoms/AtomStorage";
 import { Button, Radio, Textarea } from "@mantine/core";
 import { FrontTable } from "app/Compontents/Tables/FrontTable";
@@ -21,6 +20,7 @@ import {
   salesAtom,
   soldAtom,
 } from "Library/Atoms/FrontPageAtoms";
+import { fullTotalAtom } from "Library/Atoms/TotalAtom";
 
 const FrontPagePrint = lazy(
   () => import("app/Compontents/PrintingElement/FrontPagePrint")

@@ -1,24 +1,18 @@
 "use client";
 import { Center, Checkbox, Table } from "@mantine/core";
 import { createCheckRow } from "Functions/Create/MapCreate";
-import { addStringArrayTotal } from "Functions/MathFunctions";
-import { qualityTotalAtom } from "Library/Atoms/AtomStorage";
 import { checkTableAtom } from "Library/Atoms/TableAtoms";
+import { qualityTotalAtom } from "Library/Atoms/TotalAtom";
 import { checkValuesTable } from "Library/CheckValues";
 import { checkTableTitle } from "Library/Headers";
 import { checkTableMap } from "Library/Types";
 import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
 import { useAtom } from "jotai";
-import React, { useEffect } from "react";
+import React from "react";
 
 export default function page() {
-  const [, setQual] = useAtom(qualityTotalAtom);
+  const [total] = useAtom(qualityTotalAtom);
   const [value, setValue] = useAtom(checkTableAtom);
-  const total = addStringArrayTotal(value);
-
-  useEffect(() => {
-    setQual(total);
-  }, [total]);
 
   let checkTableRow = [];
   for (let i: number = 0; i < checkTableTitle.length; i++) {

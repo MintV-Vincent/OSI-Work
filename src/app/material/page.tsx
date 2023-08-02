@@ -1,18 +1,17 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { NumberInput } from "@mantine/core";
 import { useAtom } from "jotai";
 import { TotalTable } from "app/Compontents/Tables/TotalTable";
-import { addArrayTotal, newTotal } from "Functions/MathFunctions";
+import { newTotal } from "Functions/MathFunctions";
 import { IconPercentage, IconHash } from "@tabler/icons-react";
 import {
   exchangeRateAtom,
-  fullTotalAtom,
   marginAtom,
-  totalAtom,
   unitAtom,
   yeildAtom,
 } from "Library/Atoms/AtomStorage";
+import { fullTotalAtom, totalAtom } from "Library/Atoms/TotalAtom";
 
 const sharedTotal: string = "text-xl py-1.5 w-1/4 text-left";
 
@@ -21,8 +20,7 @@ export default function page() {
   const [yeild, setYeild] = useAtom(yeildAtom);
   const [margin, setMargin] = useAtom(marginAtom);
   const [units, setUnit] = useAtom(unitAtom);
-  const [total] = useAtom(totalAtom);
-  const [fullTotal, setTotal] = useAtom(fullTotalAtom);
+  const [fullTotal] = useAtom(fullTotalAtom);
 
   return (
     <>

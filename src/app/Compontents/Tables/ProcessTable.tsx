@@ -1,15 +1,15 @@
 import { NumberInput, Select, Table } from "@mantine/core";
 import { materialRowMap } from "Library/Types";
 import { useAtom } from "jotai";
-import React, { useMemo } from "react";
+import React from "react";
 import { onAmount, onMaterial } from "Functions/Create/MaterialCreate";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
 import { processHeader } from "Library/Headers";
 import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
-import useUpdateTotal from "Hooks/UseUpdateTotal";
-import { filmProcessAtom, filmTotalAtom } from "Library/Atoms/AtomStorage";
+import { filmProcessAtom } from "Library/Atoms/AtomStorage";
 import { processTableAtom } from "Library/Atoms/TableAtoms";
+import { filmTotalAtom } from "Library/Atoms/TotalAtom";
 
 const columns: string[] = [
   "w-80 h-14",
@@ -19,19 +19,10 @@ const columns: string[] = [
 ];
 
 export function ProcessTable() {
-  const [, setTotal] = useAtom(filmTotalAtom);
+  const [total] = useAtom(filmTotalAtom);
   const [processing] = useAtom(filmProcessAtom);
   const [rowsAtom, useRowsAtom] = useAtom(processTableAtom);
-
-  //Calculate the total
-  const total: number = useMemo(() => {
-    return rowsAtom.reduce(
-      (previousScore: number, currentScore: materialRowMap) =>
-        previousScore + currentScore.price,
-      0
-    );
-  }, [rowsAtom]);
-  useUpdateTotal({ setTotal, total });
+  console.log("2");
 
   return (
     <Table miw={700} striped withBorder verticalSpacing="md">

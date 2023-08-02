@@ -21,6 +21,7 @@ import {
   revAtom,
   technologyAtom,
 } from "Library/Atoms/FrontPageAtoms";
+import { useEffect, useRef } from "react";
 interface SplitTable {
   left: rowMap;
   right: rowMap;
@@ -31,12 +32,20 @@ const rowClassName = "h-14";
 function createLoop(number: number) {
   let indents: string[] = [];
   for (let i: number = 1; i < number + 1; i++) {
-    indents.push("‎" + i.toString());
+    indents.push(i.toString());
   }
   return indents;
 }
 
 export function FrontTable({}) {
+  const isMounted = useRef(false);
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
+
   const [freight, setFreight] = useAtom(freightAtom);
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
   const [panel, setPanel] = useAtom(panelAtom);
@@ -71,7 +80,7 @@ export function FrontTable({}) {
       clearable
       searchValue={layers}
       onSearchChange={(e) => {
-        if (e != "") {
+        if (isMounted.current == true) {
           setLayers(e);
         }
       }}

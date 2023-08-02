@@ -1,6 +1,6 @@
 import { ActionIcon, Select } from "@mantine/core";
 import { createData } from "Functions/Create/MapCreate";
-import React, { Suspense, lazy, useEffect, useState } from "react";
+import React, { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { AddModal } from "./AddModal";
 import { createCode } from "Functions/SelectCodeCreate";
 import { getCode } from "Functions/GetFunction/GetCode";
@@ -17,10 +17,15 @@ import {
 const AddCustomerForm = lazy(() => import("app/Compontents/Forms/AddCustomer"));
 
 export default function SelectLabel() {
+  const isMounted = useRef(false);
   useEffect(() => {
     //Use effect should be up here, it should only sort on load, not every render.
     //When inserting a new element, selectCodeCreate should be sorting. Moving this down will cause multiple useless sorts.
     SortArray(dataRow, setDataRow);
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
   }, []);
 
   const [selector, setSelector] = useAtom(customerAtom);
@@ -37,7 +42,7 @@ export default function SelectLabel() {
       allowDeselect
       searchValue={selector}
       onSearchChange={(e) => {
-        if (e != "") {
+        if (isMounted.current == true) {
           setSelector(e);
           getCode(selector, dataRow, setText);
         }

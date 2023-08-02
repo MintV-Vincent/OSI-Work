@@ -7,7 +7,7 @@ export interface rowMap {
   value: React.JSX.Element;
 }
 
-export interface rowMap2 {
+export interface checkTableMap {
   label: string;
   value: React.JSX.Element;
   value2: any;

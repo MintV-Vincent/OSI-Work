@@ -4,7 +4,7 @@ import {
   rowMap,
   dictionaryMap,
   rowTotalMap,
-  rowMap2,
+  checkTableMap,
 } from "Library/Types";
 // These functions return the types of rows used for the tables. These are needed to create the tables
 
@@ -16,7 +16,7 @@ export function createCheckRow(
   label: string,
   value: React.JSX.Element,
   value2: any
-): rowMap2 {
+): checkTableMap {
   return { label, value, value2 };
 }
 

@@ -1,19 +1,20 @@
 import { ActionIcon, Select } from "@mantine/core";
 import { createData } from "Functions/Create/MapCreate";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import { AddModal } from "./AddModal";
 import { createCode } from "Functions/SelectCodeCreate";
 import { getCode } from "Functions/GetFunction/GetCode";
 import { useAtom } from "jotai";
 import SortArray, { addItem } from "Functions/SortArray";
 import { upperCaseString } from "Functions/StringFunction";
-import AddCustomerForm from "./Forms/AddCustomer";
 import { IconPlus } from "@tabler/icons-react";
 import {
   codeAtom,
   customerAtom,
   customerRowAtom,
 } from "Library/Atoms/FrontPageAtoms";
+
+const AddCustomerForm = lazy(() => import("app/Compontents/Forms/AddCustomer"));
 
 export default function SelectLabel() {
   useEffect(() => {
@@ -49,12 +50,9 @@ export default function SelectLabel() {
         <AddModal
           title={"Add Customer"}
           form={
-            <AddCustomerForm
-              handleClick={handleClick}
-              customerAtom={customerAtom}
-              codeAtom={codeAtom}
-              customerRowAtom={customerRowAtom}
-            />
+            <Suspense>
+              <AddCustomerForm handleClick={handleClick} />
+            </Suspense>
           }
           button={
             <ActionIcon

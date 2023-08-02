@@ -5,6 +5,7 @@ import { useAtom } from "jotai";
 import { exchangeRateAtom, panelAtom } from "Library/Atoms/AtomStorage";
 import { panelRow } from "Library/SelectMap";
 import { IconCurrencyDollar } from "@tabler/icons-react";
+import { Suspense } from "react";
 
 export default function MaterialLayout({
   children,

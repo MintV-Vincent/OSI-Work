@@ -12,10 +12,10 @@ export function TotalTable() {
     <Table miw={700} striped withBorder verticalSpacing="md">
       <HeaderRow
         columns={[
-          "h-12 w-40",
-          "text-left h-12 w-100",
-          "text-right h-12 w-100",
-          "text-right h-12 w-40",
+          "h-14 w-40",
+          "text-left h-14 w-100",
+          "text-right h-14 w-100",
+          "text-right h-14 w-40",
         ]}
         titles={totalHeader}
       />

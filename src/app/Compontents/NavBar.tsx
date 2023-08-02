@@ -9,9 +9,9 @@ interface LinkProps {
 }
 
 const linkStyle =
-  "flex items-center pl-[30px] pr-[30px] h-full no-underline hover:text-amber-600 duration-300 text-xl font-semibold";
-const activeStyle = linkStyle + " text-primary bg-amber-300";
-const nonActiveStyle = linkStyle + " text-primary";
+  "flex items-center pl-[30px] pr-[30px] h-full no-underline hover:text-hover duration-300 text-xl font-semibold";
+const activeStyle = linkStyle + " text-white bg-tab";
+const nonActiveStyle = linkStyle + " text-white";
 
 function currentTab(currentRoute: string) {
   const newArray: string[] = currentRoute.split("/");

@@ -18,7 +18,7 @@ import { useAtom } from "jotai";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { materialAtom, materialTotalAtom } from "Library/Atoms/AtomStorage";
 
-const tableSize: string = "w-40 ";
+const tableSize: string = "w-40 h-14 ";
 
 const columns: string[] = [
   tableSize,

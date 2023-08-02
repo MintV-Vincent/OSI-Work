@@ -114,7 +114,9 @@ export default function page() {
           <td></td>
           <td></td>
           <td className="text-center font-semibold">Total</td>
-          <td className="text-left font-semibold">{total.toFixed(2)}</td>
+          <td className="text-left font-semibold">
+            {Number(total).toFixed(2)}
+          </td>
           <td></td>
         </tr>
       </tbody>

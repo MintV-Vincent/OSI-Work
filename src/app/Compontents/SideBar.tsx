@@ -7,8 +7,8 @@ interface LinkProps {
 }
 
 const linkStyle =
-  "no-underline block px-2 py-2 mt-4 text-sm font-semibold text-gray-900 rounded-lg";
-const activeStyle = linkStyle + " text-primary bg-amber-300";
+  "no-underline block px-2 py-2 mt-4 text-sm font-semibold rounded-lg hover:text-hover duration-300 ";
+const activeStyle = linkStyle + " text-primary bg-tab";
 const nonActiveStyle = linkStyle + " text-primary";
 
 export default function SideBar() {

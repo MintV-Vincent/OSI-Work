@@ -12,10 +12,10 @@ import { filmProcessAtom, filmTotalAtom } from "Library/Atoms/AtomStorage";
 import { processTableAtom } from "Library/Atoms/TableAtoms";
 
 const columns: string[] = [
-  "w-80",
-  "w-40",
-  "w-40 text-right",
-  "w-40 text-right",
+  "w-80 h-14",
+  "w-40 h-14",
+  "w-40 text-right h-14",
+  "w-40 text-right h-14",
 ];
 
 export function ProcessTable() {
@@ -56,6 +56,7 @@ export function ProcessTable() {
               {
                 <NumberInput
                   hideControls
+                  precision={2}
                   value={row.amount}
                   onChange={(event: number | "") =>
                     onAmount(index, event, row.unitPrice, rowsAtom, useRowsAtom)

@@ -20,10 +20,10 @@ export function ProtoTable() {
     <Table miw={700} striped withBorder verticalSpacing="md">
       <HeaderRow
         columns={[
-          "h-12 w-1/6",
-          "text-left h-12 w-1/6",
-          "text-center h-12 w-1/2",
-          "text-left h-12 w-1/6",
+          "w-1/6",
+          "text-left w-1/6",
+          "text-center w-1/2",
+          "text-left w-1/6",
         ]}
         titles={protoHeader}
       />

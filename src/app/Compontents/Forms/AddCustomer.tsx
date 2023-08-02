@@ -52,7 +52,7 @@ export default function AddCustomerForm({ handleClick }: AddCustomerInterface) {
           required
           label={"Customer"}
           placeholder={"Customer"}
-          {...form.getInputProps("Formula".toLocaleLowerCase())}
+          {...form.getInputProps("Customer".toLocaleLowerCase())}
         />
         <Group position="right" mt="md">
           <Button type="submit" className="">

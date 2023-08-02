@@ -8,6 +8,7 @@ import { cover } from "DataBases/JsonCover";
 import { dryFilm } from "DataBases/Processes";
 import JsonToAtom from "JsonReader/JsonToAtom";
 import { atom } from "jotai";
+import { get } from "http";
 
 const isolaAtom = atom(JsonToAtom(isola));
 const arlonAtom = atom(JsonToAtom(arlon));
@@ -91,7 +92,12 @@ export const exchangeRateAtom = atom<number | "">(1);
 export const freightAtom = atom<number | "">(1);
 export const yeildAtom = atom<number | "">(1);
 export const marginAtom = atom<number | "">(1);
-export const fullTotalAtom = atom<number>(0);
 export const unitAtom = atom<number>(1);
-// Note that Select value should always be either **string** or **null**: -Mantine
-export const panelAtom = atom<string | null>("1.5");
+export const panelAtom = atom<string | "">("1.5");
+
+export const fullTotalAtom = atom((get) => {
+  return get(totalAtom).reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+});

@@ -17,7 +17,8 @@ module.exports = {
         primary: "#22223B",
         secondary: "#4A4E69",
         light: "#c7dbe6",
-        tab: "#c7dbe6",
+        tab: "#B5BEC6",
+        hover: "#226C2A",
       },
 
       screens: {

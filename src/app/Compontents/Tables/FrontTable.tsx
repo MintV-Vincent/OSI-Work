@@ -1,4 +1,4 @@
-import { Table } from "@mantine/core";
+import { SegmentedControl, Table } from "@mantine/core";
 import { dictionaryMap, rowMap } from "Library/Types";
 import { NumberInput, Select } from "@mantine/core";
 import { createData, createRow } from "Functions/Create/MapCreate";
@@ -45,6 +45,7 @@ export function FrontTable({}) {
   const [assembly, setAssembly] = useAtom(assemblyAtom);
   const [partNumberInput, setPartInput] = useAtom(partsInputAtom);
   const [revisionInput, setRevisionInput] = useAtom(revAtom);
+
   const selectLabel: React.JSX.Element[] = SelectLabel();
   const selectCustomer: React.JSX.Element = selectLabel[0];
   const customerCode: React.JSX.Element = selectLabel[1];
@@ -79,11 +80,19 @@ export function FrontTable({}) {
   );
   const panelSize = createRow(
     "Panel Size",
-    <Select value={panel} onChange={setPanel} data={panelRow} />
+    <SegmentedControl
+      color="blue"
+      fullWidth
+      value={panel}
+      onChange={setPanel}
+      data={panelRow}
+    />
   );
   const technologyTable = createRow(
     "Technology",
-    <Select
+    <SegmentedControl
+      color="blue"
+      fullWidth
       value={technology}
       onChange={setTechnology}
       data={["A", "B", "C", "D"]}
@@ -120,8 +129,9 @@ export function FrontTable({}) {
   );
   const assymblyTable = createRow(
     "Assembly",
-    <Select
-      nothingFound="No options"
+    <SegmentedControl
+      color="blue"
+      fullWidth
       value={assembly}
       onChange={setAssembly}
       data={["Yes", "No"]}

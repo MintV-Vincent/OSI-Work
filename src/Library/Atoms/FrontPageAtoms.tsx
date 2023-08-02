@@ -12,8 +12,9 @@ export const soldAtom = atom<string>("");
 export const partsInputAtom = atom<string>("");
 export const revAtom = atom<string>("");
 export const salesAtom = atom<string>("gus");
+export const currencySelectorAtom = atom<string>("CAD");
 
 // Front Table
 export const layerAtom = atom<string | " ">(" ");
-export const technologyAtom = atom<string | null>("1");
-export const assemblyAtom = atom<string | null>("");
+export const technologyAtom = atom<string | "">("A");
+export const assemblyAtom = atom<string | "">("Yes");

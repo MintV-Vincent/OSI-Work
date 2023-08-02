@@ -6,6 +6,7 @@ import {
   exchangeRateAtom,
   freightAtom,
   panelAtom,
+  fullTotalAtom,
 } from "Library/Atoms/AtomStorage";
 import { Button, Radio, Textarea } from "@mantine/core";
 import { FrontTable } from "app/Compontents/Tables/FrontTable";
@@ -14,6 +15,7 @@ import React, { useRef, lazy, Suspense } from "react";
 import { useAtom } from "jotai";
 import { IconPrinter } from "@tabler/icons-react";
 import {
+  currencySelectorAtom,
   noteAtom,
   partsAtom,
   salesAtom,
@@ -24,9 +26,9 @@ const FrontPagePrint = lazy(
   () => import("app/Compontents/PrintingElement/FrontPagePrint")
 );
 
-const gus: string = "Gus Tarkas, ";
-const chris: string = "Chris Keirstead, ";
-const micheal: string = "Micheal Mordando, ";
+const gus: string = "Gus Tarkas";
+const chris: string = "Chris Keirstead";
+const micheal: string = "Micheal Mordando";
 
 export default function page() {
   const [exchangeRate] = useAtom(exchangeRateAtom);
@@ -34,10 +36,12 @@ export default function page() {
   const [margin] = useAtom(marginAtom);
   const [panel] = useAtom(panelAtom);
   const [yeild] = useAtom(yeildAtom);
+  const [fullTotal] = useAtom(fullTotalAtom);
   const [note, setNote] = useAtom(noteAtom);
   const [part, setPart] = useAtom(partsAtom);
   const [sold, setSold] = useAtom(soldAtom);
   const [sales, setSales] = useAtom(salesAtom);
+  const [selector, setSelector] = useAtom(currencySelectorAtom);
 
   useHydrateAtoms([
     [exchangeRateAtom, exchangeRate],
@@ -85,20 +89,20 @@ export default function page() {
             minRows={3}
           />
         </div>
-        <div className="flex flex-col px-20">
+        <div className="flex flex-col mx-20">
           <Radio.Group
             className="text-xl"
             value={sales}
             onChange={setSales}
             name="sales"
-            label="Select Sales Manager"
-            size="md"
+            label="Select Sales Person"
+            size="lg"
           >
             <Radio className={"py-6"} value="gus" label={gus} />
             <Radio className={"py-6"} value="chris" label={chris} />
             <Radio className={"py-6"} value="micheal" label={micheal} />
           </Radio.Group>
-          <div className="pt-9 flex-grow">
+          <div className="pt-5 flex-grow">
             <Button onClick={handlePrint} rightIcon={<IconPrinter />}>
               Print
             </Button>
@@ -108,6 +112,26 @@ export default function page() {
               </Suspense>
             </div>
           </div>
+        </div>
+        <div className="flex flex-col mx-20">
+          <label className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl text-primary text-center">
+            Total: $
+            {selector === "CAD"
+              ? Number(fullTotal).toFixed(2)
+              : Number(fullTotal / Number(exchangeRate)).toFixed(2)}
+          </label>
+          <Radio.Group
+            className="text-xl"
+            value={selector}
+            onChange={setSelector}
+            name="USDCADEXCHANGE"
+            size="lg"
+          >
+            <div className="flex justify-between">
+              <Radio className={"py-6"} value="CAD" label={"CAD"} />
+              <Radio className={"py-6"} value="USD" label={"USD"} />
+            </div>
+          </Radio.Group>
         </div>
       </div>
     </div>

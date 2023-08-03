@@ -1,4 +1,4 @@
-import { Box, Button, Group, NumberInput, TextInput } from "@mantine/core";
+import { Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useAtom } from "jotai";
 import React from "react";
@@ -16,13 +16,13 @@ export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
   const [, setMaterial] = useAtom(filmAtom);
   const form = useForm<{
     material: string;
-    formula: string;
+    formula: string[];
     price: number | undefined;
   }>({
-    initialValues: { material: "", formula: "", price: undefined },
+    initialValues: { material: "", formula: [], price: undefined },
     validate: (values) => ({
+      formula: values.formula.length < 1 ? "Formula is required" : null,
       material: values.material.length < 1 ? "Invalid Material" : null,
-      formula: values.formula === "" ? "Code is required" : null,
       price:
         values.price === undefined
           ? "Price is required"
@@ -37,21 +37,28 @@ export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
         onSubmit={form.onSubmit((values) => {
           if (
             form &&
-            values.formula != "" &&
+            values.formula.length > 0 &&
             values.price != undefined &&
             values.material != ""
           ) {
+            let newFormula: string = "cost * ";
+            for (let i: number = 0; i < values.formula.length; i++) {
+              newFormula += values.formula[i];
+              if (i != values.formula.length - 1) {
+                newFormula += " * ";
+              }
+            }
             setMaterial(
               values.material,
               values.material,
               values.price,
-              values.formula
+              newFormula
             );
             const newRow = createMaterialRow(data.length);
             setData([...data, newRow]);
 
             values.material = "";
-            values.formula = "";
+            values.formula = [];
             values.price = undefined;
             handleClick();
           }

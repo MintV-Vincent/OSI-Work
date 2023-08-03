@@ -1,4 +1,4 @@
-import { Box, Button, Group, NumberInput, TextInput } from "@mantine/core";
+import { Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import React from "react";
 import { createMaterialRow } from "Functions/Create/MapCreate";
@@ -25,7 +25,7 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
       price: undefined,
     },
     validate: (values) => ({
-      formula: values.formula === "" ? "Formula is required" : null,
+      formula: values.formula.length < 1 ? "Formula is required" : null,
       material: values.material.length < 1 ? "Invalid Material" : null,
       price:
         values.price === undefined
@@ -46,11 +46,18 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
             values.material != "" &&
             values.price != undefined
           ) {
+            let newFormula: string = "cost * ";
+            for (let i: number = 0; i < values.formula.length; i++) {
+              newFormula += values.formula[i];
+              if (i != values.formula.length - 1) {
+                newFormula += " * ";
+              }
+            }
             setMaterial(
               values.material.toString(),
               values.material.toString(),
               values.price,
-              values.formula.toString(),
+              newFormula.toString(),
               "2"
             );
             const newRow = createMaterialRow(data.length);

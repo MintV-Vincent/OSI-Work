@@ -1,15 +1,18 @@
 import { NumberInput, Select, Table } from "@mantine/core";
 import { materialRowMap } from "Library/Types";
 import { useAtom } from "jotai";
-import React from "react";
+import React, { useEffect } from "react";
 import { onAmount, onMaterial } from "Functions/Create/MaterialCreate";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
 import { processHeader } from "Library/Headers";
 import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
-import { filmProcessAtom } from "Library/Atoms/AtomStorage";
+import { exchangeRateAtom, filmProcessAtom } from "Library/Atoms/AtomStorage";
 import { processTableAtom } from "Library/Atoms/TableAtoms";
 import { filmTotalAtom } from "Library/Atoms/TotalAtom";
+import { createFormula } from "Functions/Create/CreateFormula";
+import MaterialSelect from "./CustomCompontents/MaterialSelect";
+import AmountInput from "./CustomCompontents/AmountInput";
 
 const columns: string[] = [
   "w-80 h-14",
@@ -22,7 +25,6 @@ export function ProcessTable() {
   const [total] = useAtom(filmTotalAtom);
   const [processing] = useAtom(filmProcessAtom);
   const [rowsAtom, useRowsAtom] = useAtom(processTableAtom);
-  console.log("2");
 
   return (
     <Table miw={700} striped withBorder verticalSpacing="md">
@@ -31,40 +33,28 @@ export function ProcessTable() {
         {rowsAtom.map((row: materialRowMap, index: number) => (
           <tr key={index}>
             <td>
-              {
-                <Select
-                  placeholder="Select Material"
-                  value={row.material}
-                  searchable
-                  onChange={(e: string) => {
-                    onMaterial(index, e, processing, rowsAtom, useRowsAtom);
-                  }}
-                  data={processing}
-                />
-              }
+              <MaterialSelect
+                currentMaterial={row.material}
+                currentSupplier={row.supplier}
+                id={index}
+                materialList={processing}
+                customs={[]}
+                rowsAtom={rowsAtom}
+                useRowsAtom={useRowsAtom}
+              />
             </td>
             <td>
-              {
-                <NumberInput
-                  hideControls
-                  precision={2}
-                  value={row.amount}
-                  onChange={(event: number | "") =>
-                    onAmount(index, event, row.unitPrice, rowsAtom, useRowsAtom)
-                  }
-                />
-              }
+              <AmountInput
+                id={index}
+                currentAmount={row.amount}
+                unitPrice={row.unitPrice}
+                rowsAtom={rowsAtom}
+                useRowsAtom={useRowsAtom}
+              />
             </td>
             <td className="text-right">{Number(row.unitPrice).toFixed(2)}</td>
             <td className="text-right">
-              <ToolTipLabel
-                formula={row.formula}
-                amount={row.amount}
-                unitPrice={row.unitPrice}
-                id={row.id}
-                useRowsAtom={useRowsAtom}
-                rowsAtom={rowsAtom}
-              />
+              <ToolTipLabel formula={row.formula} price={row.price} />
             </td>
           </tr>
         ))}

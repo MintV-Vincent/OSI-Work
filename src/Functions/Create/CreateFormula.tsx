@@ -1,13 +1,12 @@
-import {
-  exchangeRateAtom,
-  freightAtom,
-  marginAtom,
-  panelAtom,
-  yeildAtom,
-} from "Library/Atoms/AtomStorage";
-import { useAtom } from "jotai";
-
-export function createFormula(formula: string, cost: number): string {
+export function createFormula(
+  formula: string,
+  cost: number,
+  exchangeRate: number | "" = 1,
+  freight: number | "" = 1,
+  size: string = "1",
+  yeild: number | "" = 1,
+  margin: number | "" = 1
+): string {
   // Create a string formated formula, replace any varriable name to its number from the program
   //
   // formula: string -> The equation used to calculate the price of the material or process
@@ -15,15 +14,16 @@ export function createFormula(formula: string, cost: number): string {
   //
   // Return:
   // String of the formula with only numbers and math symbols. The string should be able to be passed to eval()
-  const [exchangeRate] = useAtom(exchangeRateAtom);
-  const [freight] = useAtom(freightAtom);
-  const [panel] = useAtom(panelAtom);
-  const [yeild] = useAtom(yeildAtom);
-  const [margin] = useAtom(marginAtom);
+
+  if (exchangeRate === "") {
+    exchangeRate = 1;
+  }
+
   if (formula.indexOf(" ") > 0) {
     const arrayFormula: string[] = formula.split(" ");
     let equation: string = "";
     for (let i: number = 0; i < arrayFormula.length; i++) {
+      console.log(arrayFormula[i]);
       try {
         switch (arrayFormula[i]) {
           case "cost":
@@ -55,6 +55,9 @@ export function createFormula(formula: string, cost: number): string {
             break;
           case "+":
             equation = equation + "+";
+            break;
+          default:
+            equation = equation + arrayFormula[i].toString();
             break;
         }
       } catch {

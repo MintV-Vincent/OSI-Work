@@ -1,14 +1,7 @@
-import { NumberInput, Select, Table } from "@mantine/core";
+import { Table } from "@mantine/core";
 import { dictionaryMap, materialRowMap, rowMapPrice } from "Library/Types";
 import React from "react";
-import {
-  onAmount,
-  onMaterial,
-  onSupplier,
-} from "Functions/Create/MaterialCreate";
-import SelectLogic, {
-  filterMaterials,
-} from "app/Compontents/Tables/CustomCompontents/SelectLogic";
+import SelectLogic from "app/Compontents/Tables/CustomCompontents/SelectLogic";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
 import { materialHeader } from "Library/Headers";
@@ -17,6 +10,9 @@ import { useAtom } from "jotai";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { materialAtom } from "Library/Atoms/AtomStorage";
 import { materialTotalAtom } from "Library/Atoms/TotalAtom";
+import CustomSelectInput from "./CustomCompontents/SupplierSelect";
+import MaterialSelect from "./CustomCompontents/MaterialSelect";
+import AmountInput from "./CustomCompontents/AmountInput";
 
 const tableSize: string = "w-40 h-14 ";
 
@@ -47,63 +43,40 @@ export function PriceTable({ customString }: PriceTableInterface) {
         {rowsAtom.map((row: materialRowMap, index: number) => (
           <tr key={index}>
             <td className={tableSize}>
-              <Select
-                placeholder="Supplier"
-                searchable
-                searchValue={row.supplier}
-                onSearchChange={(e: string) => {
-                  onSupplier(index, e, rowsAtom, useRowsAtom);
-                }}
-                data={supplier}
+              <CustomSelectInput
+                rowSupplier={row.supplier}
+                rowsAtom={rowsAtom}
+                supplier={supplier}
+                useRowsAtom={useRowsAtom}
+                id={index}
               />
             </td>
             <td className={tableSize}>
-              {
-                <Select
-                  placeholder="Material"
-                  value={row.material}
-                  searchable
-                  onChange={(e: string) => {
-                    onMaterial(index, e, materials, rowsAtom, useRowsAtom);
-                  }}
-                  data={filterMaterials(
-                    materials,
-                    row.supplier ? row.supplier : ""
-                  )}
-                />
-              }
+              <MaterialSelect
+                currentMaterial={row.material}
+                currentSupplier={row.supplier}
+                id={index}
+                materialList={materials}
+                customs={[]}
+                rowsAtom={rowsAtom}
+                useRowsAtom={useRowsAtom}
+              />
             </td>
             <td className={tableSize}>{row.custom}</td>
             <td className={tableSize}>
-              {
-                <NumberInput
-                  hideControls
-                  value={row.amount}
-                  precision={2}
-                  onChange={(event: number) => {
-                    onAmount(
-                      index,
-                      event,
-                      row.unitPrice,
-                      rowsAtom,
-                      useRowsAtom
-                    );
-                  }}
-                />
-              }
+              <AmountInput
+                id={index}
+                currentAmount={row.amount}
+                unitPrice={row.unitPrice}
+                rowsAtom={rowsAtom}
+                useRowsAtom={useRowsAtom}
+              />
             </td>
             <td className={tableSize + "text-right"}>
               {Number(row.unitPrice).toFixed(2)}
             </td>
             <td className={tableSize + "text-right"}>
-              <ToolTipLabel
-                formula={row.formula}
-                amount={row.amount}
-                unitPrice={row.unitPrice}
-                id={row.id}
-                useRowsAtom={useRowsAtom}
-                rowsAtom={rowsAtom}
-              />
+              <ToolTipLabel formula={row.formula} price={row.price} />
             </td>
           </tr>
         ))}

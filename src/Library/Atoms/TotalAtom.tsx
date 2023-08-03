@@ -26,7 +26,6 @@ export const fullTotalAtom = atom((get) => {
 
 export const materialTotalAtom = atom((get) => {
   const typeRowsAtom: any = get(materialTableAtom);
-  console.log(typeRowsAtom);
   return typeRowsAtom.reduce(
     (previousScore: number, currentScore: materialRowMap) =>
       previousScore + currentScore.price,

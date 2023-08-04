@@ -4,7 +4,12 @@ interface selectLogic {
   supplier: dictionaryMap[];
   material: rowMapPrice[];
 }
-
+/**
+ *
+ * @param materials All of the materials from database
+ * @param supplier The supplier, this will be used to check every item for their supplier
+ * @returns A filter list of materials based on the selected supplier
+ */
 export function filterMaterials(materials: rowMapPrice[], supplier: string) {
   if (supplier === "") {
     return materials;
@@ -13,6 +18,12 @@ export function filterMaterials(materials: rowMapPrice[], supplier: string) {
   }
 }
 
+/**
+ *
+ * @param suppliers Should be each supplier with every material that supplier provides PFCFlex
+ * @returns Returns an array of 2 elements, First DictionaryMap[] used to create the supplier select.
+ * The second will be every material used for the material select
+ */
 export default function SelectLogic(suppliers: rowMapPrice[][]): selectLogic {
   const materials: rowMapPrice[] = [];
   let uniqueSupplier: dictionaryMap[] = [];

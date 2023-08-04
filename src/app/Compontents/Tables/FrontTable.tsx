@@ -1,9 +1,9 @@
 import { SegmentedControl, Table } from "@mantine/core";
-import { dictionaryMap, rowMap } from "Library/Types";
+import { rowMap } from "Library/Types";
 import { NumberInput, Select } from "@mantine/core";
-import { createData, createRow } from "Functions/Create/MapCreate";
+import { createRow } from "Functions/Create/MapCreate";
 import GetDate from "Functions/GetFunction/GetDate";
-import { atom, useAtom } from "jotai";
+import { useAtom } from "jotai";
 import { TextInput } from "@mantine/core";
 import { panelRow } from "Library/SelectMap";
 import { IconCurrencyDollar } from "@tabler/icons-react";

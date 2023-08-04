@@ -2,15 +2,17 @@
 import { Center, NumberInput, Table } from "@mantine/core";
 import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
 import { checkTableMap } from "Library/Types";
-import React, { useEffect } from "react";
-import { addArrayTotal } from "Functions/MathFunctions";
+import React from "react";
 import { createCheckRow } from "Functions/Create/MapCreate";
 import { Checkbox } from "@mantine/core";
 import { useAtom } from "jotai";
+import { customCheckTableAtom } from "Library/Atoms/TableAtoms";
+import { NRETitle } from "Library/Headers";
+import { NRETotalAtom } from "Library/Atoms/TotalAtom";
 import {
+  NREAtom,
   assyPallAtom,
   assyStenAtom,
-  customCheckTableAtom,
   designAtom,
   elecAtom,
   haslAtom,
@@ -18,36 +20,23 @@ import {
   photoAtom,
   productAtom,
   secondaryAtom,
-} from "Library/Atoms/TableAtoms";
-import { NRETitle } from "Library/Headers";
-import { getValues } from "Functions/GetFunction/GetInputValue";
-import { NRETotalAtom } from "Library/Atoms/TotalAtom";
+} from "Library/Atoms/NREAtoms";
 
 export default function page() {
   const [value, setValue] = useAtom(customCheckTableAtom);
-  const [photoTools, setPhoto] = useAtom(photoAtom);
-  const [electric, setElec] = useAtom(elecAtom);
-  const [outline, setOutline] = useAtom(outlineAtom);
-  const [secondary, setSecondary] = useAtom(secondaryAtom);
-  const [assySten, setAssySten] = useAtom(assyStenAtom);
-  const [assyPall, setAssyPall] = useAtom(assyPallAtom);
-  const [design, setDesign] = useAtom(designAtom);
-  const [product, setProduct] = useAtom(productAtom);
-  const [hasl, sethasl] = useAtom(haslAtom);
+  const [, setPhoto] = useAtom(photoAtom);
+  const [, setElec] = useAtom(elecAtom);
+  const [, setOutline] = useAtom(outlineAtom);
+  const [, setSecondary] = useAtom(secondaryAtom);
+  const [, setAssySten] = useAtom(assyStenAtom);
+  const [, setAssyPall] = useAtom(assyPallAtom);
+  const [, setDesign] = useAtom(designAtom);
+  const [, setProduct] = useAtom(productAtom);
+  const [, sethasl] = useAtom(haslAtom);
+  const [nre] = useAtom(NREAtom);
 
-  const [, setTotal] = useAtom(NRETotalAtom);
+  const [total] = useAtom(NRETotalAtom);
 
-  const textInputArray: number[] = [
-    photoTools,
-    electric,
-    outline,
-    secondary,
-    assySten,
-    assyPall,
-    design,
-    product,
-    hasl,
-  ];
   const setInputArray: any[] = [
     setPhoto,
     setElec,
@@ -59,11 +48,6 @@ export default function page() {
     setProduct,
     sethasl,
   ];
-  const total = addArrayTotal(getValues(textInputArray, value));
-
-  useEffect(() => {
-    setTotal(total);
-  }, [total]);
 
   let checkTableRow = [];
   for (let i: number = 0; i < NRETitle.length; i++) {
@@ -77,9 +61,11 @@ export default function page() {
           rightSection
           hideControls
           precision={2}
-          value={textInputArray[i]}
+          value={nre[i]}
           onChange={(event: number | "") => {
-            setInputArray[i](event);
+            if (event != "") {
+              setInputArray[i](event);
+            }
           }}
         />
       )

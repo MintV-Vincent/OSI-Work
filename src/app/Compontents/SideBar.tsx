@@ -8,8 +8,8 @@ interface LinkProps {
 
 const linkStyle: string =
   "no-underline block px-2 py-2 mt-4 text-sm font-semibold rounded-lg hover:text-hover duration-300 ";
-const activeStyle: string = linkStyle + " text-primary bg-tab";
-const nonActiveStyle: string = linkStyle + " text-primary";
+const activeStyle: string = linkStyle + " text-white bg-tab";
+const nonActiveStyle: string = linkStyle + " text-white";
 
 export default function SideBar() {
   const currentRoute: string = usePathname();
@@ -36,7 +36,7 @@ export default function SideBar() {
   return (
     <div className="md:flex flex-col md:flex-row min-h-screen w-40">
       <div
-        className="w-40 flex flex-col text-primary bg-light pt"
+        className="w-40 flex flex-col bg-primary pt"
         x-data="{ open: false }"
       >
         <nav className="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">

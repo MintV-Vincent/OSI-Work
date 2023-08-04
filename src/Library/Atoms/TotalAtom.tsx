@@ -6,6 +6,7 @@ import {
   processTableAtom,
 } from "./TableAtoms";
 import { materialRowMap } from "Library/Types";
+import { NREAtom } from "./NREAtoms";
 
 export const totalAtom = atom<number[]>((get) => {
   const material = get(materialTotalAtom);
@@ -50,4 +51,12 @@ export const qualityTotalAtom = atom<number>((get) => {
     0
   );
 });
-export const NRETotalAtom = atom<number>(0);
+export const NRETotalAtom = atom<number>((get) => {
+  const typeNREAtom: any = get(NREAtom);
+  const value: any = get(customCheckTableAtom);
+  let accumulator: number = 0;
+  value.map((row: string) => {
+    accumulator += typeNREAtom[Number(row)];
+  });
+  return accumulator;
+});

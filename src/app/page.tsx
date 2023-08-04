@@ -32,10 +32,10 @@ const micheal: string = "Micheal Mordando";
 
 export default function page() {
   const [exchangeRate] = useAtom(exchangeRateAtom);
-  const [freight] = useAtom(freightAtom);
-  const [margin] = useAtom(marginAtom);
-  const [panel] = useAtom(panelAtom);
-  const [yeild] = useAtom(yeildAtom);
+  // const [freight] = useAtom(freightAtom);
+  // const [margin] = useAtom(marginAtom);
+  // const [panel] = useAtom(panelAtom);
+  // const [yeild] = useAtom(yeildAtom);
   const [fullTotal] = useAtom(fullTotalAtom);
   const [note, setNote] = useAtom(noteAtom);
   const [part, setPart] = useAtom(partsAtom);
@@ -43,13 +43,13 @@ export default function page() {
   const [sales, setSales] = useAtom(salesAtom);
   const [selector, setSelector] = useAtom(currencySelectorAtom);
 
-  useHydrateAtoms([
-    [exchangeRateAtom, exchangeRate],
-    [freightAtom, freight],
-    [marginAtom, margin],
-    [panelAtom, panel],
-    [yeildAtom, yeild],
-  ]);
+  // useHydrateAtoms([
+  //   [exchangeRateAtom, exchangeRate],
+  //   [freightAtom, freight],
+  //   [marginAtom, margin],
+  //   [panelAtom, panel],
+  //   [yeildAtom, yeild],
+  // ]);
 
   let componentRef: any = useRef();
   const handlePrint = useReactToPrint({

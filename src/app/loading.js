@@ -5,7 +5,7 @@ export default function Loading() {
   return (
     <div className="m-auto">
       <h1>LOADING</h1>
-      <div className="custom-loader"></div>
+      <div className="custom-loader m-auto"></div>
     </div>
   );
 }

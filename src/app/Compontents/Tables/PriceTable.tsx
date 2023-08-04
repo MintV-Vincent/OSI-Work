@@ -5,7 +5,6 @@ import SelectLogic from "app/Compontents/Tables/CustomCompontents/SelectLogic";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
 import { materialHeader } from "Library/Headers";
-import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import { useAtom } from "jotai";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { materialAtom } from "Library/Atoms/AtomStorage";
@@ -29,7 +28,7 @@ interface PriceTableInterface {
 }
 
 export function PriceTable({ customString }: PriceTableInterface) {
-  const [rowsAtom, useRowsAtom] = useAtom(materialTableAtom);
+  const [materialRows, setMaterialRow] = useAtom(materialTableAtom);
   const [total] = useAtom(materialTotalAtom);
   const [database] = useAtom(materialAtom);
   const array = SelectLogic(database);
@@ -37,17 +36,17 @@ export function PriceTable({ customString }: PriceTableInterface) {
   const supplier: dictionaryMap[] = array.supplier;
 
   return (
-    <Table miw={700} striped withBorder verticalSpacing="md">
+    <Table striped withBorder verticalSpacing="md">
       <HeaderRow columns={columns} titles={materialHeader(customString)} />
       <tbody>
-        {rowsAtom.map((row: materialRowMap, index: number) => (
+        {materialRows.map((row: materialRowMap, index: number) => (
           <tr key={index}>
             <td className={tableSize}>
               <SupplierSelect
                 rowSupplier={row.supplier}
-                rowsAtom={rowsAtom}
+                data={materialRows}
                 supplier={supplier}
-                useRowsAtom={useRowsAtom}
+                setData={setMaterialRow}
                 id={index}
               />
             </td>
@@ -57,8 +56,8 @@ export function PriceTable({ customString }: PriceTableInterface) {
                 currentSupplier={row.supplier}
                 id={index}
                 materialList={materials}
-                rowsAtom={rowsAtom}
-                useRowsAtom={useRowsAtom}
+                data={materialRows}
+                setData={setMaterialRow}
               />
             </td>
             <td className={tableSize}>{row.custom}</td>
@@ -67,15 +66,15 @@ export function PriceTable({ customString }: PriceTableInterface) {
                 id={index}
                 currentAmount={row.amount}
                 unitPrice={row.unitPrice}
-                rowsAtom={rowsAtom}
-                useRowsAtom={useRowsAtom}
+                data={materialRows}
+                setData={setMaterialRow}
               />
             </td>
             <td className={tableSize + "text-right"}>
               {Number(row.unitPrice).toFixed(2)}
             </td>
             <td className={tableSize + "text-right"}>
-              <ToolTipLabel formula={row.formula} price={row.price} />
+              <label title={row.formula}>{row.price}</label>
             </td>
           </tr>
         ))}

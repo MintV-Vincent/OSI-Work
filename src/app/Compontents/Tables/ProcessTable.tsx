@@ -5,7 +5,6 @@ import React from "react";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
 import { processHeader } from "Library/Headers";
-import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
 import { processTableAtom } from "Library/Atoms/TableAtoms";
 import { filmTotalAtom } from "Library/Atoms/TotalAtom";
 import MaterialSelect from "./CustomCompontents/MaterialSelect";
@@ -22,13 +21,13 @@ const columns: string[] = [
 export function ProcessTable() {
   const [total] = useAtom(filmTotalAtom);
   const [processing] = useAtom(filmAtom);
-  const [rowsAtom, useRowsAtom] = useAtom(processTableAtom);
+  const [processRows, setProcessRows] = useAtom(processTableAtom);
 
   return (
     <Table miw={700} striped withBorder verticalSpacing="md">
       <HeaderRow columns={columns} titles={processHeader} />
       <tbody>
-        {rowsAtom.map((row: materialRowMap, index: number) => (
+        {processRows.map((row: materialRowMap, index: number) => (
           <tr key={index}>
             <td>
               <MaterialSelect
@@ -36,8 +35,8 @@ export function ProcessTable() {
                 currentSupplier={row.supplier}
                 id={index}
                 materialList={processing}
-                rowsAtom={rowsAtom}
-                useRowsAtom={useRowsAtom}
+                data={processRows}
+                setData={setProcessRows}
               />
             </td>
             <td>
@@ -45,13 +44,13 @@ export function ProcessTable() {
                 id={index}
                 currentAmount={row.amount}
                 unitPrice={row.unitPrice}
-                rowsAtom={rowsAtom}
-                useRowsAtom={useRowsAtom}
+                data={processRows}
+                setData={setProcessRows}
               />
             </td>
             <td className="text-right">{Number(row.unitPrice).toFixed(2)}</td>
             <td className="text-right">
-              <ToolTipLabel formula={row.formula} price={row.price} />
+              <label title={row.formula}>{row.price}</label>
             </td>
           </tr>
         ))}

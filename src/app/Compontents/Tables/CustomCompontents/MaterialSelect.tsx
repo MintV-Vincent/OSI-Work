@@ -17,15 +17,15 @@ interface materialSelect {
   currentSupplier: string;
   id: number;
   materialList: rowMapPrice[];
-  rowsAtom: materialRowMap[];
-  useRowsAtom: any;
+  data: materialRowMap[];
+  setData: any;
 }
 
 export default function MaterialSelect({
   currentMaterial,
   materialList,
-  rowsAtom,
-  useRowsAtom,
+  data,
+  setData,
   id,
   currentSupplier,
 }: materialSelect) {
@@ -35,23 +35,22 @@ export default function MaterialSelect({
   const [yeild] = useAtom(yeildAtom);
   const [margin] = useAtom(marginAtom);
 
+  /**
+   *
+   * @param id The index of the row being changed
+   * @param material The current material name
+   * @param materialList The filtered material list that is dependent on the supplier selected
+   * @param data The data of the table being changed
+   * @param setData the set state functoin to change the data
+   * @returns material row map for the table, Update base on the material being selected
+   */
   function onMaterial(
     id: number,
     material: string,
     materialList: rowMapPrice[],
-    rowsAtom: materialRowMap[],
-    useRowsAtom: any
+    data: materialRowMap[],
+    setData: any
   ): materialRowMap {
-    // Function activates when select input of material is changed. This will change the material and the code for rowsAtom
-
-    // id: Number, the index of the row being changed
-    // value: The material name
-    // custom: The custom (code, thickness, model #) for the matching material
-    // rowsAtom: the data being changed
-    // useRowsAtom: the set state functoin to change the data
-
-    // Returns: material row map for the table
-    // Update base on the material being selected
     const filteredMaterialList: rowMapPrice[] = materialList.filter(
       (c: rowMapPrice) => c.value === material
     );
@@ -64,8 +63,8 @@ export default function MaterialSelect({
       supplier,
     } = filteredMaterialList[0];
 
-    return useRowsAtom(
-      rowsAtom.map((row: materialRowMap) => {
+    return setData(
+      data.map((row: materialRowMap) => {
         if (row.id != id) {
           return row;
         }
@@ -100,7 +99,7 @@ export default function MaterialSelect({
       searchable
       clearable
       onChange={(e: string) => {
-        onMaterial(id, e, materialList, rowsAtom, useRowsAtom);
+        onMaterial(id, e, materialList, data, setData);
       }}
       data={filterMaterials(
         materialList,

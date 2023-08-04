@@ -3,27 +3,35 @@ import { dictionaryMap, materialRowMap } from "Library/Types";
 import React from "react";
 interface customSelect {
   rowSupplier: string;
-  rowsAtom: materialRowMap[];
+  data: materialRowMap[];
   id: number;
   supplier: dictionaryMap[];
-  useRowsAtom: any;
+  setData: any;
 }
 
 export default function SupplierSelect({
   rowSupplier,
-  rowsAtom,
+  data,
   supplier,
-  useRowsAtom,
+  setData,
   id,
 }: customSelect) {
+  /**
+   *
+   * @param id The index of the row being changed
+   * @param supplier The current supplier name
+   * @param data The data of the table being changed
+   * @param setData The set state functoin to change the data
+   * @returns supplier row map for the table, Update base on the supplier being selected
+   */
   function onSupplier(
     id: number,
     supplier: string,
-    rowsAtom: materialRowMap[],
-    useRowsAtom: any
+    data: materialRowMap[],
+    setData: any
   ): materialRowMap {
-    return useRowsAtom(
-      rowsAtom.map((row: materialRowMap) => {
+    return setData(
+      data.map((row: materialRowMap) => {
         if (row.id != id) {
           return row;
         }
@@ -49,7 +57,7 @@ export default function SupplierSelect({
       clearable
       searchValue={rowSupplier}
       onSearchChange={(e: any) => {
-        onSupplier(id, e, rowsAtom, useRowsAtom);
+        onSupplier(id, e, data, setData);
       }}
       data={supplier}
     />

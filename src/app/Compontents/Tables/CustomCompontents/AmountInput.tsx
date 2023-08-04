@@ -15,16 +15,16 @@ interface AmountInputInterface {
   id: number;
   currentAmount: number | "";
   unitPrice: number;
-  rowsAtom: materialRowMap[];
-  useRowsAtom: any;
+  data: materialRowMap[];
+  setData: any;
 }
 
 export default function AmountInput({
   id,
   currentAmount,
   unitPrice,
-  rowsAtom,
-  useRowsAtom,
+  data,
+  setData,
 }: AmountInputInterface) {
   const [exchangeRate] = useAtom(exchangeRateAtom);
   const [freight] = useAtom(freightAtom);
@@ -32,24 +32,24 @@ export default function AmountInput({
   const [yeild] = useAtom(yeildAtom);
   const [margin] = useAtom(marginAtom);
 
+  /**
+   *
+   * @param id Number, the index of the row being changed
+   * @param value The amount being changed to for the material
+   * @param unitPrice The sub total of the materials cost in CAD dollars
+   * @param data the data being changed
+   * @param setData the set state functoin to change the data of the current row
+   * @returns material row map for the table with updated amount and price
+   */
   function onAmount(
     id: number,
     value: number | "",
     unitPrice: number,
-    rowsAtom: materialRowMap[],
-    useRowsAtom: any
+    data: materialRowMap[],
+    setData: any
   ): materialRowMap {
-    // Function activates when text input of amount is changed. This will change the price and the amount of materials for rowsAtom
-
-    // id: Number, the index of the row being changed
-    // value: The amount being changed to for the material
-    // price: The sub total of the materials cost in CAD dollars
-    // rowsAtom: the data being changed
-    // useRowsAtom: the set state functoin to change the data
-
-    // Returns: material row map for the table with updated amount and price
-    return useRowsAtom(
-      rowsAtom.map((row: materialRowMap) => {
+    return setData(
+      data.map((row: materialRowMap) => {
         if (row.id != id) {
           return row;
         }
@@ -82,7 +82,7 @@ export default function AmountInput({
       value={currentAmount}
       precision={2}
       onChange={(event: number) => {
-        onAmount(id, event, unitPrice, rowsAtom, useRowsAtom);
+        onAmount(id, event, unitPrice, data, setData);
       }}
     />
   );

@@ -10,7 +10,7 @@ import { useAtom } from "jotai";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { materialAtom } from "Library/Atoms/AtomStorage";
 import { materialTotalAtom } from "Library/Atoms/TotalAtom";
-import CustomSelectInput from "./CustomCompontents/SupplierSelect";
+import SupplierSelect from "./CustomCompontents/SupplierSelect";
 import MaterialSelect from "./CustomCompontents/MaterialSelect";
 import AmountInput from "./CustomCompontents/AmountInput";
 
@@ -43,7 +43,7 @@ export function PriceTable({ customString }: PriceTableInterface) {
         {rowsAtom.map((row: materialRowMap, index: number) => (
           <tr key={index}>
             <td className={tableSize}>
-              <CustomSelectInput
+              <SupplierSelect
                 rowSupplier={row.supplier}
                 rowsAtom={rowsAtom}
                 supplier={supplier}
@@ -57,7 +57,6 @@ export function PriceTable({ customString }: PriceTableInterface) {
                 currentSupplier={row.supplier}
                 id={index}
                 materialList={materials}
-                customs={[]}
                 rowsAtom={rowsAtom}
                 useRowsAtom={useRowsAtom}
               />

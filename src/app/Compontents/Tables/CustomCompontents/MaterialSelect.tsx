@@ -16,8 +16,7 @@ interface materialSelect {
   currentMaterial: string;
   currentSupplier: string;
   id: number;
-  materialList: any;
-  customs: rowMapPrice[];
+  materialList: rowMapPrice[];
   rowsAtom: materialRowMap[];
   useRowsAtom: any;
 }
@@ -39,7 +38,7 @@ export default function MaterialSelect({
   function onMaterial(
     id: number,
     material: string,
-    customs: rowMapPrice[],
+    materialList: rowMapPrice[],
     rowsAtom: materialRowMap[],
     useRowsAtom: any
   ): materialRowMap {
@@ -53,7 +52,7 @@ export default function MaterialSelect({
 
     // Returns: material row map for the table
     // Update base on the material being selected
-    const filteredCustoms: rowMapPrice[] = customs.filter(
+    const filteredMaterialList: rowMapPrice[] = materialList.filter(
       (c: rowMapPrice) => c.value === material
     );
     const {
@@ -63,9 +62,8 @@ export default function MaterialSelect({
       formula,
       price: newUnitPrice,
       supplier,
-    } = filteredCustoms[0];
+    } = filteredMaterialList[0];
 
-    console.log(formula);
     return useRowsAtom(
       rowsAtom.map((row: materialRowMap) => {
         if (row.id != id) {
@@ -100,6 +98,7 @@ export default function MaterialSelect({
       placeholder="Material"
       value={currentMaterial}
       searchable
+      clearable
       onChange={(e: string) => {
         onMaterial(id, e, materialList, rowsAtom, useRowsAtom);
       }}

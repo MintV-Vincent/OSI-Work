@@ -8,10 +8,10 @@ interface LinkProps {
   link: string;
 }
 
-const linkStyle =
+const linkStyle: string =
   "flex items-center pl-[30px] pr-[30px] h-full no-underline hover:text-hover duration-300 text-xl font-semibold";
-const activeStyle = linkStyle + " text-white bg-tab";
-const nonActiveStyle = linkStyle + " text-white";
+const activeStyle: string = linkStyle + " text-white bg-tab";
+const nonActiveStyle: string = linkStyle + " text-white";
 
 function currentTab(currentRoute: string) {
   const newArray: string[] = currentRoute.split("/");
@@ -24,15 +24,15 @@ function currentTab(currentRoute: string) {
 }
 
 export function NavBar() {
-  const currentRoute = usePathname();
-  const newRoute = currentTab(currentRoute);
+  const currentRoute: string = usePathname();
+  const newRoute: string = currentTab(currentRoute);
 
   const mainLinks: LinkProps[] = [
     { link: "/", label: "Front" },
     { link: "/material", label: "Material" },
   ];
 
-  const mainItems = mainLinks.map((item: LinkProps, index) => (
+  const mainItems: JSX.Element[] = mainLinks.map((item: LinkProps, index) => (
     <Link
       className={newRoute === item.link ? activeStyle : nonActiveStyle}
       href={item.link}

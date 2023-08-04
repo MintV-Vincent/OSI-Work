@@ -25,10 +25,10 @@ export function materialHeader(custom: string): string[] {
   ];
 }
 
-export const materialsTitle = "Materials";
-export const processFilmTitle = "Processes & Film";
-export const service = "Quality Services";
-export const nre = "NRE";
+export const materialsTitle: string = "Materials";
+export const processFilmTitle: string = "Processes & Film";
+export const service: string = "Quality Services";
+export const nre: string = "NRE";
 
 export const titles: string[] = [
   materialsTitle,
@@ -37,12 +37,12 @@ export const titles: string[] = [
   nre,
 ];
 
-const tooling = "SMT Lot Charge";
-const standard = "Stencils (Standard)";
-const fine = "Stencils (Fine Pitch)";
-const wood = "Wood Die";
-const milled = "Chem-Milled";
-const maleFemale = "Male-Female";
+const tooling: string = "SMT Lot Charge";
+const standard: string = "Stencils (Standard)";
+const fine: string = "Stencils (Fine Pitch)";
+const wood: string = "Wood Die";
+const milled: string = "Chem-Milled";
+const maleFemale: string = "Male-Female";
 
 export const assyTooling: string[] = [
   tooling,
@@ -53,12 +53,12 @@ export const assyTooling: string[] = [
   maleFemale,
 ];
 
-const fai = "Regular FAI Report";
-const class3 = "Class 3 documentation";
-const tQ = "IQ-OQ-PQ ";
-const pPAP = "PPAP";
-const aS9102 = "AS9102";
-const failure =
+const fai: string = "Regular FAI Report";
+const class3: string = "Class 3 documentation";
+const tQ: string = "IQ-OQ-PQ ";
+const pPAP: string = "PPAP";
+const aS9102: string = "AS9102";
+const failure: string =
   "Failure Analysis Report (x-ray, cross-section & electrical verification)";
 
 export const qualityServiceTitle: string[] = [
@@ -70,9 +70,9 @@ export const qualityServiceTitle: string[] = [
   failure,
 ];
 
-const finish = "Finish";
-const goldFinger = "Gold Finger";
-const fill = "Via Fill";
+const finish: string = "Finish";
+const goldFinger: string = "Gold Finger";
+const fill: string = "Via Fill";
 
 export const processTitle: string[] = [finish, goldFinger, fill];
 

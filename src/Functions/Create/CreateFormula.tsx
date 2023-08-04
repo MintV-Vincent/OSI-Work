@@ -23,7 +23,6 @@ export function createFormula(
     const arrayFormula: string[] = formula.split(" ");
     let equation: string = "";
     for (let i: number = 0; i < arrayFormula.length; i++) {
-      console.log(arrayFormula[i]);
       try {
         switch (arrayFormula[i]) {
           case "cost":

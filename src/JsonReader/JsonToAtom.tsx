@@ -1,7 +1,7 @@
 import { createRowPrice } from "Functions/Create/MapCreate";
-import { jsonMap, rowMapPrice } from "Library/Types";
+import { rowMapPrice } from "Library/Types";
 
-export default function JsonToAtom(json: jsonMap[]): rowMapPrice[] {
+export default function JsonToAtom(json: any[]): rowMapPrice[] {
   let array: rowMapPrice[] = [];
   for (let i: number = 0; i < json.length; i++) {
     const changeToNumber: number = Number(json[i].price);

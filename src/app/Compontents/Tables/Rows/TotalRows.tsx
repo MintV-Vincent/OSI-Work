@@ -12,7 +12,7 @@ const TotalRows = memo(function TotalRows({ text, total, columns }: totalRow) {
     array.push(i);
   }
 
-  const sharedClass = "h-16";
+  const sharedClass: string = "h-16";
 
   return (
     <tr key={text + " row"}>

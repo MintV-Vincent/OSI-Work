@@ -6,13 +6,13 @@ interface LinkProps {
   link: string;
 }
 
-const linkStyle =
+const linkStyle: string =
   "no-underline block px-2 py-2 mt-4 text-sm font-semibold rounded-lg hover:text-hover duration-300 ";
-const activeStyle = linkStyle + " text-primary bg-tab";
-const nonActiveStyle = linkStyle + " text-primary";
+const activeStyle: string = linkStyle + " text-primary bg-tab";
+const nonActiveStyle: string = linkStyle + " text-primary";
 
 export default function SideBar() {
-  const currentRoute = usePathname();
+  const currentRoute: string = usePathname();
   const mainLinks: LinkProps[] = [
     { link: "/material", label: "Total" },
     { link: "/material/materials", label: "Materials" },
@@ -21,7 +21,7 @@ export default function SideBar() {
     { link: "/material/nre", label: "NRE" },
   ];
 
-  const mainItems = mainLinks.map((item: LinkProps, index) => (
+  const mainItems: JSX.Element[] = mainLinks.map((item: LinkProps, index) => (
     <Link
       className={currentRoute === item.link ? activeStyle : nonActiveStyle}
       href={item.link}

@@ -117,8 +117,10 @@ export default function page() {
           <label className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl text-primary text-center">
             Total: $
             {selector === "CAD"
-              ? Number(fullTotal).toFixed(2)
-              : Number(fullTotal / Number(exchangeRate)).toFixed(2)}
+              ? Number(fullTotal).toFixed(2) + " " + selector
+              : Number(fullTotal / Number(exchangeRate)).toFixed(2) +
+                " " +
+                selector}
           </label>
           <Radio.Group
             className="text-xl"

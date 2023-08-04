@@ -6,7 +6,6 @@ import {
   TextInput,
 } from "@mantine/core";
 import { UseFormReturnType } from "@mantine/form";
-import { error } from "console";
 import React, { useState } from "react";
 interface TextInputInterface {
   form: UseFormReturnType<any>;

@@ -27,7 +27,7 @@ interface SplitTable {
   right: rowMap;
 }
 
-const rowClassName = "h-14";
+const rowClassName: string = "h-14";
 
 function createLoop(number: number) {
   let indents: string[] = [];

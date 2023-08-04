@@ -1,18 +1,15 @@
 import { Select } from "@mantine/core";
-import { materialAtom } from "Library/Atoms/AtomStorage";
-import { dictionaryMap, materialRowMap, rowMapPrice } from "Library/Types";
-import { useAtom } from "jotai";
+import { dictionaryMap, materialRowMap } from "Library/Types";
 import React from "react";
-
 interface customSelect {
-  rowSupplier: any;
-  rowsAtom: any;
-  supplier: any;
+  rowSupplier: string;
+  rowsAtom: materialRowMap[];
+  id: number;
+  supplier: dictionaryMap[];
   useRowsAtom: any;
-  id: any;
 }
 
-export default function CustomSelectInput({
+export default function SupplierSelect({
   rowSupplier,
   rowsAtom,
   supplier,
@@ -49,6 +46,7 @@ export default function CustomSelectInput({
     <Select
       placeholder="Supplier"
       searchable
+      clearable
       searchValue={rowSupplier}
       onSearchChange={(e: any) => {
         onSupplier(id, e, rowsAtom, useRowsAtom);

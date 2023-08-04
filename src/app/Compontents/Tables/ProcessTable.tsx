@@ -1,18 +1,16 @@
-import { NumberInput, Select, Table } from "@mantine/core";
+import { Table } from "@mantine/core";
 import { materialRowMap } from "Library/Types";
 import { useAtom } from "jotai";
-import React, { useEffect } from "react";
-import { onAmount, onMaterial } from "Functions/Create/MaterialCreate";
+import React from "react";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
 import { processHeader } from "Library/Headers";
 import ToolTipLabel from "./CustomCompontents/ToolTipLabel";
-import { exchangeRateAtom, filmProcessAtom } from "Library/Atoms/AtomStorage";
 import { processTableAtom } from "Library/Atoms/TableAtoms";
 import { filmTotalAtom } from "Library/Atoms/TotalAtom";
-import { createFormula } from "Functions/Create/CreateFormula";
 import MaterialSelect from "./CustomCompontents/MaterialSelect";
 import AmountInput from "./CustomCompontents/AmountInput";
+import { filmAtom } from "Library/Atoms/AtomStorage";
 
 const columns: string[] = [
   "w-80 h-14",
@@ -23,7 +21,7 @@ const columns: string[] = [
 
 export function ProcessTable() {
   const [total] = useAtom(filmTotalAtom);
-  const [processing] = useAtom(filmProcessAtom);
+  const [processing] = useAtom(filmAtom);
   const [rowsAtom, useRowsAtom] = useAtom(processTableAtom);
 
   return (
@@ -38,7 +36,6 @@ export function ProcessTable() {
                 currentSupplier={row.supplier}
                 id={index}
                 materialList={processing}
-                customs={[]}
                 rowsAtom={rowsAtom}
                 useRowsAtom={useRowsAtom}
               />

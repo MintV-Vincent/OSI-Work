@@ -1,28 +1,38 @@
-import { rowMapPrice } from "Library/Types";
+import { jsonMap, rowMapPrice } from "Library/Types";
 import { createRowPrice } from "../../Functions/Create/MapCreate";
-import { isola } from "DataBases/JsonIsola";
-import { arlon } from "DataBases/Arlon";
-import { dupont } from "DataBases/Dupont";
-import { panasonic } from "DataBases/Laminate";
-import { cover } from "DataBases/JsonCover";
-import { dryFilm } from "DataBases/Processes";
 import JsonToAtom from "JsonReader/JsonToAtom";
 import { atom } from "jotai";
+import { createDirectus, readItems, rest } from "@directus/sdk";
+interface DatabaseInterface {
+  dataBase: jsonMap[];
+}
 
-const isolaAtom = atom(JsonToAtom(isola));
-const arlonAtom = atom(JsonToAtom(arlon));
-const dupontAtom = atom(JsonToAtom(dupont));
-const panasonicAtom = atom(JsonToAtom(panasonic));
-const coverAtom = atom(JsonToAtom(cover));
+const client = createDirectus<DatabaseInterface>("http://localhost:8055").with(
+  rest()
+);
+async function readData(dataBase: any) {
+  const result = await client.request(
+    readItems(dataBase, {
+      fields: ["*"],
+    })
+  );
+  return result;
+}
+
+const isolaAtom = atom(readData("Isola").then((v) => JsonToAtom(v)));
+const arlonAtom = atom(readData("Arlon").then((v) => JsonToAtom(v)));
+const dupontAtom = atom(readData("Dupont").then((v) => JsonToAtom(v)));
+const panasonicAtom = atom(readData("Panasonic").then((v) => JsonToAtom(v)));
+const coverAtom = atom(readData("cover").then((v) => JsonToAtom(v)));
 const addedAtom = atom<rowMapPrice[]>([]);
 
 export const materialAtom = atom(
-  (get) => {
-    const isola = get(isolaAtom);
-    const arlon = get(arlonAtom);
-    const dupont = get(dupontAtom);
-    const panasonic = get(panasonicAtom);
-    const cover = get(coverAtom);
+  async (get) => {
+    const isola = await get(isolaAtom);
+    const arlon = await get(arlonAtom);
+    const dupont = await get(dupontAtom);
+    const panasonic = await get(panasonicAtom);
+    const cover = await get(coverAtom);
     const added = get(addedAtom);
     return [cover, isola, arlon, dupont, panasonic, added];
   },
@@ -50,20 +60,17 @@ export const materialAtom = atom(
   }
 );
 
-export const filmProcessAtom = atom(JsonToAtom(dryFilm));
-export const process = atom<string>("");
-export const unitPrice = atom<string>("");
+const filmProcessAtom = atom(readData("Panasonic").then((v) => JsonToAtom(v)));
+const addedAtom2 = atom<rowMapPrice[]>([]);
 export const filmAtom = atom(
-  (get) => {
-    const film = get(filmProcessAtom);
-    return [film];
+  async (get) => {
+    const film = await get(filmProcessAtom);
+    return film;
   },
   (get, set, value: string, label: string, price: number, formula: string) => {
     const film = get(filmProcessAtom);
-    set(filmProcessAtom, [
-      ...film,
-      createRowPrice(label, value, price, formula),
-    ]);
+    const added = get(addedAtom2);
+    set(addedAtom2, [...added, createRowPrice(label, value, price, formula)]);
     return [film];
   }
 );

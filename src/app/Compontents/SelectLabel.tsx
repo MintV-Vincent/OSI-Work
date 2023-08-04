@@ -22,6 +22,7 @@ export default function SelectLabel() {
     //Use effect should be up here, it should only sort on load, not every render.
     //When inserting a new element, selectCodeCreate should be sorting. Moving this down will cause multiple useless sorts.
     SortArray(dataRow, setDataRow);
+    //Keep state during remount
     isMounted.current = true;
     return () => {
       isMounted.current = false;

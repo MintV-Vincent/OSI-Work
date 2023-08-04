@@ -7,7 +7,7 @@ import {
 } from "./TableAtoms";
 import { materialRowMap } from "Library/Types";
 
-export const totalAtom = atom((get) => {
+export const totalAtom = atom<number[]>((get) => {
   const material = get(materialTotalAtom);
   const film = get(filmTotalAtom);
   const qual = get(qualityTotalAtom);
@@ -16,7 +16,7 @@ export const totalAtom = atom((get) => {
 });
 
 //Total atom
-export const fullTotalAtom = atom((get) => {
+export const fullTotalAtom = atom<number>((get) => {
   const typeTotalAtom: any = get(totalAtom);
   return typeTotalAtom.reduce(
     (accumulator: number, currentValue: number) => accumulator + currentValue,
@@ -24,7 +24,7 @@ export const fullTotalAtom = atom((get) => {
   );
 });
 
-export const materialTotalAtom = atom((get) => {
+export const materialTotalAtom = atom<number>((get) => {
   const typeRowsAtom: any = get(materialTableAtom);
   return typeRowsAtom.reduce(
     (previousScore: number, currentScore: materialRowMap) =>
@@ -33,7 +33,7 @@ export const materialTotalAtom = atom((get) => {
   );
 });
 
-export const filmTotalAtom = atom((get) => {
+export const filmTotalAtom = atom<number>((get) => {
   const typeFilmAtom: any = get(processTableAtom);
   return typeFilmAtom.reduce(
     (accumulator: number, currentValue: materialRowMap) =>
@@ -42,7 +42,7 @@ export const filmTotalAtom = atom((get) => {
   );
 });
 
-export const qualityTotalAtom = atom((get) => {
+export const qualityTotalAtom = atom<number>((get) => {
   const typeQualAtom: any = get(checkTableAtom);
   return typeQualAtom.reduce(
     (accumulator: number, currentValue: string) =>
@@ -50,4 +50,4 @@ export const qualityTotalAtom = atom((get) => {
     0
   );
 });
-export const NRETotalAtom = atom(0);
+export const NRETotalAtom = atom<number>(0);

@@ -22,7 +22,9 @@ export default function ModalForm({ form }: TextInputInterface) {
       <MultiSelect
         label="Formula"
         data={data}
-        description={"Multiply selected values. (Price * Amount) is default."}
+        description={
+          "Multiply selected values, (Price * Amount) already included."
+        }
         placeholder="Select items"
         searchable
         creatable

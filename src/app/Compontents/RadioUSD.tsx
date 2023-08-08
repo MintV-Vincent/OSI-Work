@@ -5,9 +5,6 @@ export default function RadioUSD() {
   const [selector, setSelector] = useState("");
   return (
     <div className="flex flex-col">
-      <label className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl text-primary">
-        Total: ${(Number(100) / Number(20)).toFixed(2)}
-      </label>
       <Radio.Group
         className="text-xl"
         value={selector}

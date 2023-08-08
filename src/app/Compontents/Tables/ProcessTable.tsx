@@ -48,9 +48,9 @@ export function ProcessTable() {
                 setData={setProcessRows}
               />
             </td>
-            <td className="text-right">{Number(row.unitPrice).toFixed(2)}</td>
+            <td className="text-right">{row.unitPrice.toFixed(2)}</td>
             <td className="text-right">
-              <label title={row.formula}>{row.price}</label>
+              <label title={row.formula}>{row.price.toFixed(2)}</label>
             </td>
           </tr>
         ))}

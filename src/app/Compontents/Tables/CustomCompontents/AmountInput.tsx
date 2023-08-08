@@ -69,8 +69,8 @@ export default function AmountInput({
         );
         return {
           ...row,
-          amount: Number(value),
-          price: Number(price),
+          amount: value,
+          price: price,
         };
       })
     );

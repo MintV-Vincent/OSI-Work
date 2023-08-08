@@ -26,11 +26,7 @@ export default function ExchangeRateInput() {
         useMaterialData(
           materialData.map((row: materialRowMap) => {
             let newPrice = eval(
-              createFormula(
-                row.formula,
-                Number(row.unitPrice) * row.amount,
-                event
-              )
+              createFormula(row.formula, row.unitPrice * row.amount, event)
             );
             return {
               ...row,
@@ -41,11 +37,7 @@ export default function ExchangeRateInput() {
         useProcessData(
           processData.map((row: materialRowMap) => {
             let newPrice = eval(
-              createFormula(
-                row.formula,
-                Number(row.unitPrice) * row.amount,
-                event
-              )
+              createFormula(row.formula, row.unitPrice * row.amount, event)
             );
             return {
               ...row,

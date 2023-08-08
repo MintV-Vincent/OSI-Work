@@ -23,7 +23,7 @@ const TotalRows = memo(function TotalRows({ text, total, columns }: totalRow) {
         {text}
       </td>
       <td className={sharedClass + " font-semibold text-right text-xl"}>
-        {Number(total).toFixed(2)}
+        {total.toFixed(2)}
       </td>
     </tr>
   );

@@ -71,10 +71,10 @@ export function PriceTable({ customString }: PriceTableInterface) {
               />
             </td>
             <td className={tableSize + "text-right"}>
-              {Number(row.unitPrice).toFixed(2)}
+              {row.unitPrice.toFixed(2)}
             </td>
             <td className={tableSize + "text-right"}>
-              <label title={row.formula}>{row.price}</label>
+              <label title={row.formula}>{row.price.toFixed(2)}</label>
             </td>
           </tr>
         ))}

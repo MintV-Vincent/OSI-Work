@@ -8,12 +8,18 @@ import { dupont } from "DataBases/Dupont";
 import { arlon } from "DataBases/Arlon";
 import { isola } from "DataBases/JsonIsola";
 import { dryFilm } from "DataBases/Processes";
+import { tapes } from "DataBases/Tapes";
+import { Mtapes } from "DataBases/3MTapes";
+import { arwisa } from "DataBases/Arwisa";
 
 const isolaAtom = atom(JsonToAtom(isola));
 const arlonAtom = atom(JsonToAtom(arlon));
 const dupontAtom = atom(JsonToAtom(dupont));
 const panasonicAtom = atom(JsonToAtom(panasonic));
 const coverAtom = atom(JsonToAtom(cover));
+const tapesAtom = atom(JsonToAtom(tapes));
+const MAtom = atom(JsonToAtom(Mtapes));
+const arwisaAtom = atom(JsonToAtom(arwisa));
 const addedAtom = atom<rowMapPrice[]>([]);
 
 export const materialAtom = atom(
@@ -23,8 +29,21 @@ export const materialAtom = atom(
     const dupont = get(dupontAtom);
     const panasonic = get(panasonicAtom);
     const cover = get(coverAtom);
+    const tapes = get(tapesAtom);
+    const mtapes = get(MAtom);
+    const arwisa = get(arwisaAtom);
     const added = get(addedAtom);
-    return [cover, isola, arlon, dupont, panasonic, added];
+    return [
+      cover,
+      isola,
+      arlon,
+      dupont,
+      panasonic,
+      tapes,
+      mtapes,
+      arwisa,
+      added,
+    ];
   },
   (
     get,
@@ -42,11 +61,24 @@ export const materialAtom = atom(
     const panasonic = get(panasonicAtom);
     const cover = get(coverAtom);
     const added = get(addedAtom);
+    const tapes = get(tapesAtom);
+    const mtapes = get(MAtom);
+    const arwisa = get(arwisaAtom);
     set(addedAtom, [
       ...added,
       createRowPrice(value, label, price, formula, custom, supplier),
     ]);
-    return [cover, isola, dupont, arlon, panasonic, added];
+    return [
+      cover,
+      isola,
+      arlon,
+      dupont,
+      panasonic,
+      tapes,
+      mtapes,
+      arwisa,
+      added,
+    ];
   }
 );
 

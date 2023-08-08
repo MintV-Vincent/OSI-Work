@@ -57,7 +57,7 @@ export default function page() {
   });
 
   return (
-    <div className="flex flex-col mx-8">
+    <div className="flex flex-col mx-12">
       <FrontTable />
       <div className="flex justify-start pt-10">
         <div className="flex flex-col w-1/2">

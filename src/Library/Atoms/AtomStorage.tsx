@@ -101,7 +101,7 @@ export const filmAtom = atom(
 //These atoms are cause a lot of re-renders on calculation need to do something about it !
 export const exchangeRateAtom = atom<number | "">(1);
 export const freightAtom = atom<number | "">(1);
-export const yeildAtom = atom<number | "">(1);
-export const marginAtom = atom<number | "">(1);
+export const yeildAtom = atom<number>(1);
+export const marginAtom = atom<number>(1);
 export const unitAtom = atom<number>(1);
 export const panelAtom = atom<string | "">("1.5");

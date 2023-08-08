@@ -3,7 +3,6 @@ import React from "react";
 import { NumberInput } from "@mantine/core";
 import { useAtom } from "jotai";
 import { TotalTable } from "app/Compontents/Tables/TotalTable";
-import { newTotal } from "Functions/MathFunctions";
 import { IconPercentage, IconHash } from "@tabler/icons-react";
 import {
   exchangeRateAtom,
@@ -11,7 +10,12 @@ import {
   unitAtom,
   yeildAtom,
 } from "Library/Atoms/AtomStorage";
-import { fullTotalAtom, totalAtom } from "Library/Atoms/TotalAtom";
+import {
+  fullTotalAtom,
+  marginTotalAtom,
+  unitTotalAtom,
+  yeildTotalAtom,
+} from "Library/Atoms/TotalAtom";
 
 const sharedTotal: string = "text-xl py-1.5 w-1/4 text-left";
 
@@ -21,6 +25,9 @@ export default function page() {
   const [margin, setMargin] = useAtom(marginAtom);
   const [units, setUnit] = useAtom(unitAtom);
   const [fullTotal] = useAtom(fullTotalAtom);
+  const [yeildTotal] = useAtom(yeildTotalAtom);
+  const [marginTotal] = useAtom(marginTotalAtom);
+  const [unitTotal] = useAtom(unitTotalAtom);
 
   return (
     <>
@@ -38,7 +45,7 @@ export default function page() {
           hideControls
           precision={2}
           value={yeild}
-          onChange={(event: number | "") => setYeild(event)}
+          onChange={(event: number) => setYeild(event)}
           rightSection={
             <IconPercentage
               size={"1.25rem"}
@@ -53,7 +60,7 @@ export default function page() {
           hideControls
           precision={2}
           value={margin}
-          onChange={(event: number | "") => setMargin(event)}
+          onChange={(event: number) => setMargin(event)}
           rightSection={
             <IconPercentage
               size={"1.25rem"}
@@ -79,18 +86,13 @@ export default function page() {
       </div>
       <div className="flex justify-between">
         <label className={sharedTotal}>
-          Yeild Total: ${newTotal(fullTotal, yeild).toFixed(2)}
+          Yeild Total: ${yeildTotal.toFixed(2)}
         </label>
         <label className={sharedTotal}>
-          Margin Total: $
-          {newTotal(newTotal(fullTotal, yeild), margin).toFixed(2)}
+          Margin Total: ${marginTotal.toFixed(2)}
         </label>
         <label className={sharedTotal}>
-          Cost Per Unit: $
-          {newTotal(
-            newTotal(newTotal(fullTotal, yeild), margin),
-            units
-          ).toFixed(2)}
+          Cost Per Unit: ${unitTotal.toFixed(2)}
         </label>
       </div>
       <h2 className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl text-primary">

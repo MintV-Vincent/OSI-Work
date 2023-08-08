@@ -1,43 +1,106 @@
-import {
-  Button,
-  Group,
-  MultiSelect,
-  NumberInput,
-  TextInput,
-} from "@mantine/core";
+import { Button, Group, NumberInput, TextInput, Textarea } from "@mantine/core";
 import { UseFormReturnType } from "@mantine/form";
+import { IconBackspaceFilled } from "@tabler/icons-react";
 import React, { useState } from "react";
+
 interface TextInputInterface {
   form: UseFormReturnType<any>;
 }
 
+function formulaError(formula: string[]) {
+  if (formula.length < 1) {
+    return "Formula is required";
+  } else if (formula.length % 2 === 0) {
+    return "Can not end in an operation";
+  }
+  return false;
+}
+
 export default function ModalForm({ form }: TextInputInterface) {
-  const [data, setData] = useState([
-    { value: "exchange", label: "Exchange Rate" },
-    { value: "freight", label: "Freight" },
-  ]);
+  const [value, setValue] = useState<number | "">(0);
+  const [disabled, setDisabled] = useState(false);
+
+  let currentFormula = "";
+  for (let i: number = 0; i < form.values.formula.length; i++) {
+    currentFormula += form.values.formula[i] + " ";
+  }
+
+  const operation = ["- ", "+ ", "/ ", "* "];
+  const constantButton = ["exchange rate", "yeild", "freight"];
 
   return (
-    <div>
-      <MultiSelect
-        label="Formula"
-        data={data}
-        description={
-          "Multiply selected values, (Price * Amount) already included."
-        }
-        placeholder="Select items"
-        searchable
-        creatable
-        getCreateLabel={(query: any) => `+ Create ${query}`}
-        onCreate={(query: any) => {
-          if (!isNaN(query)) {
-            const item = { value: query, label: query };
-            setData((current) => [...current, item]);
-            return item;
-          }
-        }}
-        {...form.getInputProps("Formula".toLocaleLowerCase())}
-      />
+    <div className="w-full">
+      <div className="flex flex-col w-full">
+        <Textarea
+          value={currentFormula}
+          readOnly
+          autosize
+          error={formulaError(form.values.formula)}
+        />
+        <div className="flex justify-between pt-3">
+          {operation.map((row: string, index: number) => (
+            <Button
+              disabled={disabled}
+              key={row + index}
+              onClick={(e) => {
+                setDisabled(!disabled);
+                form.insertListItem("formula", row);
+              }}
+            >
+              {row}
+            </Button>
+          ))}
+          <Button
+            onClick={(e) => {
+              if (form.values.formula.length > 3) {
+                setDisabled(!disabled);
+                form.removeListItem("formula", form.values.formula.length - 1);
+              }
+            }}
+            rightIcon={<IconBackspaceFilled />}
+          >
+            Del
+          </Button>
+        </div>
+        <div className="flex justify-between pt-3">
+          {constantButton.map((row: string, index: number) => (
+            <Button
+              disabled={!disabled}
+              key={row + index}
+              onClick={(e) => {
+                setDisabled(!disabled);
+                form.insertListItem("formula", row);
+              }}
+            >
+              {row}
+            </Button>
+          ))}
+        </div>
+        <div className="flex justify-between pt-3">
+          <label className="m-auto">Value: </label>
+          <NumberInput
+            hideControls
+            precision={4}
+            value={value}
+            onChange={setValue}
+          />
+          <Button
+            disabled={!disabled}
+            onClick={(e) => {
+              if (
+                form.values.formula[form.values.formula.length - 1] === "/ " &&
+                value === 0
+              ) {
+              } else {
+                form.insertListItem("formula", value);
+                setDisabled(!disabled);
+              }
+            }}
+          >
+            Enter
+          </Button>
+        </div>
+      </div>
       <TextInput
         className="py-2"
         required

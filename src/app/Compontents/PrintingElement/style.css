@@ -37,6 +37,7 @@
 }
 
 .div-div .customer-partnumber {
+  white-space: pre-wrap;
   color: #000000;
   font-family: "Open Sans-Regular", Helvetica;
   font-size: 16px;

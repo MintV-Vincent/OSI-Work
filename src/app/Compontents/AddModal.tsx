@@ -19,6 +19,7 @@ export function AddModal({
   return (
     <Group position="center">
       <Modal
+        size="calc(45vw)"
         opened={status}
         onClose={() => handleClick()}
         title={title}

@@ -1,11 +1,18 @@
-import { Box } from "@mantine/core";
+import {
+  Box,
+  Button,
+  Group,
+  MultiSelect,
+  NumberInput,
+  TextInput,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useAtom } from "jotai";
-import React from "react";
+import React, { useState } from "react";
 import { createMaterialRow } from "Functions/Create/MapCreate";
 import { filmAtom } from "Library/Atoms/AtomStorage";
 import { processTableAtom } from "Library/Atoms/TableAtoms";
-import ModalForm from "app/Compontents/Forms/ModalForm";
+import ModalForm from "./ModalForm";
 
 interface AddButtonInterface {
   handleClick: any;
@@ -19,7 +26,11 @@ export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
     formula: string[];
     price: number | undefined;
   }>({
-    initialValues: { material: "", formula: [], price: undefined },
+    initialValues: {
+      material: "",
+      formula: ["price", " *", " amount "],
+      price: undefined,
+    },
     validate: (values) => ({
       formula: values.formula.length < 1 ? "Formula is required" : null,
       material: values.material.length < 1 ? "Invalid Material" : null,
@@ -31,6 +42,7 @@ export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
           : null,
     }),
   });
+
   return (
     <Box maw={340} mx="auto">
       <form
@@ -42,6 +54,7 @@ export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
             values.material != ""
           ) {
             let newFormula: string = "cost * ";
+            console.log(values.formula);
             for (let i: number = 0; i < values.formula.length; i++) {
               newFormula += values.formula[i];
               if (i != values.formula.length - 1) {
@@ -58,7 +71,7 @@ export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
             setData([...data, newRow]);
 
             values.material = "";
-            values.formula = [];
+            values.formula = ["price", " *", " amount "];
             values.price = undefined;
             handleClick();
           }

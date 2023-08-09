@@ -31,7 +31,6 @@ const chris: string = "Chris Keirstead";
 const micheal: string = "Micheal Mordando";
 
 export default function page() {
-  const [exchangeRate] = useAtom(exchangeRateAtom);
   const [fullTotal] = useAtom(fullTotalAtom);
   const [note, setNote] = useAtom(noteAtom);
   const [part, setPart] = useAtom(partsAtom);
@@ -45,7 +44,7 @@ export default function page() {
   });
 
   return (
-    <div className="flex flex-col mx-12">
+    <div className="flex flex-col mx-12 px-4">
       <FrontTable />
       <div className="flex justify-start pt-10">
         <div className="flex flex-col w-1/2">
@@ -103,12 +102,7 @@ export default function page() {
         </div>
         <div className="flex flex-col mx-20">
           <label className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl text-primary text-center">
-            Total: $
-            {selector === "CAD"
-              ? Number(fullTotal).toFixed(2) + " " + selector
-              : Number(fullTotal / Number(exchangeRate)).toFixed(2) +
-                " " +
-                selector}
+            Total: ${fullTotal.toFixed(2)}
           </label>
           <Radio.Group
             className="text-xl"

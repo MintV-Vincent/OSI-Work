@@ -7,7 +7,13 @@ import {
 } from "./TableAtoms";
 import { materialRowMap } from "Library/Types";
 import { NREAtom } from "./NREAtoms";
-import { marginAtom, unitAtom, yeildAtom } from "./AtomStorage";
+import {
+  exchangeRateAtom,
+  marginAtom,
+  unitAtom,
+  yeildAtom,
+} from "./AtomStorage";
+import { currencySelectorAtom } from "./FrontPageAtoms";
 
 export const totalAtom = atom<number[]>((get) => {
   const material = get(materialTotalAtom);
@@ -19,11 +25,31 @@ export const totalAtom = atom<number[]>((get) => {
 
 //Total atom
 export const fullTotalAtom = atom<number>((get) => {
+  const selector: string = get(currencySelectorAtom);
+  const CADTotal: any = get(CADTotalAtom);
+  const USDTotal: any = get(USDTotalAtom);
+  if ("CAD" === selector) {
+    return CADTotal;
+  } else {
+    return USDTotal;
+  }
+});
+
+const CADTotalAtom = atom<number>((get) => {
   const typeTotalAtom: any = get(totalAtom);
   return typeTotalAtom.reduce(
     (accumulator: number, currentValue: number) => accumulator + currentValue,
     0
   );
+});
+
+const USDTotalAtom = atom<number>((get) => {
+  const CADTotal: any = get(CADTotalAtom);
+  const exchangeRate: any = get(exchangeRateAtom);
+  if (isNaN(exchangeRate)) {
+    return CADTotal / 1;
+  }
+  return CADTotal / exchangeRate;
 });
 
 export const materialTotalAtom = atom<number>((get) => {

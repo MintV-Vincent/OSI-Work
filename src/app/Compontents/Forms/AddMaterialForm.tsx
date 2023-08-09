@@ -1,14 +1,7 @@
-import {
-  Box,
-  Button,
-  Group,
-  MultiSelect,
-  NumberInput,
-  TextInput,
-} from "@mantine/core";
+import { Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useAtom } from "jotai";
-import React, { useState } from "react";
+import React from "react";
 import { createMaterialRow } from "Functions/Create/MapCreate";
 import { filmAtom } from "Library/Atoms/AtomStorage";
 import { processTableAtom } from "Library/Atoms/TableAtoms";
@@ -53,7 +46,7 @@ export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
             values.price != undefined &&
             values.material != ""
           ) {
-            let newFormula: string = "cost * ";
+            let newFormula: string = "cost ";
             console.log(values.formula);
             for (let i: number = 0; i < values.formula.length; i++) {
               newFormula += values.formula[i];

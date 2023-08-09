@@ -28,14 +28,14 @@ export default function page() {
   }
 
   return (
-    <Table miw={700} striped withBorder verticalSpacing="md">
+    <Table striped withBorder verticalSpacing="md">
       <HeaderRow
         columns={[
-          "text-left h-14 w-1/2",
-          "text-center h-14 w-1/8",
-          "text-left h-14 w-1/8",
-          "text-right h-14 w-1/8",
-          "text-left h-14 w-1/8",
+          "text-left h-14 w-80",
+          "text-center h-14 w-20",
+          "text-left h-14 w-20",
+          "text-right h-14 w-20",
+          "text-left h-14 w-20",
         ]}
         titles={["Service", "Status", "", "Price ($)", ""]}
       />

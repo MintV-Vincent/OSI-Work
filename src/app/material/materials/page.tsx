@@ -16,7 +16,7 @@ export default function page() {
 
   return (
     <>
-      <PriceTable customString={"code"} />
+      <PriceTable customString={"Code"} />
       <div className="p-10">
         <AddModal
           title={"Add Material"}

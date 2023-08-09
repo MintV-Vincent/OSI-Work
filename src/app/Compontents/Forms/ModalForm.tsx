@@ -112,7 +112,7 @@ export default function ModalForm({ form }: TextInputInterface) {
         className="py-2"
         required
         hideControls
-        label="Price"
+        label="Price ($CAD)"
         placeholder="Price"
         {...form.getInputProps("price")}
       />

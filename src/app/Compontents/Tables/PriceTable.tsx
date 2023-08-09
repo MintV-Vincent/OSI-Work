@@ -50,7 +50,7 @@ export function PriceTable({ customString }: PriceTableInterface) {
                 id={index}
               />
             </td>
-            <td className={tableSize}>
+            <td className={"w-80 h-14"}>
               <MaterialSelect
                 currentMaterial={row.material}
                 currentSupplier={row.supplier}

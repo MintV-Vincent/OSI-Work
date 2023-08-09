@@ -47,12 +47,8 @@ export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
             values.material != ""
           ) {
             let newFormula: string = "cost ";
-            console.log(values.formula);
             for (let i: number = 0; i < values.formula.length; i++) {
               newFormula += values.formula[i];
-              if (i != values.formula.length - 1) {
-                newFormula += " * ";
-              }
             }
             setMaterial(
               values.material,

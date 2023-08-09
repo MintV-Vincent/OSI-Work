@@ -24,7 +24,7 @@ export function ProcessTable() {
   const [processRows, setProcessRows] = useAtom(processTableAtom);
 
   return (
-    <Table miw={700} striped withBorder verticalSpacing="md">
+    <Table striped withBorder verticalSpacing="md">
       <HeaderRow columns={columns} titles={processHeader} />
       <tbody>
         {processRows.map((row: materialRowMap, index: number) => (

@@ -160,7 +160,7 @@ export function FrontTable({}) {
   // This table consist of only two columns. The data points should be of type row map
   return (
     <div className="pt-10">
-      <Table miw={700} striped withBorder verticalSpacing="md">
+      <Table striped withBorder verticalSpacing="md">
         <thead className={"bg-light"}>
           <tr>
             <td colSpan={1}></td>

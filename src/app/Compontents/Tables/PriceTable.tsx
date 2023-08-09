@@ -16,14 +16,12 @@ import AmountInput from "./CustomCompontents/AmountInput";
 const tableSize: string = "h-14 w-2/9 ";
 
 const columns: string[] = [
-  "",
   tableSize,
   "w-3/9",
   "w-1/9",
   "w-1/9",
   "w-1/9 text-right",
   "w-1/9 text-right",
-  "",
 ];
 interface PriceTableInterface {
   customString: string;
@@ -43,7 +41,6 @@ export function PriceTable({ customString }: PriceTableInterface) {
       <tbody>
         {materialRows.map((row: materialRowMap, index: number) => (
           <tr key={index}>
-            <td />
             <td>
               <SupplierSelect
                 rowSupplier={row.supplier}
@@ -77,7 +74,6 @@ export function PriceTable({ customString }: PriceTableInterface) {
             <td className={"text-right"}>
               <label title={row.formula}>{row.price.toFixed(2)}</label>
             </td>
-            <td />
           </tr>
         ))}
         <TotalRows text={"Total"} total={total} columns={6} />

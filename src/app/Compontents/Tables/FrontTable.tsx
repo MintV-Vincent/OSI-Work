@@ -166,7 +166,7 @@ export function FrontTable({}) {
             <td colSpan={1}></td>
             <td
               colSpan={6}
-              className={"text-xl font-semibold py-2 px-3 text-primary"}
+              className={"h-14 text-xl font-semibold py-2 px-3 text-primary"}
             >
               Front
             </td>

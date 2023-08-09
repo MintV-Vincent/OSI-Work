@@ -14,29 +14,20 @@ export function TotalTable() {
   return (
     <Table miw={700} striped withBorder verticalSpacing="md">
       <HeaderRow
-        columns={[
-          "",
-          "h-14",
-          "text-right h-14 w-100",
-          "text-right h-14 w-100",
-          "text-right h-14 w-40",
-        ]}
+        columns={["h-14", "text-right h-14 w-100", "text-right h-14 w-100"]}
         titles={totalHeader}
       />
       <tbody>
         {total.map((subTotal: number, index: number) => (
           <tr className={"text-primary"} key={subTotal + "-row-" + index}>
-            <td className="h-14" />
             <td className="h-14 w-1/3 z-50">{titles[index]}</td>
             <td className="h-14 text-right  w-1/3">{subTotal.toFixed(2)}</td>
             <td className="h-14 text-right  w-1/3">
               {Number(subTotal / Number(exchange)).toFixed(2)}
             </td>
-            <td className="h-14" />
           </tr>
         ))}
         <tr>
-          <td className="h-14" />
           <td className={"h-14 w-1/3 font-semibold"}>{"Total"}</td>
           <td className={"h-14 w-1/3 font-semibold text-right"}>
             {CADTotal.toFixed(2)}
@@ -44,7 +35,6 @@ export function TotalTable() {
           <td className={"h-14 w-1/3 font-semibold text-right"}>
             {USATotal.toFixed(2)}
           </td>
-          <td className="h-14"></td>
         </tr>
       </tbody>
     </Table>

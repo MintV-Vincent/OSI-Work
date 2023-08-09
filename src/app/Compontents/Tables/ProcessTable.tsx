@@ -12,12 +12,10 @@ import AmountInput from "./CustomCompontents/AmountInput";
 import { filmAtom } from "Library/Atoms/AtomStorage";
 
 const columns: string[] = [
-  "",
   "h-14",
   "h-14",
   "text-right h-14",
   "text-right h-14",
-  "",
 ];
 
 export function ProcessTable() {
@@ -31,7 +29,6 @@ export function ProcessTable() {
       <tbody>
         {processRows.map((row: materialRowMap, index: number) => (
           <tr key={index}>
-            <td />
             <td>
               <MaterialSelect
                 currentMaterial={row.material}
@@ -55,7 +52,6 @@ export function ProcessTable() {
             <td className="text-right">
               <label title={row.formula}>{row.price.toFixed(2)}</label>
             </td>
-            <td />
           </tr>
         ))}
         <TotalRows text={"Total"} total={total} columns={4} />

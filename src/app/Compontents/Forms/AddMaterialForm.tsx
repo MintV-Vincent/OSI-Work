@@ -16,16 +16,21 @@ export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
   const [, setMaterial] = useAtom(filmAtom);
   const form = useForm<{
     material: string;
-    formula: string[];
+    formula: string;
     price: number | undefined;
   }>({
     initialValues: {
+      formula: "price * amount ",
       material: "",
-      formula: ["price", " *", " amount "],
       price: undefined,
     },
     validate: (values) => ({
-      formula: values.formula.length < 1 ? "Formula is required" : null,
+      formula:
+        values.formula.length < 1
+          ? "Formula is required"
+          : values.formula.split(" ").length % 2 !== 0
+          ? "Ending in operation error"
+          : null,
       material: values.material.length < 1 ? "Invalid Material" : null,
       price:
         values.price === undefined
@@ -46,21 +51,17 @@ export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
             values.price != undefined &&
             values.material != ""
           ) {
-            let newFormula: string = "cost ";
-            for (let i: number = 0; i < values.formula.length; i++) {
-              newFormula += values.formula[i];
-            }
             setMaterial(
               values.material,
               values.material,
               values.price,
-              newFormula
+              values.formula
             );
             const newRow = createMaterialRow(data.length);
             setData([...data, newRow]);
 
             values.material = "";
-            values.formula = ["price", " *", " amount "];
+            values.formula = "price * amount ";
             values.price = undefined;
             handleClick();
           }

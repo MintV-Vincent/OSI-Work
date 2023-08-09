@@ -9,7 +9,7 @@ interface LinkProps {
 }
 
 const linkStyle: string =
-  "flex items-center pl-[30px] pr-[30px] h-full no-underline hover:text-hover duration-300 text-xl font-semibold";
+  "flex items-center pl-[30px] pr-[30px] h-full text-xl font-semibold no-underline hover:link2 link-underline2 link-underline-black2";
 const activeStyle: string = linkStyle + " text-white bg-tab";
 const nonActiveStyle: string = linkStyle + " text-white";
 

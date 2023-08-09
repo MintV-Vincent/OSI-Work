@@ -1,6 +1,6 @@
 import { Select } from "@mantine/core";
 import { dictionaryMap, materialRowMap } from "Library/Types";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 interface customSelect {
   rowSupplier: string;
   data: materialRowMap[];
@@ -9,6 +9,14 @@ interface customSelect {
   setData: any;
 }
 
+/**
+ *
+ * @param id The index of the row being changed
+ * @param supplier The current supplier name
+ * @param data The data of the table being changed
+ * @param setData The set state functoin to change the data
+ * @returns supplier row map for the table, Update base on the supplier being selected
+ */
 export default function SupplierSelect({
   rowSupplier,
   data,
@@ -16,14 +24,14 @@ export default function SupplierSelect({
   setData,
   id,
 }: customSelect) {
-  /**
-   *
-   * @param id The index of the row being changed
-   * @param supplier The current supplier name
-   * @param data The data of the table being changed
-   * @param setData The set state functoin to change the data
-   * @returns supplier row map for the table, Update base on the supplier being selected
-   */
+  const isMounted = useRef(false);
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
+
   function onSupplier(
     id: number,
     supplier: string,
@@ -57,7 +65,9 @@ export default function SupplierSelect({
       clearable
       searchValue={rowSupplier}
       onSearchChange={(e: any) => {
-        onSupplier(id, e, data, setData);
+        if (isMounted.current == true) {
+          onSupplier(id, e, data, setData);
+        }
       }}
       data={supplier}
     />

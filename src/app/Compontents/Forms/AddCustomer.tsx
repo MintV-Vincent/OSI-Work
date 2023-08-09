@@ -11,11 +11,6 @@ import {
   customerAtom,
   customerRowAtom,
 } from "Library/Atoms/FrontPageAtoms";
-import { z } from "zod";
-
-const formSchema = z.object({
-  customer: z.string().min(3),
-});
 
 interface AddCustomerInterface {
   handleClick: any;
@@ -25,6 +20,7 @@ export default function AddCustomerForm({ handleClick }: AddCustomerInterface) {
   const [, setCustomer] = useAtom(customerAtom);
   const [, setCode] = useAtom(codeAtom);
   const [customerRow] = useAtom(customerRowAtom);
+
   const form = useForm<{
     customer: string;
   }>({

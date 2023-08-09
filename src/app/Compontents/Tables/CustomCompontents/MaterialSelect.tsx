@@ -68,10 +68,12 @@ export default function MaterialSelect({
         if (row.id != id) {
           return row;
         }
+
         let newPrice = eval(
           createFormula(
             formula,
-            Number(newUnitPrice) * row.amount,
+            row.amount,
+            Number(newUnitPrice),
             exchangeRate,
             freight,
             panel,
@@ -79,6 +81,7 @@ export default function MaterialSelect({
             margin
           )
         );
+
         return {
           ...row,
           custom: custom,

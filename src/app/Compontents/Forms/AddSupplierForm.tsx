@@ -15,12 +15,12 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
   const [, setMaterial] = useAtom(materialAtom);
   const [data, setData] = useAtom(materialTableAtom);
   const form = useForm<{
-    formula: string[];
+    formula: string;
     material: string;
     price: number | undefined;
   }>({
     initialValues: {
-      formula: ["price", " *", " amount "],
+      formula: "price * amount ",
       material: "",
       price: undefined,
     },
@@ -28,7 +28,7 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
       formula:
         values.formula.length < 1
           ? "Formula is required"
-          : values.formula.length % 2 === 0
+          : values.formula.split(" ").length % 2 !== 0
           ? "Ending in operation error"
           : null,
       material: values.material.length < 1 ? "Invalid Material" : null,
@@ -51,23 +51,19 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
             values.material != "" &&
             values.price != undefined
           ) {
-            let newFormula: string = "cost ";
-            for (let i: number = 3; i < values.formula.length; i++) {
-              newFormula += values.formula[i];
-            }
-            console.log(newFormula);
             setMaterial(
               values.material.toString(),
               values.material.toString(),
               values.price,
-              newFormula.toString(),
-              "2"
+              values.formula,
+              "2",
+              "Added"
             );
             const newRow = createMaterialRow(data.length);
             setData([...data, newRow]);
 
             values.material = "";
-            values.formula = ["price", "*", "amount"];
+            values.formula = "";
             values.price = undefined;
             handleClick();
           }

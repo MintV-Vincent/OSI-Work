@@ -13,15 +13,17 @@ import SupplierSelect from "./CustomCompontents/SupplierSelect";
 import MaterialSelect from "./CustomCompontents/MaterialSelect";
 import AmountInput from "./CustomCompontents/AmountInput";
 
-const tableSize: string = "w-40 h-14 ";
+const tableSize: string = "h-14 w-2/9 ";
 
 const columns: string[] = [
+  "",
   tableSize,
-  "w-80 h-14",
-  tableSize,
-  tableSize,
-  tableSize + "text-right",
-  tableSize + "text-right",
+  "w-3/9",
+  "w-1/9",
+  "w-1/9",
+  "w-1/9 text-right",
+  "w-1/9 text-right",
+  "",
 ];
 interface PriceTableInterface {
   customString: string;
@@ -41,7 +43,8 @@ export function PriceTable({ customString }: PriceTableInterface) {
       <tbody>
         {materialRows.map((row: materialRowMap, index: number) => (
           <tr key={index}>
-            <td className={tableSize}>
+            <td />
+            <td>
               <SupplierSelect
                 rowSupplier={row.supplier}
                 data={materialRows}
@@ -50,7 +53,7 @@ export function PriceTable({ customString }: PriceTableInterface) {
                 id={index}
               />
             </td>
-            <td className={"w-80 h-14"}>
+            <td>
               <MaterialSelect
                 currentMaterial={row.material}
                 currentSupplier={row.supplier}
@@ -60,8 +63,8 @@ export function PriceTable({ customString }: PriceTableInterface) {
                 setData={setMaterialRow}
               />
             </td>
-            <td className={tableSize}>{row.custom}</td>
-            <td className={tableSize}>
+            <td>{row.custom}</td>
+            <td>
               <AmountInput
                 id={index}
                 currentAmount={row.amount}
@@ -70,12 +73,11 @@ export function PriceTable({ customString }: PriceTableInterface) {
                 setData={setMaterialRow}
               />
             </td>
-            <td className={tableSize + "text-right"}>
-              {row.unitPrice.toFixed(2)}
-            </td>
-            <td className={tableSize + "text-right"}>
+            <td className={"text-right"}>{row.unitPrice.toFixed(2)}</td>
+            <td className={"text-right"}>
               <label title={row.formula}>{row.price.toFixed(2)}</label>
             </td>
+            <td />
           </tr>
         ))}
         <TotalRows text={"Total"} total={total} columns={6} />

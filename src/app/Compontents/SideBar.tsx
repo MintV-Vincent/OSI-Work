@@ -7,7 +7,7 @@ interface LinkProps {
 }
 
 const linkStyle: string =
-  "no-underline block px-2 py-2 mt-4 text-sm font-semibold rounded-lg hover:underline duration-300 ";
+  "no-underline block px-2 py-2 mt-4 text-sm font-semibold rounded-lg hover:link link-underline link-underline-black";
 const activeStyle: string = linkStyle + " text-white bg-tab";
 const nonActiveStyle: string = linkStyle + " text-white";
 

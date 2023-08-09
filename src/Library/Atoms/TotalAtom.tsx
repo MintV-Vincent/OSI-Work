@@ -35,7 +35,7 @@ export const fullTotalAtom = atom<number>((get) => {
   }
 });
 
-const CADTotalAtom = atom<number>((get) => {
+export const CADTotalAtom = atom<number>((get) => {
   const typeTotalAtom: any = get(totalAtom);
   return typeTotalAtom.reduce(
     (accumulator: number, currentValue: number) => accumulator + currentValue,
@@ -43,7 +43,7 @@ const CADTotalAtom = atom<number>((get) => {
   );
 });
 
-const USDTotalAtom = atom<number>((get) => {
+export const USDTotalAtom = atom<number>((get) => {
   const CADTotal: any = get(CADTotalAtom);
   const exchangeRate: any = get(exchangeRateAtom);
   if (isNaN(exchangeRate)) {

@@ -102,7 +102,7 @@ export default function page() {
         </div>
         <div className="flex flex-col mx-20">
           <label className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl text-primary text-center">
-            Total: ${fullTotal.toFixed(2)}
+            Total: ${fullTotal.toFixed(2) + " " + selector}
           </label>
           <Radio.Group
             className="text-xl"
@@ -112,8 +112,8 @@ export default function page() {
             size="lg"
           >
             <div className="flex justify-between">
-              <Radio className={"py-6"} value="CAD" label={"CAD"} />
-              <Radio className={"py-6"} value="USD" label={"USD"} />
+              <Radio className={"py-6"} value="CAD" label={"CAD$"} />
+              <Radio className={"py-6"} value="USD" label={"USD$"} />
             </div>
           </Radio.Group>
         </div>

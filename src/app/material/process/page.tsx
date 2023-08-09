@@ -19,7 +19,7 @@ export default function page() {
       <ProcessTable />
       <div className="p-10">
         <AddModal
-          title={"Add Material"}
+          title={"Add Process"}
           form={
             <Suspense>
               <AddMaterialForm handleClick={handleClick} />

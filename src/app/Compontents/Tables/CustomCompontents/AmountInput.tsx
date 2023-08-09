@@ -59,7 +59,8 @@ export default function AmountInput({
         let price = eval(
           createFormula(
             row.formula,
-            unitPrice * value,
+            value,
+            row.unitPrice,
             exchangeRate,
             freight,
             panel,

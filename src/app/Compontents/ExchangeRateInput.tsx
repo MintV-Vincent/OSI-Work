@@ -18,7 +18,7 @@ export default function ExchangeRateInput() {
       hideControls
       precision={2}
       value={exchangeRate}
-      onChange={(event: number | "") => {
+      onChange={(event: number) => {
         if (Number(event) <= 0) {
           event = 1;
         }
@@ -26,7 +26,7 @@ export default function ExchangeRateInput() {
         useMaterialData(
           materialData.map((row: materialRowMap) => {
             let newPrice = eval(
-              createFormula(row.formula, row.unitPrice * row.amount, event)
+              createFormula(row.formula, row.amount, row.unitPrice, event)
             );
             return {
               ...row,

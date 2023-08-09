@@ -7,35 +7,38 @@ interface TextInputInterface {
   form: UseFormReturnType<any>;
 }
 
-function formulaError(formula: string[]) {
-  if (formula.length < 1) {
-    return "Formula is required";
-  } else if (formula.length % 2 === 0) {
-    return "Can not end in an operation";
-  }
-  return false;
-}
-
 export default function ModalForm({ form }: TextInputInterface) {
   const [value, setValue] = useState<number | "">(0);
   const [disabled, setDisabled] = useState(false);
 
-  let currentFormula = "";
-  for (let i: number = 0; i < form.values.formula.length; i++) {
-    currentFormula += form.values.formula[i] + " ";
-  }
-
   const operation = ["- ", "+ ", "/ ", "* "];
-  const constantButton = ["exchange rate", "yeild", "freight"];
+  const constantButton = ["exchange ", "yeild ", "freight "];
 
   return (
     <div className="w-full">
+      <TextInput
+        className="py-2"
+        required
+        label="Material"
+        placeholder="Material"
+        {...form.getInputProps("material")}
+      />
+      <NumberInput
+        className="py-2"
+        precision={2}
+        required
+        hideControls
+        label="Price (CAD$)"
+        placeholder="Price"
+        {...form.getInputProps("price")}
+      />
       <div className="flex flex-col w-full">
         <Textarea
-          value={currentFormula}
+          required
+          label="Formula"
           readOnly
           autosize
-          error={formulaError(form.values.formula)}
+          {...form.getInputProps("formula")}
         />
         <div className="flex justify-between pt-3">
           {operation.map((row: string, index: number) => (
@@ -44,7 +47,7 @@ export default function ModalForm({ form }: TextInputInterface) {
               key={row + index}
               onClick={(e) => {
                 setDisabled(!disabled);
-                form.insertListItem("formula", row);
+                form.setFieldValue("formula", form.values.formula + row);
               }}
             >
               {row}
@@ -52,9 +55,15 @@ export default function ModalForm({ form }: TextInputInterface) {
           ))}
           <Button
             onClick={(e) => {
-              if (form.values.formula.length > 3) {
+              if (form.values.formula.split(" ").length > 4) {
+                const formulaArray = form.values.formula.split(" ");
+                const newString = formulaArray.slice(
+                  0,
+                  formulaArray.length - 2
+                );
+                const returnString = newString.join(" ");
                 setDisabled(!disabled);
-                form.removeListItem("formula", form.values.formula.length - 1);
+                form.setFieldValue("formula", returnString + " ");
               }
             }}
             rightIcon={<IconBackspaceFilled />}
@@ -69,7 +78,7 @@ export default function ModalForm({ form }: TextInputInterface) {
               key={row + index}
               onClick={(e) => {
                 setDisabled(!disabled);
-                form.insertListItem("formula", row);
+                form.setFieldValue("formula", form.values.formula + row);
               }}
             >
               {row}
@@ -79,6 +88,7 @@ export default function ModalForm({ form }: TextInputInterface) {
         <div className="flex justify-between pt-3">
           <label className="m-auto">Value: </label>
           <NumberInput
+            className="px-5"
             hideControls
             precision={4}
             value={value}
@@ -87,13 +97,17 @@ export default function ModalForm({ form }: TextInputInterface) {
           <Button
             disabled={!disabled}
             onClick={(e) => {
+              const formulaArray = form.values.formula.split(" ");
               if (
-                form.values.formula[form.values.formula.length - 1] === "/ " &&
+                formulaArray[formulaArray.length - 2] === "/" &&
                 value === 0
               ) {
               } else {
-                form.insertListItem("formula", value);
                 setDisabled(!disabled);
+                form.setFieldValue(
+                  "formula",
+                  form.values.formula + value + " "
+                );
               }
             }}
           >
@@ -101,21 +115,6 @@ export default function ModalForm({ form }: TextInputInterface) {
           </Button>
         </div>
       </div>
-      <TextInput
-        className="py-2"
-        required
-        label="Material"
-        placeholder="Material"
-        {...form.getInputProps("material")}
-      />
-      <NumberInput
-        className="py-2"
-        required
-        hideControls
-        label="Price ($CAD)"
-        placeholder="Price"
-        {...form.getInputProps("price")}
-      />
       <Group position="right" mt="md">
         <Button type="submit" className="">
           Submit

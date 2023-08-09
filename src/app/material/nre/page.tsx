@@ -73,37 +73,39 @@ export default function page() {
   }
 
   return (
-    <Table miw={700} striped withBorder verticalSpacing="md">
+    <Table striped withBorder verticalSpacing="md">
       <HeaderRow
         columns={[
+          "",
           "text-left h-14 w-1/4",
           "text-center h-14 w-1/4",
           "text-left h-14 w-1/6",
           "text-left h-14 w-1/6",
           "text-left h-14 w-1/6",
         ]}
-        titles={["Service", "Status", "", "Price ($)", ""]}
+        titles={["", "Service", "Status", "", "Price (CAD$)", ""]}
       />
       <tbody>
         {checkTableRow.map((row: checkTableMap, index: number) => (
           <tr className={" text-primary"} key={row.label + " row " + index}>
+            <td className="h-14" />
             <td>{row.label}</td>
             <td>
               <Center>{row.value}</Center>
             </td>
-            <td></td>
-            <td className="text-right">{row.value2}</td>
-            <td></td>
+            <td />
+            <td className="text-right h-14">{row.value2}</td>
+            <td />
           </tr>
         ))}
         <tr>
-          <td></td>
-          <td></td>
-          <td className="text-center font-semibold">Total</td>
-          <td className="text-left font-semibold">
+          <td className="h-16 " />
+          <td className="h-16 " />
+          <td className="h-16 " />
+          <td className="h-16 text-center font-semibold">Total</td>
+          <td className="h-16 text-left font-semibold">
             {Number(total).toFixed(2)}
           </td>
-          <td></td>
         </tr>
       </tbody>
     </Table>

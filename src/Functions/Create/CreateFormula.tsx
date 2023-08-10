@@ -22,10 +22,6 @@ export function createFormula(
   yeild: number | "" = 1,
   margin: number | "" = 1
 ): string {
-  if (exchangeRate === "") {
-    exchangeRate = 1;
-  }
-
   if (formula.indexOf(" ") > 0) {
     const arrayFormula: string[] = formula.split(" ");
     let equation: string = "";

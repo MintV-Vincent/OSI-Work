@@ -17,7 +17,6 @@ export default function SideBar() {
     { link: "/material", label: "Total" },
     { link: "/material/materials", label: "Materials" },
     { link: "/material/process", label: "Process & Film" },
-    { link: "/material/service", label: "Quality Services" },
     { link: "/material/nre", label: "NRE" },
   ];
 

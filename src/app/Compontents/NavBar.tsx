@@ -8,8 +8,9 @@ interface LinkProps {
   link: string;
 }
 
+const hoverStyle: string = "hover:link link-underline link-underline-black";
 const linkStyle: string =
-  "flex items-center pl-[30px] pr-[30px] h-full text-xl font-semibold no-underline hover:link2 link-underline2 link-underline-black2";
+  "flex items-center pl-[30px] pr-[30px] h-full text-xl font-semibold no-underline";
 const activeStyle: string = linkStyle + " text-white bg-tab";
 const nonActiveStyle: string = linkStyle + " text-white";
 
@@ -40,7 +41,7 @@ export function NavBar() {
       passHref
       shallow
     >
-      {item.label}
+      <label className={hoverStyle + " w-full"}>{item.label}</label>
     </Link>
   ));
 

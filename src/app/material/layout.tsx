@@ -14,7 +14,6 @@ export default function MaterialLayout({
   const [panel, setPanel] = useAtom(panelAtom);
   return (
     <div className="flex">
-      <SideBar />
       <div className="mx-10 my-6 p-10 w-full">
         <div className="flex justify-between">
           <label className="text-xl text-left w-60">1 USD to CAD</label>

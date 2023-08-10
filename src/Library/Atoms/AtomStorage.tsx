@@ -11,6 +11,7 @@ import { dryFilm } from "DataBases/Processes";
 import { tapes } from "DataBases/Tapes";
 import { Mtapes } from "DataBases/3MTapes";
 import { arwisa } from "DataBases/Arwisa";
+import JsonToService from "JsonReader/JsonToService";
 
 const isolaAtom = atom(JsonToAtom(isola));
 const arlonAtom = atom(JsonToAtom(arlon));
@@ -82,24 +83,25 @@ export const materialAtom = atom(
   }
 );
 
-const filmProcessAtom = atom(JsonToAtom(dryFilm));
-export const filmAtom = atom(
-  async (get) => {
-    const film = await get(filmProcessAtom);
-    return film;
-  },
-  (get, set, value: string, label: string, price: number, formula: string) => {
-    const film = get(filmProcessAtom);
-    set(filmProcessAtom, [
-      ...film,
-      createRowPrice(label, value, price, formula),
-    ]);
-    return film;
-  }
-);
+export const filmProcessAtom = atom(JsonToService(dryFilm));
+// export const filmAtom = atom(
+//   (get) => {
+//     const film = get(filmProcessAtom);
+//     return film;
+//   }
+// (get, set, value: string, label: string, price: number, formula: string) => {
+//   const film = get(filmProcessAtom);
+//   set(filmProcessAtom, [
+//     ...film,
+//     createRowPrice(label, value, price, formula),
+//   ]);
+//   return film;
+// }
+//);
 
 //These atoms are cause a lot of re-renders on calculation need to do something about it !
 export const exchangeRateAtom = atom<number | "">(1);
+export const exchangeRateMaterialAtom = atom<number | "">(1);
 export const freightAtom = atom<number | "">(1);
 export const yeildAtom = atom<number>(1);
 export const marginAtom = atom<number>(1);

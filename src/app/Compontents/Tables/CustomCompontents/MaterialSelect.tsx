@@ -5,6 +5,7 @@ import { filterMaterials } from "./SelectLogic";
 import { useAtom } from "jotai";
 import {
   exchangeRateAtom,
+  exchangeRateMaterialAtom,
   freightAtom,
   marginAtom,
   panelAtom,
@@ -29,7 +30,7 @@ export default function MaterialSelect({
   id,
   currentSupplier,
 }: materialSelect) {
-  const [exchangeRate] = useAtom(exchangeRateAtom);
+  const [exchangeRate] = useAtom(exchangeRateMaterialAtom);
   const [freight] = useAtom(freightAtom);
   const [panel] = useAtom(panelAtom);
   const [yeild] = useAtom(yeildAtom);

@@ -1,19 +1,15 @@
 import { atom } from "jotai";
-import {
-  checkTableAtom,
-  customCheckTableAtom,
-  materialTableAtom,
-  processTableAtom,
-} from "./TableAtoms";
-import { materialRowMap } from "Library/Types";
-import { NREAtom } from "./NREAtoms";
+import { materialTableAtom } from "./TableAtoms";
+import { materialRowMap, servicesMap } from "Library/Types";
 import {
   exchangeRateAtom,
+  filmProcessAtom,
   marginAtom,
   unitAtom,
   yeildAtom,
 } from "./AtomStorage";
 import { currencySelectorAtom } from "./FrontPageAtoms";
+import { nreAtom, servicesAtom } from "./ServiceStorage";
 
 export const totalAtom = atom<number[]>((get) => {
   const material = get(materialTotalAtom);
@@ -62,7 +58,7 @@ export const materialTotalAtom = atom<number>((get) => {
 });
 
 export const filmTotalAtom = atom<number>((get) => {
-  const typeFilmAtom: any = get(processTableAtom);
+  const typeFilmAtom: any = get(filmProcessAtom);
   return typeFilmAtom.reduce(
     (accumulator: number, currentValue: materialRowMap) =>
       accumulator + currentValue.price,
@@ -71,21 +67,20 @@ export const filmTotalAtom = atom<number>((get) => {
 });
 
 export const qualityTotalAtom = atom<number>((get) => {
-  const typeQualAtom: any = get(checkTableAtom);
+  const typeQualAtom: any = get(servicesAtom);
   return typeQualAtom.reduce(
-    (accumulator: number, currentValue: string) =>
-      accumulator + Number(currentValue),
+    (accumulator: number, currentValue: servicesMap) =>
+      accumulator + Number(currentValue.price),
     0
   );
 });
 export const NRETotalAtom = atom<number>((get) => {
-  const typeNREAtom: any = get(NREAtom);
-  const value: any = get(customCheckTableAtom);
-  let accumulator: number = 0;
-  value.map((row: string) => {
-    accumulator += typeNREAtom[Number(row)];
-  });
-  return accumulator;
+  const typeNREAtom: any = get(nreAtom);
+  return typeNREAtom.reduce(
+    (accumulator: number, currentValue: servicesMap) =>
+      accumulator + Number(currentValue.price),
+    0
+  );
 });
 
 export const yeildTotalAtom = atom<number>((get) => {

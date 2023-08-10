@@ -16,10 +16,31 @@ import {
   unitTotalAtom,
   yeildTotalAtom,
 } from "Library/Atoms/TotalAtom";
+import { PriceTable } from "app/Compontents/Tables/PriceTable";
+import { ProcessTable } from "app/Compontents/Tables/ProcessTable";
+import NRETable from "app/Compontents/Tables/NRETable";
+import ServiceTable from "app/Compontents/Tables/ServiceTable";
 
 const sharedTotal: string = "text-xl py-1.5 w-1/4 text-left";
 
 export default function page() {
+  return (
+    <div className="grid grid-cols-2 h-screen">
+      <div className="py-2 mr-2">
+        <TotalTable />
+        <PriceTable customString={"Code"} />
+      </div>
+      <div className="h-full overflow-auto py-2 mx-2">
+        <ProcessTable />
+        <ServiceTable />
+        <NRETable />
+      </div>
+    </div>
+  );
+}
+
+/*
+
   const [exchange] = useAtom(exchangeRateAtom);
   const [yeild, setYeild] = useAtom(yeildAtom);
   const [margin, setMargin] = useAtom(marginAtom);
@@ -28,10 +49,6 @@ export default function page() {
   const [yeildTotal] = useAtom(yeildTotalAtom);
   const [marginTotal] = useAtom(marginTotalAtom);
   const [unitTotal] = useAtom(unitTotalAtom);
-
-  return (
-    <>
-      <TotalTable />
 
       <div className="flex justify-between pt-10">
         <label className={sharedTotal}>Yeild: </label>
@@ -101,6 +118,5 @@ export default function page() {
       <h2 className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl text-primary">
         USD Total: ${(Number(fullTotal) / Number(exchange)).toFixed(2)}
       </h2>
-    </>
-  );
-}
+      
+*/

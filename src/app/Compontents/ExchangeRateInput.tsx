@@ -1,5 +1,8 @@
 import { NumberInput } from "@mantine/core";
-import { exchangeRateAtom } from "Library/Atoms/AtomStorage";
+import {
+  exchangeRateAtom,
+  exchangeRateMaterialAtom,
+} from "Library/Atoms/AtomStorage";
 import { materialTableAtom, processTableAtom } from "Library/Atoms/TableAtoms";
 import { IconCurrencyDollar } from "@tabler/icons-react";
 import { useAtom } from "jotai";
@@ -8,7 +11,7 @@ import { materialRowMap } from "Library/Types";
 import { createFormula } from "Functions/Create/CreateFormula";
 
 export default function ExchangeRateInput() {
-  const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
+  const [exchangeRate, setExchangeRate] = useAtom(exchangeRateMaterialAtom);
   const [materialData, useMaterialData] = useAtom(materialTableAtom);
   const [processData, useProcessData] = useAtom(processTableAtom);
 

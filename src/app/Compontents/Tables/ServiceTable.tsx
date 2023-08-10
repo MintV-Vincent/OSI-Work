@@ -1,19 +1,18 @@
+"use client";
 import { Table } from "@mantine/core";
+import { servicesAtom } from "Library/Atoms/ServiceStorage";
+import { qualityTotalAtom } from "Library/Atoms/TotalAtom";
+import { serviceHeader } from "Library/Headers";
 import { servicesMap } from "Library/Types";
+import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
+import TotalRows from "app/Compontents/Tables/Rows/TotalRows";
 import { useAtom } from "jotai";
 import React from "react";
-import TotalRows from "./Rows/TotalRows";
-import HeaderRow from "./Rows/HeaderRow";
-import { processHeader, serviceHeader } from "Library/Headers";
-import { filmTotalAtom } from "Library/Atoms/TotalAtom";
-import { filmProcessAtom } from "Library/Atoms/AtomStorage";
 import ServiceInput from "./CustomCompontents/ServiceAmount";
 
-const columns: string[] = ["h-14", "text-right h-14", "text-right h-14"];
-
-export function ProcessTable() {
-  const [total] = useAtom(filmTotalAtom);
-  const [processing, setProcesses] = useAtom(filmProcessAtom);
+export default function ServiceTable() {
+  const [total] = useAtom(qualityTotalAtom);
+  const [value, setValue] = useAtom(servicesAtom);
 
   return (
     <Table striped withBorder verticalSpacing="xs">
@@ -22,7 +21,7 @@ export function ProcessTable() {
         titles={serviceHeader}
       />
       <tbody>
-        {processing.map((row: servicesMap, index: number) => (
+        {value.map((row: servicesMap, index: number) => (
           <tr className={" text-primary"} key={row.material + " row " + index}>
             <td>{row.material}</td>
             <td>
@@ -30,14 +29,12 @@ export function ProcessTable() {
                 id={index}
                 currentAmount={row.amount}
                 unitPrice={row.unitPrice}
-                data={processing}
-                setData={setProcesses}
+                data={value}
+                setData={setValue}
               />
             </td>
             <td className="text-right">{row.unitPrice.toFixed(2)}</td>
-            <td className="text-right" title={row.formula}>
-              {row.price.toFixed(2)}
-            </td>
+            <td className="text-right">{row.price.toFixed(2)}</td>
           </tr>
         ))}
         <TotalRows

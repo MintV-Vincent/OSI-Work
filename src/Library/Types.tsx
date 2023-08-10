@@ -32,6 +32,14 @@ export interface jsonMap {
   supplier: string;
 }
 
+export interface servicesMap {
+  id: number;
+  amount: number;
+  formula: string;
+  material: string;
+  unitPrice: number;
+  price: number;
+}
 export interface rowMapPrice extends dictionaryMap {
   custom: string;
   formula: string;

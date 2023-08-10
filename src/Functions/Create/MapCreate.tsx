@@ -5,6 +5,7 @@ import {
   dictionaryMap,
   rowTotalMap,
   checkTableMap,
+  servicesMap,
 } from "Library/Types";
 // These functions return the types of rows used for the tables. These are needed to create the tables
 
@@ -26,6 +27,17 @@ export function createRowTotal(label: string, value: number): rowTotalMap {
 
 export function createData(label: string, value: string): dictionaryMap {
   return { label, value };
+}
+
+export function createService(
+  id: number,
+  amount: number,
+  formula: string,
+  material: string,
+  unitPrice: number,
+  price: number = 0
+): servicesMap {
+  return { id, amount, formula, material, unitPrice, price };
 }
 
 export function createRowPrice(

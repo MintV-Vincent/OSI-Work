@@ -1,22 +1,18 @@
 export const frontHeader: string[] = ["PCB Fabrication", "", "Status"];
 export const totalHeader: string[] = ["Process", "Cost CAD$", "Cost USD$"];
 export const protoHeader: string[] = ["Layers", "Complex", "Notes", "Panel"];
-export const processHeader: string[] = [
-  "Material",
+export const processHeader: string[] = ["Material", "Amount", "Price (CAD$)"];
+export const serviceHeader: string[] = [
+  "Service",
   "Amount",
-  "Unit Price (USD$)",
+  "Unit Price",
   "Price (CAD$)",
 ];
 
+export const nreHeader: string[] = ["Service", "Amount", "Price (CAD$)"];
+
 export function materialHeader(custom: string): string[] {
-  return [
-    "Supplier",
-    "Material",
-    custom,
-    "Amount",
-    "Unit Price (USD$)",
-    "Price (CAD$)",
-  ];
+  return ["Supplier", "Material", custom, "Amount", "Price (CAD$)"];
 }
 
 export const materialsTitle: string = "Materials";

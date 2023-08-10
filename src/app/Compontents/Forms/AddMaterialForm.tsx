@@ -3,7 +3,6 @@ import { useForm } from "@mantine/form";
 import { useAtom } from "jotai";
 import React from "react";
 import { createMaterialRow } from "Functions/Create/MapCreate";
-import { filmAtom } from "Library/Atoms/AtomStorage";
 import { processTableAtom } from "Library/Atoms/TableAtoms";
 import ModalForm from "./ModalForm";
 
@@ -13,7 +12,7 @@ interface AddButtonInterface {
 
 export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
   const [data, setData] = useAtom(processTableAtom);
-  const [, setMaterial] = useAtom(filmAtom);
+  // const [, setMaterial] = useAtom(filmAtom);
   const form = useForm<{
     material: string;
     formula: string;
@@ -41,34 +40,33 @@ export default function AddMaterialForm({ handleClick }: AddButtonInterface) {
     }),
   });
 
-  return (
-    <Box maw={340} mx="auto">
-      <form
-        onSubmit={form.onSubmit((values) => {
-          if (
-            form &&
-            values.formula.length > 0 &&
-            values.price != undefined &&
-            values.material != ""
-          ) {
-            setMaterial(
-              values.material,
-              values.material,
-              values.price,
-              values.formula
-            );
-            const newRow = createMaterialRow(data.length);
-            setData([...data, newRow]);
+  return <></>;
+  // <Box maw={340} mx="auto">
+  //   <form
+  //     onSubmit={form.onSubmit((values) => {
+  //       if (
+  //         form &&
+  //         values.formula.length > 0 &&
+  //         values.price != undefined &&
+  //         values.material != ""
+  //       ) {
+  //         setMaterial(
+  //           values.material,
+  //           values.material,
+  //           values.price,
+  //           values.formula
+  //         );
+  //         const newRow = createMaterialRow(data.length);
+  //         setData([...data, newRow]);
 
-            values.material = "";
-            values.formula = "price * amount ";
-            values.price = undefined;
-            handleClick();
-          }
-        })}
-      >
-        <ModalForm form={form} />
-      </form>
-    </Box>
-  );
+  //         values.material = "";
+  //         values.formula = "price * amount ";
+  //         values.price = undefined;
+  //         handleClick();
+  //       }
+  //     })}
+  //   >
+  //     <ModalForm form={form} />
+  //   </form>
+  // </Box>
 }

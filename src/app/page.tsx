@@ -1,13 +1,6 @@
 "use client";
-import { useHydrateAtoms } from "jotai/utils";
-import {
-  yeildAtom,
-  marginAtom,
-  exchangeRateAtom,
-  freightAtom,
-  panelAtom,
-} from "Library/Atoms/AtomStorage";
-import { Button, Radio, Textarea } from "@mantine/core";
+import { IconCurrencyDollar } from "@tabler/icons-react";
+import { Button, NumberInput, Radio, Textarea } from "@mantine/core";
 import { FrontTable } from "app/Compontents/Tables/FrontTable";
 import { useReactToPrint } from "react-to-print";
 import React, { useRef, lazy, Suspense } from "react";
@@ -21,6 +14,7 @@ import {
   soldAtom,
 } from "Library/Atoms/FrontPageAtoms";
 import { fullTotalAtom } from "Library/Atoms/TotalAtom";
+import { exchangeRateAtom } from "Library/Atoms/AtomStorage";
 
 const FrontPagePrint = lazy(
   () => import("app/Compontents/PrintingElement/FrontPagePrint")
@@ -37,6 +31,7 @@ export default function page() {
   const [sold, setSold] = useAtom(soldAtom);
   const [sales, setSales] = useAtom(salesAtom);
   const [selector, setSelector] = useAtom(currencySelectorAtom);
+  const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
 
   let componentRef: any = useRef();
   const handlePrint = useReactToPrint({
@@ -101,21 +96,37 @@ export default function page() {
           </div>
         </div>
         <div className="flex flex-col mx-20">
-          <label className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl text-primary text-center">
+          <NumberInput
+            size="xs"
+            hideControls
+            precision={2}
+            value={exchangeRate}
+            onChange={(event: number | "") => {
+              setExchangeRate(event);
+            }}
+            rightSection={
+              <IconCurrencyDollar
+                size={"1.25rem"}
+                style={{ display: "block", opacity: 0.5 }}
+              />
+            }
+            rightSectionWidth={36}
+          />
+          <label className="flex mx-1mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-3xl lg:text-4xl text-primary text-center">
             Total: ${fullTotal.toFixed(2) + " " + selector}
           </label>
-          <Radio.Group
-            className="text-xl"
-            value={selector}
-            onChange={setSelector}
-            name="USDCADEXCHANGE"
-            size="lg"
-          >
-            <div className="flex justify-between">
-              <Radio className={"py-6"} value="CAD" label={"CAD$"} />
-              <Radio className={"py-6"} value="USD" label={"USD$"} />
-            </div>
-          </Radio.Group>
+          <div className="flex justify-between">
+            <Radio.Group
+              className="text-xl"
+              value={selector}
+              onChange={setSelector}
+              name="USDCADEXCHANGE"
+              size="lg"
+            >
+              <Radio className={"py-6 px-3"} value="CAD" label={"CAD$"} />
+              <Radio className={"py-6  px-3"} value="USD" label={"USD$"} />
+            </Radio.Group>
+          </div>
         </div>
       </div>
     </div>

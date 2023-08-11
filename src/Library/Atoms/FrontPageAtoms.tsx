@@ -18,3 +18,8 @@ export const currencySelectorAtom = atom<string>("CAD");
 export const layerAtom = atom<string | " ">(" ");
 export const technologyAtom = atom<string | "">("A");
 export const assemblyAtom = atom<string | "">("Yes");
+export const qualityAtom = atom<string | "">("");
+export const qualityPrintAtom = atom((get) => {
+  const qualitySplit = get(qualityAtom);
+  return qualitySplit.match(/\d+/g);
+});

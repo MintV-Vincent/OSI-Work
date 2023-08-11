@@ -17,7 +17,7 @@ export default function ExchangeRateInput() {
 
   return (
     <NumberInput
-      className="pb-3 w-60"
+      className="w-60"
       hideControls
       precision={2}
       value={exchangeRate}

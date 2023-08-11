@@ -6,14 +6,9 @@ import GetDate from "Functions/GetFunction/GetDate";
 import { useAtom } from "jotai";
 import { TextInput } from "@mantine/core";
 import { panelRow } from "Library/SelectMap";
-import { IconCurrencyDollar } from "@tabler/icons-react";
 import SelectLabel from "app/Compontents/SelectLabel";
 import GetQuote from "Functions/GetFunction/GetQuote";
-import {
-  exchangeRateAtom,
-  freightAtom,
-  panelAtom,
-} from "Library/Atoms/AtomStorage";
+import { freightAtom, panelAtom } from "Library/Atoms/AtomStorage";
 import {
   assemblyAtom,
   layerAtom,
@@ -22,12 +17,11 @@ import {
   technologyAtom,
 } from "Library/Atoms/FrontPageAtoms";
 import { useEffect, useRef } from "react";
+import QuantityInput from "../QuantityInput";
 interface SplitTable {
   left: rowMap;
   right: rowMap;
 }
-
-const rowClassName: string = "h-14";
 
 function createLoop(number: number) {
   let indents: string[] = [];
@@ -47,7 +41,6 @@ export function FrontTable({}) {
   }, []);
 
   const [freight, setFreight] = useAtom(freightAtom);
-  const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
   const [panel, setPanel] = useAtom(panelAtom);
   const [layers, setLayers] = useAtom(layerAtom);
   const [technology, setTechnology] = useAtom(technologyAtom);
@@ -62,6 +55,7 @@ export function FrontTable({}) {
   const partNumber = createRow(
     "Part Number",
     <TextInput
+      size="xs"
       value={partNumberInput}
       onChange={(event) => setPartInput(event.currentTarget.value)}
     />
@@ -69,13 +63,16 @@ export function FrontTable({}) {
   const revision = createRow(
     "Revision",
     <TextInput
+      size="xs"
       value={revisionInput}
       onChange={(event) => setRevisionInput(event.currentTarget.value)}
     />
   );
+  const quantity = createRow("Quantities", <QuantityInput />);
   const numberOfLayers = createRow(
     "# of Layers",
     <Select
+      size="xs"
       searchable
       clearable
       searchValue={layers}
@@ -90,6 +87,7 @@ export function FrontTable({}) {
   const panelSize = createRow(
     "Panel Size",
     <SegmentedControl
+      size="xs"
       color="blue"
       fullWidth
       value={panel}
@@ -100,6 +98,7 @@ export function FrontTable({}) {
   const technologyTable = createRow(
     "Technology",
     <SegmentedControl
+      size="xs"
       color="blue"
       fullWidth
       value={technology}
@@ -107,27 +106,10 @@ export function FrontTable({}) {
       data={["A", "B", "C", "D"]}
     />
   );
-  const exchangeTable = createRow(
-    "Exchange Rate",
-    <NumberInput
-      hideControls
-      precision={2}
-      value={exchangeRate}
-      onChange={(event: number | "") => {
-        setExchangeRate(event);
-      }}
-      rightSection={
-        <IconCurrencyDollar
-          size={"1.25rem"}
-          style={{ display: "block", opacity: 0.5 }}
-        />
-      }
-      rightSectionWidth={36}
-    />
-  );
   const freightTable = createRow(
     "Freight",
     <NumberInput
+      size="xs"
       hideControls
       precision={4}
       value={freight}
@@ -139,6 +121,7 @@ export function FrontTable({}) {
   const assymblyTable = createRow(
     "Assembly",
     <SegmentedControl
+      size="xs"
       color="blue"
       fullWidth
       value={assembly}
@@ -152,37 +135,35 @@ export function FrontTable({}) {
       left: createRow("Date", <label>{GetDate()}</label>),
     },
     { left: partNumber, right: numberOfLayers },
+    { left: quantity, right: assymblyTable },
     { left: revision, right: panelSize },
-    { left: freightTable, right: assymblyTable },
-    { left: exchangeTable, right: technologyTable },
+    { left: freightTable, right: technologyTable },
   ];
 
   // This table consist of only two columns. The data points should be of type row map
   return (
     <div className="pt-10">
-      <Table striped withBorder verticalSpacing="md">
+      <Table striped withBorder verticalSpacing="xs">
         <thead className={"bg-light"}>
           <tr>
             <td colSpan={1}></td>
             <td
               colSpan={6}
-              className={"h-14 text-xl font-semibold py-2 px-3 text-primary"}
-            >
-              Front
-            </td>
+              className={"h-10 text-xl font-semibold py-2 px-3 text-primary"}
+            ></td>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td colSpan={1}></td>
-            <td className={"text font-semibold " + rowClassName} colSpan={1}>
+            <td className={"text font-semibold "} colSpan={1}>
               {"Customer"}
             </td>
-            <td className={rowClassName} colSpan={1}>
+            <td className={""} colSpan={1}>
               {selectCustomer}
             </td>
             <td colSpan={1}></td>
-            <td className={"text font-semibold " + rowClassName} colSpan={2}>
+            <td className={"text font-semibold " + ""} colSpan={2}>
               {customerCode}
             </td>
             <td colSpan={1}></td>
@@ -190,17 +171,17 @@ export function FrontTable({}) {
           {leftTable.map((row: SplitTable, index: number) => (
             <tr key={row.left + " row " + index}>
               <td colSpan={1}></td>
-              <td className={rowClassName} colSpan={1}>
+              <td className={""} colSpan={1}>
                 {row.left.label}
               </td>
-              <td className={rowClassName} colSpan={1}>
+              <td className={""} colSpan={1}>
                 {row.left.value}
               </td>
               <td colSpan={1}></td>
-              <td className={rowClassName} colSpan={1}>
+              <td className={""} colSpan={1}>
                 {row.right.label}
               </td>
-              <td className={rowClassName} colSpan={1}>
+              <td className={""} colSpan={1}>
                 {row.right.value}
               </td>
               <td colSpan={1}></td>

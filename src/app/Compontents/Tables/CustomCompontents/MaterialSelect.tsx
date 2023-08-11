@@ -98,6 +98,7 @@ export default function MaterialSelect({
 
   return (
     <Select
+      size="xs"
       placeholder="Material"
       value={currentMaterial}
       searchable

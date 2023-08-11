@@ -1,3 +1,19 @@
-.div .section_one {
-  display: "gird | inline-grid";
+#page {
+  display: grid;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  margin-left: auto;
+  margin-right: auto;
+  row-gap: 5px;
+  width: 90%;
+  height: 90%;
+  grid-template-columns: repeat(9, minmax(0, 10rem));
+  grid-template-rows: repeat(25, minmax(0, 1.5rem));
+}
+
+.rectangle {
+  background-color: #000000;
+  margin: auto;
+  height: 2%;
+  width: 100%;
 }

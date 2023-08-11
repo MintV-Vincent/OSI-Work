@@ -12,27 +12,27 @@ export function TotalTable() {
   const [exchange] = useAtom(exchangeRateAtom);
   // This table consist of only two columns. The data points should be of type row map
   return (
-    <Table miw={700} striped withBorder verticalSpacing="md">
+    <Table striped withBorder verticalSpacing="xs">
       <HeaderRow
-        columns={["h-14", "text-right h-14 w-100", "text-right h-14 w-100"]}
+        columns={["", "text-right  w-100", "text-right  w-100"]}
         titles={totalHeader}
       />
       <tbody>
         {total.map((subTotal: number, index: number) => (
           <tr className={"text-primary"} key={subTotal + "-row-" + index}>
-            <td className="h-14 w-1/3 z-50">{titles[index]}</td>
-            <td className="h-14 text-right  w-1/3">{subTotal.toFixed(2)}</td>
-            <td className="h-14 text-right  w-1/3">
+            <td className="w-1/3 z-50">{titles[index]}</td>
+            <td className="text-right  w-1/3">{subTotal.toFixed(2)}</td>
+            <td className="text-right  w-1/3">
               {Number(subTotal / Number(exchange)).toFixed(2)}
             </td>
           </tr>
         ))}
         <tr>
-          <td className={"h-14 w-1/3 font-semibold"}>{"Total"}</td>
-          <td className={"h-14 w-1/3 font-semibold text-right"}>
+          <td className={"w-1/3 font-semibold"}>{"Total"}</td>
+          <td className={"w-1/3 font-semibold text-right"}>
             {CADTotal.toFixed(2)}
           </td>
-          <td className={"h-14 w-1/3 font-semibold text-right"}>
+          <td className={"w-1/3 font-semibold text-right"}>
             {USATotal.toFixed(2)}
           </td>
         </tr>

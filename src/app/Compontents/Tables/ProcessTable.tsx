@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import React from "react";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
-import { processHeader, serviceHeader } from "Library/Headers";
+import { serviceHeader } from "Library/Headers";
 import { filmTotalAtom } from "Library/Atoms/TotalAtom";
 import { filmProcessAtom } from "Library/Atoms/AtomStorage";
 import ServiceInput from "./CustomCompontents/ServiceAmount";
@@ -18,7 +18,7 @@ export function ProcessTable() {
   return (
     <Table striped withBorder verticalSpacing="xs">
       <HeaderRow
-        columns={["text-left h-14", "", "text-left h-14", "text-right h-14"]}
+        columns={["text-left ", "", "text-left ", "text-right "]}
         titles={serviceHeader}
       />
       <tbody>
@@ -44,6 +44,8 @@ export function ProcessTable() {
           text={"Total"}
           total={total}
           columns={serviceHeader.length}
+          materialRows={processing}
+          setMaterialRow={setProcesses}
         />
       </tbody>
     </Table>

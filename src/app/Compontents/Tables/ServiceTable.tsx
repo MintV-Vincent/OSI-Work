@@ -5,9 +5,9 @@ import { qualityTotalAtom } from "Library/Atoms/TotalAtom";
 import { serviceHeader } from "Library/Headers";
 import { servicesMap } from "Library/Types";
 import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
-import TotalRows from "app/Compontents/Tables/Rows/TotalRows";
+import TotalRows from "./Rows/TotalRows";
 import { useAtom } from "jotai";
-import React from "react";
+import React, { useState } from "react";
 import ServiceInput from "./CustomCompontents/ServiceAmount";
 
 export default function ServiceTable() {
@@ -17,7 +17,7 @@ export default function ServiceTable() {
   return (
     <Table striped withBorder verticalSpacing="xs">
       <HeaderRow
-        columns={["text-left h-14", "", "text-left h-14", "text-right h-14"]}
+        columns={["text-left", "", "text-left ", "text-right "]}
         titles={serviceHeader}
       />
       <tbody>
@@ -41,6 +41,8 @@ export default function ServiceTable() {
           text={"Total"}
           total={total}
           columns={serviceHeader.length}
+          materialRows={value}
+          setMaterialRow={setValue}
         />
       </tbody>
     </Table>

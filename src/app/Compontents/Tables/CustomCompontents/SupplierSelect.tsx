@@ -60,6 +60,7 @@ export default function SupplierSelect({
 
   return (
     <Select
+      size="xs"
       placeholder="Supplier"
       searchable
       clearable

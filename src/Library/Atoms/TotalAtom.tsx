@@ -3,6 +3,7 @@ import { materialTableAtom } from "./TableAtoms";
 import { materialRowMap, servicesMap } from "Library/Types";
 import {
   exchangeRateAtom,
+  exchangeRateMaterialAtom,
   filmProcessAtom,
   marginAtom,
   unitAtom,
@@ -41,7 +42,7 @@ export const CADTotalAtom = atom<number>((get) => {
 
 export const USDTotalAtom = atom<number>((get) => {
   const CADTotal: any = get(CADTotalAtom);
-  const exchangeRate: any = get(exchangeRateAtom);
+  const exchangeRate: any = get(exchangeRateMaterialAtom);
   if (isNaN(exchangeRate)) {
     return CADTotal / 1;
   }

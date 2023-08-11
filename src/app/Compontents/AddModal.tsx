@@ -3,7 +3,7 @@ import React from "react";
 
 interface addModalInterface {
   title: string;
-  form: React.JSX.Element;
+  form: any;
   button: React.JSX.Element;
   status: any;
   handleClick: any;

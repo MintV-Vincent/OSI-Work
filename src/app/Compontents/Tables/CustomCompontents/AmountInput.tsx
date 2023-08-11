@@ -79,6 +79,7 @@ export default function AmountInput({
 
   return (
     <NumberInput
+      size="xs"
       hideControls
       value={currentAmount}
       precision={2}

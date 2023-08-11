@@ -40,6 +40,7 @@ export default function SelectLabel() {
 
   return [
     <Select
+      size="xs"
       allowDeselect
       searchValue={selector}
       onSearchChange={(e) => {
@@ -64,7 +65,7 @@ export default function SelectLabel() {
             <ActionIcon
               title="Add Customer"
               variant="filled"
-              radius="xl"
+              radius="xs"
               color="blue"
               onClick={() => handleClick()}
             >

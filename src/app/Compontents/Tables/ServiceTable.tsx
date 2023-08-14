@@ -1,4 +1,3 @@
-"use client";
 import { Table } from "@mantine/core";
 import { servicesAtom } from "Library/Atoms/ServiceStorage";
 import { qualityTotalAtom } from "Library/Atoms/TotalAtom";
@@ -7,12 +6,13 @@ import { servicesMap } from "Library/Types";
 import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
 import TotalRows from "./Rows/TotalRows";
 import { useAtom } from "jotai";
-import React, { useState } from "react";
+import React from "react";
 import ServiceInput from "./CustomCompontents/ServiceAmount";
+import AddServiceButton from "./CustomCompontents/AddServiceButton";
 
 export default function ServiceTable() {
   const [total] = useAtom(qualityTotalAtom);
-  const [value, setValue] = useAtom(servicesAtom);
+  const [service, setService] = useAtom(servicesAtom);
 
   return (
     <Table striped withBorder verticalSpacing="xs">
@@ -21,7 +21,7 @@ export default function ServiceTable() {
         titles={serviceHeader}
       />
       <tbody>
-        {value.map((row: servicesMap, index: number) => (
+        {service.map((row: servicesMap, index: number) => (
           <tr className={" text-primary"} key={row.material + " row " + index}>
             <td>{row.material}</td>
             <td>
@@ -29,8 +29,8 @@ export default function ServiceTable() {
                 id={index}
                 currentAmount={row.amount}
                 unitPrice={row.unitPrice}
-                data={value}
-                setData={setValue}
+                data={service}
+                setData={setService}
               />
             </td>
             <td className="text-right">{row.unitPrice.toFixed(2)}</td>
@@ -41,8 +41,9 @@ export default function ServiceTable() {
           text={"Total"}
           total={total}
           columns={serviceHeader.length}
-          materialRows={value}
-          setMaterialRow={setValue}
+          button={
+            <AddServiceButton dataRow={service} setDataRow={setService} />
+          }
         />
       </tbody>
     </Table>

@@ -8,8 +8,7 @@ import { serviceHeader } from "Library/Headers";
 import { filmTotalAtom } from "Library/Atoms/TotalAtom";
 import { filmProcessAtom } from "Library/Atoms/AtomStorage";
 import ServiceInput from "./CustomCompontents/ServiceAmount";
-
-const columns: string[] = ["h-14", "text-right h-14", "text-right h-14"];
+import AddServiceButton from "./CustomCompontents/AddServiceButton";
 
 export function ProcessTable() {
   const [total] = useAtom(filmTotalAtom);
@@ -44,8 +43,9 @@ export function ProcessTable() {
           text={"Total"}
           total={total}
           columns={serviceHeader.length}
-          materialRows={processing}
-          setMaterialRow={setProcesses}
+          button={
+            <AddServiceButton dataRow={processing} setDataRow={setProcesses} />
+          }
         />
       </tbody>
     </Table>

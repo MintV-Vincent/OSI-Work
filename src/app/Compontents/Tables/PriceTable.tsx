@@ -1,6 +1,6 @@
 import { Table } from "@mantine/core";
 import { dictionaryMap, materialRowMap, rowMapPrice } from "Library/Types";
-import React, { Suspense, lazy, useState } from "react";
+import React from "react";
 import SelectLogic from "app/Compontents/Tables/CustomCompontents/SelectLogic";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
@@ -12,10 +12,8 @@ import { materialTotalAtom } from "Library/Atoms/TotalAtom";
 import SupplierSelect from "./CustomCompontents/SupplierSelect";
 import MaterialSelect from "./CustomCompontents/MaterialSelect";
 import AmountInput from "./CustomCompontents/AmountInput";
-
-const AddSupplierForm = lazy(
-  () => import("app/Compontents/Forms/AddSupplierForm")
-);
+import AddServiceButton from "./CustomCompontents/AddMaterialButton";
+import { createMaterialRow } from "Functions/Create/MapCreate";
 
 const tableSize: string = "w-2/9 ";
 
@@ -63,7 +61,6 @@ export function PriceTable({ customString }: PriceTableInterface) {
                 setData={setMaterialRow}
               />
             </td>
-            <td>{row.custom}</td>
             <td>
               <AmountInput
                 id={index}
@@ -73,6 +70,7 @@ export function PriceTable({ customString }: PriceTableInterface) {
                 setData={setMaterialRow}
               />
             </td>
+            <td>{row.unitPrice.toFixed(2)}</td>
             <td className={"text-right"}>
               <label title={row.formula}>{row.price.toFixed(2)}</label>
             </td>
@@ -82,8 +80,13 @@ export function PriceTable({ customString }: PriceTableInterface) {
           text={"Total"}
           total={total}
           columns={materialHeader(customString).length}
-          materialRows={materialRows}
-          setMaterialRow={setMaterialRow}
+          button={
+            <AddServiceButton
+              createRow={createMaterialRow}
+              dataRow={materialRows}
+              setDataRow={setMaterialRow}
+            />
+          }
         />
       </tbody>
     </Table>

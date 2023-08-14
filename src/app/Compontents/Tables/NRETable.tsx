@@ -1,4 +1,3 @@
-"use client";
 import { NumberInput, Table } from "@mantine/core";
 import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
 import { servicesMap } from "Library/Types";
@@ -10,10 +9,11 @@ import { nreAtom } from "Library/Atoms/ServiceStorage";
 import TotalRows from "./Rows/TotalRows";
 import ServiceInput from "app/Compontents/Tables/CustomCompontents/ServiceAmount";
 import { createFormula } from "Functions/Create/CreateFormula";
+import AddServiceButton from "./CustomCompontents/AddServiceButton";
 
 export default function NRETable() {
   const [total] = useAtom(NRETotalAtom);
-  const [value, setValue] = useAtom(nreAtom);
+  const [nre, setNRE] = useAtom(nreAtom);
 
   /**
    *
@@ -56,7 +56,7 @@ export default function NRETable() {
         titles={serviceHeader}
       />
       <tbody>
-        {value.map((row: servicesMap, index: number) => (
+        {nre.map((row: servicesMap, index: number) => (
           <tr className={" text-primary"} key={row.material + " row " + index}>
             <td>{row.material}</td>
             <td>
@@ -64,8 +64,8 @@ export default function NRETable() {
                 id={index}
                 currentAmount={row.amount}
                 unitPrice={row.unitPrice}
-                data={value}
-                setData={setValue}
+                data={nre}
+                setData={setNRE}
               />
             </td>
             <td className="text-right">
@@ -74,7 +74,7 @@ export default function NRETable() {
                 hideControls
                 value={row.unitPrice}
                 onChange={(e) => {
-                  onPriceChange(index, e, value, setValue);
+                  onPriceChange(index, e, nre, setNRE);
                 }}
                 precision={2}
               />
@@ -86,8 +86,7 @@ export default function NRETable() {
           text={"Total"}
           total={total}
           columns={serviceHeader.length}
-          materialRows={value}
-          setMaterialRow={setValue}
+          button={<AddServiceButton dataRow={nre} setDataRow={setNRE} />}
         />
       </tbody>
     </Table>

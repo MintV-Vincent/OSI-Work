@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className + "overflow-auto h-screen"}>
+      <body className={inter.className}>
         <JotaiProvider>
           <NavBar />
           {children}

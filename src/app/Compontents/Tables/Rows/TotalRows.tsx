@@ -1,21 +1,17 @@
-import { Button } from "@mantine/core";
-import { createMaterialRow } from "Functions/Create/MapCreate";
-import React, { memo } from "react";
+import React from "react";
 
 interface totalRow {
   text: string;
   total: number;
   columns: number;
-  materialRows: any;
-  setMaterialRow: any;
+  button: any;
 }
 
-const TotalRows = memo(function TotalRows({
+const TotalRows = function TotalRows({
   text,
   total,
   columns,
-  materialRows,
-  setMaterialRow,
+  button,
 }: totalRow) {
   let array: number[] = [];
   for (let i: number = 3; i < columns; i++) {
@@ -26,19 +22,9 @@ const TotalRows = memo(function TotalRows({
 
   return (
     <tr key={text + " row"}>
-      <td>
-        <Button
-          size="xs"
-          onClick={(e) => {
-            const newRow = createMaterialRow(materialRows.length);
-            setMaterialRow([...materialRows, newRow]);
-          }}
-        >
-          Add Row
-        </Button>
-      </td>
+      <td className="flex justify-start">{button}</td>
       {array.map((i: number) => (
-        <td className={sharedClass} key={"total filler column" + i}></td>
+        <td className={sharedClass} key={"total filler column" + i} />
       ))}
       <td className={sharedClass + " font-semibold text-right text-xl"}>
         {text}
@@ -48,6 +34,6 @@ const TotalRows = memo(function TotalRows({
       </td>
     </tr>
   );
-});
+};
 
 export default TotalRows;

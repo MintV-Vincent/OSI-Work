@@ -12,7 +12,7 @@ export const serviceHeader: string[] = [
 export const nreHeader: string[] = ["Service", "Amount", "Price "];
 
 export function materialHeader(custom: string): string[] {
-  return ["Supplier", "Material", custom, "Amount", "Price "];
+  return ["Supplier", "Material", "Amount", "Unit Price", "Price "];
 }
 
 export const materialsTitle: string = "Materials";

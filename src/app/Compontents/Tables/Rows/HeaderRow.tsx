@@ -15,7 +15,8 @@ const HeaderRow = memo(function HeaderRow({
         {columns.map((title: string, index: number) => (
           <td
             className={
-              columns[index] + " text-xl font-semibold py-2 px-3 text-primary"
+              columns[index] +
+              " text-xl font-semibold py-2 px-3 text-primary whitespace-nowrap overflow-hidden "
             }
             key={title + " title" + index}
           >

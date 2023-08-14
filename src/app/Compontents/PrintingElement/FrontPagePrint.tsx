@@ -136,7 +136,7 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
         <div className="grid grid-cols-10 col-span-8 break-words whitespace-pre-wrap">
           {quality?.map((row: string, index: number) => (
             <div key={row + index} className="col-span-1">
-              {fullTotal / Number(row)}
+              {(fullTotal / Number(row)).toFixed(2)}
             </div>
           ))}
         </div>

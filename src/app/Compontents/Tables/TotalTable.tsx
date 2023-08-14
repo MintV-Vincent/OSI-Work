@@ -3,13 +3,16 @@ import HeaderRow from "./Rows/HeaderRow";
 import { useAtom } from "jotai";
 import { titles, totalHeader } from "Library/Headers";
 import { CADTotalAtom, USDTotalAtom, totalAtom } from "Library/Atoms/TotalAtom";
-import { exchangeRateAtom } from "Library/Atoms/AtomStorage";
+import {
+  exchangeRateAtom,
+  exchangeRateMaterialAtom,
+} from "Library/Atoms/AtomStorage";
 
 export function TotalTable() {
   const [total] = useAtom(totalAtom);
   const [USATotal] = useAtom(USDTotalAtom);
   const [CADTotal] = useAtom(CADTotalAtom);
-  const [exchange] = useAtom(exchangeRateAtom);
+  const [exchange] = useAtom(exchangeRateMaterialAtom);
   // This table consist of only two columns. The data points should be of type row map
   return (
     <Table striped withBorder verticalSpacing="xs">
@@ -23,7 +26,9 @@ export function TotalTable() {
             <td className="w-1/3 z-50">{titles[index]}</td>
             <td className="text-right  w-1/3">{subTotal.toFixed(2)}</td>
             <td className="text-right  w-1/3">
-              {Number(subTotal / Number(exchange)).toFixed(2)}
+              {index === 1
+                ? (subTotal / Number(exchange)).toFixed(2)
+                : (subTotal / Number(exchange)).toFixed(2)}
             </td>
           </tr>
         ))}

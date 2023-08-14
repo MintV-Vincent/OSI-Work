@@ -4,7 +4,7 @@
   margin-bottom: 2.5%;
   margin-left: auto;
   margin-right: auto;
-  row-gap: 5px;
+  row-gap: 0.33rem;
   width: 90%;
   height: 90%;
   grid-template-columns: repeat(9, minmax(0, 10rem));

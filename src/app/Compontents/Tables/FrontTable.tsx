@@ -11,9 +11,11 @@ import GetQuote from "Functions/GetFunction/GetQuote";
 import { freightAtom, panelAtom } from "Library/Atoms/AtomStorage";
 import {
   assemblyAtom,
+  currencySelectorAtom,
   layerAtom,
   partsInputAtom,
   revAtom,
+  salesAtom,
   technologyAtom,
 } from "Library/Atoms/FrontPageAtoms";
 import { useEffect, useRef } from "react";
@@ -47,6 +49,8 @@ export function FrontTable({}) {
   const [assembly, setAssembly] = useAtom(assemblyAtom);
   const [partNumberInput, setPartInput] = useAtom(partsInputAtom);
   const [revisionInput, setRevisionInput] = useAtom(revAtom);
+  const [sales, setSales] = useAtom(salesAtom);
+  const [selector, setSelector] = useAtom(currencySelectorAtom);
 
   const selectLabel: React.JSX.Element[] = SelectLabel();
   const selectCustomer: React.JSX.Element = selectLabel[0];
@@ -129,66 +133,98 @@ export function FrontTable({}) {
       data={["Yes", "No"]}
     />
   );
+
+  const salesTable = createRow(
+    "Sales Person",
+    <SegmentedControl
+      color="blue"
+      value={sales}
+      fullWidth
+      onChange={setSales}
+      name="sales"
+      size="xs"
+      data={[
+        { label: "Gus", value: "gus" },
+        { label: "Chris", value: "chris" },
+        { label: "Micheal", value: "micheal" },
+      ]}
+    />
+  );
+
+  const selectorExchange = createRow(
+    "Currency",
+    <SegmentedControl
+      color="blue"
+      value={selector}
+      fullWidth
+      onChange={setSelector}
+      name="sales"
+      size="xs"
+      data={[
+        { label: "CAD$", value: "CAD" },
+        { label: "USD$", value: "USD" },
+      ]}
+    />
+  );
   const leftTable: SplitTable[] = [
     {
       right: createRow("Quote Number", <GetQuote />),
       left: createRow("Date", <label>{GetDate()}</label>),
     },
-    { left: partNumber, right: numberOfLayers },
+    { left: partNumber, right: panelSize },
     { left: quantity, right: assymblyTable },
-    { left: revision, right: panelSize },
-    { left: freightTable, right: technologyTable },
+    { left: revision, right: selectorExchange },
+    { left: freightTable, right: salesTable },
+    { left: numberOfLayers, right: technologyTable },
   ];
 
   // This table consist of only two columns. The data points should be of type row map
   return (
-    <div className="pt-10">
-      <Table striped withBorder verticalSpacing="xs">
-        <thead className={"bg-light"}>
-          <tr>
+    <Table striped withBorder verticalSpacing="xs">
+      <thead className={"bg-light"}>
+        <tr>
+          <td colSpan={1}></td>
+          <td
+            colSpan={6}
+            className={"h-10 text-xl font-semibold py-2 px-3 text-primary"}
+          ></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colSpan={1}></td>
+          <td className={"text font-semibold "} colSpan={1}>
+            {"Customer"}
+          </td>
+          <td className={""} colSpan={1}>
+            {selectCustomer}
+          </td>
+          <td colSpan={1}></td>
+          <td className={"text font-semibold " + ""} colSpan={2}>
+            {customerCode}
+          </td>
+          <td colSpan={1}></td>
+        </tr>
+        {leftTable.map((row: SplitTable, index: number) => (
+          <tr key={row.left + " row " + index}>
             <td colSpan={1}></td>
-            <td
-              colSpan={6}
-              className={"h-10 text-xl font-semibold py-2 px-3 text-primary"}
-            ></td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td colSpan={1}></td>
-            <td className={"text font-semibold "} colSpan={1}>
-              {"Customer"}
+            <td className={""} colSpan={1}>
+              {row.left.label}
             </td>
             <td className={""} colSpan={1}>
-              {selectCustomer}
+              {row.left.value}
             </td>
             <td colSpan={1}></td>
-            <td className={"text font-semibold " + ""} colSpan={2}>
-              {customerCode}
+            <td className={""} colSpan={1}>
+              {row.right.label}
+            </td>
+            <td className={""} colSpan={1}>
+              {row.right.value}
             </td>
             <td colSpan={1}></td>
           </tr>
-          {leftTable.map((row: SplitTable, index: number) => (
-            <tr key={row.left + " row " + index}>
-              <td colSpan={1}></td>
-              <td className={""} colSpan={1}>
-                {row.left.label}
-              </td>
-              <td className={""} colSpan={1}>
-                {row.left.value}
-              </td>
-              <td colSpan={1}></td>
-              <td className={""} colSpan={1}>
-                {row.right.label}
-              </td>
-              <td className={""} colSpan={1}>
-                {row.right.value}
-              </td>
-              <td colSpan={1}></td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </div>
+        ))}
+      </tbody>
+    </Table>
   );
 }

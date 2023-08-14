@@ -65,8 +65,8 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
 
   return (
     <section id="page" ref={ref}>
-      <>
-        <div className="col-span-2 row-span-2 m-auto">
+      <div className="col-span-2 flex justify-between">
+        <div>
           <Image
             className="w-auto h-12"
             src={Logo}
@@ -74,97 +74,105 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
             alt="PFC FLEX LOGO"
           />
         </div>
-        <div className="col-span-5 row-span-2 m-auto" />
-        <div className="col-span-2 row-span-2 m-auto text-3xl font-bold">
-          Quotation
-        </div>
-      </>
-      <div className="col-span-9 rectangle" />
-      <>
-        <label className="col-span-1">Date: </label>
-        <label className="col-span-3">{GetDate()}</label>
-        <div className="col-span-1" />
-        <label className="col-span-1">Quotation #: </label>
-        <label className="col-span-3">{GetQuote()}</label>
-      </>
-      <>
-        <div className="col-span-1 row-span-6">Sold To:</div>
-        <div className="col-span-3 row-span-6 break-words whitespace-pre-wrap">
+        <label className="text-3xl font-bold my-auto">Quotation</label>
+      </div>
+      <div className="col-span-2 h-0.5 w-full bg-black m-auto" />
+      <div className="col-span-1 flex">
+        <label className="flex basis-1/4">Date: </label>
+        <label className="flex basis-3/4">{GetDate()}</label>
+      </div>
+      <div className="col-span-1 flex">
+        <label className="flex basis-1/4">Quotation #: </label>
+        <label className="flex basis-3/4">{GetQuote()}</label>
+      </div>
+      <div className="col-span-1 flex">
+        <div className="flex basis-1/4">Sold To:</div>
+        <div className="flex basis-3/4 break-words whitespace-pre-wrap">
           {sold}
         </div>
-        <div className="col-span-1 row-span-6" />
+      </div>
 
-        <div className="col-span-1 row-span-3 ">Build Site:</div>
-        <div className="col-span-3 row-span-3 break-words whitespace-pre-wrap">
-          PFC Flexible Circuits
-          <br />
-          11 Canadian Road, Unit #7
-          <br />
-          Toronto, ON M1R5G1 CANADA
+      <div className="col-span-1">
+        <div className="grid grid-cols-2 grid-rows-2">
+          <div className="col-span-2 flex">
+            <label className="flex basis-1/4">Build Site:</label>
+            <div className="flex basis-3/4 break-words whitespace-pre-wrap">
+              PFC Flexible Circuits
+              <br />
+              11 Canadian Road, Unit #7
+              <br />
+              Toronto, ON M1R5G1 CANADA
+            </div>
+          </div>
+          <div className="col-span-2 flex">
+            <label className="flex basis-1/4">Sales Contact:</label>
+            <div className="flex basis-3/4 break-words whitespace-pre-wrap">
+              <div>
+                <label>{chooseSales(sales)}</label>
+                <br />
+                <label className="underline">{chooseEmail(sales)}</label>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="col-span-4 row-span-1 " />
-
-        <div className="col-span-1 row-span-2">Sales Contact:</div>
-        <div className="col-span-3 row-span-2 break-words whitespace-pre-wrap">
-          {chooseSales(sales)}
-          <br />
-          <div className="underline">{chooseEmail(sales)}</div>
-        </div>
-      </>
-      <>
-        <div className="col-span-1 break-words whitespace-pre-wrap">
+      </div>
+      <div className="col-span-1 flex">
+        <label className="flex basis-1/4 break-words whitespace-pre-wrap">
           Part Number:
-        </div>
-        <div className="col-span-4 break-words whitespace-pre-wrap">
+        </label>
+        <label className="flex basis-3/4 break-words whitespace-pre-wrap">
           {partNumber}
-        </div>
-        <div className="col-span-1">Revision:</div>
-        <div className="col-span-3">{revision}</div>
-      </>
-      <>
-        <div className="col-span-1">Quantity</div>
-        <div className="grid grid-cols-10 col-span-8 break-words whitespace-pre-wrap">
+        </label>
+      </div>
+      <div className="col-span-1 flex">
+        <label className="flex basis-1/4">Revision:</label>
+        <label className="flex basis-3/4">{revision}</label>
+      </div>
+      <div className="col-span-1 flex">
+        <label className="flex basis-1/4">Quantity</label>
+        <div className="flex basis-3/4 justify-between break-words whitespace-pre-wrap">
           {quality?.map((row: string, index: number) => (
-            <div key={row + index} className="col-span-1">
+            <label key={row + index} className="">
               {row}
-            </div>
+            </label>
           ))}
         </div>
-      </>
-      <>
-        <div className="col-span-1">Unit Price</div>
-        <div className="grid grid-cols-10 col-span-8 break-words whitespace-pre-wrap">
+      </div>
+      <div className="col-span-1" />
+      <div className="col-span-1 flex">
+        <label className="flex basis-1/4">Unit Price</label>
+        <div className="flex basis-3/4 justify-between break-words whitespace-pre-wrap">
           {quality?.map((row: string, index: number) => (
-            <div key={row + index} className="col-span-1">
+            <label key={row + index} className="">
               {(fullTotal / Number(row)).toFixed(2)}
-            </div>
+            </label>
           ))}
         </div>
-      </>
-      <>
-        <div className="col-span-2 row-span-3">Notes:</div>
-        <div className="col-span-7 row-span-3 break-words whitespace-pre-wrap">
-          {notes}
-        </div>
-      </>
-      <>
-        <div className="col-span-2 row-span-3">Part Attributes:</div>
-        <div className="col-span-7 row-span-3 break-words whitespace-pre-wrap">
+      </div>
+      <div className="col-span-1" />
+      <div className="col-span-2">
+        <label className="">Notes:</label>
+        <label className=" break-words whitespace-pre-wrap">{notes}</label>
+      </div>
+      <div className="col-span-2">
+        <label className="">Part Attributes:</label>
+        <label className=" break-words whitespace-pre-wrap">
           {partAttributes}
-        </div>
-      </>
-      <>
-        <div className="font-bold col-span-9 row-spawn-1">TERMS</div>
-        <div className="col-span-3 row-span-3">
+        </label>
+      </div>
+      <div className="col-span-2">
+        <div className="font-bold ">TERMS</div>
+        <div className="">
           QUOTATION VALID FOR 90 DAYS
           <br />
           ALL PRICES ARE LISTED IN {selector} FUNDS
           <br />
           NET 30.FOB PFC. (CANADA)
         </div>
-      </>
-      <div className="col-span-9 rectangle" />
-      <div className="col-span-9 text-right">Form #102</div>
+      </div>
+      <div className="col-span-2 h-0.5 w-full bg-black m-auto" />
+      <div className="text-right" />
+      <div className="text-right">Form #102</div>
     </section>
   );
 });

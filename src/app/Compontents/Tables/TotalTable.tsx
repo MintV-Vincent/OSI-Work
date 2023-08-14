@@ -17,15 +17,15 @@ export function TotalTable() {
   return (
     <Table striped withBorder verticalSpacing="xs">
       <HeaderRow
-        columns={["", "text-right  w-100", "text-right  w-100"]}
+        columns={["", "text-right", "text-right"]}
         titles={totalHeader}
       />
       <tbody>
         {total.map((subTotal: number, index: number) => (
           <tr className={"text-primary"} key={subTotal + "-row-" + index}>
-            <td className="w-1/3 z-50">{titles[index]}</td>
-            <td className="text-right  w-1/3">{subTotal.toFixed(2)}</td>
-            <td className="text-right  w-1/3">
+            <td className="">{titles[index]}</td>
+            <td className="text-right">{subTotal.toFixed(2)}</td>
+            <td className="text-right">
               {index === 1
                 ? (subTotal / Number(exchange)).toFixed(2)
                 : (subTotal / Number(exchange)).toFixed(2)}
@@ -33,13 +33,9 @@ export function TotalTable() {
           </tr>
         ))}
         <tr>
-          <td className={"w-1/3 font-semibold"}>{"Total"}</td>
-          <td className={"w-1/3 font-semibold text-right"}>
-            {CADTotal.toFixed(2)}
-          </td>
-          <td className={"w-1/3 font-semibold text-right"}>
-            {USATotal.toFixed(2)}
-          </td>
+          <td className={"font-semibold"}>{"Total"}</td>
+          <td className={"font-semibold text-right"}>{CADTotal.toFixed(2)}</td>
+          <td className={"font-semibold text-right"}>{USATotal.toFixed(2)}</td>
         </tr>
       </tbody>
     </Table>

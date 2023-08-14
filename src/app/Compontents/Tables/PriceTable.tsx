@@ -15,15 +15,9 @@ import AmountInput from "./CustomCompontents/AmountInput";
 import AddServiceButton from "./CustomCompontents/AddMaterialButton";
 import { createMaterialRow } from "Functions/Create/MapCreate";
 
-const tableSize: string = "w-2/9 ";
+const tableSize: string = " ";
 
-const columns: string[] = [
-  tableSize,
-  "w-3/9",
-  "w-1/9",
-  "w-1/9 text-right",
-  "w-1/9 text-right",
-];
+const columns: string[] = [tableSize, "", "", " text-right", " text-right"];
 interface PriceTableInterface {
   customString: string;
 }
@@ -37,7 +31,7 @@ export function PriceTable({ customString }: PriceTableInterface) {
   const supplier: dictionaryMap[] = array.supplier;
 
   return (
-    <Table striped withBorder verticalSpacing="xs">
+    <Table miw={"w-1/3"} striped withBorder verticalSpacing="xs">
       <HeaderRow columns={columns} titles={materialHeader(customString)} />
       <tbody>
         {materialRows.map((row: materialRowMap, index: number) => (

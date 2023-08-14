@@ -12,14 +12,14 @@ export default function page() {
   return (
     <div className="grid grid-cols-2 h-full pt-5">
       <div className="grid-span-1 mr-2 h-[calc(100vh-13rem)]">
-        <div className="h-[calc(37%)]">
+        <div className="h-[calc(37%)] overflow-auto  no-scrollbar">
           <TotalTable />
         </div>
-        <div className="h-[calc(63%)] overflow-auto no-scrollbar">
+        <div className="h-[calc(63%)] overflow-auto no-scrollbar z-40">
           <PriceTable customString={"Code"} />
         </div>
       </div>
-      <div className="grid-span-1 h-[calc(100vh-13rem)] overflow-auto ml-2 no-scrollbar">
+      <div className="grid-span-1 h-[calc(100vh-13rem)] overflow-auto ml-2 no-scrollbar z-50">
         <ProcessTable />
         <ServiceTable />
         <NRETable />

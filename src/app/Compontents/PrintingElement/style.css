@@ -4,11 +4,10 @@
   margin-bottom: 2.5%;
   margin-left: auto;
   margin-right: auto;
-  row-gap: 0.33rem;
+  row-gap: calc(3% + 3px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   width: 90%;
-  height: 90%;
-  grid-template-columns: repeat(9, minmax(0, 10rem));
-  grid-template-rows: repeat(25, minmax(0, 1.5rem));
+  height: 95%;
 }
 
 .rectangle {

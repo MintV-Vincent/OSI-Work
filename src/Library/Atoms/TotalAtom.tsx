@@ -24,11 +24,11 @@ export const totalAtom = atom<number[]>((get) => {
 export const fullTotalAtom = atom<number>((get) => {
   const selector: string = get(currencySelectorAtom);
   const CADTotal: any = get(CADTotalAtom);
-  const USDTotal: any = get(USDTotalAtom);
+  const exchangeRate: any = get(exchangeRateAtom);
   if ("CAD" === selector) {
     return CADTotal;
   } else {
-    return USDTotal;
+    return CADTotal / exchangeRate;
   }
 });
 

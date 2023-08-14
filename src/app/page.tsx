@@ -44,10 +44,8 @@ export default function page() {
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
   const [yeild, setYeild] = useAtom(yeildAtom);
   const [margin, setMargin] = useAtom(marginAtom);
-  const [units, setUnit] = useAtom(unitAtom);
   const [yeildTotal] = useAtom(yeildTotalAtom);
   const [marginTotal] = useAtom(marginTotalAtom);
-  const [unitTotal] = useAtom(unitTotalAtom);
 
   let componentRef: any = useRef();
   const handlePrint = useReactToPrint({

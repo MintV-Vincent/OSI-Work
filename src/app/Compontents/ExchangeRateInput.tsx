@@ -1,14 +1,12 @@
 import { NumberInput } from "@mantine/core";
-import {
-  exchangeRateAtom,
-  exchangeRateMaterialAtom,
-} from "Library/Atoms/AtomStorage";
+import { exchangeRateMaterialAtom } from "Library/Atoms/AtomStorage";
 import { materialTableAtom, processTableAtom } from "Library/Atoms/TableAtoms";
 import { IconCurrencyDollar } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import React from "react";
 import { materialRowMap } from "Library/Types";
 import { createFormula } from "Functions/Create/CreateFormula";
+import { percision } from "Library/ConstantValues";
 
 export default function ExchangeRateInput() {
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateMaterialAtom);
@@ -19,7 +17,7 @@ export default function ExchangeRateInput() {
     <NumberInput
       className="w-60"
       hideControls
-      precision={2}
+      precision={percision}
       value={exchangeRate}
       onChange={(event: number) => {
         if (Number(event) <= 0) {

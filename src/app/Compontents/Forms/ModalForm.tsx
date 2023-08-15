@@ -2,6 +2,7 @@ import { Button, Group, NumberInput, TextInput, Textarea } from "@mantine/core";
 import { UseFormReturnType } from "@mantine/form";
 import { IconBackspaceFilled } from "@tabler/icons-react";
 import React, { useState } from "react";
+import SubmitHover from "./HoverInfo/SubmitHover";
 
 interface TextInputInterface {
   form: UseFormReturnType<any>;
@@ -115,11 +116,12 @@ export default function ModalForm({ form }: TextInputInterface) {
           </Button>
         </div>
       </div>
-      <Group position="right" mt="md">
+      <div className="pt-3 flex justify-end">
+        <SubmitHover />
         <Button type="submit" className="">
           Submit
         </Button>
-      </Group>
+      </div>
     </div>
   );
 }

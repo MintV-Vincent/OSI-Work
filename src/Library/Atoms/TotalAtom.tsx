@@ -7,17 +7,22 @@ import {
   filmProcessAtom,
   marginAtom,
   unitAtom,
+  upPanelAtom,
   yeildAtom,
 } from "./AtomStorage";
 import { currencySelectorAtom } from "./FrontPageAtoms";
 import { nreAtom, servicesAtom } from "./ServiceStorage";
 
-export const totalAtom = atom<number[]>((get) => {
+export const materialFilmTotalAtom = atom<number[]>((get) => {
   const material = get(materialTotalAtomCAD);
   const film = get(filmTotalAtom);
+  return [material, film];
+});
+
+export const serviceTotalAtom = atom<number[]>((get) => {
   const qual = get(qualityTotalAtom);
   const nre = get(NRETotalAtom);
-  return [material, film, qual, nre];
+  return [qual, nre];
 });
 
 //Total atom
@@ -33,16 +38,25 @@ export const fullTotalAtom = atom<number>((get) => {
 });
 
 export const CADTotalAtom = atom<number>((get) => {
-  const typeTotalAtom: any = get(totalAtom);
+  const typeTotalAtom: any = get(materialFilmTotalAtom);
   return typeTotalAtom.reduce(
     (accumulator: number, currentValue: number) => accumulator + currentValue,
     0
   );
 });
 
-export const USDTotalAtom = atom<number>((get) => {
+export const USDTotalSalesAtom = atom<number>((get) => {
   const CADTotal: any = get(CADTotalAtom);
   const exchangeRate: any = get(exchangeRateMaterialAtom);
+  if (isNaN(exchangeRate) || exchangeRate === 0) {
+    return CADTotal / 1;
+  }
+  return CADTotal / exchangeRate;
+});
+
+export const USDTotalFrontAtom = atom<number>((get) => {
+  const CADTotal: any = get(CADTotalAtom);
+  const exchangeRate: any = get(exchangeRateAtom);
   if (isNaN(exchangeRate) || exchangeRate === 0) {
     return CADTotal / 1;
   }
@@ -115,10 +129,10 @@ export const marginTotalAtom = atom<number>((get) => {
 });
 
 export const unitTotalAtom = atom<number>((get) => {
-  const marginTotal = get(marginTotalAtom);
-  let numberOfUnits = get(unitAtom);
+  const unitTotal = get(USDTotalFrontAtom);
+  let numberOfUnits = get(upPanelAtom);
   if (numberOfUnits === 0) {
     numberOfUnits = 1;
   }
-  return marginTotal / Number(numberOfUnits);
+  return unitTotal / Number(numberOfUnits);
 });

@@ -13,7 +13,7 @@ import {
 } from "Library/Atoms/FrontPageAtoms";
 
 interface AddCustomerInterface {
-  handleClick: any;
+  handleClick: () => void;
 }
 
 export default function AddCustomerForm({ handleClick }: AddCustomerInterface) {

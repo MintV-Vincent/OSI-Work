@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import React from "react";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
-import { serviceHeader } from "Library/Headers";
+import { processFilmTitle, serviceHeader } from "Library/Headers";
 import { filmTotalAtom } from "Library/Atoms/TotalAtom";
 import { filmProcessAtom } from "Library/Atoms/AtomStorage";
 import ServiceInput from "./CustomCompontents/ServiceAmount";
@@ -15,15 +15,15 @@ export function ProcessTable() {
   const [processing, setProcesses] = useAtom(filmProcessAtom);
 
   return (
-    <Table striped withBorder verticalSpacing="xs">
+    <Table miw={"w-1/3"} striped withBorder verticalSpacing="xs">
       <HeaderRow
         columns={["text-left ", "", "text-left ", "text-right "]}
-        titles={serviceHeader}
+        titles={serviceHeader(processFilmTitle)}
       />
       <tbody>
         {processing.map((row: servicesMap, index: number) => (
           <tr className={" text-primary"} key={row.material + " row " + index}>
-            <td>{row.material}</td>
+            <td className="w-60">{row.material}</td>
             <td>
               <ServiceInput
                 id={index}
@@ -42,10 +42,14 @@ export function ProcessTable() {
         <TotalRows
           text={"Total"}
           total={total}
-          columns={serviceHeader.length}
-          button={
-            <AddServiceButton dataRow={processing} setDataRow={setProcesses} />
-          }
+          columns={serviceHeader(processFilmTitle).length}
+          button={[
+            <AddServiceButton
+              title={processFilmTitle}
+              dataRow={processing}
+              setDataRow={setProcesses}
+            />,
+          ]}
         />
       </tbody>
     </Table>

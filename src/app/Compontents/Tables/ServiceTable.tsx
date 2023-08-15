@@ -1,7 +1,7 @@
 import { Table } from "@mantine/core";
 import { servicesAtom } from "Library/Atoms/ServiceStorage";
 import { qualityTotalAtom } from "Library/Atoms/TotalAtom";
-import { serviceHeader } from "Library/Headers";
+import { serviceHeader, serviceTitle } from "Library/Headers";
 import { servicesMap } from "Library/Types";
 import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
 import TotalRows from "./Rows/TotalRows";
@@ -15,15 +15,15 @@ export default function ServiceTable() {
   const [service, setService] = useAtom(servicesAtom);
 
   return (
-    <Table striped withBorder verticalSpacing="xs">
+    <Table miw={"w-1/3"} striped withBorder verticalSpacing="xs">
       <HeaderRow
         columns={["text-left", "", "text-left ", "text-right "]}
-        titles={serviceHeader}
+        titles={serviceHeader(serviceTitle)}
       />
       <tbody>
         {service.map((row: servicesMap, index: number) => (
           <tr className={" text-primary"} key={row.material + " row " + index}>
-            <td>{row.material}</td>
+            <td className="w-60">{row.material}</td>
             <td>
               <ServiceInput
                 id={index}
@@ -40,10 +40,14 @@ export default function ServiceTable() {
         <TotalRows
           text={"Total"}
           total={total}
-          columns={serviceHeader.length}
-          button={
-            <AddServiceButton dataRow={service} setDataRow={setService} />
-          }
+          columns={serviceHeader(serviceTitle).length}
+          button={[
+            <AddServiceButton
+              title={serviceTitle}
+              dataRow={service}
+              setDataRow={setService}
+            />,
+          ]}
         />
       </tbody>
     </Table>

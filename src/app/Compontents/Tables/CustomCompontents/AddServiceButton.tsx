@@ -1,4 +1,5 @@
 import { Button } from "@mantine/core";
+import { servicesMap } from "Library/Types";
 import { AddModal } from "app/Compontents/AddModal";
 import React, { Suspense, lazy, useState } from "react";
 
@@ -7,11 +8,16 @@ const AddServiceForm = lazy(
 );
 
 interface addService {
-  dataRow: any;
+  dataRow: servicesMap[];
   setDataRow: any;
+  title: string;
 }
 
-export default function AddServiceButton({ setDataRow, dataRow }: addService) {
+export default function AddServiceButton({
+  setDataRow,
+  dataRow,
+  title,
+}: addService) {
   const [status, setState] = useState(false);
   const handleClick = () => {
     setState((prevStatus) => !prevStatus);
@@ -19,7 +25,7 @@ export default function AddServiceButton({ setDataRow, dataRow }: addService) {
 
   return (
     <AddModal
-      title={"Add Process"}
+      title={title}
       form={
         <Suspense>
           <AddServiceForm

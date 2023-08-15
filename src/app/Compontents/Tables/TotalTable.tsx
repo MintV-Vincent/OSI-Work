@@ -1,21 +1,23 @@
 import { Table } from "@mantine/core";
 import HeaderRow from "./Rows/HeaderRow";
 import { useAtom } from "jotai";
-import { titles, totalHeader } from "Library/Headers";
-import { CADTotalAtom, USDTotalAtom, totalAtom } from "Library/Atoms/TotalAtom";
-import {
-  exchangeRateAtom,
-  exchangeRateMaterialAtom,
-} from "Library/Atoms/AtomStorage";
+import { totalHeader } from "Library/Headers";
+import { exchangeRateMaterialAtom } from "Library/Atoms/AtomStorage";
 
-export function TotalTable() {
-  const [total] = useAtom(totalAtom);
-  const [USATotal] = useAtom(USDTotalAtom);
-  const [CADTotal] = useAtom(CADTotalAtom);
+interface TotalTableInterface {
+  titles: string[];
+  total: number[];
+}
+
+export function TotalTable({ titles, total }: TotalTableInterface) {
+  const CADTotal = total.reduce(
+    (accumulator: number, currentValue: number) => accumulator + currentValue,
+    0
+  );
   const [exchange] = useAtom(exchangeRateMaterialAtom);
   // This table consist of only two columns. The data points should be of type row map
   return (
-    <Table striped withBorder verticalSpacing="xs">
+    <Table miw={"w-1/3"} striped withBorder verticalSpacing="xs">
       <HeaderRow
         columns={["", "text-right", "text-right"]}
         titles={totalHeader}
@@ -35,7 +37,9 @@ export function TotalTable() {
         <tr>
           <td className={"font-semibold"}>{"Total"}</td>
           <td className={"font-semibold text-right"}>{CADTotal.toFixed(2)}</td>
-          <td className={"font-semibold text-right"}>{USATotal.toFixed(2)}</td>
+          <td className={"font-semibold text-right"}>
+            {(CADTotal / Number(exchange)).toFixed(2)}
+          </td>
         </tr>
       </tbody>
     </Table>

@@ -17,7 +17,7 @@ export function ProtoTable() {
   ];
 
   return (
-    <Table miw={700} striped withBorder verticalSpacing="md">
+    <Table miw={"w-1/3"} striped withBorder verticalSpacing="md">
       <HeaderRow
         columns={[
           "w-1/6",

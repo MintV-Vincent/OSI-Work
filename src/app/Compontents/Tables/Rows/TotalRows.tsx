@@ -4,7 +4,7 @@ interface totalRow {
   text: string;
   total: number;
   columns: number;
-  button: any;
+  button: JSX.Element[];
 }
 
 const TotalRows = function TotalRows({
@@ -14,7 +14,7 @@ const TotalRows = function TotalRows({
   button,
 }: totalRow) {
   let array: number[] = [];
-  for (let i: number = 3; i < columns; i++) {
+  for (let i: number = 2 + button.length; i < columns; i++) {
     array.push(i);
   }
 
@@ -22,7 +22,11 @@ const TotalRows = function TotalRows({
 
   return (
     <tr key={text + " row"}>
-      <td className="flex justify-start">{button}</td>
+      {button.map((newButton: JSX.Element, i: number) => (
+        <td key={"button" + i}>
+          <div className="flex justify-start">{newButton}</div>
+        </td>
+      ))}
       {array.map((i: number) => (
         <td className={sharedClass} key={"total filler column" + i} />
       ))}

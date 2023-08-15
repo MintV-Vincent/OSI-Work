@@ -4,7 +4,6 @@ import React from "react";
 import { filterMaterials } from "./SelectLogic";
 import { useAtom } from "jotai";
 import {
-  exchangeRateAtom,
   exchangeRateMaterialAtom,
   freightAtom,
   marginAtom,

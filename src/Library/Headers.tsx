@@ -1,31 +1,26 @@
 export const frontHeader: string[] = ["PCB Fabrication", "", "Status"];
 export const totalHeader: string[] = ["Process", "Cost CAD$", "Cost USD$"];
 export const protoHeader: string[] = ["Layers", "Complex", "Notes", "Panel"];
-export const processHeader: string[] = ["Material", "Amount", "Price "];
-export const serviceHeader: string[] = [
-  "Service",
+export const materialHeader: string[] = [
+  "Supplier",
+  "Material",
   "Amount",
   "Unit Price",
   "Price ",
 ];
 
-export const nreHeader: string[] = ["Service", "Amount", "Price "];
-
-export function materialHeader(custom: string): string[] {
-  return ["Supplier", "Material", "Amount", "Unit Price", "Price "];
+export function serviceHeader(custom: string): string[] {
+  return [custom, "Amount", "Unit Price", "Price "];
 }
 
 export const materialsTitle: string = "Materials";
-export const processFilmTitle: string = "Processes & Film";
-export const service: string = "Quality Services";
-export const nre: string = "NRE";
+export const processFilmTitle: string = "Processes";
+export const serviceTitle: string = "Services";
+export const nreTitle: string = "NRE";
 
-export const titles: string[] = [
-  materialsTitle,
-  processFilmTitle,
-  service,
-  nre,
-];
+export const totalTitle: string[] = [materialsTitle, processFilmTitle];
+
+export const totalTitle2: string[] = [serviceTitle, nreTitle];
 
 const tooling: string = "SMT Lot Charge";
 const standard: string = "Stencils (Standard)";

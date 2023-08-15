@@ -1,5 +1,6 @@
 import { NumberInput } from "@mantine/core";
 import { createFormula } from "Functions/Create/CreateFormula";
+import { percision } from "Library/ConstantValues";
 import { servicesMap } from "Library/Types";
 import React from "react";
 
@@ -55,7 +56,7 @@ export default function ServiceInput({
       size="xs"
       hideControls
       value={Number(currentAmount)}
-      precision={2}
+      precision={percision}
       onChange={(event: number) => {
         onAmount(id, event, data, setData);
       }}

@@ -7,6 +7,7 @@ import {
   panelAtom,
   yeildAtom,
 } from "Library/Atoms/AtomStorage";
+import { percision } from "Library/ConstantValues";
 import { materialRowMap } from "Library/Types";
 import { useAtom } from "jotai";
 import React from "react";
@@ -82,7 +83,7 @@ export default function AmountInput({
       size="xs"
       hideControls
       value={currentAmount}
-      precision={2}
+      precision={percision}
       onChange={(event: number) => {
         onAmount(id, event, unitPrice, data, setData);
       }}

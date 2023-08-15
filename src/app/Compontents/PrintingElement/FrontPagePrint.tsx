@@ -15,6 +15,7 @@ import {
   revAtom,
   salesAtom,
   soldAtom,
+  termsAtom,
 } from "Library/Atoms/FrontPageAtoms";
 import { fullTotalAtom, unitTotalAtom } from "Library/Atoms/TotalAtom";
 import { unitAtom } from "Library/Atoms/AtomStorage";
@@ -60,6 +61,7 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
   const [fullTotal] = useAtom(fullTotalAtom);
   const [partAttributes] = useAtom(partsAtom);
   const [selector] = useAtom(currencySelectorAtom);
+  const [terms] = useAtom(termsAtom);
 
   const salesPerson: string = chooseSales(sales);
 
@@ -162,13 +164,7 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
       </div>
       <div className="col-span-2">
         <div className="font-bold ">TERMS</div>
-        <div className="">
-          QUOTATION VALID FOR 90 DAYS
-          <br />
-          ALL PRICES ARE LISTED IN {selector} FUNDS
-          <br />
-          NET 30.FOB PFC. (CANADA)
-        </div>
+        <div className=" break-words whitespace-pre-wrap">{terms}</div>
       </div>
       <div className="col-span-2 h-0.5 w-full bg-black m-auto" />
       <div className="text-right" />

@@ -5,3 +5,5 @@ export const panelRow: dictionaryMap[] = [
   createData("12x18", "1.5"),
   createData("18x24", "3"),
 ];
+
+export const percision: number = 3;

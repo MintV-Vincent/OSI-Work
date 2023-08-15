@@ -8,7 +8,7 @@ import { materialAtom } from "Library/Atoms/AtomStorage";
 import ModalForm from "./ModalForm";
 
 interface AddButtonInterface {
-  handleClick: any;
+  handleClick: () => void;
 }
 
 export default function AddSupplierForm({ handleClick }: AddButtonInterface) {

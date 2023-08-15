@@ -3,10 +3,10 @@ import React from "react";
 
 interface addModalInterface {
   title: string;
-  form: any;
+  form: React.JSX.Element;
   button: React.JSX.Element;
-  status: any;
-  handleClick: any;
+  status: boolean;
+  handleClick: () => void;
 }
 
 export function AddModal({
@@ -16,6 +16,9 @@ export function AddModal({
   status,
   handleClick,
 }: addModalInterface): React.JSX.Element {
+  /**
+   * Handle click is sent here so the form can use it and the modal.
+   */
   return (
     <Group position="center">
       <Modal

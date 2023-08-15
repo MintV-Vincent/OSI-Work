@@ -3,11 +3,12 @@ import { useForm } from "@mantine/form";
 import React from "react";
 import { createService } from "Functions/Create/MapCreate";
 import ModalForm from "./ModalForm";
+import { servicesMap } from "Library/Types";
 
 interface AddServiceInterface {
-  handleClick: any;
+  handleClick: () => void;
   setData: any;
-  data: any;
+  data: servicesMap[];
 }
 
 export default function AddServiceForm({

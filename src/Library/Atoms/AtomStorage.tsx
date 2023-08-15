@@ -106,4 +106,5 @@ export const freightAtom = atom<number | "">(1);
 export const yeildAtom = atom<number>(1);
 export const marginAtom = atom<number>(1);
 export const unitAtom = atom<number>(1);
+export const upPanelAtom = atom<number>(1);
 export const panelAtom = atom<string | "">("1.5");

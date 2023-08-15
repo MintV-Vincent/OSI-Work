@@ -1,4 +1,4 @@
-import { Table } from "@mantine/core";
+import { Button, Table } from "@mantine/core";
 import { dictionaryMap, materialRowMap, rowMapPrice } from "Library/Types";
 import React from "react";
 import SelectLogic from "app/Compontents/Tables/CustomCompontents/SelectLogic";
@@ -12,17 +12,14 @@ import { materialTotalAtom } from "Library/Atoms/TotalAtom";
 import SupplierSelect from "./CustomCompontents/SupplierSelect";
 import MaterialSelect from "./CustomCompontents/MaterialSelect";
 import AmountInput from "./CustomCompontents/AmountInput";
-import AddServiceButton from "./CustomCompontents/AddMaterialButton";
 import { createMaterialRow } from "Functions/Create/MapCreate";
+import AddMaterialButton from "./CustomCompontents/AddMaterialButton";
 
 const tableSize: string = " ";
 
 const columns: string[] = [tableSize, "", "", " text-right", " text-right"];
-interface PriceTableInterface {
-  customString: string;
-}
 
-export function PriceTable({ customString }: PriceTableInterface) {
+export function PriceTable() {
   const [materialRows, setMaterialRow] = useAtom(materialTableAtom);
   const [total] = useAtom(materialTotalAtom);
   const [database] = useAtom(materialAtom);
@@ -32,7 +29,7 @@ export function PriceTable({ customString }: PriceTableInterface) {
 
   return (
     <Table miw={"w-1/3"} striped withBorder verticalSpacing="xs">
-      <HeaderRow columns={columns} titles={materialHeader(customString)} />
+      <HeaderRow columns={columns} titles={materialHeader} />
       <tbody>
         {materialRows.map((row: materialRowMap, index: number) => (
           <tr key={index}>
@@ -73,14 +70,19 @@ export function PriceTable({ customString }: PriceTableInterface) {
         <TotalRows
           text={"Total"}
           total={total}
-          columns={materialHeader(customString).length}
-          button={
-            <AddServiceButton
-              createRow={createMaterialRow}
-              dataRow={materialRows}
-              setDataRow={setMaterialRow}
-            />
-          }
+          columns={materialHeader.length}
+          button={[
+            <Button
+              size="xs"
+              onClick={(e) => {
+                const newRow = createMaterialRow(materialRows.length);
+                setMaterialRow([...materialRows, newRow]);
+              }}
+            >
+              Add Row
+            </Button>,
+            <AddMaterialButton />,
+          ]}
         />
       </tbody>
     </Table>

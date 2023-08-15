@@ -1,26 +1,32 @@
 import { Button } from "@mantine/core";
-import React from "react";
+import { AddModal } from "app/Compontents/AddModal";
+import React, { Suspense, lazy, useState } from "react";
 
-interface addService {
-  createRow: any;
-  dataRow: any;
-  setDataRow: any;
-}
+const AddSupplierForm = lazy(
+  () => import("app/Compontents/Forms/AddSupplierForm")
+);
 
-export default function AddMaterialButton({
-  createRow,
-  dataRow,
-  setDataRow,
-}: addService) {
+export default function AddMaterialButton({}) {
+  const [status, setState] = useState(false);
+  const handleClick = () => {
+    setState((prevStatus) => !prevStatus);
+  };
+
   return (
-    <Button
-      size="xs"
-      onClick={(e) => {
-        const newRow = createRow(dataRow.length);
-        setDataRow([...dataRow, newRow]);
-      }}
-    >
-      Add Row
-    </Button>
+    <AddModal
+      title={"Add Material"}
+      form={
+        <Suspense>
+          <AddSupplierForm handleClick={handleClick} />
+        </Suspense>
+      }
+      button={
+        <Button size="xs" onClick={() => handleClick()} className="z-50">
+          Add Material
+        </Button>
+      }
+      status={status}
+      handleClick={handleClick}
+    />
   );
 }

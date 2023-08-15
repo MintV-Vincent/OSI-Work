@@ -3,7 +3,7 @@ import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
 import { servicesMap } from "Library/Types";
 import React from "react";
 import { useAtom } from "jotai";
-import { serviceHeader } from "Library/Headers";
+import { nreTitle, serviceHeader } from "Library/Headers";
 import { NRETotalAtom } from "Library/Atoms/TotalAtom";
 import { nreAtom } from "Library/Atoms/ServiceStorage";
 import TotalRows from "./Rows/TotalRows";
@@ -50,15 +50,15 @@ export default function NRETable() {
   }
 
   return (
-    <Table striped withBorder verticalSpacing="xs">
+    <Table miw={"w-1/3"} striped withBorder verticalSpacing="xs">
       <HeaderRow
         columns={["text-left", "text-left", "", "text-right"]}
-        titles={serviceHeader}
+        titles={serviceHeader(nreTitle)}
       />
       <tbody>
         {nre.map((row: servicesMap, index: number) => (
           <tr className={" text-primary"} key={row.material + " row " + index}>
-            <td>{row.material}</td>
+            <td className="w-60">{row.material}</td>
             <td>
               <ServiceInput
                 id={index}
@@ -85,8 +85,14 @@ export default function NRETable() {
         <TotalRows
           text={"Total"}
           total={total}
-          columns={serviceHeader.length}
-          button={<AddServiceButton dataRow={nre} setDataRow={setNRE} />}
+          columns={serviceHeader(nreTitle).length}
+          button={[
+            <AddServiceButton
+              title={nreTitle}
+              dataRow={nre}
+              setDataRow={setNRE}
+            />,
+          ]}
         />
       </tbody>
     </Table>

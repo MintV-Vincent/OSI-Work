@@ -1,11 +1,10 @@
-import { SegmentedControl, Table } from "@mantine/core";
+import { Button, Group, Modal, SegmentedControl, Table } from "@mantine/core";
 import { rowMap } from "Library/Types";
 import { NumberInput, Select } from "@mantine/core";
 import { createRow } from "Functions/Create/MapCreate";
 import GetDate from "Functions/GetFunction/GetDate";
 import { useAtom } from "jotai";
 import { TextInput } from "@mantine/core";
-import { panelRow } from "Library/SelectMap";
 import SelectLabel from "app/Compontents/SelectLabel";
 import GetQuote from "Functions/GetFunction/GetQuote";
 import { freightAtom, panelAtom } from "Library/Atoms/AtomStorage";
@@ -14,12 +13,15 @@ import {
   currencySelectorAtom,
   layerAtom,
   partsInputAtom,
+  qualityAtom,
   revAtom,
   salesAtom,
   technologyAtom,
 } from "Library/Atoms/FrontPageAtoms";
 import { useEffect, useRef } from "react";
-import QuantityInput from "../QuantityInput";
+import { panelRow } from "Library/ConstantValues";
+import { useDisclosure } from "@mantine/hooks";
+import WarningForm from "../Forms/WarningForm";
 interface SplitTable {
   left: rowMap;
   right: rowMap;
@@ -33,7 +35,7 @@ function createLoop(number: number) {
   return indents;
 }
 
-export function FrontTable({}) {
+export function FrontTable() {
   const isMounted = useRef(false);
   useEffect(() => {
     isMounted.current = true;
@@ -51,6 +53,8 @@ export function FrontTable({}) {
   const [revisionInput, setRevisionInput] = useAtom(revAtom);
   const [sales, setSales] = useAtom(salesAtom);
   const [selector, setSelector] = useAtom(currencySelectorAtom);
+  const [value, setValue] = useAtom(qualityAtom);
+  const [opened, { open, close }] = useDisclosure(false);
 
   const selectLabel: React.JSX.Element[] = SelectLabel();
   const selectCustomer: React.JSX.Element = selectLabel[0];
@@ -72,7 +76,14 @@ export function FrontTable({}) {
       onChange={(event) => setRevisionInput(event.currentTarget.value)}
     />
   );
-  const quantity = createRow("Quantities", <QuantityInput />);
+  const quantity = createRow(
+    "Quantities",
+    <TextInput
+      size="xs"
+      value={value}
+      onChange={(event) => setValue(event.currentTarget.value)}
+    />
+  );
   const numberOfLayers = createRow(
     "# of Layers",
     <Select
@@ -106,7 +117,10 @@ export function FrontTable({}) {
       color="blue"
       fullWidth
       value={technology}
-      onChange={setTechnology}
+      onChange={(e) => {
+        open();
+        setTechnology(e);
+      }}
       data={["A", "B", "C", "D"]}
     />
   );
@@ -180,51 +194,54 @@ export function FrontTable({}) {
 
   // This table consist of only two columns. The data points should be of type row map
   return (
-    <Table striped withBorder verticalSpacing="xs">
-      <thead className={"bg-light"}>
-        <tr>
-          <td colSpan={1}></td>
-          <td
-            colSpan={6}
-            className={"h-10 text-xl font-semibold py-2 px-3 text-primary"}
-          ></td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td colSpan={1}></td>
-          <td className={"text font-semibold "} colSpan={1}>
-            {"Customer"}
-          </td>
-          <td className={""} colSpan={1}>
-            {selectCustomer}
-          </td>
-          <td colSpan={1}></td>
-          <td className={"text font-semibold " + ""} colSpan={2}>
-            {customerCode}
-          </td>
-          <td colSpan={1}></td>
-        </tr>
-        {leftTable.map((row: SplitTable, index: number) => (
-          <tr key={row.left + " row " + index}>
+    <>
+      <WarningForm opened={opened} close={close} />
+      <Table miw={"w-1/3"} striped withBorder verticalSpacing="xs">
+        <thead className={"bg-light"}>
+          <tr>
             <td colSpan={1}></td>
-            <td className={""} colSpan={1}>
-              {row.left.label}
+            <td
+              colSpan={6}
+              className={"h-10 text-xl font-semibold py-2 px-3 text-primary"}
+            ></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colSpan={1}></td>
+            <td className={"text font-semibold "} colSpan={1}>
+              {"Customer"}
             </td>
             <td className={""} colSpan={1}>
-              {row.left.value}
+              {selectCustomer}
             </td>
             <td colSpan={1}></td>
-            <td className={""} colSpan={1}>
-              {row.right.label}
-            </td>
-            <td className={""} colSpan={1}>
-              {row.right.value}
+            <td className={"text font-semibold " + ""} colSpan={2}>
+              {customerCode}
             </td>
             <td colSpan={1}></td>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+          {leftTable.map((row: SplitTable, index: number) => (
+            <tr key={row.left + " row " + index}>
+              <td colSpan={1}></td>
+              <td className={""} colSpan={1}>
+                {row.left.label}
+              </td>
+              <td className={""} colSpan={1}>
+                {row.left.value}
+              </td>
+              <td colSpan={1}></td>
+              <td className={""} colSpan={1}>
+                {row.right.label}
+              </td>
+              <td className={""} colSpan={1}>
+                {row.right.value}
+              </td>
+              <td colSpan={1}></td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </>
   );
 }

@@ -1,12 +1,15 @@
-export default function GetQuote(): string {
-  //Return The current quote number as YY-####
-  //Return: Current Quote Number
-  const quoteDatabase = ["2", "3"];
+/**
+ *
+ * @param quote string[] -> This is the list with all the quote numbers
+ * @param setQuote () => void -> This will create a new quote
+ */
+export default function GetQuote(quote: string[], setQuote: any) {
   const showdate: Date = new Date();
   const lastTwoDigitsYear: number = showdate.getFullYear() - 2000;
+  console.log(quote);
 
-  let quoteNumberLength = quoteDatabase.length.toString().length;
-  let quoteNumberString = quoteDatabase.length.toString();
+  let quoteNumberLength = (quote?.length + 1).toString().length;
+  let quoteNumberString = (quote?.length + 1).toString();
 
   while (quoteNumberLength < 4) {
     quoteNumberString = "0" + quoteNumberString;
@@ -14,6 +17,7 @@ export default function GetQuote(): string {
   }
 
   const quoteNumber: string = lastTwoDigitsYear + "-" + quoteNumberString;
-
-  return quoteNumber;
+  if (quote?.length > 0) {
+    setQuote([...quote, quoteNumber]);
+  }
 }

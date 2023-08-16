@@ -108,3 +108,4 @@ export const marginAtom = atom<number>(1);
 export const unitAtom = atom<number>(1);
 export const upPanelAtom = atom<number>(1);
 export const panelAtom = atom<string | "">("1.5");
+export const quoteAtom = atom<string | "">("23-0001");

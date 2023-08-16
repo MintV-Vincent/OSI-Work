@@ -22,6 +22,7 @@ import { useEffect, useRef } from "react";
 import { panelRow } from "Library/ConstantValues";
 import { useDisclosure } from "@mantine/hooks";
 import WarningForm from "../Forms/WarningForm";
+import QuoteSelect from "./CustomCompontents/QuoteSelect";
 interface SplitTable {
   left: rowMap;
   right: rowMap;
@@ -182,8 +183,8 @@ export function FrontTable() {
   );
   const leftTable: SplitTable[] = [
     {
-      right: createRow("Quote Number", <GetQuote />),
-      left: createRow("Date", <label>{GetDate()}</label>),
+      left: createRow("Quote Number", <QuoteSelect />),
+      right: createRow("Date", <label>{GetDate()}</label>),
     },
     { left: partNumber, right: panelSize },
     { left: quantity, right: assymblyTable },

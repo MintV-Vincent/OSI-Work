@@ -52,7 +52,7 @@ export default function page() {
   });
 
   return (
-    <div className="flex flex-col h-[calc(100vh-6rem)] m-4 py-4 px-8">
+    <div className="flex flex-col h-screen m-4 py-4 px-8">
       <FrontTable />
       <div className="py-10 grid grid-cols-2 grid-rows-3 gap-x-10">
         <div className="col-span-1 row-span-3 grid grid-rows-4">
@@ -91,7 +91,6 @@ export default function page() {
             minRows={3}
           />
         </div>
-
         <div className="col-span-1 row-span-1">
           <div className="flex justify-between">
             <label className="w-1/4 text-left">

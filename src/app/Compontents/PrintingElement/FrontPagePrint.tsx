@@ -18,7 +18,7 @@ import {
   termsAtom,
 } from "Library/Atoms/FrontPageAtoms";
 import { fullTotalAtom, unitTotalAtom } from "Library/Atoms/TotalAtom";
-import { unitAtom } from "Library/Atoms/AtomStorage";
+import { quoteAtom, unitAtom } from "Library/Atoms/AtomStorage";
 
 const gus: string = "Gus Tarkas, ";
 const chris: string = "Chris Keirstead, ";
@@ -62,6 +62,7 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
   const [partAttributes] = useAtom(partsAtom);
   const [selector] = useAtom(currencySelectorAtom);
   const [terms] = useAtom(termsAtom);
+  const [quote] = useAtom(quoteAtom);
 
   const salesPerson: string = chooseSales(sales);
 
@@ -85,7 +86,7 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
       </div>
       <div className="col-span-1 flex">
         <label className="flex basis-1/4">Quotation #: </label>
-        <label className="flex basis-3/4">{GetQuote()}</label>
+        <label className="flex basis-3/4">{quote}</label>
       </div>
       <div className="col-span-1 flex">
         <div className="flex basis-1/4">Sold To:</div>

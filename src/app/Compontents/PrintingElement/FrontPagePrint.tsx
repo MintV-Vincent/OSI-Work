@@ -23,6 +23,7 @@ import { quoteAtom, unitAtom } from "Library/Atoms/AtomStorage";
 const gus: string = "Gus Tarkas, ";
 const chris: string = "Chris Keirstead, ";
 const micheal: string = "Micheal Mordando, ";
+const deb: string = "Deb Dubberly, ";
 
 function chooseEmail(value: string): string {
   switch (value) {
@@ -32,6 +33,8 @@ function chooseEmail(value: string): string {
       return "ckeirstead@pfcflex.com";
     case "micheal":
       return "mmorando@pfcflex.com";
+    case "deb":
+      return "ddubberly@osielectronics.com";
   }
   return "";
 }
@@ -44,6 +47,8 @@ function chooseSales(value: string): string {
       return chris + "Sales Manager";
     case "micheal":
       return micheal + "Director of sales";
+    case "deb":
+      return deb + "Area Sales Manager";
   }
   return "";
 }

@@ -4,7 +4,7 @@ import GetQuote from "Functions/GetFunction/GetQuote";
 import { quoteAtom } from "Library/Atoms/AtomStorage";
 import { quoteTableAtom } from "Library/Atoms/TableAtoms";
 import { useAtom } from "jotai";
-import React, { useState } from "react";
+import React from "react";
 
 export default function QuoteSelect() {
   const [quoteData, setQuote] = useAtom(quoteTableAtom);

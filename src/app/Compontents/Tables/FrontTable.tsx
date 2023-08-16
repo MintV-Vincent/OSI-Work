@@ -162,6 +162,7 @@ export function FrontTable() {
         { label: "Gus", value: "gus" },
         { label: "Chris", value: "chris" },
         { label: "Micheal", value: "micheal" },
+        { label: "Deb", value: "deb" },
       ]}
     />
   );

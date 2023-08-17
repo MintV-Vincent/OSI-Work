@@ -109,7 +109,9 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
               <br />
               11 Canadian Road, Unit #7
               <br />
-              Toronto, ON M1R5G1 CANADA
+              Toronto, ON M1R5G1
+              <br />
+              CANADA
             </div>
           </div>
           <div className="col-span-2 flex">

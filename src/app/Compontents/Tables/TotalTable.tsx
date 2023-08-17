@@ -17,29 +17,33 @@ export function TotalTable({ titles, total }: TotalTableInterface) {
   const [exchange] = useAtom(exchangeRateMaterialAtom);
   // This table consist of only two columns. The data points should be of type row map
   return (
-    <Table miw={"w-1/3"} striped withBorder verticalSpacing="xs">
+    <Table striped withBorder>
       <HeaderRow
-        columns={["", "text-right", "text-right"]}
+        columns={["", "text-right ", "text-right ", ""]}
         titles={totalHeader}
       />
       <tbody>
         {total.map((subTotal: number, index: number) => (
           <tr className={"text-primary"} key={subTotal + "-row-" + index}>
             <td className="">{titles[index]}</td>
-            <td className="text-right">{subTotal.toFixed(2)}</td>
-            <td className="text-right">
+            <td className="text-right px-3">{subTotal.toFixed(2)}</td>
+            <td className="text-right px-3">
               {index === 1
                 ? (subTotal / Number(exchange)).toFixed(2)
                 : (subTotal / Number(exchange)).toFixed(2)}
             </td>
+            <td />
           </tr>
         ))}
         <tr>
           <td className={"font-semibold"}>{"Total"}</td>
-          <td className={"font-semibold text-right"}>{CADTotal.toFixed(2)}</td>
-          <td className={"font-semibold text-right"}>
+          <td className={"font-semibold text-right px-3"}>
+            {CADTotal.toFixed(2)}
+          </td>
+          <td className={"font-semibold text-right px-3"}>
             {(CADTotal / Number(exchange)).toFixed(2)}
           </td>
+          <td />
         </tr>
       </tbody>
     </Table>

@@ -15,16 +15,16 @@ export default function ServiceTable() {
   const [service, setService] = useAtom(servicesAtom);
 
   return (
-    <Table miw={"w-1/3"} striped withBorder verticalSpacing="xs">
+    <Table striped withBorder verticalSpacing="w-10">
       <HeaderRow
-        columns={["text-left", "", "text-left ", "text-right "]}
+        columns={["text-left ", "", "text-right ", "text-right "]}
         titles={serviceHeader(serviceTitle)}
       />
       <tbody>
         {service.map((row: servicesMap, index: number) => (
           <tr className={" text-primary"} key={row.material + " row " + index}>
-            <td className="w-60">{row.material}</td>
-            <td>
+            <td className="w-60 px-3">{row.material}</td>
+            <td className="px-3">
               <ServiceInput
                 id={index}
                 currentAmount={row.amount}
@@ -33,8 +33,8 @@ export default function ServiceTable() {
                 setData={setService}
               />
             </td>
-            <td className="text-right">{row.unitPrice.toFixed(2)}</td>
-            <td className="text-right">{row.price.toFixed(2)}</td>
+            <td className="text-right px-3 w-40">{row.unitPrice.toFixed(2)}</td>
+            <td className="text-right px-3 w-40">{row.price.toFixed(2)}</td>
           </tr>
         ))}
         <TotalRows

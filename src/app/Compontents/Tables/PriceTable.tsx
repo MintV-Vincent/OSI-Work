@@ -17,7 +17,7 @@ import AddMaterialButton from "./CustomCompontents/AddMaterialButton";
 
 const tableSize: string = " ";
 
-const columns: string[] = [tableSize, "", "", " text-right", " text-right"];
+const columns: string[] = [tableSize, "", "", " text-right ", " text-right "];
 
 export function PriceTable() {
   const [materialRows, setMaterialRow] = useAtom(materialTableAtom);
@@ -28,12 +28,12 @@ export function PriceTable() {
   const supplier: dictionaryMap[] = array.supplier;
 
   return (
-    <Table miw={"w-1/3"} striped withBorder verticalSpacing="xs">
+    <Table striped withBorder verticalSpacing="w-10">
       <HeaderRow columns={columns} titles={materialHeader} />
       <tbody>
         {materialRows.map((row: materialRowMap, index: number) => (
           <tr key={index}>
-            <td>
+            <td className="pl-3">
               <SupplierSelect
                 rowSupplier={row.supplier}
                 data={materialRows}
@@ -42,9 +42,9 @@ export function PriceTable() {
                 id={index}
               />
             </td>
-            <td>
+            <td className="pl-3">
               <MaterialSelect
-                currentMaterial={row.material}
+                currentMaterial={row.item.value}
                 currentSupplier={row.supplier}
                 id={index}
                 materialList={materials}
@@ -52,18 +52,19 @@ export function PriceTable() {
                 setData={setMaterialRow}
               />
             </td>
-            <td>
+            <td className="pl-3">
               <AmountInput
                 id={index}
                 currentAmount={row.amount}
-                unitPrice={row.unitPrice}
                 data={materialRows}
                 setData={setMaterialRow}
               />
             </td>
-            <td>{row.unitPrice.toFixed(2)}</td>
-            <td className={"text-right"}>
-              <label title={row.formula}>{row.price.toFixed(2)}</label>
+            <td className="text-right w-32 px-3">
+              {row.item.price.toFixed(2)}
+            </td>
+            <td className={"text-right w-32 px-3"}>
+              <label title={row.item.formula}>{row.price.toFixed(2)}</label>
             </td>
           </tr>
         ))}

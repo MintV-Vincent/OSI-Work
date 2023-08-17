@@ -673,4 +673,25 @@ export const dupont: jsonMap[] = [
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
   },
+  {
+    id: 2600,
+    material: "DuPont Pyralux TK Clad  TK 1815018 (Mechanical routing)",
+    price: 27.12,
+    formula: "size * exchange * price * amount * 1.025",
+    supplier: "Dupont",
+  },
+  {
+    id: 2700,
+    material: "DuPont Pyralux TK Clad  TK 1810018 (Mechanical routing)",
+    price: 48.12,
+    formula: "size * exchange * price * amount * 1.025",
+    supplier: "Dupont",
+  },
+  {
+    id: 2800,
+    material: "DuPont Pyralux TK Clad  TK3610036R (Mechanical routing)",
+    price: 43.25,
+    formula: "size * exchange * price * amount * 1.025",
+    supplier: "Dupont",
+  },
 ];

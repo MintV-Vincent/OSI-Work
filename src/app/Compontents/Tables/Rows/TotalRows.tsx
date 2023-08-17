@@ -24,16 +24,16 @@ const TotalRows = function TotalRows({
     <tr key={text + " row"}>
       {button.map((newButton: JSX.Element, i: number) => (
         <td key={"button" + i}>
-          <div className="flex justify-start">{newButton}</div>
+          <div className="pl-3 flex justify-start">{newButton}</div>
         </td>
       ))}
       {array.map((i: number) => (
         <td className={sharedClass} key={"total filler column" + i} />
       ))}
-      <td className={sharedClass + " font-semibold text-right text-xl"}>
+      <td className={sharedClass + " px-3 font-semibold text-right text-xl"}>
         {text}
       </td>
-      <td className={sharedClass + " font-semibold text-right text-xl"}>
+      <td className={sharedClass + " px-3 font-semibold text-right text-xl"}>
         {total.toFixed(2)}
       </td>
     </tr>

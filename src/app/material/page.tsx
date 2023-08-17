@@ -24,7 +24,7 @@ export default function page() {
           <TotalTable titles={totalTitle} total={total} />
           <TotalTable titles={totalTitle2} total={serviceTotal} />
         </div>
-        <div className="h-[calc(48%)] overflow-auto z-40">
+        <div className="h-[calc(48%)] overflow-auto z-40 scrollbar-gutter">
           <PriceTable />
         </div>
       </div>

@@ -6,7 +6,6 @@ import GetDate from "Functions/GetFunction/GetDate";
 import { useAtom } from "jotai";
 import { TextInput } from "@mantine/core";
 import SelectLabel from "app/Compontents/SelectLabel";
-import GetQuote from "Functions/GetFunction/GetQuote";
 import { freightAtom, panelAtom } from "Library/Atoms/AtomStorage";
 import {
   assemblyAtom,
@@ -20,7 +19,6 @@ import {
 } from "Library/Atoms/FrontPageAtoms";
 import { useEffect, useRef } from "react";
 import { panelRow } from "Library/ConstantValues";
-import { useDisclosure } from "@mantine/hooks";
 import WarningForm from "../Forms/WarningForm";
 import QuoteSelect from "./CustomCompontents/QuoteSelect";
 interface SplitTable {
@@ -48,14 +46,12 @@ export function FrontTable() {
   const [freight, setFreight] = useAtom(freightAtom);
   const [panel, setPanel] = useAtom(panelAtom);
   const [layers, setLayers] = useAtom(layerAtom);
-  const [technology, setTechnology] = useAtom(technologyAtom);
   const [assembly, setAssembly] = useAtom(assemblyAtom);
   const [partNumberInput, setPartInput] = useAtom(partsInputAtom);
   const [revisionInput, setRevisionInput] = useAtom(revAtom);
   const [sales, setSales] = useAtom(salesAtom);
   const [selector, setSelector] = useAtom(currencySelectorAtom);
   const [value, setValue] = useAtom(qualityAtom);
-  const [opened, { open, close }] = useDisclosure(false);
 
   const selectLabel: React.JSX.Element[] = SelectLabel();
   const selectCustomer: React.JSX.Element = selectLabel[0];
@@ -111,20 +107,7 @@ export function FrontTable() {
       data={panelRow}
     />
   );
-  const technologyTable = createRow(
-    "Technology",
-    <SegmentedControl
-      size="xs"
-      color="blue"
-      fullWidth
-      value={technology}
-      onChange={(e) => {
-        open();
-        setTechnology(e);
-      }}
-      data={["A", "B", "C", "D"]}
-    />
-  );
+  const technologyTable = createRow("Technology", <WarningForm />);
   const freightTable = createRow(
     "Freight",
     <NumberInput
@@ -197,8 +180,7 @@ export function FrontTable() {
   // This table consist of only two columns. The data points should be of type row map
   return (
     <>
-      <WarningForm opened={opened} close={close} />
-      <Table miw={"w-1/3"} striped withBorder verticalSpacing="xs">
+      <Table striped withBorder verticalSpacing="5px">
         <thead className={"bg-light"}>
           <tr>
             <td colSpan={1}></td>

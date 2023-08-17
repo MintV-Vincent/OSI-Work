@@ -50,16 +50,16 @@ export default function NRETable() {
   }
 
   return (
-    <Table miw={"w-1/3"} striped withBorder verticalSpacing="xs">
+    <Table striped withBorder verticalSpacing="w-10">
       <HeaderRow
-        columns={["text-left", "text-left", "", "text-right"]}
+        columns={["text-left", "text-left", "", "text-right "]}
         titles={serviceHeader(nreTitle)}
       />
       <tbody>
         {nre.map((row: servicesMap, index: number) => (
           <tr className={" text-primary"} key={row.material + " row " + index}>
-            <td className="w-60">{row.material}</td>
-            <td>
+            <td className="w-60 px-3">{row.material}</td>
+            <td className="px-3">
               <ServiceInput
                 id={index}
                 currentAmount={row.amount}
@@ -68,7 +68,7 @@ export default function NRETable() {
                 setData={setNRE}
               />
             </td>
-            <td className="text-right">
+            <td className="px-3">
               <NumberInput
                 size="xs"
                 hideControls
@@ -79,7 +79,7 @@ export default function NRETable() {
                 precision={2}
               />
             </td>
-            <td className="text-right">{row.price.toFixed(2)}</td>
+            <td className="text-right w-40 px-3">{row.price.toFixed(2)}</td>
           </tr>
         ))}
         <TotalRows

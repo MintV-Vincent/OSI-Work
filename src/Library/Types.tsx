@@ -43,18 +43,15 @@ export interface servicesMap {
 export interface rowMapPrice extends dictionaryMap {
   custom: string;
   formula: string;
-  price: number | string;
+  price: number;
   supplier: string;
 }
 export interface materialRowMap {
-  material: string;
+  item: rowMapPrice;
   id: number;
   amount: number;
-  unitPrice: number;
   price: number;
-  formula: string;
   supplier: string;
-  custom: string | number;
 }
 
 export interface tabType {

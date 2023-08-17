@@ -1,4 +1,4 @@
-import { jsonMap, rowMapPrice } from "Library/Types";
+import { rowMapPrice } from "Library/Types";
 import { createRowPrice } from "../../Functions/Create/MapCreate";
 import JsonToAtom from "JsonReader/JsonToAtom";
 import { atom } from "jotai";
@@ -8,7 +8,7 @@ import { dupont } from "DataBases/Dupont";
 import { arlon } from "DataBases/Arlon";
 import { isola } from "DataBases/JsonIsola";
 import { dryFilm } from "DataBases/Processes";
-import { tapes } from "DataBases/Tapes";
+import { tapes } from "DataBases/Taiflex";
 import { Mtapes } from "DataBases/3MTapes";
 import { arwisa } from "DataBases/Arwisa";
 import JsonToService from "JsonReader/JsonToService";
@@ -67,7 +67,7 @@ export const materialAtom = atom(
     const arwisa = get(arwisaAtom);
     set(addedAtom, [
       ...added,
-      createRowPrice(value, label, price, formula, custom, supplier),
+      createRowPrice(value, label, formula, custom, supplier, Number(price)),
     ]);
     return [
       cover,

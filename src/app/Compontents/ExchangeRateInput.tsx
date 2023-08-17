@@ -15,7 +15,7 @@ export default function ExchangeRateInput() {
 
   return (
     <NumberInput
-      className="w-60"
+      className="w-4/5"
       hideControls
       precision={percision}
       value={exchangeRate}
@@ -26,8 +26,9 @@ export default function ExchangeRateInput() {
         setExchangeRate(event);
         useMaterialData(
           materialData.map((row: materialRowMap) => {
+            const item = row.item;
             let newPrice = eval(
-              createFormula(row.formula, row.amount, row.unitPrice, event)
+              createFormula(item.formula, row.amount, item.price, event)
             );
             return {
               ...row,
@@ -37,8 +38,9 @@ export default function ExchangeRateInput() {
         );
         useProcessData(
           processData.map((row: materialRowMap) => {
+            const item = row.item;
             let newPrice = eval(
-              createFormula(row.formula, row.unitPrice * row.amount, event)
+              createFormula(item.formula, item.price * row.amount, event)
             );
             return {
               ...row,

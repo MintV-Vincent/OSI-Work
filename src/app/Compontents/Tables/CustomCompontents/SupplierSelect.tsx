@@ -1,4 +1,5 @@
 import { Select } from "@mantine/core";
+import { createMaterialRow, createRowPrice } from "Functions/Create/MapCreate";
 import { dictionaryMap, materialRowMap } from "Library/Types";
 import React, { useEffect, useRef } from "react";
 interface customSelect {
@@ -40,19 +41,26 @@ export default function SupplierSelect({
   ): materialRowMap {
     return setData(
       data.map((row: materialRowMap) => {
+        const item = row.item;
         if (row.id != id) {
           return row;
         }
-        if (supplier === row.supplier) {
+        if (supplier === null) {
+          return {
+            ...row,
+            item: createRowPrice(),
+            supplier: "",
+            price: 0,
+          };
+        }
+        if (supplier === item.supplier) {
           return row;
         }
         return {
           ...row,
-          custom: "",
-          material: "",
+          item: createMaterialRow(id),
           supplier: supplier,
           price: 0,
-          unitPrice: 0,
         };
       })
     );
@@ -64,8 +72,8 @@ export default function SupplierSelect({
       placeholder="Supplier"
       searchable
       clearable
-      searchValue={rowSupplier}
-      onSearchChange={(e: any) => {
+      value={rowSupplier}
+      onChange={(e: any) => {
         if (isMounted.current == true) {
           onSupplier(id, e, data, setData);
         }

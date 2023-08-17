@@ -15,16 +15,16 @@ export function ProcessTable() {
   const [processing, setProcesses] = useAtom(filmProcessAtom);
 
   return (
-    <Table miw={"w-1/3"} striped withBorder verticalSpacing="xs">
+    <Table striped withBorder verticalSpacing="w-10">
       <HeaderRow
-        columns={["text-left ", "", "text-left ", "text-right "]}
+        columns={["text-left ", "", "text-right ", "text-right "]}
         titles={serviceHeader(processFilmTitle)}
       />
       <tbody>
         {processing.map((row: servicesMap, index: number) => (
           <tr className={" text-primary"} key={row.material + " row " + index}>
-            <td className="w-60">{row.material}</td>
-            <td>
+            <td className="px-3 w-60">{row.material}</td>
+            <td className="px-3">
               <ServiceInput
                 id={index}
                 currentAmount={row.amount}
@@ -33,8 +33,8 @@ export function ProcessTable() {
                 setData={setProcesses}
               />
             </td>
-            <td className="text-right">{row.unitPrice.toFixed(2)}</td>
-            <td className="text-right" title={row.formula}>
+            <td className="px-3 w-40 text-right">{row.unitPrice.toFixed(2)}</td>
+            <td className="px-3 w-40 text-right" title={row.formula}>
               {row.price.toFixed(2)}
             </td>
           </tr>

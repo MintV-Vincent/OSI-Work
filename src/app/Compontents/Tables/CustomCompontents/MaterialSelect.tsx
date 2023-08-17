@@ -11,6 +11,7 @@ import {
   yeildAtom,
 } from "Library/Atoms/AtomStorage";
 import { createFormula } from "Functions/Create/CreateFormula";
+import { createRowPrice } from "Functions/Create/MapCreate";
 
 interface materialSelect {
   currentMaterial: string;
@@ -23,11 +24,11 @@ interface materialSelect {
 
 export default function MaterialSelect({
   currentMaterial,
+  currentSupplier,
   materialList,
   data,
   setData,
   id,
-  currentSupplier,
 }: materialSelect) {
   const [exchangeRate] = useAtom(exchangeRateMaterialAtom);
   const [freight] = useAtom(freightAtom);
@@ -51,29 +52,29 @@ export default function MaterialSelect({
     data: materialRowMap[],
     setData: any
   ): materialRowMap {
-    const filteredMaterialList: rowMapPrice[] = materialList.filter(
-      (c: rowMapPrice) => c.value === material
-    );
-    const {
-      value,
-      label,
-      custom,
-      formula,
-      price: newUnitPrice,
-      supplier,
-    } = filteredMaterialList[0];
-
+    console.log("material:", material);
     return setData(
       data.map((row: materialRowMap) => {
         if (row.id != id) {
           return row;
         }
+        if (material === null) {
+          return {
+            ...row,
+            item: createRowPrice(),
+            price: 0,
+          };
+        }
+        const filteredMaterialList: rowMapPrice[] = materialList.filter(
+          (c: rowMapPrice) => c.value === material
+        );
+        const item = filteredMaterialList[0];
 
         let newPrice = eval(
           createFormula(
-            formula,
+            item.formula,
             row.amount,
-            Number(newUnitPrice),
+            Number(item.price),
             exchangeRate,
             freight,
             panel,
@@ -81,14 +82,10 @@ export default function MaterialSelect({
             margin
           )
         );
-
         return {
           ...row,
-          custom: custom,
-          formula: formula,
-          material: value,
-          supplier: supplier,
-          unitPrice: newUnitPrice,
+          supplier: item.supplier,
+          item: filteredMaterialList[0],
           price: newPrice,
         };
       })

@@ -9,10 +9,10 @@ export default function JsonToAtom(json: any[]): rowMapPrice[] {
       createRowPrice(
         json[i].material,
         json[i].material,
-        changeToNumber,
         json[i].formula,
         i.toString(),
-        json[i].supplier ? json[i].supplier : "-"
+        json[i].supplier ? json[i].supplier : "-",
+        changeToNumber
       )
     );
   }

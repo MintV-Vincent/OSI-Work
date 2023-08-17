@@ -41,33 +41,43 @@ export function createService(
 }
 
 export function createRowPrice(
-  label: string, // name
-  value: string, // name
-  price: number,
-  formula: string,
+  label: string = "", // name
+  value: string = "", // name
+  formula: string = "price * amount",
   custom: string = "",
-  supplier: string = ""
+  supplier: string = "",
+  price: number = 0
 ): rowMapPrice {
   return { label, value, price, custom, supplier, formula };
 }
 
 export function createMaterialRow(id: number): materialRowMap {
-  const custom: string = "";
-  const formula: string = "";
+  const item: rowMapPrice = createRowPrice();
+  const amount: number = 0;
+  const price: number = 0;
   const supplier: string = "";
-  const material: string = "";
-  const unitPrice: number = 0;
+  return {
+    item,
+    amount,
+    price,
+    supplier,
+    id,
+  };
+}
+
+export function createMaterialRowItem(
+  id: number,
+  item: rowMapPrice,
+  supplier: string
+): materialRowMap {
   const amount: number = 0;
   const price: number = 0;
   return {
-    supplier,
-    material,
-    custom,
+    item,
     amount,
-    id,
-    unitPrice,
     price,
-    formula,
+    supplier,
+    id,
   };
 }
 

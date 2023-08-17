@@ -22,43 +22,37 @@ export default function TotalLabel({
 }: TotalLabelInterface) {
   const [selector] = useAtom(currencySelectorAtom);
   return (
-    <div className="flex flex-grow">
+    <div className="flex">
       <label
         className={
-          totalClassName + "basis-1/2 md:basis-2/3 lg:basis-2/3 xl:basis-1/4"
+          totalClassName + "basis-1/2 md:basis-2/3 lg:basis-2/3 xl:basis-1/3"
         }
       >
         {title}:
       </label>
-      {USDSelector ? (
-        <label
-          className={
-            totalClassName + "basis-1/2 md:basis-1/3 lg:basis-1/3 xl:basis-1/3"
-          }
+      <>
+        {USDSelector ? (
+          <label className={totalClassName + "flex-grow"}>
+            ${total.toFixed(2) + " USD"}
+          </label>
+        ) : (
+          <label className={totalClassName + "flex-grow"}>
+            ${total.toFixed(2) + " " + selector}
+          </label>
+        )}
+        <HoverCard
+          position="top"
+          shadow="md"
+          withArrow
+          openDelay={200}
+          closeDelay={400}
         >
-          ${total.toFixed(2) + " USD"}
-        </label>
-      ) : (
-        <label
-          className={
-            totalClassName + "basis-1/2 md:basis-1/3 lg:basis-1/3 xl:basis-1/3"
-          }
-        >
-          ${total.toFixed(2) + " " + selector}
-        </label>
-      )}
-      <HoverCard
-        position="top"
-        shadow="md"
-        withArrow
-        openDelay={200}
-        closeDelay={400}
-      >
-        <HoverCard.Target>
-          <IconInfoSquareFilled className="mx-5 my-auto" />
-        </HoverCard.Target>
-        <HoverCard.Dropdown>{hoverText}</HoverCard.Dropdown>
-      </HoverCard>
+          <HoverCard.Target>
+            <IconInfoSquareFilled className="mx-5 my-auto" />
+          </HoverCard.Target>
+          <HoverCard.Dropdown>{hoverText}</HoverCard.Dropdown>
+        </HoverCard>
+      </>
     </div>
   );
 }

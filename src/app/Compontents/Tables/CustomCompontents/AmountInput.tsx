@@ -8,14 +8,13 @@ import {
   yeildAtom,
 } from "Library/Atoms/AtomStorage";
 import { percision } from "Library/ConstantValues";
-import { materialRowMap } from "Library/Types";
+import { materialRowMap, rowMapPrice } from "Library/Types";
 import { useAtom } from "jotai";
 import React from "react";
 
 interface AmountInputInterface {
   id: number;
   currentAmount: number | "";
-  unitPrice: number;
   data: materialRowMap[];
   setData: any;
 }
@@ -23,7 +22,6 @@ interface AmountInputInterface {
 export default function AmountInput({
   id,
   currentAmount,
-  unitPrice,
   data,
   setData,
 }: AmountInputInterface) {
@@ -45,7 +43,6 @@ export default function AmountInput({
   function onAmount(
     id: number,
     value: number | "",
-    unitPrice: number,
     data: materialRowMap[],
     setData: any
   ): materialRowMap {
@@ -57,11 +54,12 @@ export default function AmountInput({
         if (value === "") {
           return { ...row, amount: "", price: 0 };
         }
+        const item: rowMapPrice = row.item;
         let price = eval(
           createFormula(
-            row.formula,
+            row.item.formula,
             value,
-            row.unitPrice,
+            item.price,
             exchangeRate,
             freight,
             panel,
@@ -85,7 +83,7 @@ export default function AmountInput({
       value={currentAmount}
       precision={percision}
       onChange={(event: number) => {
-        onAmount(id, event, unitPrice, data, setData);
+        onAmount(id, event, data, setData);
       }}
     />
   );

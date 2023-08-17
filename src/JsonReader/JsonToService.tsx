@@ -1,4 +1,4 @@
-import { createService } from "Functions/Create/createService";
+import { createService } from "Functions/Create/MapCreate";
 import { servicesMap } from "Library/Types";
 
 export default function JsonToService(json: any[]): servicesMap[] {

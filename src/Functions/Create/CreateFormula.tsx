@@ -22,57 +22,16 @@ export function createFormula(
   yeild: number | "" = 1,
   margin: number | "" = 1
 ): string {
-  if (formula.indexOf(" ") > 0) {
-    const arrayFormula: string[] = formula.split(" ");
-    let equation: string = "";
-    for (let i: number = 0; i < arrayFormula.length; i++) {
-      try {
-        switch (arrayFormula[i]) {
-          case "amount":
-            equation = equation + amount;
-            break;
-          case "price":
-            equation = equation + unitPrice;
-            break;
-          case "exchange":
-            equation = equation + exchangeRate;
-            break;
-          case "size":
-            equation = equation + "1";
-            break;
-          case "freight":
-            equation = equation + freight;
-            break;
-          case "yeild":
-            equation = equation + yeild;
-            break;
-          case "margin":
-            equation = equation + margin;
-            break;
-          case "*":
-            equation = equation + "*";
-            break;
-          case "/":
-            equation = equation + "/";
-            break;
-          case "-":
-            equation = equation + "-";
-            break;
-          case "+":
-            equation = equation + "+";
-            break;
-          case "":
-            equation = equation;
-            break;
-          default:
-            equation = equation + arrayFormula[i];
-            break;
-        }
-      } catch {
-        console.log("FORMULA ERROR wrong formula format");
-      }
-    }
-    return equation;
-  }
-  return "0";
+  let equation = formula.toLowerCase();
+
+  equation = equation.replaceAll("exchange", exchangeRate.toString());
+  equation = equation.replaceAll("exchange rate", exchangeRate.toString());
+  equation = equation.replaceAll("amount", amount.toString());
+  equation = equation.replaceAll("price", unitPrice.toString());
+  equation = equation.replaceAll("size", "1");
+  equation = equation.replaceAll("freight", "1");
+  const removeDangerous = equation.replace(/[^\[0-9-*+/. ]/, "");
+  return removeDangerous;
 }
+
+//+([-+*/]+[0-9.])*

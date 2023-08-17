@@ -53,6 +53,7 @@ export default function AddServiceForm({
             values.material != "" &&
             values.price != undefined
           ) {
+            console.log(values.formula.split(/([-+*\/])/));
             const newData = createService(
               data.length,
               0,

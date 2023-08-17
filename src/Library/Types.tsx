@@ -41,6 +41,8 @@ export interface servicesMap {
   price: number;
 }
 export interface rowMapPrice extends dictionaryMap {
+  //THE VALUE OF value: is the material + supplier + price.
+  //This is to create a unique value for every materail even if they have same suppplier or name or price but not all 3.
   custom: string;
   formula: string;
   price: number;

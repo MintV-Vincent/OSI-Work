@@ -2,7 +2,6 @@ import { Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import React from "react";
 import {
-  createMaterialRow,
   createMaterialRowItem,
   createRowPrice,
 } from "Functions/Create/MapCreate";
@@ -11,6 +10,7 @@ import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { materialAtom } from "Library/Atoms/AtomStorage";
 import ModalForm from "./ModalForm";
 import { rowMapPrice } from "Library/Types";
+import { createFormula } from "Functions/Create/CreateFormula";
 
 interface AddButtonInterface {
   handleClick: () => void;
@@ -25,7 +25,7 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
     price: number | undefined;
   }>({
     initialValues: {
-      formula: "price * amount ",
+      formula: "price * amount * exchange",
       material: "",
       price: undefined,
     },
@@ -33,8 +33,12 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
       formula:
         values.formula.length < 1
           ? "Formula is required"
-          : values.formula.split(" ").length % 2 !== 0
-          ? "Ending in operation error"
+          : formulaCheck.test(
+              values.formula.split(/([-+*\/])/)[
+                values.formula.split(/([-+*\/])/).length - 1
+              ]
+            )
+          ? "Wrong Format"
           : null,
       material: values.material.length < 1 ? "Invalid Material" : null,
       price:
@@ -46,6 +50,8 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
     }),
   });
 
+  const formulaCheck = /^\s*$/;
+
   return (
     <Box maw={340} mx="auto">
       <form
@@ -56,9 +62,17 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
             values.material != "" &&
             values.price != undefined
           ) {
+            console.log(values.formula.split(/[-+*\/]/));
+            console.log(
+              formulaCheck.test(
+                values.formula.split(/([-+*\/])/)[
+                  values.formula.split(/([-+*\/])/).length - 1
+                ]
+              )
+            );
             const newItem: rowMapPrice = createRowPrice(
               values.material.toString(),
-              values.material.toString() + "Added2",
+              values.material.toString() + "Added" + values.price.toString(),
               values.formula.toString(),
               "2",
               "Added",

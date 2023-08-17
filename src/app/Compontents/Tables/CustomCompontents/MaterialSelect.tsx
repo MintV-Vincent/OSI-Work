@@ -52,7 +52,6 @@ export default function MaterialSelect({
     data: materialRowMap[],
     setData: any
   ): materialRowMap {
-    console.log("material:", material);
     return setData(
       data.map((row: materialRowMap) => {
         if (row.id != id) {

@@ -75,12 +75,10 @@ export const materialTotalAtom = atom<number>((get) => {
 export const materialTotalAtomCAD = atom<number>((get) => {
   const typeRowsAtom: any = get(materialTableAtom);
   const exchangeRate: any = get(exchangeRateMaterialAtom);
-  return (
-    typeRowsAtom.reduce(
-      (previousScore: number, currentScore: materialRowMap) =>
-        previousScore + currentScore.price,
-      0
-    ) * exchangeRate
+  return typeRowsAtom.reduce(
+    (previousScore: number, currentScore: materialRowMap) =>
+      previousScore + currentScore.price,
+    0
   );
 });
 

@@ -4,6 +4,7 @@ import React from "react";
 import { createService } from "Functions/Create/MapCreate";
 import ModalForm from "./ModalForm";
 import { servicesMap } from "Library/Types";
+import { testCreateFormula } from "Functions/Create/CreateFormula";
 
 interface AddServiceInterface {
   handleClick: () => void;
@@ -30,9 +31,9 @@ export default function AddServiceForm({
       formula:
         values.formula.length < 1
           ? "Formula is required"
-          : values.formula.split(" ").length % 2 !== 0
-          ? "Ending in operation error"
-          : null,
+          : testCreateFormula(values.formula)
+          ? null
+          : "Wrong Format",
       material: values.material.length < 1 ? "Invalid Material" : null,
       price:
         values.price === undefined
@@ -53,7 +54,6 @@ export default function AddServiceForm({
             values.material != "" &&
             values.price != undefined
           ) {
-            console.log(values.formula.split(/([-+*\/])/));
             const newData = createService(
               data.length,
               0,

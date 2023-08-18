@@ -10,7 +10,10 @@ import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { materialAtom } from "Library/Atoms/AtomStorage";
 import ModalForm from "./ModalForm";
 import { rowMapPrice } from "Library/Types";
-import { createFormula } from "Functions/Create/CreateFormula";
+import {
+  createFormula,
+  testCreateFormula,
+} from "Functions/Create/CreateFormula";
 
 interface AddButtonInterface {
   handleClick: () => void;
@@ -33,13 +36,9 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
       formula:
         values.formula.length < 1
           ? "Formula is required"
-          : formulaCheck.test(
-              values.formula.split(/([-+*\/])/)[
-                values.formula.split(/([-+*\/])/).length - 1
-              ]
-            )
-          ? "Wrong Format"
-          : null,
+          : testCreateFormula(values.formula)
+          ? null
+          : "Wrong Format",
       material: values.material.length < 1 ? "Invalid Material" : null,
       price:
         values.price === undefined
@@ -49,8 +48,6 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
           : null,
     }),
   });
-
-  const formulaCheck = /^\s*$/;
 
   return (
     <Box maw={340} mx="auto">
@@ -62,14 +59,6 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
             values.material != "" &&
             values.price != undefined
           ) {
-            console.log(values.formula.split(/[-+*\/]/));
-            console.log(
-              formulaCheck.test(
-                values.formula.split(/([-+*\/])/)[
-                  values.formula.split(/([-+*\/])/).length - 1
-                ]
-              )
-            );
             const newItem: rowMapPrice = createRowPrice(
               values.material.toString(),
               values.material.toString() + "Added" + values.price.toString(),

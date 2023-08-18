@@ -2,6 +2,7 @@ import { NumberInput } from "@mantine/core";
 import { createFormula } from "Functions/Create/CreateFormula";
 import {
   exchangeRateAtom,
+  exchangeRateMaterialAtom,
   freightAtom,
   marginAtom,
   panelAtom,
@@ -25,7 +26,7 @@ export default function AmountInput({
   data,
   setData,
 }: AmountInputInterface) {
-  const [exchangeRate] = useAtom(exchangeRateAtom);
+  const [exchangeRate] = useAtom(exchangeRateMaterialAtom);
   const [freight] = useAtom(freightAtom);
   const [panel] = useAtom(panelAtom);
   const [yeild] = useAtom(yeildAtom);

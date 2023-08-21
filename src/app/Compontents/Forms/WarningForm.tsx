@@ -1,4 +1,10 @@
-import { Button, Modal, SegmentedControl } from "@mantine/core";
+import {
+  Box,
+  Button,
+  LoadingOverlay,
+  Modal,
+  SegmentedControl,
+} from "@mantine/core";
 import { technologyAtom } from "Library/Atoms/FrontPageAtoms";
 import { useAtom } from "jotai";
 import React, { useState } from "react";
@@ -12,61 +18,65 @@ export default function WarningForm() {
   const [technology, setTechnology] = useAtom(technologyAtom);
   const [prevState, setPrevState] = useState(technology);
   const [status, setState] = useState(false);
-  const handleClick = () => {
-    setState((prevStatus) => !prevStatus);
-  };
 
   return (
     <>
+      <Box maw={400} pos="relative">
+        <LoadingOverlay visible={status} overlayBlur={2} />
+        {/* ...other content */}
+      </Box>
       <SegmentedControl
         size="xs"
         color="blue"
         fullWidth
         value={technology}
         onChange={(e) => {
-          handleClick();
-          setPrevState(technology);
+          setState(true);
           setTechnology(e);
         }}
-        data={["A", "B", "C", "D"]}
+        data={[
+          { label: "A", value: "A" },
+          { label: "B", value: "B" },
+          { label: "C", value: "C" },
+          { label: "D", value: "D" },
+        ]}
       />
-      <Modal
-        size={"lg"}
-        opened={status}
-        onClose={() => {
-          setTechnology(prevState);
-          handleClick();
-        }}
-        centered
-        closeOnEscape={false}
-        title="Use Technology Template"
-      >
-        <label className="py-10">
-          Warning
-          <br />
-          This will fill out with standard template.
-          <br />
-          Do you wish to proceed.
-        </label>
-        <div className="flex justify-between pt-10">
-          <Button
-            color="red"
-            onClick={(e) => {
-              setTechnology(prevState);
-              handleClick();
-            }}
-          >
-            Cancel
-          </Button>
-          <Button
-            onClick={(e) => {
-              handleClick();
-            }}
-          >
-            Comfirm
-          </Button>
-        </div>
-      </Modal>
     </>
+    //   size={"lg"}
+    //   opened={status}
+    //   onClose={() => {
+    //     setTechnology(prevState);
+    //     setState(false);
+    //   }}
+    //   centered
+    //   closeOnEscape={false}
+    //   title="Use Technology Template"
+    // >
+    //   <label className="py-10">
+    //     Warning
+    //     <br />
+    //     This will fill out with standard template.
+    //     <br />
+    //     Do you wish to proceed.
+    //   </label>
+    //   <div className="flex justify-between pt-10">
+    //     <Button
+    //       color="red"
+    //       onClick={(e) => {
+    //         setTechnology(prevState);
+    //         setState(false);
+    //       }}
+    //     >
+    //       Cancel
+    //     </Button>
+    //     <Button
+    //       onClick={(e) => {
+    //         setState(false);
+    //       }}
+    //     >
+    //       Comfirm
+    //     </Button>
+    //   </div>
+    // </Modal>
   );
 }

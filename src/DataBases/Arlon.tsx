@@ -1,5 +1,4 @@
 import { jsonMap } from "Library/Types";
-
 export const arlon: jsonMap[] = [
   {
     id: 1,
@@ -7,6 +6,7 @@ export const arlon: jsonMap[] = [
     price: 5.64,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 2,
@@ -14,6 +14,7 @@ export const arlon: jsonMap[] = [
     price: 5.93,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 3,
@@ -21,6 +22,7 @@ export const arlon: jsonMap[] = [
     price: 7.11,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 4,
@@ -28,6 +30,7 @@ export const arlon: jsonMap[] = [
     price: 6.42,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 5,
@@ -35,6 +38,7 @@ export const arlon: jsonMap[] = [
     price: 6.71,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 6,
@@ -42,6 +46,7 @@ export const arlon: jsonMap[] = [
     price: 7.88,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 7,
@@ -49,6 +54,7 @@ export const arlon: jsonMap[] = [
     price: 6.81,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 8,
@@ -56,6 +62,7 @@ export const arlon: jsonMap[] = [
     price: 6.81,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 9,
@@ -63,6 +70,7 @@ export const arlon: jsonMap[] = [
     price: 7.1,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 10,
@@ -70,6 +78,7 @@ export const arlon: jsonMap[] = [
     price: 7.1,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 11,
@@ -77,6 +86,7 @@ export const arlon: jsonMap[] = [
     price: 8.27,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 12,
@@ -84,6 +94,7 @@ export const arlon: jsonMap[] = [
     price: 8.27,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 13,
@@ -91,6 +102,7 @@ export const arlon: jsonMap[] = [
     price: 6.96,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 14,
@@ -98,6 +110,7 @@ export const arlon: jsonMap[] = [
     price: 7.25,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 15,
@@ -105,6 +118,7 @@ export const arlon: jsonMap[] = [
     price: 8.43,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 16,
@@ -112,6 +126,7 @@ export const arlon: jsonMap[] = [
     price: 7.44,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 17,
@@ -119,6 +134,7 @@ export const arlon: jsonMap[] = [
     price: 7.73,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 18,
@@ -126,6 +142,7 @@ export const arlon: jsonMap[] = [
     price: 8.9,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 19,
@@ -133,6 +150,7 @@ export const arlon: jsonMap[] = [
     price: 8.43,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 20,
@@ -140,6 +158,7 @@ export const arlon: jsonMap[] = [
     price: 8.71,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 21,
@@ -147,6 +166,7 @@ export const arlon: jsonMap[] = [
     price: 9.89,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 22,
@@ -154,6 +174,7 @@ export const arlon: jsonMap[] = [
     price: 9.37,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 23,
@@ -161,6 +182,7 @@ export const arlon: jsonMap[] = [
     price: 9.66,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 24,
@@ -168,6 +190,7 @@ export const arlon: jsonMap[] = [
     price: 10.84,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 25,
@@ -175,6 +198,7 @@ export const arlon: jsonMap[] = [
     price: 9.16,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 26,
@@ -182,6 +206,7 @@ export const arlon: jsonMap[] = [
     price: 9.45,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 27,
@@ -189,6 +214,7 @@ export const arlon: jsonMap[] = [
     price: 10.62,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 28,
@@ -196,6 +222,7 @@ export const arlon: jsonMap[] = [
     price: 10.86,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 29,
@@ -203,6 +230,7 @@ export const arlon: jsonMap[] = [
     price: 11.14,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 30,
@@ -210,6 +238,7 @@ export const arlon: jsonMap[] = [
     price: 12.32,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 31,
@@ -217,6 +246,7 @@ export const arlon: jsonMap[] = [
     price: 12.73,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 32,
@@ -224,6 +254,7 @@ export const arlon: jsonMap[] = [
     price: 13.02,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 33,
@@ -231,6 +262,7 @@ export const arlon: jsonMap[] = [
     price: 14.19,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 34,
@@ -238,6 +270,7 @@ export const arlon: jsonMap[] = [
     price: 15.41,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 35,
@@ -245,6 +278,7 @@ export const arlon: jsonMap[] = [
     price: 15.7,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 36,
@@ -252,6 +286,7 @@ export const arlon: jsonMap[] = [
     price: 16.87,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 37,
@@ -259,6 +294,7 @@ export const arlon: jsonMap[] = [
     price: 1.98,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 38,
@@ -266,6 +302,7 @@ export const arlon: jsonMap[] = [
     price: 1.64,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 39,
@@ -273,6 +310,7 @@ export const arlon: jsonMap[] = [
     price: 2.21,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 40,
@@ -280,6 +318,7 @@ export const arlon: jsonMap[] = [
     price: 2.19,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
   {
     id: 41,
@@ -287,5 +326,6 @@ export const arlon: jsonMap[] = [
     price: 2.5,
     formula: "size * exchange * price * amount * freight",
     supplier: "Arlon",
+    amount: 0,
   },
 ];

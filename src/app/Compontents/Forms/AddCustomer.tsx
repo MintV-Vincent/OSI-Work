@@ -3,7 +3,7 @@ import { useForm } from "@mantine/form";
 import { upperCaseString } from "Functions/StringFunction";
 import React from "react";
 import { createData } from "Functions/Create/MapCreate";
-import { createCode } from "Functions/SelectCodeCreate";
+import { createCode } from "Functions/Create/CreateUniqueCodes";
 import { addItem } from "Functions/SortArray";
 import { useAtom } from "jotai";
 import {

@@ -14,7 +14,7 @@ import { currencySelectorAtom } from "./FrontPageAtoms";
 import { nreAtom, servicesAtom } from "./ServiceStorage";
 
 export const materialFilmTotalAtom = atom<number[]>((get) => {
-  const material = get(materialTotalAtomCAD);
+  const material = get(materialTotalAtom);
   const film = get(filmTotalAtom);
   return [material, film];
 });
@@ -72,13 +72,18 @@ export const materialTotalAtom = atom<number>((get) => {
   );
 });
 
-export const materialTotalAtomCAD = atom<number>((get) => {
+export const materialTotalAtomUSD = atom<number>((get) => {
   const typeRowsAtom: any = get(materialTableAtom);
-  const exchangeRate: any = get(exchangeRateMaterialAtom);
-  return typeRowsAtom.reduce(
-    (previousScore: number, currentScore: materialRowMap) =>
-      previousScore + currentScore.price,
-    0
+  let exchangeRate: any = get(exchangeRateMaterialAtom);
+  if (exchangeRate === 0 || isNaN(exchangeRate)) {
+    exchangeRate = 1;
+  }
+  return (
+    typeRowsAtom.reduce(
+      (previousScore: number, currentScore: materialRowMap) =>
+        previousScore + currentScore.price,
+      0
+    ) / exchangeRate
   );
 });
 

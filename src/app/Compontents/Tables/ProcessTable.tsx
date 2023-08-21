@@ -22,8 +22,8 @@ export function ProcessTable() {
       />
       <tbody>
         {processing.map((row: servicesMap, index: number) => (
-          <tr className={" text-primary"} key={row.material + " row " + index}>
-            <td className="px-3 w-60">{row.material}</td>
+          <tr className={" text-primary"} key={row.service + " row " + index}>
+            <td className="px-3 w-60">{row.service}</td>
             <td className="px-3">
               <ServiceInput
                 id={index}

@@ -7,6 +7,7 @@ export const arwisa: jsonMap[] = [
     price: 5.01,
     supplier: "Arisawa",
     formula: "price * amount * exchange * 1.09",
+    amount: 0,
   },
   {
     id: 18,
@@ -14,5 +15,6 @@ export const arwisa: jsonMap[] = [
     price: 5.18,
     supplier: "Arisawa",
     formula: "price * amount * exchange * 1.09",
+    amount: 0,
   },
 ];

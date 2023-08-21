@@ -3,7 +3,6 @@ import "./style.css";
 import Logo from "Images/LogoColor.svg";
 import Image from "next/image";
 import GetDate from "Functions/GetFunction/GetDate";
-import GetQuote from "Functions/GetFunction/GetQuote";
 import { useAtom } from "jotai";
 import {
   currencySelectorAtom,

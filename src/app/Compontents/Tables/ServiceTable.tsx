@@ -22,8 +22,8 @@ export default function ServiceTable() {
       />
       <tbody>
         {service.map((row: servicesMap, index: number) => (
-          <tr className={" text-primary"} key={row.material + " row " + index}>
-            <td className="w-60 px-3">{row.material}</td>
+          <tr className={" text-primary"} key={row.service + " row " + index}>
+            <td className="w-60 px-3">{row.service}</td>
             <td className="px-3">
               <ServiceInput
                 id={index}

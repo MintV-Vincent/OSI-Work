@@ -18,9 +18,11 @@ export const processFilmTitle: string = "Processes";
 export const serviceTitle: string = "Services";
 export const nreTitle: string = "NRE";
 
-export const totalTitle: string[] = [materialsTitle, processFilmTitle];
+export const totalTitle: string[] = ["Material", " CAD ($)", " USD ($)"];
+export const totalTitle2: string[] = ["Services", " CAD ($)", " USD ($)"];
 
-export const totalTitle2: string[] = [serviceTitle, nreTitle];
+export const valueTitle: string[] = [materialsTitle, processFilmTitle];
+export const valueTitle2: string[] = [serviceTitle, nreTitle];
 
 const tooling: string = "SMT Lot Charge";
 const standard: string = "Stencils (Standard)";

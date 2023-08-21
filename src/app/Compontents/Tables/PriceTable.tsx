@@ -8,7 +8,10 @@ import { materialHeader } from "Library/Headers";
 import { useAtom } from "jotai";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { materialAtom } from "Library/Atoms/AtomStorage";
-import { materialTotalAtom } from "Library/Atoms/TotalAtom";
+import {
+  materialTotalAtom,
+  materialTotalAtomUSD,
+} from "Library/Atoms/TotalAtom";
 import SupplierSelect from "./CustomCompontents/SupplierSelect";
 import MaterialSelect from "./CustomCompontents/MaterialSelect";
 import AmountInput from "./CustomCompontents/AmountInput";
@@ -22,6 +25,7 @@ const columns: string[] = [tableSize, "", "", " text-right ", " text-right "];
 export function PriceTable() {
   const [materialRows, setMaterialRow] = useAtom(materialTableAtom);
   const [total] = useAtom(materialTotalAtom);
+  const [USDTotal] = useAtom(materialTotalAtomUSD);
   const [database] = useAtom(materialAtom);
   const array = SelectLogic(database);
   const materials: rowMapPrice[] = array.material;
@@ -69,7 +73,13 @@ export function PriceTable() {
           </tr>
         ))}
         <TotalRows
-          text={"Total"}
+          text={"USD Total"}
+          total={USDTotal}
+          columns={materialHeader.length}
+          button={[]}
+        />
+        <TotalRows
+          text={"CAD Total"}
           total={total}
           columns={materialHeader.length}
           button={[

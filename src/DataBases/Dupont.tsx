@@ -7,6 +7,7 @@ export const dupont: jsonMap[] = [
     price: 7.39,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const dupont: jsonMap[] = [
     price: 9.02,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ export const dupont: jsonMap[] = [
     price: 7.99,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 4,
@@ -28,6 +31,7 @@ export const dupont: jsonMap[] = [
     price: 19.1,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 5,
@@ -35,6 +39,7 @@ export const dupont: jsonMap[] = [
     price: 40.09,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 6,
@@ -42,6 +47,7 @@ export const dupont: jsonMap[] = [
     price: 21.26,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 7,
@@ -49,6 +55,7 @@ export const dupont: jsonMap[] = [
     price: 10.38,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 8,
@@ -56,6 +63,7 @@ export const dupont: jsonMap[] = [
     price: 9.08,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 9,
@@ -63,6 +71,7 @@ export const dupont: jsonMap[] = [
     price: 17.99,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 10,
@@ -70,6 +79,7 @@ export const dupont: jsonMap[] = [
     price: 23.08,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 11,
@@ -77,6 +87,7 @@ export const dupont: jsonMap[] = [
     price: 40.22,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 12,
@@ -84,6 +95,7 @@ export const dupont: jsonMap[] = [
     price: 8.8,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 13,
@@ -91,6 +103,7 @@ export const dupont: jsonMap[] = [
     price: 9.67,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 14,
@@ -98,6 +111,7 @@ export const dupont: jsonMap[] = [
     price: 16.12,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 15,
@@ -105,6 +119,7 @@ export const dupont: jsonMap[] = [
     price: 20.37,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 16,
@@ -112,6 +127,7 @@ export const dupont: jsonMap[] = [
     price: 42.81,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 17,
@@ -119,6 +135,7 @@ export const dupont: jsonMap[] = [
     price: 46.85,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 18,
@@ -126,6 +143,7 @@ export const dupont: jsonMap[] = [
     price: 11.54,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 19,
@@ -133,6 +151,7 @@ export const dupont: jsonMap[] = [
     price: 12.14,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 20,
@@ -140,6 +159,7 @@ export const dupont: jsonMap[] = [
     price: 16.97,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 21,
@@ -147,6 +167,7 @@ export const dupont: jsonMap[] = [
     price: 21.17,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 22,
@@ -154,6 +175,7 @@ export const dupont: jsonMap[] = [
     price: 61.69,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 23,
@@ -161,6 +183,7 @@ export const dupont: jsonMap[] = [
     price: 1.44,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 24,
@@ -168,6 +191,7 @@ export const dupont: jsonMap[] = [
     price: 1.71,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 25,
@@ -175,6 +199,7 @@ export const dupont: jsonMap[] = [
     price: 2.68,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 26,
@@ -182,6 +207,7 @@ export const dupont: jsonMap[] = [
     price: 2.55,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 27,
@@ -189,6 +215,7 @@ export const dupont: jsonMap[] = [
     price: 3.29,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 28,
@@ -196,6 +223,7 @@ export const dupont: jsonMap[] = [
     price: 3.52,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 29,
@@ -203,6 +231,7 @@ export const dupont: jsonMap[] = [
     price: 4.29,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 30,
@@ -210,6 +239,7 @@ export const dupont: jsonMap[] = [
     price: 5.5,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 31,
@@ -217,6 +247,7 @@ export const dupont: jsonMap[] = [
     price: 1.84,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 32,
@@ -224,6 +255,7 @@ export const dupont: jsonMap[] = [
     price: 2.53,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 33,
@@ -231,6 +263,7 @@ export const dupont: jsonMap[] = [
     price: 4.73,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 34,
@@ -238,6 +271,7 @@ export const dupont: jsonMap[] = [
     price: 3.13,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 35,
@@ -245,6 +279,7 @@ export const dupont: jsonMap[] = [
     price: 4.49,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 36,
@@ -252,6 +287,7 @@ export const dupont: jsonMap[] = [
     price: 6.41,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 37,
@@ -259,6 +295,7 @@ export const dupont: jsonMap[] = [
     price: 3.28,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 38,
@@ -266,6 +303,7 @@ export const dupont: jsonMap[] = [
     price: 4.87,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 39,
@@ -273,6 +311,7 @@ export const dupont: jsonMap[] = [
     price: 3.68,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 40,
@@ -280,6 +319,7 @@ export const dupont: jsonMap[] = [
     price: 4.05,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 41,
@@ -287,6 +327,7 @@ export const dupont: jsonMap[] = [
     price: 9.59,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 42,
@@ -294,6 +335,7 @@ export const dupont: jsonMap[] = [
     price: 4.05,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 43,
@@ -301,6 +343,7 @@ export const dupont: jsonMap[] = [
     price: 6.62,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 44,
@@ -308,6 +351,7 @@ export const dupont: jsonMap[] = [
     price: 5.15,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 45,
@@ -315,6 +359,7 @@ export const dupont: jsonMap[] = [
     price: 7.82,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 46,
@@ -322,6 +367,7 @@ export const dupont: jsonMap[] = [
     price: 22,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 47,
@@ -329,6 +375,7 @@ export const dupont: jsonMap[] = [
     price: 3.16,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 48,
@@ -336,6 +383,7 @@ export const dupont: jsonMap[] = [
     price: 5.39,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 49,
@@ -343,6 +391,7 @@ export const dupont: jsonMap[] = [
     price: 4.13,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 50,
@@ -350,6 +399,7 @@ export const dupont: jsonMap[] = [
     price: 6.06,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 51,
@@ -357,6 +407,7 @@ export const dupont: jsonMap[] = [
     price: 9.82,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 52,
@@ -364,6 +415,7 @@ export const dupont: jsonMap[] = [
     price: 15.22,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 53,
@@ -371,6 +423,7 @@ export const dupont: jsonMap[] = [
     price: 7.05,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 54,
@@ -378,6 +431,7 @@ export const dupont: jsonMap[] = [
     price: 3.81,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 55,
@@ -385,6 +439,7 @@ export const dupont: jsonMap[] = [
     price: 6.47,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 56,
@@ -392,6 +447,7 @@ export const dupont: jsonMap[] = [
     price: 4.9,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 57,
@@ -399,6 +455,7 @@ export const dupont: jsonMap[] = [
     price: 7.43,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 58,
@@ -406,6 +463,7 @@ export const dupont: jsonMap[] = [
     price: 3.2,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 59,
@@ -413,6 +471,7 @@ export const dupont: jsonMap[] = [
     price: 3.04,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 60,
@@ -420,6 +479,7 @@ export const dupont: jsonMap[] = [
     price: 3.92,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 61,
@@ -427,6 +487,7 @@ export const dupont: jsonMap[] = [
     price: 3.79,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 62,
@@ -434,6 +495,7 @@ export const dupont: jsonMap[] = [
     price: 4.57,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 63,
@@ -441,6 +503,7 @@ export const dupont: jsonMap[] = [
     price: 4.21,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 64,
@@ -448,6 +511,7 @@ export const dupont: jsonMap[] = [
     price: 5.36,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 65,
@@ -455,6 +519,7 @@ export const dupont: jsonMap[] = [
     price: 6.07,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 66,
@@ -462,6 +527,7 @@ export const dupont: jsonMap[] = [
     price: 3.01,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 67,
@@ -469,6 +535,7 @@ export const dupont: jsonMap[] = [
     price: 3.64,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 68,
@@ -476,6 +543,7 @@ export const dupont: jsonMap[] = [
     price: 7.39,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 69,
@@ -483,6 +551,7 @@ export const dupont: jsonMap[] = [
     price: 4.43,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 70,
@@ -490,6 +559,7 @@ export const dupont: jsonMap[] = [
     price: 5.65,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 71,
@@ -497,6 +567,7 @@ export const dupont: jsonMap[] = [
     price: 6.58,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 72,
@@ -504,6 +575,7 @@ export const dupont: jsonMap[] = [
     price: 4.23,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 73,
@@ -511,6 +583,7 @@ export const dupont: jsonMap[] = [
     price: 8.21,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 74,
@@ -518,6 +591,7 @@ export const dupont: jsonMap[] = [
     price: 8.95,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 75,
@@ -525,6 +599,7 @@ export const dupont: jsonMap[] = [
     price: 9.34,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 76,
@@ -532,6 +607,7 @@ export const dupont: jsonMap[] = [
     price: 10.06,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 77,
@@ -539,6 +615,7 @@ export const dupont: jsonMap[] = [
     price: 10.42,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 78,
@@ -546,6 +623,7 @@ export const dupont: jsonMap[] = [
     price: 10.49,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 79,
@@ -553,6 +631,7 @@ export const dupont: jsonMap[] = [
     price: 10.8,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 80,
@@ -560,6 +639,7 @@ export const dupont: jsonMap[] = [
     price: 13.28,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 81,
@@ -567,6 +647,7 @@ export const dupont: jsonMap[] = [
     price: 16.23,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 82,
@@ -574,6 +655,7 @@ export const dupont: jsonMap[] = [
     price: 20.05,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 83,
@@ -581,6 +663,7 @@ export const dupont: jsonMap[] = [
     price: 4.9,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 84,
@@ -588,6 +671,7 @@ export const dupont: jsonMap[] = [
     price: 6.78,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 85,
@@ -595,6 +679,7 @@ export const dupont: jsonMap[] = [
     price: 5.86,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 86,
@@ -602,6 +687,7 @@ export const dupont: jsonMap[] = [
     price: 8.02,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 87,
@@ -609,6 +695,7 @@ export const dupont: jsonMap[] = [
     price: 6.62,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 88,
@@ -616,6 +703,7 @@ export const dupont: jsonMap[] = [
     price: 9.27,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 89,
@@ -623,6 +711,7 @@ export const dupont: jsonMap[] = [
     price: 9.68,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 90,
@@ -630,6 +719,7 @@ export const dupont: jsonMap[] = [
     price: 5.64,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 91,
@@ -637,6 +727,7 @@ export const dupont: jsonMap[] = [
     price: 8.59,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 92,
@@ -644,6 +735,7 @@ export const dupont: jsonMap[] = [
     price: 6.89,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 93,
@@ -651,6 +743,7 @@ export const dupont: jsonMap[] = [
     price: 9.68,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 94,
@@ -658,6 +751,7 @@ export const dupont: jsonMap[] = [
     price: 45.85,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 95,
@@ -665,6 +759,7 @@ export const dupont: jsonMap[] = [
     price: 48.48,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 96,
@@ -672,12 +767,14 @@ export const dupont: jsonMap[] = [
     price: 12.52,
     supplier: "Dupont",
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
   },
   {
     id: 2600,
     material: "DuPont Pyralux TK Clad  TK 1815018 (Mechanical routing)",
     price: 27.12,
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
     supplier: "Dupont",
   },
   {
@@ -685,6 +782,7 @@ export const dupont: jsonMap[] = [
     material: "DuPont Pyralux TK Clad  TK 1810018 (Mechanical routing)",
     price: 48.12,
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
     supplier: "Dupont",
   },
   {
@@ -692,6 +790,7 @@ export const dupont: jsonMap[] = [
     material: "DuPont Pyralux TK Clad  TK3610036R (Mechanical routing)",
     price: 43.25,
     formula: "size * exchange * price * amount * 1.025",
+    amount: 0,
     supplier: "Dupont",
   },
 ];

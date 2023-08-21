@@ -2,7 +2,7 @@ import { ActionIcon, Select } from "@mantine/core";
 import { createData } from "Functions/Create/MapCreate";
 import React, { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { AddModal } from "./AddModal";
-import { createCode } from "Functions/SelectCodeCreate";
+import { createCode } from "Functions/Create/CreateUniqueCodes";
 import { getCode } from "Functions/GetFunction/GetCode";
 import { useAtom } from "jotai";
 import SortArray, { addItem } from "Functions/SortArray";

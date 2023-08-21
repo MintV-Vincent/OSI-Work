@@ -1,19 +1,13 @@
 import { Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import React from "react";
-import {
-  createMaterialRowItem,
-  createRowPrice,
-} from "Functions/Create/MapCreate";
+import { createMaterialRow, createRowPrice } from "Functions/Create/MapCreate";
 import { useAtom } from "jotai";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { materialAtom } from "Library/Atoms/AtomStorage";
 import ModalForm from "./ModalForm";
 import { rowMapPrice } from "Library/Types";
-import {
-  createFormula,
-  testCreateFormula,
-} from "Functions/Create/CreateFormula";
+import { testCreateFormula } from "Functions/Create/CreateFormula";
 
 interface AddButtonInterface {
   handleClick: () => void;
@@ -75,7 +69,7 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
               "2",
               "Added"
             );
-            const newRow = createMaterialRowItem(data.length, newItem, "Added");
+            const newRow = createMaterialRow(data.length, newItem, "Added");
             setData([...data, newRow]);
 
             values.material = "";

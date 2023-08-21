@@ -10,9 +10,12 @@ import {
   materialFilmTotalAtom,
   serviceTotalAtom,
 } from "Library/Atoms/TotalAtom";
-import { totalTitle, totalTitle2 } from "Library/Headers";
-
-const sharedTotal: string = "text-xl py-1.5 w-1/4 text-left";
+import {
+  totalTitle,
+  totalTitle2,
+  valueTitle,
+  valueTitle2,
+} from "Library/Headers";
 
 export default function page() {
   const [total] = useAtom(materialFilmTotalAtom);
@@ -21,12 +24,16 @@ export default function page() {
     <div className="grid grid-cols-2 h-full pt-5">
       <div className="grid-span-1 mr-2 h-[calc(100vh-13rem)] flex flex-col justify-between">
         <div className="h-[calc(38%)] overflow-auto flex flex-col scrollbar-gutter">
-          <div className="pb-2">
-            <TotalTable titles={totalTitle} total={total} />
+          <div className="pb-3">
+            <TotalTable titles={totalTitle} values={valueTitle} total={total} />
           </div>
-          <TotalTable titles={totalTitle2} total={serviceTotal} />
+          <TotalTable
+            titles={totalTitle2}
+            values={valueTitle2}
+            total={serviceTotal}
+          />
         </div>
-        <div className="h-[calc(58%)] overflow-auto z-40 scrollbar-gutter">
+        <div className="flex h-[calc(58%)] overflow-auto z-40 scrollbar-gutter">
           <PriceTable />
         </div>
       </div>

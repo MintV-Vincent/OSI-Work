@@ -26,17 +26,17 @@ export interface dictionaryMap {
 
 export interface jsonMap {
   id: number;
+  amount: number;
   material: string;
   formula: string;
   price: number | string;
   supplier: string;
 }
-
 export interface servicesMap {
   id: number;
   amount: number;
   formula: string;
-  material: string;
+  service: string;
   unitPrice: number;
   price: number;
 }

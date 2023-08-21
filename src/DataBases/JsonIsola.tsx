@@ -7,6 +7,7 @@ export const isola: jsonMap[] = [
     price: 3.5,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const isola: jsonMap[] = [
     price: 3.32,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ export const isola: jsonMap[] = [
     price: 5.09,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 4,
@@ -28,6 +31,7 @@ export const isola: jsonMap[] = [
     price: 3.46,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 5,
@@ -35,6 +39,7 @@ export const isola: jsonMap[] = [
     price: 3.3,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 6,
@@ -42,6 +47,7 @@ export const isola: jsonMap[] = [
     price: 3.13,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 7,
@@ -49,6 +55,7 @@ export const isola: jsonMap[] = [
     price: 3.28,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 8,
@@ -56,6 +63,7 @@ export const isola: jsonMap[] = [
     price: 4.31,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 9,
@@ -63,6 +71,7 @@ export const isola: jsonMap[] = [
     price: 4.45,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 10,
@@ -70,6 +79,7 @@ export const isola: jsonMap[] = [
     price: 3.37,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 11,
@@ -77,6 +87,7 @@ export const isola: jsonMap[] = [
     price: 3.68,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 12,
@@ -84,6 +95,7 @@ export const isola: jsonMap[] = [
     price: 4.37,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 13,
@@ -91,6 +103,7 @@ export const isola: jsonMap[] = [
     price: 3.48,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 14,
@@ -98,6 +111,7 @@ export const isola: jsonMap[] = [
     price: 3.3,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 15,
@@ -105,6 +119,7 @@ export const isola: jsonMap[] = [
     price: 4.47,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 16,
@@ -112,6 +127,7 @@ export const isola: jsonMap[] = [
     price: 3.48,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 17,
@@ -119,6 +135,7 @@ export const isola: jsonMap[] = [
     price: 3.37,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 18,
@@ -126,6 +143,7 @@ export const isola: jsonMap[] = [
     price: 3.19,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 19,
@@ -133,6 +151,7 @@ export const isola: jsonMap[] = [
     price: 3.79,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 20,
@@ -140,6 +159,7 @@ export const isola: jsonMap[] = [
     price: 4.37,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 21,
@@ -147,6 +167,7 @@ export const isola: jsonMap[] = [
     price: 4.47,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 22,
@@ -154,6 +175,7 @@ export const isola: jsonMap[] = [
     price: 3.46,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 23,
@@ -161,6 +183,7 @@ export const isola: jsonMap[] = [
     price: 3.28,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 24,
@@ -168,6 +191,7 @@ export const isola: jsonMap[] = [
     price: 4.45,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 25,
@@ -175,6 +199,7 @@ export const isola: jsonMap[] = [
     price: 3.51,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 26,
@@ -182,6 +207,7 @@ export const isola: jsonMap[] = [
     price: 3.33,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 27,
@@ -189,6 +215,7 @@ export const isola: jsonMap[] = [
     price: 4.5,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 28,
@@ -196,6 +223,7 @@ export const isola: jsonMap[] = [
     price: 3.79,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 29,
@@ -203,6 +231,7 @@ export const isola: jsonMap[] = [
     price: 3.58,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 30,
@@ -210,6 +239,7 @@ export const isola: jsonMap[] = [
     price: 4.76,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 31,
@@ -217,6 +247,7 @@ export const isola: jsonMap[] = [
     price: 3.6,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 32,
@@ -224,6 +255,7 @@ export const isola: jsonMap[] = [
     price: 3.41,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 33,
@@ -231,6 +263,7 @@ export const isola: jsonMap[] = [
     price: 4.58,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 34,
@@ -238,6 +271,7 @@ export const isola: jsonMap[] = [
     price: 3.66,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 35,
@@ -245,6 +279,7 @@ export const isola: jsonMap[] = [
     price: 3.46,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 36,
@@ -252,6 +287,7 @@ export const isola: jsonMap[] = [
     price: 4.64,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 37,
@@ -259,6 +295,7 @@ export const isola: jsonMap[] = [
     price: 4.22,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 38,
@@ -266,6 +303,7 @@ export const isola: jsonMap[] = [
     price: 4.53,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 39,
@@ -273,6 +311,7 @@ export const isola: jsonMap[] = [
     price: 5.15,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 40,
@@ -280,6 +319,7 @@ export const isola: jsonMap[] = [
     price: 4.24,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 41,
@@ -287,6 +327,7 @@ export const isola: jsonMap[] = [
     price: 4,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 42,
@@ -294,6 +335,7 @@ export const isola: jsonMap[] = [
     price: 5.17,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 43,
@@ -301,6 +343,7 @@ export const isola: jsonMap[] = [
     price: 3.92,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 44,
@@ -308,6 +351,7 @@ export const isola: jsonMap[] = [
     price: 3.8,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 45,
@@ -315,6 +359,7 @@ export const isola: jsonMap[] = [
     price: 4.97,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 46,
@@ -322,6 +367,7 @@ export const isola: jsonMap[] = [
     price: 4.03,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 47,
@@ -329,6 +375,7 @@ export const isola: jsonMap[] = [
     price: 4.34,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 48,
@@ -336,6 +383,7 @@ export const isola: jsonMap[] = [
     price: 4.97,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 49,
@@ -343,6 +391,7 @@ export const isola: jsonMap[] = [
     price: 5,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 50,
@@ -350,6 +399,7 @@ export const isola: jsonMap[] = [
     price: 5.38,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 51,
@@ -357,6 +407,7 @@ export const isola: jsonMap[] = [
     price: 5.87,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 52,
@@ -364,6 +415,7 @@ export const isola: jsonMap[] = [
     price: 4.67,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 53,
@@ -371,6 +423,7 @@ export const isola: jsonMap[] = [
     price: 4.4,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 54,
@@ -378,6 +431,7 @@ export const isola: jsonMap[] = [
     price: 5.57,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 55,
@@ -385,6 +439,7 @@ export const isola: jsonMap[] = [
     price: 5.77,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 56,
@@ -392,6 +447,7 @@ export const isola: jsonMap[] = [
     price: 5.41,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 57,
@@ -399,6 +455,7 @@ export const isola: jsonMap[] = [
     price: 6.58,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 58,
@@ -406,6 +463,7 @@ export const isola: jsonMap[] = [
     price: 5.68,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 59,
@@ -413,6 +471,7 @@ export const isola: jsonMap[] = [
     price: 5.33,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 60,
@@ -420,6 +479,7 @@ export const isola: jsonMap[] = [
     price: 6.5,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 61,
@@ -427,6 +487,7 @@ export const isola: jsonMap[] = [
     price: 5.68,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 62,
@@ -434,6 +495,7 @@ export const isola: jsonMap[] = [
     price: 5.33,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 63,
@@ -441,6 +503,7 @@ export const isola: jsonMap[] = [
     price: 6.5,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 64,
@@ -448,6 +511,7 @@ export const isola: jsonMap[] = [
     price: 5.36,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 65,
@@ -455,6 +519,7 @@ export const isola: jsonMap[] = [
     price: 5.04,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 66,
@@ -462,6 +527,7 @@ export const isola: jsonMap[] = [
     price: 6.21,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 67,
@@ -469,6 +535,7 @@ export const isola: jsonMap[] = [
     price: 6.58,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 68,
@@ -476,6 +543,7 @@ export const isola: jsonMap[] = [
     price: 6.16,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 69,
@@ -483,6 +551,7 @@ export const isola: jsonMap[] = [
     price: 7.33,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 70,
@@ -490,6 +559,7 @@ export const isola: jsonMap[] = [
     price: 7.14,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 71,
@@ -497,6 +567,7 @@ export const isola: jsonMap[] = [
     price: 6.67,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 72,
@@ -504,6 +575,7 @@ export const isola: jsonMap[] = [
     price: 7.85,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 73,
@@ -511,6 +583,7 @@ export const isola: jsonMap[] = [
     price: 7.77,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 74,
@@ -518,6 +591,7 @@ export const isola: jsonMap[] = [
     price: 7.46,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 75,
@@ -525,6 +599,7 @@ export const isola: jsonMap[] = [
     price: 6.97,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 76,
@@ -532,6 +607,7 @@ export const isola: jsonMap[] = [
     price: 8.15,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 77,
@@ -539,6 +615,7 @@ export const isola: jsonMap[] = [
     price: 10.9,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 78,
@@ -546,6 +623,7 @@ export const isola: jsonMap[] = [
     price: 10.16,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 79,
@@ -553,6 +631,7 @@ export const isola: jsonMap[] = [
     price: 11.33,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 80,
@@ -560,6 +639,7 @@ export const isola: jsonMap[] = [
     price: 15.13,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 81,
@@ -567,6 +647,7 @@ export const isola: jsonMap[] = [
     price: 14.06,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 82,
@@ -574,6 +655,7 @@ export const isola: jsonMap[] = [
     price: 15.23,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 83,
@@ -581,6 +663,7 @@ export const isola: jsonMap[] = [
     price: 0.8,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 84,
@@ -588,6 +671,7 @@ export const isola: jsonMap[] = [
     price: 0.6,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 85,
@@ -595,6 +679,7 @@ export const isola: jsonMap[] = [
     price: 0.71,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 86,
@@ -602,6 +687,7 @@ export const isola: jsonMap[] = [
     price: 0.71,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
   {
     id: 87,
@@ -609,5 +695,6 @@ export const isola: jsonMap[] = [
     price: 0.65,
     formula: "size * exchange * price * amount * freight",
     supplier: "Isola",
+    amount: 0,
   },
 ];

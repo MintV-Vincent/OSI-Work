@@ -7,6 +7,7 @@ export const cover: jsonMap[] = [
     price: 1.5998,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const cover: jsonMap[] = [
     price: 2.3576,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ export const cover: jsonMap[] = [
     price: 3.252225,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 4,
@@ -28,6 +31,7 @@ export const cover: jsonMap[] = [
     price: 5.07305,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 5,
@@ -35,6 +39,7 @@ export const cover: jsonMap[] = [
     price: 2.33655,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 6,
@@ -42,6 +47,7 @@ export const cover: jsonMap[] = [
     price: 3.125925,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 7,
@@ -49,6 +55,7 @@ export const cover: jsonMap[] = [
     price: 4.14685,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 8,
@@ -56,6 +63,7 @@ export const cover: jsonMap[] = [
     price: 5.91505,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 9,
@@ -63,6 +71,7 @@ export const cover: jsonMap[] = [
     price: 3.0312,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 10,
@@ -70,6 +79,7 @@ export const cover: jsonMap[] = [
     price: 3.399575,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 11,
@@ -77,6 +87,7 @@ export const cover: jsonMap[] = [
     price: 3.736375,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 12,
@@ -84,6 +95,7 @@ export const cover: jsonMap[] = [
     price: 3.041725,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 13,
@@ -91,6 +103,7 @@ export const cover: jsonMap[] = [
     price: 3.789,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 14,
@@ -98,6 +111,7 @@ export const cover: jsonMap[] = [
     price: 4.21,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 15,
@@ -105,6 +119,7 @@ export const cover: jsonMap[] = [
     price: 6.072925,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 16,
@@ -112,6 +127,7 @@ export const cover: jsonMap[] = [
     price: 3.64165,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 17,
@@ -119,6 +135,7 @@ export const cover: jsonMap[] = [
     price: 4.431025,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 18,
@@ -126,6 +143,7 @@ export const cover: jsonMap[] = [
     price: 5.651925,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 19,
@@ -133,6 +151,7 @@ export const cover: jsonMap[] = [
     price: 6.578125,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 20,
@@ -140,6 +159,7 @@ export const cover: jsonMap[] = [
     price: 4.23105,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 21,
@@ -147,6 +167,7 @@ export const cover: jsonMap[] = [
     price: 8.2095,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 22,
@@ -154,6 +175,7 @@ export const cover: jsonMap[] = [
     price: 8.94625,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 1400,
@@ -161,6 +183,7 @@ export const cover: jsonMap[] = [
     price: 8.82,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 1500,
@@ -168,6 +191,7 @@ export const cover: jsonMap[] = [
     price: 8.78,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 1600,
@@ -175,6 +199,7 @@ export const cover: jsonMap[] = [
     price: 4.47,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 1700,
@@ -182,6 +207,7 @@ export const cover: jsonMap[] = [
     price: 5.3,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 1800,
@@ -189,6 +215,7 @@ export const cover: jsonMap[] = [
     price: 13.48,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 2100,
@@ -196,6 +223,7 @@ export const cover: jsonMap[] = [
     price: 30.21,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 2200,
@@ -203,6 +231,7 @@ export const cover: jsonMap[] = [
     price: 33.89,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 2300,
@@ -210,6 +239,7 @@ export const cover: jsonMap[] = [
     price: 10.8,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 2400,
@@ -217,6 +247,7 @@ export const cover: jsonMap[] = [
     price: 18,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 2500,
@@ -224,6 +255,7 @@ export const cover: jsonMap[] = [
     price: 13,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 2900,
@@ -231,6 +263,7 @@ export const cover: jsonMap[] = [
     price: 0.11,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 3000,
@@ -238,6 +271,7 @@ export const cover: jsonMap[] = [
     price: 0.19,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 3100,
@@ -245,6 +279,7 @@ export const cover: jsonMap[] = [
     price: 6.5,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 3200,
@@ -252,12 +287,14 @@ export const cover: jsonMap[] = [
     price: 4,
     formula: "size * exchange * price * amount * freight",
     supplier: "-",
+    amount: 0,
   },
   {
     id: 3123,
     material: "51N 1080 prepreg",
     price: 1.72,
     supplier: "-",
+    amount: 0,
     formula: "price * amount * exchange * 1.06",
   },
   {
@@ -265,6 +302,7 @@ export const cover: jsonMap[] = [
     material: "51N 106 prepreg",
     price: 2.02,
     supplier: "-",
+    amount: 0,
     formula: "price * amount * exchange * 1.06",
   },
   {
@@ -272,6 +310,7 @@ export const cover: jsonMap[] = [
     material: "37N 1080 prepreg",
     price: 3.44,
     supplier: "-",
+    amount: 0,
     formula: "price * amount * exchange * 1.06",
   },
   {
@@ -279,6 +318,7 @@ export const cover: jsonMap[] = [
     material: "37N 106 prepreg",
     price: 3.44,
     supplier: "-",
+    amount: 0,
     formula: "price * amount * exchange * 1.06",
   },
   {
@@ -286,6 +326,7 @@ export const cover: jsonMap[] = [
     material: "1/2 oz. CU",
     price: 4,
     supplier: "-",
+    amount: 0,
     formula: "price * amount * exchange * 1.06",
   },
   {
@@ -293,6 +334,7 @@ export const cover: jsonMap[] = [
     material: "COPPER RA 1 oz. STD",
     price: 2.38,
     supplier: "-",
+    amount: 0,
     formula: "price * amount * exchange * 1.06",
   },
   {
@@ -300,6 +342,7 @@ export const cover: jsonMap[] = [
     material: "COPPER RA 2 oz. STD",
     price: 4.33,
     supplier: "-",
+    amount: 0,
     formula: "price * amount * exchange * 1.06",
   },
   {
@@ -307,6 +350,7 @@ export const cover: jsonMap[] = [
     material: "7OZ or .010 RA CU",
     price: 5.38,
     supplier: "-",
+    amount: 0,
     formula: "price * amount * exchange * 1.06",
   },
 ];

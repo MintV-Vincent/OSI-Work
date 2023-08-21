@@ -1,3 +1,8 @@
+/**
+ *
+ * @param customer: string -> The customer that is being added
+ * @returns: string -> Returns the customer but upper cases after every space
+ */
 export function upperCaseString(customer: string): string {
   const splitWord: string[] = customer.split(" ");
 

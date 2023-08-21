@@ -7,6 +7,7 @@ export const tapes: jsonMap[] = [
     price: 2.83,
     supplier: "Taiflex",
     formula: "price * amount * exchange * 1.06",
+    amount: 0,
   },
   {
     id: 14,
@@ -14,6 +15,7 @@ export const tapes: jsonMap[] = [
     price: 2.14,
     supplier: "Taiflex",
     formula: "price * amount * exchange * 1.06",
+    amount: 0,
   },
   {
     id: 15,
@@ -21,5 +23,6 @@ export const tapes: jsonMap[] = [
     price: 2.71,
     supplier: "Taiflex",
     formula: "price * amount * exchange * 1.06",
+    amount: 0,
   },
 ];

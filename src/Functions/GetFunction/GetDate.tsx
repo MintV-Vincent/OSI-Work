@@ -1,6 +1,8 @@
+/**
+ * todays date as a string formated in day/month/year
+ * @returns: string -> As todays date
+ */
 export default function GetDate(): string {
-  //Return todays date as a string formated in day/month/year
-  //Return: displayTodaysDate
   const showdate: Date = new Date();
   const monthNames = [
     "January",

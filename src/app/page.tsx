@@ -92,10 +92,22 @@ export default function page() {
           />
         </div>
         <div className="col-span-1 row-span-1">
+          <div className="flex pb-5">
+            <Button
+              className={"w-1/3 m-auto"}
+              onClick={handlePrint}
+              rightIcon={<IconPrinter />}
+            >
+              Print
+            </Button>
+            <div className="hidden">
+              <Suspense>
+                <FrontPagePrint ref={componentRef} />
+              </Suspense>
+            </div>
+          </div>
           <div className="flex justify-between">
-            <label className="w-1/4 text-left">
-              Exchange Rate 1 USD to CAD:
-            </label>
+            <label className="w-1/4 text-left">1 USD to CAD:</label>
             <label className="w-1/4 text-left">Yield: </label>
             <label className="w-1/4 text-left">Margin: </label>
           </div>
@@ -157,18 +169,6 @@ export default function page() {
             USDSelector={"USD"}
           />
         </div>
-      </div>
-      <Button
-        className={"w-1/3 m-auto"}
-        onClick={handlePrint}
-        rightIcon={<IconPrinter />}
-      >
-        Print
-      </Button>
-      <div className="hidden">
-        <Suspense>
-          <FrontPagePrint ref={componentRef} />
-        </Suspense>
       </div>
     </div>
   );

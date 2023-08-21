@@ -1,6 +1,6 @@
 import { ActionIcon, Select } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
-import GetQuote from "Functions/GetFunction/GetQuote";
+import createQuote from "Functions/Create/CreateUniqueCodes";
 import { quoteAtom } from "Library/Atoms/AtomStorage";
 import { quoteTableAtom } from "Library/Atoms/TableAtoms";
 import { useAtom } from "jotai";
@@ -21,7 +21,7 @@ export default function QuoteSelect() {
           variant="filled"
           radius="xs"
           color="blue"
-          onClick={(e) => GetQuote(quoteData, setQuote)}
+          onClick={(e) => createQuote(quoteData, setQuote)}
         >
           <IconPlus />
         </ActionIcon>

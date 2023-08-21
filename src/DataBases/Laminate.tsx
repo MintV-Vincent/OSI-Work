@@ -7,6 +7,7 @@ export const panasonic: jsonMap[] = [
     price: 17.33,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const panasonic: jsonMap[] = [
     price: 11.55,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ export const panasonic: jsonMap[] = [
     price: 11.55,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 4,
@@ -28,6 +31,7 @@ export const panasonic: jsonMap[] = [
     price: 14.3,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 5,
@@ -35,6 +39,7 @@ export const panasonic: jsonMap[] = [
     price: 9.9,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 6,
@@ -42,6 +47,7 @@ export const panasonic: jsonMap[] = [
     price: 7.43,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 7,
@@ -49,6 +55,7 @@ export const panasonic: jsonMap[] = [
     price: 7.43,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 8,
@@ -56,6 +63,7 @@ export const panasonic: jsonMap[] = [
     price: 11,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 9,
@@ -63,6 +71,7 @@ export const panasonic: jsonMap[] = [
     price: 16.5,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 10,
@@ -70,6 +79,7 @@ export const panasonic: jsonMap[] = [
     price: 19.25,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 11,
@@ -77,6 +87,7 @@ export const panasonic: jsonMap[] = [
     price: 9.9,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 12,
@@ -84,6 +95,7 @@ export const panasonic: jsonMap[] = [
     price: 23.1,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 13,
@@ -91,6 +103,7 @@ export const panasonic: jsonMap[] = [
     price: 28.6,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 14,
@@ -98,6 +111,7 @@ export const panasonic: jsonMap[] = [
     price: 6.88,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 15,
@@ -105,6 +119,7 @@ export const panasonic: jsonMap[] = [
     price: 6.38,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 16,
@@ -112,6 +127,7 @@ export const panasonic: jsonMap[] = [
     price: 7.65,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 17,
@@ -119,6 +135,7 @@ export const panasonic: jsonMap[] = [
     price: 16.5,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 18,
@@ -126,6 +143,7 @@ export const panasonic: jsonMap[] = [
     price: 21.56,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 19,
@@ -133,6 +151,7 @@ export const panasonic: jsonMap[] = [
     price: 11.28,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 20,
@@ -140,6 +159,7 @@ export const panasonic: jsonMap[] = [
     price: 24.2,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 21,
@@ -147,6 +167,7 @@ export const panasonic: jsonMap[] = [
     price: 30.25,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 22,
@@ -154,6 +175,7 @@ export const panasonic: jsonMap[] = [
     price: 7.1,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 23,
@@ -161,6 +183,7 @@ export const panasonic: jsonMap[] = [
     price: 7.26,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 24,
@@ -168,6 +191,7 @@ export const panasonic: jsonMap[] = [
     price: 7.65,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 25,
@@ -175,6 +199,7 @@ export const panasonic: jsonMap[] = [
     price: 18.7,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 26,
@@ -182,6 +207,7 @@ export const panasonic: jsonMap[] = [
     price: 25.3,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 27,
@@ -189,6 +215,7 @@ export const panasonic: jsonMap[] = [
     price: 28.6,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 28,
@@ -196,6 +223,7 @@ export const panasonic: jsonMap[] = [
     price: 33,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 29,
@@ -203,6 +231,7 @@ export const panasonic: jsonMap[] = [
     price: 12.65,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 30,
@@ -210,6 +239,7 @@ export const panasonic: jsonMap[] = [
     price: 14.08,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 31,
@@ -217,6 +247,7 @@ export const panasonic: jsonMap[] = [
     price: 22,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 32,
@@ -224,6 +255,7 @@ export const panasonic: jsonMap[] = [
     price: 4.4,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 33,
@@ -231,6 +263,7 @@ export const panasonic: jsonMap[] = [
     price: 5.23,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 34,
@@ -238,6 +271,7 @@ export const panasonic: jsonMap[] = [
     price: 22,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 35,
@@ -245,6 +279,7 @@ export const panasonic: jsonMap[] = [
     price: 17.05,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 36,
@@ -252,6 +287,7 @@ export const panasonic: jsonMap[] = [
     price: 16.5,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 37,
@@ -259,6 +295,7 @@ export const panasonic: jsonMap[] = [
     price: 19.8,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 38,
@@ -266,6 +303,7 @@ export const panasonic: jsonMap[] = [
     price: 22,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 39,
@@ -273,6 +311,7 @@ export const panasonic: jsonMap[] = [
     price: 17.05,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 40,
@@ -280,6 +319,7 @@ export const panasonic: jsonMap[] = [
     price: 16.5,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 41,
@@ -287,6 +327,7 @@ export const panasonic: jsonMap[] = [
     price: 19.8,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 42,
@@ -294,6 +335,7 @@ export const panasonic: jsonMap[] = [
     price: 6.05,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
   {
     id: 43,
@@ -301,5 +343,6 @@ export const panasonic: jsonMap[] = [
     price: 7.5,
     supplier: "Panasonic",
     formula: "size * exchange * price * amount * freight",
+    amount: 0,
   },
 ];

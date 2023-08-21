@@ -7,6 +7,7 @@ export const Mtapes: jsonMap[] = [
     price: 2.8,
     supplier: "3M",
     formula: "price * amount * exchange * 1.06",
+    amount: 0,
   },
   {
     id: 21,
@@ -14,6 +15,7 @@ export const Mtapes: jsonMap[] = [
     price: 3.05,
     supplier: "3M",
     formula: "price * amount * exchange * 1.06",
+    amount: 0,
   },
   {
     id: 22,
@@ -21,6 +23,7 @@ export const Mtapes: jsonMap[] = [
     price: 1.8,
     supplier: "3M",
     formula: "price * amount * exchange * 1.06",
+    amount: 0,
   },
   {
     id: 23,
@@ -28,6 +31,7 @@ export const Mtapes: jsonMap[] = [
     price: 2,
     supplier: "3M",
     formula: "price * amount * exchange * 1.06",
+    amount: 0,
   },
   {
     id: 24,
@@ -35,6 +39,7 @@ export const Mtapes: jsonMap[] = [
     price: 4.17,
     supplier: "3M",
     formula: "price * amount * exchange * 1.06",
+    amount: 0,
   },
   {
     id: 25,
@@ -42,6 +47,7 @@ export const Mtapes: jsonMap[] = [
     price: 2.78,
     supplier: "3M",
     formula: "price * amount * exchange * 1.06",
+    amount: 0,
   },
   {
     id: 26,
@@ -49,6 +55,7 @@ export const Mtapes: jsonMap[] = [
     price: 1.39,
     supplier: "3M",
     formula: "price * amount * exchange * 1.06",
+    amount: 0,
   },
   {
     id: 27,
@@ -56,5 +63,6 @@ export const Mtapes: jsonMap[] = [
     price: 7.73,
     supplier: "3M",
     formula: "price * amount * exchange * 1.06",
+    amount: 0,
   },
 ];

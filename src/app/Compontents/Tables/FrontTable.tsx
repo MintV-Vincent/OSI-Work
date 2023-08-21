@@ -1,4 +1,4 @@
-import { Button, Group, Modal, SegmentedControl, Table } from "@mantine/core";
+import { HoverCard, SegmentedControl, Table } from "@mantine/core";
 import { rowMap } from "Library/Types";
 import { NumberInput, Select } from "@mantine/core";
 import { createRow } from "Functions/Create/MapCreate";
@@ -15,15 +15,15 @@ import {
   qualityAtom,
   revAtom,
   salesAtom,
-  technologyAtom,
 } from "Library/Atoms/FrontPageAtoms";
 import { useEffect, useRef } from "react";
 import { panelRow } from "Library/ConstantValues";
 import WarningForm from "../Forms/WarningForm";
 import QuoteSelect from "./CustomCompontents/QuoteSelect";
+import { IconInfoSquareFilled } from "@tabler/icons-react";
 interface SplitTable {
-  left: rowMap;
-  right: rowMap;
+  left: [rowMap, JSX.Element | null];
+  right: [rowMap, JSX.Element | null];
 }
 
 function createLoop(number: number) {
@@ -127,7 +127,9 @@ export function FrontTable() {
       color="blue"
       fullWidth
       value={assembly}
-      onChange={setAssembly}
+      onChange={(e) => {
+        setAssembly(e);
+      }}
       data={["Yes", "No"]}
     />
   );
@@ -167,14 +169,31 @@ export function FrontTable() {
   );
   const leftTable: SplitTable[] = [
     {
-      left: createRow("Quote Number", <QuoteSelect />),
-      right: createRow("Date", <label>{GetDate()}</label>),
+      left: [createRow("Quote Number", <QuoteSelect />), null],
+      right: [createRow("Date", <label>{GetDate()}</label>), null],
     },
-    { left: partNumber, right: panelSize },
-    { left: quantity, right: assymblyTable },
-    { left: revision, right: selectorExchange },
-    { left: freightTable, right: salesTable },
-    { left: numberOfLayers, right: technologyTable },
+    { left: [partNumber, null], right: [panelSize, null] },
+    { left: [quantity, null], right: [assymblyTable, null] },
+    { left: [revision, null], right: [selectorExchange, null] },
+    { left: [freightTable, null], right: [salesTable, null] },
+    {
+      left: [numberOfLayers, null],
+      right: [
+        technologyTable,
+        <HoverCard position="left" withArrow>
+          <HoverCard.Target>
+            <IconInfoSquareFilled className="p-0 m-0" />
+          </HoverCard.Target>
+          <HoverCard.Dropdown>
+            <label className="text-left break-words whitespace-pre-wrap">
+              {
+                "A: Single sided flex \nB: Double sided flex\nC: Multi-layer flex\nD: Multi-layer flex and rigid"
+              }
+            </label>
+          </HoverCard.Dropdown>
+        </HoverCard>,
+      ],
+    },
   ];
 
   // This table consist of only two columns. The data points should be of type row map
@@ -183,45 +202,49 @@ export function FrontTable() {
       <Table striped withBorder verticalSpacing="5px">
         <thead className={"bg-light"}>
           <tr>
-            <td colSpan={1}></td>
+            <td colSpan={1} />
             <td
               colSpan={6}
               className={"h-10 text-xl font-semibold py-2 px-3 text-primary"}
-            ></td>
+            />
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td colSpan={1}></td>
+            <td colSpan={1} />
             <td className={"text font-semibold "} colSpan={1}>
               {"Customer"}
             </td>
             <td className={""} colSpan={1}>
               {selectCustomer}
             </td>
-            <td colSpan={1}></td>
+            <td colSpan={1} />
             <td className={"text font-semibold " + ""} colSpan={2}>
               {customerCode}
             </td>
-            <td colSpan={1}></td>
+            <td colSpan={1} />
           </tr>
           {leftTable.map((row: SplitTable, index: number) => (
-            <tr key={row.left + " row " + index}>
-              <td colSpan={1}></td>
+            <tr key={row.left[0].label + " row " + index}>
+              <td colSpan={1} />
               <td className={""} colSpan={1}>
-                {row.left.label}
+                {row.left[0].label}
               </td>
               <td className={""} colSpan={1}>
-                {row.left.value}
+                {row.left[0].value}
               </td>
-              <td colSpan={1}></td>
+              <td colSpan={1} className={"w-10"}>
+                {row.left[1]}
+              </td>
               <td className={""} colSpan={1}>
-                {row.right.label}
+                {row.right[0].label}
               </td>
               <td className={""} colSpan={1}>
-                {row.right.value}
+                {row.right[0].value}
               </td>
-              <td colSpan={1}></td>
+              <td colSpan={1} className="w-10">
+                {row.right[1]}
+              </td>
             </tr>
           ))}
         </tbody>

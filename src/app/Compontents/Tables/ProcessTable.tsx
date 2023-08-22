@@ -23,8 +23,8 @@ export function ProcessTable() {
       <tbody>
         {processing.map((row: servicesMap, index: number) => (
           <tr className={" text-primary"} key={row.service + " row " + index}>
-            <td className="px-3 w-60">{row.service}</td>
-            <td className="px-3">
+            <td className="px-3 w-4/12">{row.service}</td>
+            <td className="px-3 w-2/12">
               <ServiceInput
                 id={index}
                 currentAmount={row.amount}
@@ -33,14 +33,16 @@ export function ProcessTable() {
                 setData={setProcesses}
               />
             </td>
-            <td className="px-3 w-40 text-right">{row.unitPrice.toFixed(2)}</td>
-            <td className="px-3 w-40 text-right" title={row.formula}>
+            <td className="px-3 w-3/12 text-right">
+              {row.unitPrice.toFixed(2)}
+            </td>
+            <td className="px-3 w-3/12 text-right" title={row.formula}>
               {row.price.toFixed(2)}
             </td>
           </tr>
         ))}
         <TotalRows
-          text={"Total"}
+          text={"CAD Total"}
           total={total}
           columns={serviceHeader(processFilmTitle).length}
           button={[

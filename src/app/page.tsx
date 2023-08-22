@@ -13,7 +13,6 @@ import {
   termsAtom,
 } from "Library/Atoms/FrontPageAtoms";
 import {
-  USDTotalFrontAtom,
   fullTotalAtom,
   marginTotalAtom,
   unitTotalAtom,
@@ -27,6 +26,7 @@ import {
 } from "Library/Atoms/AtomStorage";
 import { percision } from "Library/ConstantValues";
 import TotalLabel from "./Compontents/TotalLabel";
+import { USDTotalFrontAtom } from "Library/Atoms/TotalAtomUSD";
 
 const FrontPagePrint = lazy(
   () => import("app/Compontents/PrintingElement/FrontPagePrint")
@@ -45,6 +45,8 @@ export default function page() {
   const [marginTotal] = useAtom(marginTotalAtom);
   const [USDTotal] = useAtom(USDTotalFrontAtom);
   const [unitTotal] = useAtom(unitTotalAtom);
+  const SoldToText: string =
+    "Buyer Name, Customer Name, Address\nCity, State, Country, Phone, #E-mail";
 
   let componentRef: any = useRef();
   const handlePrint = useReactToPrint({
@@ -54,7 +56,7 @@ export default function page() {
   return (
     <div className="flex flex-col h-screen m-4 py-4 px-8">
       <FrontTable />
-      <div className="py-10 grid grid-cols-2 grid-rows-3 gap-x-10">
+      <div className="py-10 grid grid-cols-2 auto-rows-auto gap-x-10">
         <div className="col-span-1 row-span-3 grid grid-rows-4">
           <Textarea
             label={"Notes:"}
@@ -65,17 +67,9 @@ export default function page() {
             minRows={3}
           />
           <Textarea
-            label={"Part Attirbute:"}
-            autosize
-            placeholder="Enter Part Attirbute"
-            value={part}
-            onChange={(e: any) => setPart(e.currentTarget.value)}
-            minRows={3}
-          />
-          <Textarea
             autosize
             label={"Sold To:"}
-            placeholder="Enter Sold To"
+            placeholder={SoldToText}
             value={sold}
             onChange={(e: any) => setSold(e.currentTarget.value)}
             minRows={3}
@@ -107,7 +101,7 @@ export default function page() {
             </div>
           </div>
           <div className="flex justify-between">
-            <label className="w-1/4 text-left">1 USD to CAD:</label>
+            <label className="w-1/4 text-left">1 CAD to USD:</label>
             <label className="w-1/4 text-left">Yield: </label>
             <label className="w-1/4 text-left">Margin: </label>
           </div>

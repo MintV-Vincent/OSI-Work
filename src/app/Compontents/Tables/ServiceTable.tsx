@@ -1,6 +1,5 @@
 import { Table } from "@mantine/core";
 import { servicesAtom } from "Library/Atoms/ServiceStorage";
-import { qualityTotalAtom } from "Library/Atoms/TotalAtom";
 import { serviceHeader, serviceTitle } from "Library/Headers";
 import { servicesMap } from "Library/Types";
 import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
@@ -9,9 +8,10 @@ import { useAtom } from "jotai";
 import React from "react";
 import ServiceInput from "./CustomCompontents/ServiceAmount";
 import AddServiceButton from "./CustomCompontents/AddServiceButton";
+import { USDQualityTotalAtom } from "Library/Atoms/TotalAtomUSD";
 
 export default function ServiceTable() {
-  const [total] = useAtom(qualityTotalAtom);
+  const [total] = useAtom(USDQualityTotalAtom);
   const [service, setService] = useAtom(servicesAtom);
 
   return (
@@ -23,8 +23,8 @@ export default function ServiceTable() {
       <tbody>
         {service.map((row: servicesMap, index: number) => (
           <tr className={" text-primary"} key={row.service + " row " + index}>
-            <td className="w-60 px-3">{row.service}</td>
-            <td className="px-3">
+            <td className="w-4/12 px-3">{row.service}</td>
+            <td className="w-2/12 px-3">
               <ServiceInput
                 id={index}
                 currentAmount={row.amount}
@@ -33,12 +33,14 @@ export default function ServiceTable() {
                 setData={setService}
               />
             </td>
-            <td className="text-right px-3 w-40">{row.unitPrice.toFixed(2)}</td>
-            <td className="text-right px-3 w-40">{row.price.toFixed(2)}</td>
+            <td className="text-right px-3 w-3/12 ">
+              {row.unitPrice.toFixed(2)}
+            </td>
+            <td className="text-right px-3 w-3/12 ">{row.price.toFixed(2)}</td>
           </tr>
         ))}
         <TotalRows
-          text={"Total"}
+          text={"USD Total"}
           total={total}
           columns={serviceHeader(serviceTitle).length}
           button={[

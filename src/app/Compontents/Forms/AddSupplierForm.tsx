@@ -22,7 +22,7 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
     price: number | undefined;
   }>({
     initialValues: {
-      formula: "price * amount * exchange",
+      formula: "price * amount * exchange * 1.05",
       material: "",
       price: undefined,
     },
@@ -79,7 +79,7 @@ export default function AddSupplierForm({ handleClick }: AddButtonInterface) {
           }
         })}
       >
-        <ModalForm form={form} />
+        <ModalForm form={form} currency="USD" />
       </form>
     </Box>
   );

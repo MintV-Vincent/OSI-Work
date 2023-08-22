@@ -70,7 +70,7 @@ export default function AddServiceForm({
           }
         })}
       >
-        <ModalForm form={form} />
+        <ModalForm form={form} currency="CAD" />
       </form>
     </Box>
   );

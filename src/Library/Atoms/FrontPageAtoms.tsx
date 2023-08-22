@@ -23,7 +23,10 @@ export const salesAtom = atom<string>("gus");
 export const currencySelectorAtom = atom<string>("CAD");
 
 // Front Table
-export const layerAtom = atom<string | " ">(" ");
+export const layerAtom = atom<string | "">("");
+export const specAtom = atom<string | "">("IPC 6013 Class 2");
+export const productAtom = atom<string | "">("");
+export const finishAtom = atom<string | "">("");
 export const technologyAtom = atom<string | "">("A");
 export const assemblyAtom = atom<string | "">("Yes");
 export const qualityAtom = atom<string | "">("");

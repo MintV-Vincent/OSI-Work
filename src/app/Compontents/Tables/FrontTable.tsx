@@ -1,20 +1,23 @@
 import { HoverCard, SegmentedControl, Table } from "@mantine/core";
 import { rowMap } from "Library/Types";
-import { NumberInput, Select } from "@mantine/core";
+import { Select } from "@mantine/core";
 import { createRow } from "Functions/Create/MapCreate";
 import GetDate from "Functions/GetFunction/GetDate";
 import { useAtom } from "jotai";
 import { TextInput } from "@mantine/core";
 import SelectLabel from "app/Compontents/SelectLabel";
-import { freightAtom, panelAtom } from "Library/Atoms/AtomStorage";
+import { panelAtom } from "Library/Atoms/AtomStorage";
 import {
   assemblyAtom,
   currencySelectorAtom,
+  finishAtom,
   layerAtom,
   partsInputAtom,
+  productAtom,
   qualityAtom,
   revAtom,
   salesAtom,
+  specAtom,
 } from "Library/Atoms/FrontPageAtoms";
 import { useEffect, useRef } from "react";
 import { panelRow } from "Library/ConstantValues";
@@ -43,9 +46,11 @@ export function FrontTable() {
     };
   }, []);
 
-  const [freight, setFreight] = useAtom(freightAtom);
   const [panel, setPanel] = useAtom(panelAtom);
   const [layers, setLayers] = useAtom(layerAtom);
+  const [spec, setSpec] = useAtom(specAtom);
+  const [product, setProduct] = useAtom(productAtom);
+  const [finish, setFinish] = useAtom(finishAtom);
   const [assembly, setAssembly] = useAtom(assemblyAtom);
   const [partNumberInput, setPartInput] = useAtom(partsInputAtom);
   const [revisionInput, setRevisionInput] = useAtom(revAtom);
@@ -96,6 +101,62 @@ export function FrontTable() {
       data={createLoop(20)}
     />
   );
+  const specSelect = createRow(
+    "Spec",
+    <SegmentedControl
+      size="xs"
+      color="blue"
+      fullWidth
+      value={spec}
+      onChange={setSpec}
+      data={["IPC 6013 Class 2", "IPC 6013 Class 3"]}
+    />
+  );
+  const productSelect = createRow(
+    "Product",
+    <Select
+      size="xs"
+      searchable
+      clearable
+      searchValue={product}
+      onSearchChange={(e) => {
+        if (isMounted.current == true) {
+          setProduct(e);
+        }
+      }}
+      data={[
+        "Type 1 (Single-Layer Flex Circuit)",
+        "Type 2 (Double-Sided Flex Circuit)",
+        "Type 2 (Double-Sided Flex with Stiffener)",
+        "Type 3 (Multi-Layer Flex Circuit)",
+        "Type 4 (Rigid-Flex Circuit)",
+      ]}
+    />
+  );
+  const finishSelect = createRow(
+    "Finish",
+    <Select
+      size="xs"
+      searchable
+      clearable
+      searchValue={finish}
+      onSearchChange={(e) => {
+        if (isMounted.current == true) {
+          setFinish(e);
+        }
+      }}
+      data={[
+        "ENEPIG",
+        "ENIG",
+        "Au Fingers",
+        "EPIG",
+        "HASL",
+        "IMAG",
+        "Lead-Free HASL",
+        "OSP",
+      ]}
+    />
+  );
   const panelSize = createRow(
     "Panel Size",
     <SegmentedControl
@@ -108,18 +169,6 @@ export function FrontTable() {
     />
   );
   const technologyTable = createRow("Technology", <WarningForm />);
-  const freightTable = createRow(
-    "Freight",
-    <NumberInput
-      size="xs"
-      hideControls
-      precision={4}
-      value={freight}
-      onChange={(event: number | "") => {
-        setFreight(event);
-      }}
-    />
-  );
   const assymblyTable = createRow(
     "Assembly",
     <SegmentedControl
@@ -172,12 +221,13 @@ export function FrontTable() {
       left: [createRow("Quote Number", <QuoteSelect />), null],
       right: [createRow("Date", <label>{GetDate()}</label>), null],
     },
-    { left: [partNumber, null], right: [panelSize, null] },
-    { left: [quantity, null], right: [assymblyTable, null] },
-    { left: [revision, null], right: [selectorExchange, null] },
-    { left: [freightTable, null], right: [salesTable, null] },
+    { left: [finishSelect, null], right: [specSelect, null] },
+    { left: [productSelect, null], right: [panelSize, null] },
+    { left: [numberOfLayers, null], right: [assymblyTable, null] },
+    { left: [quantity, null], right: [selectorExchange, null] },
+    { left: [revision, null], right: [salesTable, null] },
     {
-      left: [numberOfLayers, null],
+      left: [partNumber, null],
       right: [
         technologyTable,
         <HoverCard position="left" withArrow>

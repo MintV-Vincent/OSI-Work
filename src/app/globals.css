@@ -17,6 +17,12 @@
     scrollbar-width: none; /* Firefox */
   }
 
+  .select-row {
+    grid-row: 2;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
   .link-underline {
     border-bottom-width: 0;
     background-image: linear-gradient(transparent, transparent),

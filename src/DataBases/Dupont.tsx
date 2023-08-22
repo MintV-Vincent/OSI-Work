@@ -6,7 +6,7 @@ export const dupont: jsonMap[] = [
     material: "AC121200R",
     price: 7.39,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -14,7 +14,7 @@ export const dupont: jsonMap[] = [
     material: "AC 182500",
     price: 9.02,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -22,7 +22,7 @@ export const dupont: jsonMap[] = [
     material: "AC3525",
     price: 7.99,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -30,7 +30,7 @@ export const dupont: jsonMap[] = [
     material: "AP7391",
     price: 19.1,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -38,7 +38,7 @@ export const dupont: jsonMap[] = [
     material: "AP7421",
     price: 40.09,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -46,7 +46,7 @@ export const dupont: jsonMap[] = [
     material: "AP7434R",
     price: 21.26,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -54,7 +54,7 @@ export const dupont: jsonMap[] = [
     material: "AP8515R",
     price: 10.38,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -62,7 +62,7 @@ export const dupont: jsonMap[] = [
     material: "AP8525R",
     price: 9.08,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -70,7 +70,7 @@ export const dupont: jsonMap[] = [
     material: "AP8535R",
     price: 17.99,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -78,7 +78,7 @@ export const dupont: jsonMap[] = [
     material: "AP8545R",
     price: 23.08,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -86,7 +86,7 @@ export const dupont: jsonMap[] = [
     material: "AP8555",
     price: 40.22,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -94,7 +94,7 @@ export const dupont: jsonMap[] = [
     material: "AP9111R",
     price: 8.8,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -102,7 +102,7 @@ export const dupont: jsonMap[] = [
     material: "AP9121R",
     price: 9.67,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -110,7 +110,7 @@ export const dupont: jsonMap[] = [
     material: "AP9131R",
     price: 16.12,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -118,7 +118,7 @@ export const dupont: jsonMap[] = [
     material: "AP9141R",
     price: 20.37,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -126,7 +126,7 @@ export const dupont: jsonMap[] = [
     material: "AP9151R",
     price: 42.81,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -134,7 +134,7 @@ export const dupont: jsonMap[] = [
     material: "AP9161R",
     price: 46.85,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -142,7 +142,7 @@ export const dupont: jsonMap[] = [
     material: "AP9212R",
     price: 11.54,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -150,7 +150,7 @@ export const dupont: jsonMap[] = [
     material: "AP9222R",
     price: 12.14,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -158,7 +158,7 @@ export const dupont: jsonMap[] = [
     material: "AP9232R",
     price: 16.97,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -166,7 +166,7 @@ export const dupont: jsonMap[] = [
     material: "AP9242R",
     price: 21.17,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -174,7 +174,7 @@ export const dupont: jsonMap[] = [
     material: "AP9252R",
     price: 61.69,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -182,7 +182,7 @@ export const dupont: jsonMap[] = [
     material: "FR0100",
     price: 1.44,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -190,7 +190,7 @@ export const dupont: jsonMap[] = [
     material: "FR0110",
     price: 1.71,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -198,7 +198,7 @@ export const dupont: jsonMap[] = [
     material: "FR0111",
     price: 2.68,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -206,7 +206,7 @@ export const dupont: jsonMap[] = [
     material: "FR0120",
     price: 2.55,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -214,7 +214,7 @@ export const dupont: jsonMap[] = [
     material: "FR0121",
     price: 3.29,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -222,7 +222,7 @@ export const dupont: jsonMap[] = [
     material: "FR0130",
     price: 3.52,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -230,7 +230,7 @@ export const dupont: jsonMap[] = [
     material: "FR0131",
     price: 4.29,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -238,7 +238,7 @@ export const dupont: jsonMap[] = [
     material: "FR0150",
     price: 5.5,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -246,7 +246,7 @@ export const dupont: jsonMap[] = [
     material: "FR0200",
     price: 1.84,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -254,7 +254,7 @@ export const dupont: jsonMap[] = [
     material: "FR0210",
     price: 2.53,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -262,7 +262,7 @@ export const dupont: jsonMap[] = [
     material: "FR0212",
     price: 4.73,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -270,7 +270,7 @@ export const dupont: jsonMap[] = [
     material: "FR0220",
     price: 3.13,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -278,7 +278,7 @@ export const dupont: jsonMap[] = [
     material: "FR0230",
     price: 4.49,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -286,7 +286,7 @@ export const dupont: jsonMap[] = [
     material: "FR0250",
     price: 6.41,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -294,7 +294,7 @@ export const dupont: jsonMap[] = [
     material: "FR0310",
     price: 3.28,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -302,7 +302,7 @@ export const dupont: jsonMap[] = [
     material: "FR1500R",
     price: 4.87,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -310,7 +310,7 @@ export const dupont: jsonMap[] = [
     material: "FR7001",
     price: 3.68,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -318,7 +318,7 @@ export const dupont: jsonMap[] = [
     material: "FR7013",
     price: 4.05,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -326,7 +326,7 @@ export const dupont: jsonMap[] = [
     material: "FR7021",
     price: 9.59,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -334,7 +334,7 @@ export const dupont: jsonMap[] = [
     material: "FR8510R",
     price: 4.05,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -342,7 +342,7 @@ export const dupont: jsonMap[] = [
     material: "FR8515R",
     price: 6.62,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -350,7 +350,7 @@ export const dupont: jsonMap[] = [
     material: "FR8520R",
     price: 5.15,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -358,7 +358,7 @@ export const dupont: jsonMap[] = [
     material: "FR8525R",
     price: 7.82,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -366,7 +366,7 @@ export const dupont: jsonMap[] = [
     material: "FR8535R",
     price: 22,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -374,7 +374,7 @@ export const dupont: jsonMap[] = [
     material: "FR9110R",
     price: 3.16,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -382,7 +382,7 @@ export const dupont: jsonMap[] = [
     material: "FR9111R",
     price: 5.39,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -390,7 +390,7 @@ export const dupont: jsonMap[] = [
     material: "FR9120R",
     price: 4.13,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -398,7 +398,7 @@ export const dupont: jsonMap[] = [
     material: "FR9121R",
     price: 6.06,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -406,7 +406,7 @@ export const dupont: jsonMap[] = [
     material: "FR9130R",
     price: 9.82,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -414,7 +414,7 @@ export const dupont: jsonMap[] = [
     material: "FR9131R",
     price: 15.22,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -422,7 +422,7 @@ export const dupont: jsonMap[] = [
     material: "FR9150R",
     price: 7.05,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -430,7 +430,7 @@ export const dupont: jsonMap[] = [
     material: "FR9210R",
     price: 3.81,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -438,7 +438,7 @@ export const dupont: jsonMap[] = [
     material: "FR9212R",
     price: 6.47,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -446,7 +446,7 @@ export const dupont: jsonMap[] = [
     material: "FR9220R",
     price: 4.9,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -454,7 +454,7 @@ export const dupont: jsonMap[] = [
     material: "FR9222R",
     price: 7.43,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -462,7 +462,7 @@ export const dupont: jsonMap[] = [
     material: "LF0100",
     price: 3.2,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -470,7 +470,7 @@ export const dupont: jsonMap[] = [
     material: "LF0110",
     price: 3.04,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -478,7 +478,7 @@ export const dupont: jsonMap[] = [
     material: "LF0111",
     price: 3.92,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -486,7 +486,7 @@ export const dupont: jsonMap[] = [
     material: "LF0120",
     price: 3.79,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -494,7 +494,7 @@ export const dupont: jsonMap[] = [
     material: "LF0121",
     price: 4.57,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -502,7 +502,7 @@ export const dupont: jsonMap[] = [
     material: "LF0130",
     price: 4.21,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -510,7 +510,7 @@ export const dupont: jsonMap[] = [
     material: "LF0131",
     price: 5.36,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -518,7 +518,7 @@ export const dupont: jsonMap[] = [
     material: "LF0150",
     price: 6.07,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -526,7 +526,7 @@ export const dupont: jsonMap[] = [
     material: "LF0200",
     price: 3.01,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -534,7 +534,7 @@ export const dupont: jsonMap[] = [
     material: "LF0210",
     price: 3.64,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -542,7 +542,7 @@ export const dupont: jsonMap[] = [
     material: "LF0212",
     price: 7.39,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -550,7 +550,7 @@ export const dupont: jsonMap[] = [
     material: "LF0220",
     price: 4.43,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -558,7 +558,7 @@ export const dupont: jsonMap[] = [
     material: "LF0230",
     price: 5.65,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -566,7 +566,7 @@ export const dupont: jsonMap[] = [
     material: "LF0250",
     price: 6.58,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -574,7 +574,7 @@ export const dupont: jsonMap[] = [
     material: "LF0310",
     price: 4.23,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -582,7 +582,7 @@ export const dupont: jsonMap[] = [
     material: "LF7001",
     price: 8.21,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -590,7 +590,7 @@ export const dupont: jsonMap[] = [
     material: "LF7013",
     price: 8.95,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -598,7 +598,7 @@ export const dupont: jsonMap[] = [
     material: "LF8510R",
     price: 9.34,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -606,7 +606,7 @@ export const dupont: jsonMap[] = [
     material: "LF8515R",
     price: 10.06,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -614,7 +614,7 @@ export const dupont: jsonMap[] = [
     material: "LF8520R",
     price: 10.42,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -622,7 +622,7 @@ export const dupont: jsonMap[] = [
     material: "LF8525R",
     price: 10.49,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -630,7 +630,7 @@ export const dupont: jsonMap[] = [
     material: "LF8530R",
     price: 10.8,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -638,7 +638,7 @@ export const dupont: jsonMap[] = [
     material: "LF8535R",
     price: 13.28,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -646,7 +646,7 @@ export const dupont: jsonMap[] = [
     material: "LF8550R",
     price: 16.23,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -654,7 +654,7 @@ export const dupont: jsonMap[] = [
     material: "LF8555R",
     price: 20.05,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -662,7 +662,7 @@ export const dupont: jsonMap[] = [
     material: "LF9110R",
     price: 4.9,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -670,7 +670,7 @@ export const dupont: jsonMap[] = [
     material: "LF9111R",
     price: 6.78,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -678,7 +678,7 @@ export const dupont: jsonMap[] = [
     material: "LF9120R",
     price: 5.86,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -686,7 +686,7 @@ export const dupont: jsonMap[] = [
     material: "LF9121R",
     price: 8.02,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -694,7 +694,7 @@ export const dupont: jsonMap[] = [
     material: "LF9130R",
     price: 6.62,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -702,7 +702,7 @@ export const dupont: jsonMap[] = [
     material: "LF9131R",
     price: 9.27,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -710,7 +710,7 @@ export const dupont: jsonMap[] = [
     material: "LF9150R",
     price: 9.68,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -718,7 +718,7 @@ export const dupont: jsonMap[] = [
     material: "LF9210R",
     price: 5.64,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -726,7 +726,7 @@ export const dupont: jsonMap[] = [
     material: "LF9212R",
     price: 8.59,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -734,7 +734,7 @@ export const dupont: jsonMap[] = [
     material: "LF9220R",
     price: 6.89,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -742,7 +742,7 @@ export const dupont: jsonMap[] = [
     material: "LF9222R",
     price: 9.68,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -750,7 +750,7 @@ export const dupont: jsonMap[] = [
     material: "TK 3610036 ",
     price: 45.85,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -758,7 +758,7 @@ export const dupont: jsonMap[] = [
     material: "TK 1810018",
     price: 48.48,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
@@ -766,14 +766,14 @@ export const dupont: jsonMap[] = [
     material: "LF-B 0110  ",
     price: 12.52,
     supplier: "Dupont",
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
   },
   {
     id: 2600,
     material: "DuPont Pyralux TK Clad  TK 1815018 (Mechanical routing)",
     price: 27.12,
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
     supplier: "Dupont",
   },
@@ -781,7 +781,7 @@ export const dupont: jsonMap[] = [
     id: 2700,
     material: "DuPont Pyralux TK Clad  TK 1810018 (Mechanical routing)",
     price: 48.12,
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
     supplier: "Dupont",
   },
@@ -789,7 +789,7 @@ export const dupont: jsonMap[] = [
     id: 2800,
     material: "DuPont Pyralux TK Clad  TK3610036R (Mechanical routing)",
     price: 43.25,
-    formula: "size * exchange * price * amount * 1.025",
+    formula: "exchange * price * amount * 1.025",
     amount: 0,
     supplier: "Dupont",
   },

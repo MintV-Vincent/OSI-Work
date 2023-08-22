@@ -5,9 +5,10 @@ import SubmitHover from "./HoverInfo/SubmitHover";
 
 interface TextInputInterface {
   form: UseFormReturnType<any>;
+  currency: string;
 }
 
-export default function ModalForm({ form }: TextInputInterface) {
+export default function ModalForm({ form, currency }: TextInputInterface) {
   return (
     <div className="w-full">
       <TextInput
@@ -22,7 +23,7 @@ export default function ModalForm({ form }: TextInputInterface) {
         precision={2}
         required
         hideControls
-        label="Price (CAD$)"
+        label={"Price (" + { currency } + "$)"}
         placeholder="Price"
         {...form.getInputProps("price")}
       />

@@ -1,34 +1,38 @@
 import { atom } from "jotai";
-import { materialTableAtom } from "./TableAtoms";
-import { materialRowMap, servicesMap } from "Library/Types";
+import { materialTableAtom } from "Library/Atoms/TableAtoms";
+import { materialRowMap } from "Library/Types";
 import {
   exchangeRateAtom,
   exchangeRateMaterialAtom,
   filmProcessAtom,
   marginAtom,
-  unitAtom,
   upPanelAtom,
   yeildAtom,
-} from "./AtomStorage";
-import { currencySelectorAtom } from "./FrontPageAtoms";
-import { nreAtom, servicesAtom } from "./ServiceStorage";
+} from "Library/Atoms/AtomStorage";
+import { currencySelectorAtom } from "Library/Atoms/FrontPageAtoms";
+import {
+  USDQualityTotalAtom,
+  USDTotalFrontAtom,
+  USDTotalNREAtom,
+} from "Library/Atoms/TotalAtomUSD";
 
-export const materialFilmTotalAtom = atom<number[]>((get) => {
+export const materialFilmTotalAtom = atom<number>((get) => {
   const material = get(materialTotalAtom);
   const film = get(filmTotalAtom);
-  return [material, film];
+
+  return film + material;
 });
 
-export const serviceTotalAtom = atom<number[]>((get) => {
+export const serviceTotalAtom = atom<number>((get) => {
   const qual = get(qualityTotalAtom);
   const nre = get(NRETotalAtom);
-  return [qual, nre];
+  return qual + nre;
 });
 
 //Total atom
 export const fullTotalAtom = atom<number>((get) => {
   const selector: string = get(currencySelectorAtom);
-  const CADTotal: any = get(CADTotalAtom);
+  const CADTotal: any = get(materialFilmTotalAtom);
   const exchangeRate: any = get(exchangeRateAtom);
   if ("CAD" === selector) {
     return CADTotal;
@@ -37,53 +41,12 @@ export const fullTotalAtom = atom<number>((get) => {
   }
 });
 
-export const CADTotalAtom = atom<number>((get) => {
-  const typeTotalAtom: any = get(materialFilmTotalAtom);
-  return typeTotalAtom.reduce(
-    (accumulator: number, currentValue: number) => accumulator + currentValue,
-    0
-  );
-});
-
-export const USDTotalSalesAtom = atom<number>((get) => {
-  const CADTotal: any = get(CADTotalAtom);
-  const exchangeRate: any = get(exchangeRateMaterialAtom);
-  if (isNaN(exchangeRate) || exchangeRate === 0) {
-    return CADTotal / 1;
-  }
-  return CADTotal / exchangeRate;
-});
-
-export const USDTotalFrontAtom = atom<number>((get) => {
-  const CADTotal: any = get(CADTotalAtom);
-  const exchangeRate: any = get(exchangeRateAtom);
-  if (isNaN(exchangeRate) || exchangeRate === 0) {
-    return CADTotal / 1;
-  }
-  return CADTotal / exchangeRate;
-});
-
 export const materialTotalAtom = atom<number>((get) => {
   const typeRowsAtom: any = get(materialTableAtom);
   return typeRowsAtom.reduce(
     (previousScore: number, currentScore: materialRowMap) =>
       previousScore + currentScore.price,
     0
-  );
-});
-
-export const materialTotalAtomUSD = atom<number>((get) => {
-  const typeRowsAtom: any = get(materialTableAtom);
-  let exchangeRate: any = get(exchangeRateMaterialAtom);
-  if (exchangeRate === 0 || isNaN(exchangeRate)) {
-    exchangeRate = 1;
-  }
-  return (
-    typeRowsAtom.reduce(
-      (previousScore: number, currentScore: materialRowMap) =>
-        previousScore + currentScore.price,
-      0
-    ) / exchangeRate
   );
 });
 
@@ -97,20 +60,21 @@ export const filmTotalAtom = atom<number>((get) => {
 });
 
 export const qualityTotalAtom = atom<number>((get) => {
-  const typeQualAtom: any = get(servicesAtom);
-  return typeQualAtom.reduce(
-    (accumulator: number, currentValue: servicesMap) =>
-      accumulator + Number(currentValue.price),
-    0
-  );
+  const typeRowsAtom: any = get(USDQualityTotalAtom);
+  let exchangeRate: any = get(exchangeRateMaterialAtom);
+  if (exchangeRate === 0 || isNaN(exchangeRate)) {
+    exchangeRate = 1;
+  }
+  return typeRowsAtom * exchangeRate;
 });
+
 export const NRETotalAtom = atom<number>((get) => {
-  const typeNREAtom: any = get(nreAtom);
-  return typeNREAtom.reduce(
-    (accumulator: number, currentValue: servicesMap) =>
-      accumulator + Number(currentValue.price),
-    0
-  );
+  const typeRowsAtom: any = get(USDTotalNREAtom);
+  let exchangeRate: any = get(exchangeRateMaterialAtom);
+  if (exchangeRate === 0 || isNaN(exchangeRate)) {
+    exchangeRate = 1;
+  }
+  return typeRowsAtom * exchangeRate;
 });
 
 export const yeildTotalAtom = atom<number>((get) => {

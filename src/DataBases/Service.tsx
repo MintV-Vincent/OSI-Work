@@ -17,7 +17,7 @@ export const services = [
     id: 12,
     material: "Stencils (Fine Pitch)",
     price: 950,
-    amount: "0",
+    amount: 0,
     formula: "price * amount",
   },
   {

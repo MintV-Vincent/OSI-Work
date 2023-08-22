@@ -13,7 +13,6 @@ import { USDQualityTotalAtom } from "Library/Atoms/TotalAtomUSD";
 export default function ServiceTable() {
   const [total] = useAtom(USDQualityTotalAtom);
   const [service, setService] = useAtom(servicesAtom);
-
   return (
     <Table striped withBorder verticalSpacing="w-10">
       <HeaderRow

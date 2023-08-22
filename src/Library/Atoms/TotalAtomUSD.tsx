@@ -7,7 +7,11 @@ import {
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { atom } from "jotai";
 import { nreAtom, servicesAtom } from "./ServiceStorage";
-import { fullTotalAtom, materialFilmTotalAtom } from "./TotalAtom";
+import {
+  assemblyTotalAtom,
+  fullTotalAtom,
+  materialFilmTotalAtom,
+} from "./TotalAtom";
 
 export const materialTotalUSDAtom = atom<number>((get) => {
   const typeRowsAtom: any = get(materialTableAtom);
@@ -37,6 +41,15 @@ export const USDFilmTotalAtom = atom<number>((get) => {
       0
     ) / exchangeRate
   );
+});
+
+export const USDAssemblyTotalAtom = atom<number>((get) => {
+  const typeFilmAtom: any = get(assemblyTotalAtom);
+  const exchangeRate: any = get(exchangeRateMaterialAtom);
+  if (isNaN(exchangeRate) || exchangeRate === 0) {
+    return typeFilmAtom / 1;
+  }
+  return typeFilmAtom / exchangeRate;
 });
 
 export const USDQualityTotalAtom = atom<number>((get) => {

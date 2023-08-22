@@ -23,7 +23,7 @@ export default function ModalForm({ form, currency }: TextInputInterface) {
         precision={2}
         required
         hideControls
-        label={"Price (" + { currency } + "$)"}
+        label={"Price (" + currency + "$)"}
         placeholder="Price"
         {...form.getInputProps("price")}
       />

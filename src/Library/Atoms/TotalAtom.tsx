@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
-import { materialRowMap } from "Library/Types";
+import { materialRowMap, servicesMap } from "Library/Types";
 import {
   exchangeRateAtom,
   exchangeRateMaterialAtom,
@@ -15,12 +15,14 @@ import {
   USDTotalFrontAtom,
   USDTotalNREAtom,
 } from "Library/Atoms/TotalAtomUSD";
+import { assemblyDataAtom } from "./ServiceStorage";
 
 export const materialFilmTotalAtom = atom<number>((get) => {
   const material = get(materialTotalAtom);
   const film = get(filmTotalAtom);
+  const assmbly = get(assemblyTotalAtom);
 
-  return film + material;
+  return film + material + assmbly;
 });
 
 export const serviceTotalAtom = atom<number>((get) => {
@@ -53,8 +55,17 @@ export const materialTotalAtom = atom<number>((get) => {
 export const filmTotalAtom = atom<number>((get) => {
   const typeFilmAtom: any = get(filmProcessAtom);
   return typeFilmAtom.reduce(
-    (accumulator: number, currentValue: materialRowMap) =>
+    (accumulator: number, currentValue: servicesMap) =>
       accumulator + currentValue.price,
+    0
+  );
+});
+
+export const assemblyTotalAtom = atom<number>((get) => {
+  const typeRowsAtom: any = get(assemblyDataAtom);
+  return typeRowsAtom.reduce(
+    (previousScore: number, currentScore: servicesMap) =>
+      previousScore + currentScore.price,
     0
   );
 });

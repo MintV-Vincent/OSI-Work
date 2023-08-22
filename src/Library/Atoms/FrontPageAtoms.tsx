@@ -13,7 +13,14 @@ const textTermAtom = atom<string>(
   "QUOTATION VALID FOR 90 DAYS \nALL PRICES ARE LISTED IN CAD \nNet 30 days; FOB -- PFC (Canada)"
 );
 export const termsAtom = atom(
-  (get) => get(textTermAtom),
+  (get) => {
+    const text = get(textTermAtom);
+    const selector = get(currencySelectorAtom);
+    const cadSelect = text.replace("CAD", selector);
+    const final = cadSelect.replace("USD", selector);
+
+    return final;
+  },
   (_get, set, newText: string) => set(textTermAtom, newText)
 );
 

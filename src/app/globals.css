@@ -17,10 +17,16 @@
     scrollbar-width: none; /* Firefox */
   }
 
-  .select-row {
-    grid-row: 2;
-    margin-top: 30px;
-    margin-bottom: 10px;
+  .sub-grid {
+    grid-template-rows: repeat(6, minmax(0, 1.1rem));
+  }
+
+  .sub-grid5 {
+    grid-template-rows: repeat(5, minmax(0, 1.1rem));
+  }
+
+  .sub-grid4 {
+    grid-template-rows: repeat(4, minmax(0, 1.1rem));
   }
 
   .link-underline {

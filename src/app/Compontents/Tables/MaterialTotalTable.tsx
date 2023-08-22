@@ -2,12 +2,14 @@ import { Table } from "@mantine/core";
 import { useAtom } from "jotai";
 import { exchangeRateMaterialAtom } from "Library/Atoms/AtomStorage";
 import {
+  assemblyTotalAtom,
   filmTotalAtom,
   materialFilmTotalAtom,
   materialTotalAtom,
 } from "Library/Atoms/TotalAtom";
 import {
   materialTotalUSDAtom,
+  USDAssemblyTotalAtom,
   USDFilmTotalAtom,
 } from "Library/Atoms/TotalAtomUSD";
 
@@ -19,6 +21,8 @@ export function MaterialTotalTable() {
   const [materialTotalUSD] = useAtom(materialTotalUSDAtom);
   const [filmTotal] = useAtom(filmTotalAtom);
   const [filmTotalUSD] = useAtom(USDFilmTotalAtom);
+  const [assemblyTotal] = useAtom(assemblyTotalAtom);
+  const [assemblyTotalUSD] = useAtom(USDAssemblyTotalAtom);
   const headerClass =
     "text-md font-semibold py-1 px-3 text-primary whitespace-nowrap overflow-hidden ";
   // This table consist of only two columns. The data points should be of type row map
@@ -46,6 +50,13 @@ export function MaterialTotalTable() {
           <td className="px-3 text-left ">Process</td>
           <td className="px-3 text-right ">{filmTotal.toFixed(2)}</td>
           <td className="px-3 text-right ">{filmTotalUSD.toFixed(2)}</td>
+          <td />
+        </tr>
+        <tr className={"text-primary"}>
+          <td />
+          <td className="px-3 text-left ">Assembly</td>
+          <td className="px-3 text-right ">{assemblyTotal.toFixed(2)}</td>
+          <td className="px-3 text-right ">{assemblyTotalUSD.toFixed(2)}</td>
           <td />
         </tr>
         <tr>

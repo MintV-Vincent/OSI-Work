@@ -11,11 +11,13 @@ import React from "react";
 import { materialRowMap, servicesMap } from "Library/Types";
 import { createFormula } from "Functions/Create/CreateFormula";
 import { percision } from "Library/ConstantValues";
+import { assemblyDataAtom } from "Library/Atoms/ServiceStorage";
 
 export default function ExchangeRateInput() {
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateMaterialAtom);
   const [materialData, useMaterialData] = useAtom(materialTableAtom);
   const [processing, setProcesses] = useAtom(filmProcessAtom);
+  const [assembly, setAssembly] = useAtom(assemblyDataAtom);
   const [panelSize] = useAtom(panelAtom);
 
   return (
@@ -43,6 +45,23 @@ export default function ExchangeRateInput() {
         );
         setProcesses(
           processing.map((row: servicesMap) => {
+            let newPrice = eval(
+              createFormula(
+                row.formula,
+                row.amount,
+                row.unitPrice,
+                event,
+                panelSize
+              )
+            );
+            return {
+              ...row,
+              price: newPrice,
+            };
+          })
+        );
+        setAssembly(
+          assembly.map((row: servicesMap) => {
             let newPrice = eval(
               createFormula(
                 row.formula,

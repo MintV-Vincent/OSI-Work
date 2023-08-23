@@ -1,10 +1,17 @@
 import { NumberInput } from "@mantine/core";
 import { createFormula } from "Functions/Create/CreateFormula";
+import {
+  exchangeRateMaterialAtom,
+  marginAtom,
+  panelAtom,
+  yeildAtom,
+} from "Library/Atoms/AtomStorage";
 import { percision } from "Library/ConstantValues";
 import { servicesMap } from "Library/Types";
+import { useAtom } from "jotai";
 import React from "react";
 
-interface AmountInputInterface {
+interface ServiceInputInterface {
   id: number;
   currentAmount: number | "";
   unitPrice: number;
@@ -17,7 +24,7 @@ export default function ServiceInput({
   currentAmount,
   data,
   setData,
-}: AmountInputInterface) {
+}: ServiceInputInterface) {
   /**
    *
    * @param id Number, the index of the row being changed
@@ -27,6 +34,11 @@ export default function ServiceInput({
    * @param setData the set state functoin to change the data of the current row
    * @returns material row map for the table with updated amount and price
    */
+  const [exchangeRate] = useAtom(exchangeRateMaterialAtom);
+  const [panel] = useAtom(panelAtom);
+  const [yeild] = useAtom(yeildAtom);
+  const [margin] = useAtom(marginAtom);
+
   function onAmount(
     id: number,
     value: number | "",
@@ -41,7 +53,17 @@ export default function ServiceInput({
         if (value === "") {
           return { ...row, amount: 0, price: 0 };
         }
-        let price = eval(createFormula(row.formula, value, row.unitPrice));
+        let price = eval(
+          createFormula(
+            row.formula,
+            value,
+            row.unitPrice,
+            exchangeRate,
+            panel,
+            yeild,
+            margin
+          )
+        );
         return {
           ...row,
           amount: value,

@@ -31,7 +31,6 @@ export default function MaterialSelect({
   id,
 }: materialSelect) {
   const [exchangeRate] = useAtom(exchangeRateMaterialAtom);
-  const [freight] = useAtom(freightAtom);
   const [panel] = useAtom(panelAtom);
   const [yeild] = useAtom(yeildAtom);
   const [margin] = useAtom(marginAtom);
@@ -75,7 +74,6 @@ export default function MaterialSelect({
             row.amount,
             Number(item.price),
             exchangeRate,
-            freight,
             panel,
             yeild,
             margin

@@ -27,6 +27,8 @@ import {
 import { percision } from "Library/ConstantValues";
 import TotalLabel from "./Compontents/TotalLabel";
 import { USDTotalFrontAtom } from "Library/Atoms/TotalAtomUSD";
+import { testerTemplate } from "DataBases/Tester";
+import JsonToTemplate from "JsonReader/JsonToTemplate";
 
 const FrontPagePrint = lazy(
   () => import("app/Compontents/PrintingElement/FrontPagePrint")
@@ -45,6 +47,7 @@ export default function page() {
   const [marginTotal] = useAtom(marginTotalAtom);
   const [USDTotal] = useAtom(USDTotalFrontAtom);
   const [unitTotal] = useAtom(unitTotalAtom);
+
   const SoldToText: string =
     "Buyer Name, Customer Name, Address\nCity, State, Country, Phone, #E-mail";
 

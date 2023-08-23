@@ -27,7 +27,6 @@ export default function AmountInput({
   setData,
 }: AmountInputInterface) {
   const [exchangeRate] = useAtom(exchangeRateMaterialAtom);
-  const [freight] = useAtom(freightAtom);
   const [panel] = useAtom(panelAtom);
   const [yeild] = useAtom(yeildAtom);
   const [margin] = useAtom(marginAtom);
@@ -62,7 +61,6 @@ export default function AmountInput({
             value,
             item.price,
             exchangeRate,
-            freight,
             panel,
             yeild,
             margin

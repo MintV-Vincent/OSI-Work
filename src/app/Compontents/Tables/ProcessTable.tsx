@@ -7,7 +7,7 @@ import HeaderRow from "./Rows/HeaderRow";
 import { processFilmTitle, serviceHeader } from "Library/Headers";
 import { filmTotalAtom } from "Library/Atoms/TotalAtom";
 import { filmProcessAtom } from "Library/Atoms/AtomStorage";
-import ServiceInput from "./CustomCompontents/ServiceAmount";
+import ServiceInput from "./CustomCompontents/ServiceInput";
 import AddServiceButton from "./CustomCompontents/AddServiceButton";
 
 export function ProcessTable() {

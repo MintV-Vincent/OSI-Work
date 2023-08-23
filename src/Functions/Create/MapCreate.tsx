@@ -120,13 +120,13 @@ export function createTable(rows: number): materialRowMap[] {
 }
 
 /**
- *
- * @param rows
- * @returns
+ * This creates the material table but with elements already inside
+ * @param rows: number -> The number of empty rows created
+ * @returns: materialRowMap[]
  */
-export function createTemplate(rows: number): materialRowMap[] {
+export function createTemplate(jsonAtom: number): materialRowMap[] {
   let emptyTable: materialRowMap[] = [];
-  for (let i: number = 0; i < rows; i++) {
+  for (let i: number = 0; i < jsonAtom; i++) {
     emptyTable.push(createMaterialRow(i));
   }
   return emptyTable;

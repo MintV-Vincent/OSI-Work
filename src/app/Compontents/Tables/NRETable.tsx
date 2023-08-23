@@ -6,14 +6,24 @@ import { useAtom } from "jotai";
 import { nreTitle, serviceHeader } from "Library/Headers";
 import { nreAtom } from "Library/Atoms/ServiceStorage";
 import TotalRows from "./Rows/TotalRows";
-import ServiceInput from "app/Compontents/Tables/CustomCompontents/ServiceAmount";
+import ServiceInput from "./CustomCompontents/ServiceInput";
 import { createFormula } from "Functions/Create/CreateFormula";
 import AddServiceButton from "./CustomCompontents/AddServiceButton";
 import { USDTotalNREAtom } from "Library/Atoms/TotalAtomUSD";
+import {
+  exchangeRateMaterialAtom,
+  marginAtom,
+  panelAtom,
+  yeildAtom,
+} from "Library/Atoms/AtomStorage";
 
 export default function NRETable() {
   const [total] = useAtom(USDTotalNREAtom);
   const [nre, setNRE] = useAtom(nreAtom);
+  // const [exchangeRate] = useAtom(exchangeRateMaterialAtom);
+  // const [panel] = useAtom(panelAtom);
+  // const [yeild] = useAtom(yeildAtom);
+  // const [margin] = useAtom(marginAtom);
 
   /**
    *

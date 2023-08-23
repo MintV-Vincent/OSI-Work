@@ -18,7 +18,6 @@ export function createFormula(
   amount: number,
   unitPrice: number,
   exchangeRate: number | "" = 1,
-  freight: number | "" = 1,
   size: string = "1",
   yeild: number | "" = 1,
   margin: number | "" = 1
@@ -29,8 +28,9 @@ export function createFormula(
   equation = equation.replaceAll("exchange rate", exchangeRate.toString());
   equation = equation.replaceAll("amount", amount.toString());
   equation = equation.replaceAll("price", unitPrice.toString());
-  equation = equation.replaceAll("size", "1");
-  equation = equation.replaceAll("freight", "1");
+  equation = equation.replaceAll("size", size.toString());
+  equation = equation.replaceAll("yeild", yeild.toString());
+  equation = equation.replaceAll("margin", margin.toString());
   const removeDangerous = equation.replace(/[^\[0-9-*+/. ]/, "");
   return removeDangerous;
 }

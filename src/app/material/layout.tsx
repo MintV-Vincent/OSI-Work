@@ -4,13 +4,13 @@ import { useAtom } from "jotai";
 import { panelAtom, upPanelAtom } from "Library/Atoms/AtomStorage";
 import { panelRow, percision } from "Library/ConstantValues";
 import ExchangeRateInput from "app/Compontents/ExchangeRateInput";
+import PanelSelect from "app/Compontents/PanelSelect";
 
 export default function MaterialLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [panel, setPanel] = useAtom(panelAtom);
   const [upNum, setNumUp] = useAtom(upPanelAtom);
   return (
     <div className="flex flex-col mx-10 my-6">
@@ -29,14 +29,7 @@ export default function MaterialLayout({
           value={upNum}
           onChange={(event: number) => setNumUp(event)}
         />
-        <Select
-          className="pl-[20%] col-span-1 pl-1/5"
-          defaultValue={"1.5"}
-          value={panel}
-          onChange={setPanel as any}
-          data={panelRow}
-          title={"Panel Size"}
-        />
+        <PanelSelect />
       </div>
       {children}
     </div>

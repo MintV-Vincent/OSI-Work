@@ -6,7 +6,7 @@ import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
 import TotalRows from "./Rows/TotalRows";
 import { useAtom } from "jotai";
 import React from "react";
-import ServiceInput from "./CustomCompontents/ServiceAmount";
+import ServiceInput from "./CustomCompontents/ServiceInput";
 import AddServiceButton from "./CustomCompontents/AddServiceButton";
 import { USDQualityTotalAtom } from "Library/Atoms/TotalAtomUSD";
 

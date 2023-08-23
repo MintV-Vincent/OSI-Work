@@ -6,7 +6,7 @@ import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
 import { processFilmTitle, serviceHeader } from "Library/Headers";
 import { assemblyTotalAtom } from "Library/Atoms/TotalAtom";
-import ServiceInput from "./CustomCompontents/ServiceAmount";
+import ServiceInput from "./CustomCompontents/ServiceInput";
 import AddServiceButton from "./CustomCompontents/AddServiceButton";
 import { assemblyDataAtom } from "Library/Atoms/ServiceStorage";
 

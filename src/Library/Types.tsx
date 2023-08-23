@@ -61,4 +61,12 @@ export interface tabType {
   table: React.JSX.Element;
 }
 
+export interface template {
+  id: number;
+  table: string;
+  material: string;
+  supplier: string;
+  amount: number;
+}
+
 export type sType = [string, React.Dispatch<React.SetStateAction<string>>];

@@ -5,7 +5,19 @@ import {
   Modal,
   SegmentedControl,
 } from "@mantine/core";
+import { testerTemplate } from "DataBases/Tester";
+import { createFormula } from "Functions/Create/CreateFormula";
+import {
+  exchangeRateMaterialAtom,
+  filmProcessAtom,
+  marginAtom,
+  panelAtom,
+  yeildAtom,
+} from "Library/Atoms/AtomStorage";
 import { technologyAtom } from "Library/Atoms/FrontPageAtoms";
+import { nreAtom, servicesAtom } from "Library/Atoms/ServiceStorage";
+import { materialTableAtom } from "Library/Atoms/TableAtoms";
+import { servicesMap } from "Library/Types";
 import { useAtom } from "jotai";
 import React, { useState } from "react";
 
@@ -15,9 +27,17 @@ interface WarningInterface {
 }
 
 export default function WarningForm() {
+  const [exchangeRate] = useAtom(exchangeRateMaterialAtom);
+  const [panel] = useAtom(panelAtom);
+  const [yeild] = useAtom(yeildAtom);
+  const [margin] = useAtom(marginAtom);
   const [technology, setTechnology] = useAtom(technologyAtom);
   const [prevState, setPrevState] = useState(technology);
   const [status, setState] = useState(false);
+  const [nre, setNRE] = useAtom(nreAtom);
+  const [materialRows, setMaterialRow] = useAtom(materialTableAtom);
+  const [processing, setProcesses] = useAtom(filmProcessAtom);
+  const [service, setService] = useAtom(servicesAtom);
 
   return (
     <>

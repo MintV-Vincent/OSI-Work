@@ -40,7 +40,7 @@ export const dryFilm = [
     id: 5,
     price: 100,
     material: "LASER DRILL",
-    formula: "price * amount * 1.19",
+    formula: "price * amount * 1.19 / 60",
     amount: 0,
   },
   {

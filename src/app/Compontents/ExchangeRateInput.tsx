@@ -1,17 +1,22 @@
 import { NumberInput } from "@mantine/core";
-import { exchangeRateMaterialAtom } from "Library/Atoms/AtomStorage";
-import { materialTableAtom, processTableAtom } from "Library/Atoms/TableAtoms";
+import {
+  exchangeRateMaterialAtom,
+  filmProcessAtom,
+  panelAtom,
+} from "Library/Atoms/AtomStorage";
+import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { IconCurrencyDollar } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import React from "react";
-import { materialRowMap } from "Library/Types";
+import { materialRowMap, servicesMap } from "Library/Types";
 import { createFormula } from "Functions/Create/CreateFormula";
 import { percision } from "Library/ConstantValues";
 
 export default function ExchangeRateInput() {
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateMaterialAtom);
   const [materialData, useMaterialData] = useAtom(materialTableAtom);
-  const [processData, useProcessData] = useAtom(processTableAtom);
+  const [processing, setProcesses] = useAtom(filmProcessAtom);
+  const [panelSize] = useAtom(panelAtom);
 
   return (
     <NumberInput
@@ -36,11 +41,16 @@ export default function ExchangeRateInput() {
             };
           })
         );
-        useProcessData(
-          processData.map((row: materialRowMap) => {
-            const item = row.item;
+        setProcesses(
+          processing.map((row: servicesMap) => {
             let newPrice = eval(
-              createFormula(item.formula, item.price * row.amount, event)
+              createFormula(
+                row.formula,
+                row.amount,
+                row.unitPrice,
+                event,
+                panelSize
+              )
             );
             return {
               ...row,

@@ -1,12 +1,16 @@
 import { HoverCard, SegmentedControl, Table } from "@mantine/core";
-import { rowMap } from "Library/Types";
+import { rowMap, servicesMap } from "Library/Types";
 import { Select } from "@mantine/core";
 import { createRow } from "Functions/Create/MapCreate";
 import GetDate from "Functions/GetFunction/GetDate";
 import { useAtom } from "jotai";
 import { TextInput } from "@mantine/core";
 import SelectLabel from "app/Compontents/SelectLabel";
-import { panelAtom } from "Library/Atoms/AtomStorage";
+import {
+  exchangeRateMaterialAtom,
+  filmProcessAtom,
+  panelAtom,
+} from "Library/Atoms/AtomStorage";
 import {
   assemblyAtom,
   currencySelectorAtom,
@@ -24,6 +28,7 @@ import { panelRow } from "Library/ConstantValues";
 import WarningForm from "../Forms/WarningForm";
 import QuoteSelect from "./CustomCompontents/QuoteSelect";
 import { IconInfoSquareFilled } from "@tabler/icons-react";
+import { createFormula } from "Functions/Create/CreateFormula";
 interface SplitTable {
   left: [rowMap, JSX.Element | null];
   right: [rowMap, JSX.Element | null];
@@ -57,6 +62,8 @@ export function FrontTable() {
   const [sales, setSales] = useAtom(salesAtom);
   const [selector, setSelector] = useAtom(currencySelectorAtom);
   const [value, setValue] = useAtom(qualityAtom);
+  const [processing, setProcesses] = useAtom(filmProcessAtom);
+  const [exchangeRate] = useAtom(exchangeRateMaterialAtom);
 
   const selectLabel: React.JSX.Element[] = SelectLabel();
   const selectCustomer: React.JSX.Element = selectLabel[0];
@@ -164,7 +171,26 @@ export function FrontTable() {
       color="blue"
       fullWidth
       value={panel}
-      onChange={setPanel}
+      onChange={(e) => {
+        setPanel(e);
+        setProcesses(
+          processing.map((row: servicesMap) => {
+            let newPrice = eval(
+              createFormula(
+                row.formula,
+                row.amount,
+                row.unitPrice,
+                exchangeRate,
+                e
+              )
+            );
+            return {
+              ...row,
+              price: newPrice,
+            };
+          })
+        );
+      }}
       data={panelRow}
     />
   );

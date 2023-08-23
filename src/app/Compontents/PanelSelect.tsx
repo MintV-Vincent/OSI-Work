@@ -14,7 +14,7 @@ import React from "react";
 export default function PanelSelect() {
   const [panel, setPanel] = useAtom(panelAtom);
   const [processing, setProcesses] = useAtom(filmProcessAtom);
-  const [exchangeRate, setExchangeRate] = useAtom(exchangeRateMaterialAtom);
+  const [exchangeRate] = useAtom(exchangeRateMaterialAtom);
 
   return (
     <Select

@@ -6,6 +6,7 @@ import ServiceTable from "app/Compontents/Tables/ServiceTable";
 import { MaterialTotalTable } from "app/Compontents/Tables/MaterialTotalTable";
 import ServiceTotalTable from "app/Compontents/Tables/ServiceTotalTable";
 import { AssemblyTable } from "app/Compontents/Tables/AssemblyTable";
+import NRETable from "app/Compontents/Tables/NRETable";
 
 export default function page() {
   return (
@@ -25,6 +26,7 @@ export default function page() {
       <div className="grid-span-1 h-[calc(100vh-12rem)] overflow-auto ml-2 z-50">
         <ProcessTable />
         <ServiceTable />
+        <NRETable />
       </div>
     </div>
   );

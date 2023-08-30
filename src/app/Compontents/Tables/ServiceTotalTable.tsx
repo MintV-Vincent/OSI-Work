@@ -28,7 +28,9 @@ export default function ServiceTotalTable() {
       <thead className={"bg-light"}>
         <tr>
           <td className="w-2/12" />
-          <td className={headerClass + "w-3/12 text-left"}>Material</td>
+          <td className={headerClass + "w-3/12 text-left"}>
+            Non-Recurring Engineering
+          </td>
           <td className={headerClass + "w-3/12 text-right"}>CAD ($)</td>
           <td className={headerClass + "w-3/12 text-right"}>USD ($)</td>
           <td className="w-1/12" />

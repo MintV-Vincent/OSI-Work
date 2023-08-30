@@ -26,7 +26,7 @@ export default function ServiceTable() {
             <td className="w-4/12 px-3">{row.service}</td>
             <td className="w-2/12 px-3">
               <ServiceInput
-                id={index + 1}
+                id={index}
                 currentAmount={row.amount}
                 unitPrice={row.unitPrice}
                 data={service}

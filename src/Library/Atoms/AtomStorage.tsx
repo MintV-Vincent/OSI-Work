@@ -1,19 +1,47 @@
-import { jsonMap, rowMapPrice } from "Library/Types";
-import { createRowPrice } from "Functions/Create/MapCreate";
+import { createRowPrice } from "../../Functions/Create/MapCreate";
 import JsonToAtom from "JsonReader/JsonToAtom";
 import { atom } from "jotai";
-import { readData } from "Directus SDK/directus";
+import { cover } from "DataBases/JsonCover";
+import { panasonic } from "DataBases/Laminate";
+import { dupont } from "DataBases/Dupont";
+import { arlon } from "DataBases/Arlon";
+import { isola } from "DataBases/JsonIsola";
+import { tapes } from "DataBases/Taiflex";
+import { Mtapes } from "DataBases/3MTapes";
+import { arwisa } from "DataBases/Arwisa";
+import { rowMapPrice } from "Library/Types";
 
-const materialListAtom = atom(
-  readData("Materials", 400).then((v) => JsonToAtom(v))
-);
+const isolaAtom = atom(JsonToAtom(isola));
+const arlonAtom = atom(JsonToAtom(arlon));
+const dupontAtom = atom(JsonToAtom(dupont));
+const panasonicAtom = atom(JsonToAtom(panasonic));
+const coverAtom = atom(JsonToAtom(cover));
+const tapesAtom = atom(JsonToAtom(tapes));
+const MAtom = atom(JsonToAtom(Mtapes));
+const arwisaAtom = atom(JsonToAtom(arwisa));
 const addedAtom = atom<rowMapPrice[]>([]);
-
 export const materialAtom = atom(
-  async (get) => {
-    const materials = await get(materialListAtom);
+  (get) => {
+    const isola = get(isolaAtom);
+    const arlon = get(arlonAtom);
+    const dupont = get(dupontAtom);
+    const panasonic = get(panasonicAtom);
+    const cover = get(coverAtom);
+    const tapes = get(tapesAtom);
+    const mtapes = get(MAtom);
+    const arwisa = get(arwisaAtom);
     const added = get(addedAtom);
-    return [materials, added];
+    return [
+      cover,
+      isola,
+      arlon,
+      dupont,
+      panasonic,
+      tapes,
+      mtapes,
+      arwisa,
+      added,
+    ];
   },
   (
     get,
@@ -25,13 +53,30 @@ export const materialAtom = atom(
     custom: string,
     supplier: string = "Added"
   ) => {
-    const materials = get(materialListAtom);
+    const isola = get(isolaAtom);
+    const arlon = get(arlonAtom);
+    const dupont = get(dupontAtom);
+    const panasonic = get(panasonicAtom);
+    const cover = get(coverAtom);
     const added = get(addedAtom);
+    const tapes = get(tapesAtom);
+    const mtapes = get(MAtom);
+    const arwisa = get(arwisaAtom);
     set(addedAtom, [
       ...added,
       createRowPrice(value, label, formula, custom, supplier, Number(price)),
     ]);
-    return [materials, added];
+    return [
+      cover,
+      isola,
+      arlon,
+      dupont,
+      panasonic,
+      tapes,
+      mtapes,
+      arwisa,
+      added,
+    ];
   }
 );
 

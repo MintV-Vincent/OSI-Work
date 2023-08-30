@@ -54,7 +54,7 @@ export function MaterialTotalTable() {
         </tr>
         <tr className={"text-primary"}>
           <td />
-          <td className="px-3 text-left ">Assembly</td>
+          <td className="px-3 text-left ">Bare Flex</td>
           <td className="px-3 text-right ">{assemblyTotal.toFixed(2)}</td>
           <td className="px-3 text-right ">{assemblyTotalUSD.toFixed(2)}</td>
           <td />

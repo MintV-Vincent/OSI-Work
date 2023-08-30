@@ -13,7 +13,7 @@ export default function MaterialLayout({
 }) {
   const [upNum, setNumUp] = useAtom(upPanelAtom);
   return (
-    <div className="flex flex-col mx-10 my-5">
+    <div className="flex flex-col mx-10 my-3">
       <div className="grid grid-cols-6">
         <label className="text-xl text-left col-span-4">1 USD to CAD</label>
         <label className="text-xl text-left">#-Up-Per-Panel</label>
@@ -23,6 +23,7 @@ export default function MaterialLayout({
         <ExchangeRateInput />
         <div className="col-span-3" />
         <NumberInput
+          size={"xs"}
           className="col-span-1 w-4/5"
           hideControls
           precision={percision}
@@ -30,7 +31,7 @@ export default function MaterialLayout({
           onChange={(event: number) => setNumUp(event)}
         />
         <div className="pl-[20%] pl-1/5">
-          <PanelSelect />
+          <PanelSelect size={"xs"} />
         </div>
       </div>
       {children}

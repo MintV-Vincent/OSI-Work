@@ -55,7 +55,7 @@ export default function AddServiceForm({
             values.price != undefined
           ) {
             const newData = createService(
-              data.length + 1,
+              data.length,
               0,
               values.formula,
               values.material,

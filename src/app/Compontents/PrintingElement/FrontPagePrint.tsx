@@ -75,6 +75,7 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
   const [sales] = useAtom(salesAtom);
   const [partNumber] = useAtom(partsInputAtom);
   const [exchangeRate] = useAtom(exchangeRateAtom);
+  const [revision] = useAtom(revAtom);
   const [sold] = useAtom(soldAtom);
   const [quality] = useAtom(qualityPrintAtom);
   const [selector] = useAtom(currencySelectorAtom);
@@ -149,45 +150,25 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
         </label>
       </div>
       <div className="col-span-2 row-span-1" />
-      <div className="col-span-2 row-span-6 grid grid-cols-6 sub-grid5 gap-y-2">
+      <div className="col-span-2 row-span-6 grid grid-cols-6 sub-grid">
         <label className="col-span-1 break-words whitespace-pre-wrap font-semibold">
           Part Number:
         </label>
         <label className="col-span-5 break-words whitespace-pre-wrap">
-          {partNumber}
+          {partNumber} Rev: {revision}
         </label>
+        <div className="col-span-6" />
         <label className="col-span-1 font-semibold">Quantity</label>
-        <div className="col-span-5 justify-between break-words whitespace-pre-wrap">
-          {quality?.map((row: string, index: number) => (
-            <label key={row + index} className="">
-              {row}
-            </label>
-          ))}
-        </div>
-        <label className="col-span-1 ">Standard (6 weeks)</label>
-        <div className="col-span-5 justify-between break-words whitespace-pre-wrap">
-          {quality?.map((row: string, index: number) => (
-            <label key={row + index} className="">
-              {(fullTotal / Number(row)).toFixed(2)}
-            </label>
-          ))}
-        </div>
-        <label className="col-span-1 ">Expedited (4 weeks)</label>
-        <div className="col-span-5 justify-between break-words whitespace-pre-wrap">
-          {quality?.map((row: string, index: number) => (
-            <label key={row + index} className="">
-              {(fullTotal / Number(row)).toFixed(2)}
-            </label>
-          ))}
-        </div>
-        <label className="col-span-1 ">Fastest (2 weeks)</label>
-        <div className="col-span-5 justify-between break-words whitespace-pre-wrap">
-          {quality?.map((row: string, index: number) => (
-            <label key={row + index} className="">
-              {(fullTotal / Number(row)).toFixed(2)}
-            </label>
-          ))}
-        </div>
+        {quality?.map((row: string, index: number) => (
+          <label key={row + index}>{row}</label>
+        ))}
+        <div className="col-span-6" />
+        <label className="col-span-1 ">Unit Price</label>
+        {quality?.map((row: string, index: number) => (
+          <label key={row + index} className="">
+            $ {(fullTotal / Number(row)).toFixed(2)}
+          </label>
+        ))}
       </div>
       <div className="col-span-2 row-span-1" />
       <label className="col-span-2 font-semibold">
@@ -200,7 +181,7 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
             className="col-span-2 row-span-1 flex"
           >
             <label className="flex basis-2/3">{row ? row.service : ""}</label>
-            <label className="flex basis-1/3">{row ? row.price : ""}</label>
+            <label className="flex basis-1/3">$ {row ? row.price : ""}</label>
           </div>
         ))}
       </div>

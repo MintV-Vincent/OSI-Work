@@ -21,10 +21,6 @@
     grid-template-rows: repeat(6, minmax(0, 1.1rem));
   }
 
-  .sub-grid5 {
-    grid-template-rows: repeat(5, minmax(0, 1.1rem));
-  }
-
   .sub-grid4 {
     grid-template-rows: repeat(4, minmax(0, 1.1rem));
   }

@@ -10,14 +10,7 @@ export default function JsonToService(json: any[]): servicesMap[] {
   let array: servicesMap[] = [];
   for (let i: number = 0; i < json.length; i++) {
     array.push(
-      createService(
-        json[i].id,
-        0,
-        json[i].formula,
-        json[i].service,
-        json[i].price,
-        0
-      )
+      createService(i, 0, json[i].formula, json[i].service, json[i].price, 0)
     );
   }
   return array;

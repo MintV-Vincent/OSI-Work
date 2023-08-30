@@ -18,6 +18,7 @@ export default function ExchangeRateInput() {
 
   return (
     <NumberInput
+      size="xs"
       className="w-4/5"
       hideControls
       precision={percision}

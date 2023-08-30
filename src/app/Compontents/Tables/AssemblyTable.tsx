@@ -30,7 +30,7 @@ export function AssemblyTable() {
             <td className="px-3 w-4/12">{row.service}</td>
             <td className="px-3 w-2/12">
               <ServiceInput
-                id={index + 1}
+                id={index}
                 currentAmount={row.amount}
                 unitPrice={row.unitPrice}
                 data={assembly}

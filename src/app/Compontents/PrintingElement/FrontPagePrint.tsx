@@ -88,6 +88,9 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
   const [service] = useAtom(servicesAtom);
   const [nre] = useAtom(nreAtom);
 
+  const cadSelect = terms.replace("CAD", selector);
+  const final = cadSelect.replace("USD", selector);
+
   let nreArray: any[] = [];
   addItem(nreArray, service);
   addItem(nreArray, nre);
@@ -219,14 +222,6 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
         <div className="h-0.5 w-full bg-black m-auto" />
         <div className="text-right">Form #102</div>
       </div>
-      {/* 
-      <div className="col-span-2">
-        <label className="">Part Attributes:</label>
-        <label className=" break-words whitespace-pre-wrap">
-          {partAttributes}
-        </label>
-      </div>
- */}
     </section>
   );
 });

@@ -14,12 +14,7 @@ const textTermAtom = atom<string>(
 );
 export const termsAtom = atom(
   (get) => {
-    const text = get(textTermAtom);
-    const selector = get(currencySelectorAtom);
-    const cadSelect = text.replace("CAD", selector);
-    const final = cadSelect.replace("USD", selector);
-
-    return final;
+    return get(textTermAtom);
   },
   (_get, set, newText: string) => set(textTermAtom, newText)
 );

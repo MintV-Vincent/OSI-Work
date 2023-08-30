@@ -11,9 +11,8 @@ import { assemblyDataAtom, processAtom } from "Library/Atoms/ServiceStorage";
 export const materialFilmTotalAtom = atom(async (get) => {
   const material = await get(materialTotalAtom);
   const film = await get(filmTotalAtom);
-  const assembly = await get(assemblyTotalAtom);
 
-  return film + material + assembly;
+  return film + material;
 });
 
 export const serviceTotalAtom = atom(async (get) => {

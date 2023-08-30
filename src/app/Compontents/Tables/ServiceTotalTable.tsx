@@ -8,7 +8,7 @@ import {
   serviceTotalAtom,
 } from "Library/Atoms/TotalAtom";
 import {
-  USDQualityTotalAtom,
+  USDServiceTotalAtom,
   USDTotalNREAtom,
 } from "Library/Atoms/TotalAtomUSD";
 
@@ -17,7 +17,7 @@ export default function ServiceTotalTable() {
   const [exchange] = useAtom(exchangeRateMaterialAtom);
 
   const [serviceTotal] = useAtom(qualityTotalAtom);
-  const [serviceTotalUSD] = useAtom(USDQualityTotalAtom);
+  const [serviceTotalUSD] = useAtom(USDServiceTotalAtom);
   const [nreTotal] = useAtom(NRETotalAtom);
   const [nreTotalUSD] = useAtom(USDTotalNREAtom);
   const headerClass =

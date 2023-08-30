@@ -11,10 +11,10 @@ export default function JsonToService(json: any[]): servicesMap[] {
   for (let i: number = 0; i < json.length; i++) {
     array.push(
       createService(
-        i,
-        json[i].amount,
+        json[i].id,
+        0,
         json[i].formula,
-        json[i].material,
+        json[i].service,
         json[i].price,
         0
       )

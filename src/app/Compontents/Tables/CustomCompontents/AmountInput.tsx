@@ -1,9 +1,7 @@
 import { NumberInput } from "@mantine/core";
 import { createFormula } from "Functions/Create/CreateFormula";
 import {
-  exchangeRateAtom,
   exchangeRateMaterialAtom,
-  freightAtom,
   marginAtom,
   panelAtom,
   yeildAtom,
@@ -57,7 +55,7 @@ export default function AmountInput({
         const item: rowMapPrice = row.item;
         let price = eval(
           createFormula(
-            row.item.formula,
+            item.formula,
             value,
             item.price,
             exchangeRate,

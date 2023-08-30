@@ -2,19 +2,21 @@ import { materialRowMap, servicesMap } from "Library/Types";
 import {
   exchangeRateAtom,
   exchangeRateMaterialAtom,
-  filmProcessAtom,
 } from "Library/Atoms/AtomStorage";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { atom } from "jotai";
-import { nreAtom, servicesAtom } from "./ServiceStorage";
 import {
   assemblyTotalAtom,
-  fullTotalAtom,
   materialFilmTotalAtom,
-} from "./TotalAtom";
+} from "Library/Atoms/TotalAtom";
+import {
+  processAtom,
+  nreAtom,
+  servicesAtom,
+} from "Library/Atoms/ServiceStorage";
 
-export const materialTotalUSDAtom = atom<number>((get) => {
-  const typeRowsAtom: any = get(materialTableAtom);
+export const materialTotalUSDAtom = atom(async (get) => {
+  const typeRowsAtom: any = await get(materialTableAtom);
   let exchangeRate: any = get(exchangeRateMaterialAtom);
   if (exchangeRate === 0 || isNaN(exchangeRate)) {
     exchangeRate = 1;
@@ -28,8 +30,8 @@ export const materialTotalUSDAtom = atom<number>((get) => {
   );
 });
 
-export const USDFilmTotalAtom = atom<number>((get) => {
-  const typeFilmAtom: any = get(filmProcessAtom);
+export const USDFilmTotalAtom = atom(async (get) => {
+  const typeFilmAtom: any = await get(processAtom);
   let exchangeRate: any = get(exchangeRateMaterialAtom);
   if (exchangeRate === 0 || isNaN(exchangeRate)) {
     exchangeRate = 1;
@@ -43,8 +45,8 @@ export const USDFilmTotalAtom = atom<number>((get) => {
   );
 });
 
-export const USDAssemblyTotalAtom = atom<number>((get) => {
-  const typeFilmAtom: any = get(assemblyTotalAtom);
+export const USDAssemblyTotalAtom = atom(async (get) => {
+  const typeFilmAtom: any = await get(assemblyTotalAtom);
   const exchangeRate: any = get(exchangeRateMaterialAtom);
   if (isNaN(exchangeRate) || exchangeRate === 0) {
     return typeFilmAtom / 1;
@@ -52,8 +54,8 @@ export const USDAssemblyTotalAtom = atom<number>((get) => {
   return typeFilmAtom / exchangeRate;
 });
 
-export const USDQualityTotalAtom = atom<number>((get) => {
-  const typeQualAtom: any = get(servicesAtom);
+export const USDServiceTotalAtom = atom(async (get) => {
+  const typeQualAtom: any = await get(servicesAtom);
   return typeQualAtom.reduce(
     (accumulator: number, currentValue: servicesMap) =>
       accumulator + Number(currentValue.price),
@@ -61,8 +63,8 @@ export const USDQualityTotalAtom = atom<number>((get) => {
   );
 });
 
-export const USDTotalNREAtom = atom<number>((get) => {
-  const typeNREAtom: any = get(nreAtom);
+export const USDTotalNREAtom = atom(async (get) => {
+  const typeNREAtom: any = await get(nreAtom);
   return typeNREAtom.reduce(
     (accumulator: number, currentValue: servicesMap) =>
       accumulator + Number(currentValue.price),
@@ -70,18 +72,9 @@ export const USDTotalNREAtom = atom<number>((get) => {
   );
 });
 
-export const USDTotalSalesAtom = atom<number>((get) => {
-  const CADTotal: any = get(materialFilmTotalAtom);
+export const USDTotalSalesAtom = atom(async (get) => {
+  const CADTotal: any = await get(materialFilmTotalAtom);
   const exchangeRate: any = get(exchangeRateMaterialAtom);
-  if (isNaN(exchangeRate) || exchangeRate === 0) {
-    return CADTotal / 1;
-  }
-  return CADTotal / exchangeRate;
-});
-
-export const USDTotalFrontAtom = atom<number>((get) => {
-  const CADTotal: any = get(materialFilmTotalAtom);
-  const exchangeRate: any = get(exchangeRateAtom);
   if (isNaN(exchangeRate) || exchangeRate === 0) {
     return CADTotal / 1;
   }

@@ -71,7 +71,7 @@ export default function NRETable() {
             <td className="w-4/12 px-3">{row.service}</td>
             <td className="w-2/12 px-3">
               <ServiceInput
-                id={index}
+                id={index + 1}
                 currentAmount={row.amount}
                 unitPrice={row.unitPrice}
                 data={nre}
@@ -84,7 +84,7 @@ export default function NRETable() {
                 hideControls
                 value={row.unitPrice}
                 onChange={(e) => {
-                  onPriceChange(index, e, nre, setNRE);
+                  onPriceChange(index + 1, e, nre, setNRE);
                 }}
                 precision={2}
               />

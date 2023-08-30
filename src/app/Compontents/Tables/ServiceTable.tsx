@@ -8,11 +8,12 @@ import { useAtom } from "jotai";
 import React from "react";
 import ServiceInput from "./CustomCompontents/ServiceInput";
 import AddServiceButton from "./CustomCompontents/AddServiceButton";
-import { USDQualityTotalAtom } from "Library/Atoms/TotalAtomUSD";
+import { USDServiceTotalAtom } from "Library/Atoms/TotalAtomUSD";
 
 export default function ServiceTable() {
-  const [total] = useAtom(USDQualityTotalAtom);
+  const [total] = useAtom(USDServiceTotalAtom);
   const [service, setService] = useAtom(servicesAtom);
+
   return (
     <Table striped withBorder verticalSpacing="w-10">
       <HeaderRow
@@ -25,7 +26,7 @@ export default function ServiceTable() {
             <td className="w-4/12 px-3">{row.service}</td>
             <td className="w-2/12 px-3">
               <ServiceInput
-                id={index}
+                id={index + 1}
                 currentAmount={row.amount}
                 unitPrice={row.unitPrice}
                 data={service}
@@ -35,7 +36,9 @@ export default function ServiceTable() {
             <td className="text-right px-3 w-3/12 ">
               {row.unitPrice.toFixed(2)}
             </td>
-            <td className="text-right px-3 w-3/12 ">{row.price.toFixed(2)}</td>
+            <td className="text-right px-3 w-3/12 ">
+              <label title={row.formula}>{row.price.toFixed(2)}</label>
+            </td>
           </tr>
         ))}
         <TotalRows

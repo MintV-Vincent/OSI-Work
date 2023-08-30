@@ -6,7 +6,7 @@ interface customSelect {
   rowSupplier: string;
   data: materialRowMap[];
   id: number;
-  supplier: dictionaryMap[];
+  supplier: string[];
   setData: any;
 }
 

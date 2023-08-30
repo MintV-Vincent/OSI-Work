@@ -2,7 +2,7 @@ import { Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import React from "react";
 import { createService } from "Functions/Create/MapCreate";
-import ModalForm from "./ModalForm";
+import ModalForm from "app/Compontents/Forms/ModalForm";
 import { servicesMap } from "Library/Types";
 import { testCreateFormula } from "Functions/Create/CreateFormula";
 
@@ -55,7 +55,7 @@ export default function AddServiceForm({
             values.price != undefined
           ) {
             const newData = createService(
-              data.length,
+              data.length + 1,
               0,
               values.formula,
               values.material,

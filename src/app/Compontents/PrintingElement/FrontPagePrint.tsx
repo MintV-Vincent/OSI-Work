@@ -20,8 +20,8 @@ import {
   specAtom,
   termsAtom,
 } from "Library/Atoms/FrontPageAtoms";
-import { fullTotalAtom, unitTotalAtom } from "Library/Atoms/TotalAtom";
-import { quoteAtom, unitAtom } from "Library/Atoms/AtomStorage";
+import { materialFilmTotalAtom } from "Library/Atoms/TotalAtom";
+import { exchangeRateAtom, quoteAtom } from "Library/Atoms/AtomStorage";
 import { nreAtom, servicesAtom } from "Library/Atoms/ServiceStorage";
 import { servicesMap } from "Library/Types";
 
@@ -74,15 +74,11 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
   const [notes] = useAtom(noteAtom);
   const [sales] = useAtom(salesAtom);
   const [partNumber] = useAtom(partsInputAtom);
-  // const [revision] = useAtom(revAtom);
-  // const [customer] = useAtom(customerAtom);
-  // const [unitTotal] = useAtom(unitTotalAtom);
-  // const [units] = useAtom(unitAtom);
+  const [exchangeRate] = useAtom(exchangeRateAtom);
   const [sold] = useAtom(soldAtom);
   const [quality] = useAtom(qualityPrintAtom);
-  const [fullTotal] = useAtom(fullTotalAtom);
-  // const [partAttributes] = useAtom(partsAtom);
-  // const [selector] = useAtom(currencySelectorAtom);
+  const [selector] = useAtom(currencySelectorAtom);
+  const [materialTotal] = useAtom(materialFilmTotalAtom);
   const [terms] = useAtom(termsAtom);
   const [quote] = useAtom(quoteAtom);
   const [finish] = useAtom(finishAtom);
@@ -96,6 +92,9 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
   addItem(nreArray, nre);
 
   const salesPerson: string = chooseSales(sales);
+
+  const fullTotal =
+    selector === "CAD" ? materialTotal : materialTotal / Number(exchangeRate);
 
   return (
     <section id="page" ref={ref}>

@@ -1,9 +1,9 @@
 "use client";
-import { NumberInput, Select } from "@mantine/core";
+import { NumberInput } from "@mantine/core";
 import { useAtom } from "jotai";
-import { panelAtom, upPanelAtom } from "Library/Atoms/AtomStorage";
-import { panelRow, percision } from "Library/ConstantValues";
-import ExchangeRateInput from "app/Compontents/ExchangeRateInput";
+import { upPanelAtom } from "Library/Atoms/AtomStorage";
+import { percision } from "Library/ConstantValues";
+import ExchangeRateInput from "app/Compontents/Input/ExchangeRateInput";
 import PanelSelect from "app/Compontents/PanelSelect";
 
 export default function MaterialLayout({
@@ -13,7 +13,7 @@ export default function MaterialLayout({
 }) {
   const [upNum, setNumUp] = useAtom(upPanelAtom);
   return (
-    <div className="flex flex-col mx-10 my-6">
+    <div className="flex flex-col mx-10 my-5">
       <div className="grid grid-cols-6">
         <label className="text-xl text-left col-span-4">1 USD to CAD</label>
         <label className="text-xl text-left">#-Up-Per-Panel</label>
@@ -29,7 +29,9 @@ export default function MaterialLayout({
           value={upNum}
           onChange={(event: number) => setNumUp(event)}
         />
-        <PanelSelect />
+        <div className="pl-[20%] pl-1/5">
+          <PanelSelect />
+        </div>
       </div>
       {children}
     </div>

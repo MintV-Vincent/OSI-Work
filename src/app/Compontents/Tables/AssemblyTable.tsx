@@ -4,11 +4,15 @@ import { useAtom } from "jotai";
 import React from "react";
 import TotalRows from "./Rows/TotalRows";
 import HeaderRow from "./Rows/HeaderRow";
-import { processFilmTitle, serviceHeader } from "Library/Headers";
+import {
+  assemblyTitle,
+  processFilmTitle,
+  serviceHeader,
+} from "Library/Headers";
 import { assemblyTotalAtom } from "Library/Atoms/TotalAtom";
-import ServiceInput from "./CustomCompontents/ServiceInput";
 import AddServiceButton from "./CustomCompontents/AddServiceButton";
 import { assemblyDataAtom } from "Library/Atoms/ServiceStorage";
+import ServiceInput from "./CustomCompontents/ServiceInput";
 
 export function AssemblyTable() {
   const [total] = useAtom(assemblyTotalAtom);
@@ -18,7 +22,7 @@ export function AssemblyTable() {
     <Table striped withBorder verticalSpacing="w-10">
       <HeaderRow
         columns={["text-left ", "", "text-right ", "text-right "]}
-        titles={serviceHeader("Assembly")}
+        titles={serviceHeader(assemblyTitle)}
       />
       <tbody>
         {assembly.map((row: servicesMap, index: number) => (
@@ -26,7 +30,7 @@ export function AssemblyTable() {
             <td className="px-3 w-4/12">{row.service}</td>
             <td className="px-3 w-2/12">
               <ServiceInput
-                id={index}
+                id={index + 1}
                 currentAmount={row.amount}
                 unitPrice={row.unitPrice}
                 data={assembly}

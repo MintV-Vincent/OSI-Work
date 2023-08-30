@@ -1,46 +1,25 @@
 import { atom } from "jotai";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { materialRowMap, servicesMap } from "Library/Types";
+import { exchangeRateMaterialAtom } from "Library/Atoms/AtomStorage";
 import {
-  exchangeRateAtom,
-  exchangeRateMaterialAtom,
-  filmProcessAtom,
-  marginAtom,
-  upPanelAtom,
-  yeildAtom,
-} from "Library/Atoms/AtomStorage";
-import { currencySelectorAtom } from "Library/Atoms/FrontPageAtoms";
-import {
-  USDQualityTotalAtom,
-  USDTotalFrontAtom,
+  USDServiceTotalAtom,
   USDTotalNREAtom,
 } from "Library/Atoms/TotalAtomUSD";
-import { assemblyDataAtom } from "./ServiceStorage";
+import { assemblyDataAtom, processAtom } from "Library/Atoms/ServiceStorage";
 
-export const materialFilmTotalAtom = atom<number>((get) => {
-  const material = get(materialTotalAtom);
-  const film = get(filmTotalAtom);
-  const assmbly = get(assemblyTotalAtom);
+export const materialFilmTotalAtom = atom(async (get) => {
+  const material = await get(materialTotalAtom);
+  const film = await get(filmTotalAtom);
+  const assembly = await get(assemblyTotalAtom);
 
-  return film + material + assmbly;
+  return film + material + assembly;
 });
 
-export const serviceTotalAtom = atom<number>((get) => {
-  const qual = get(qualityTotalAtom);
-  const nre = get(NRETotalAtom);
+export const serviceTotalAtom = atom(async (get) => {
+  const qual = await get(qualityTotalAtom);
+  const nre = await get(NRETotalAtom);
   return qual + nre;
-});
-
-//Total atom
-export const fullTotalAtom = atom<number>((get) => {
-  const selector: string = get(currencySelectorAtom);
-  const CADTotal: any = get(materialFilmTotalAtom);
-  const exchangeRate: any = get(exchangeRateAtom);
-  if ("CAD" === selector) {
-    return CADTotal;
-  } else {
-    return CADTotal / exchangeRate;
-  }
 });
 
 export const materialTotalAtom = atom<number>((get) => {
@@ -52,8 +31,8 @@ export const materialTotalAtom = atom<number>((get) => {
   );
 });
 
-export const filmTotalAtom = atom<number>((get) => {
-  const typeFilmAtom: any = get(filmProcessAtom);
+export const filmTotalAtom = atom(async (get) => {
+  const typeFilmAtom: any = await get(processAtom);
   return typeFilmAtom.reduce(
     (accumulator: number, currentValue: servicesMap) =>
       accumulator + currentValue.price,
@@ -61,8 +40,8 @@ export const filmTotalAtom = atom<number>((get) => {
   );
 });
 
-export const assemblyTotalAtom = atom<number>((get) => {
-  const typeRowsAtom: any = get(assemblyDataAtom);
+export const assemblyTotalAtom = atom(async (get) => {
+  const typeRowsAtom: any = await get(assemblyDataAtom);
   return typeRowsAtom.reduce(
     (previousScore: number, currentScore: servicesMap) =>
       previousScore + currentScore.price,
@@ -70,8 +49,8 @@ export const assemblyTotalAtom = atom<number>((get) => {
   );
 });
 
-export const qualityTotalAtom = atom<number>((get) => {
-  const typeRowsAtom: any = get(USDQualityTotalAtom);
+export const qualityTotalAtom = atom(async (get) => {
+  const typeRowsAtom: any = await get(USDServiceTotalAtom);
   let exchangeRate: any = get(exchangeRateMaterialAtom);
   if (exchangeRate === 0 || isNaN(exchangeRate)) {
     exchangeRate = 1;
@@ -79,38 +58,11 @@ export const qualityTotalAtom = atom<number>((get) => {
   return typeRowsAtom * exchangeRate;
 });
 
-export const NRETotalAtom = atom<number>((get) => {
-  const typeRowsAtom: any = get(USDTotalNREAtom);
+export const NRETotalAtom = atom(async (get) => {
+  const typeRowsAtom: any = await get(USDTotalNREAtom);
   let exchangeRate: any = get(exchangeRateMaterialAtom);
   if (exchangeRate === 0 || isNaN(exchangeRate)) {
     exchangeRate = 1;
   }
   return typeRowsAtom * exchangeRate;
-});
-
-export const yeildTotalAtom = atom<number>((get) => {
-  const fullTotal = get(fullTotalAtom);
-  let yeildPercentage = get(yeildAtom);
-  if (yeildPercentage === 0) {
-    yeildPercentage = 1;
-  }
-  return fullTotal / Number(yeildPercentage);
-});
-
-export const marginTotalAtom = atom<number>((get) => {
-  const yeildTotal = get(yeildTotalAtom);
-  let marginPercentage = get(marginAtom);
-  if (marginPercentage === 0) {
-    marginPercentage = 1;
-  }
-  return yeildTotal / Number(marginPercentage);
-});
-
-export const unitTotalAtom = atom<number>((get) => {
-  const unitTotal = get(USDTotalFrontAtom);
-  let numberOfUnits = get(upPanelAtom);
-  if (numberOfUnits === 0) {
-    numberOfUnits = 1;
-  }
-  return unitTotal / Number(numberOfUnits);
 });

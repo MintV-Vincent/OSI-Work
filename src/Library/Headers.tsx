@@ -17,6 +17,7 @@ export const materialsTitle: string = "Materials";
 export const processFilmTitle: string = "Processes";
 export const serviceTitle: string = "Services";
 export const nreTitle: string = "NRE";
+export const assemblyTitle: string = "Assembly";
 
 export const totalTitle: string[] = ["Material", " CAD ($)", " USD ($)"];
 export const totalTitle2: string[] = ["Services", " CAD ($)", " USD ($)"];

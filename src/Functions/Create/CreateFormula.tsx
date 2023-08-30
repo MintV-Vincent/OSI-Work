@@ -5,7 +5,6 @@
  * @param amount :number -> The amount of materials or processes
  * @param unitPrice :number -> The unit price
  * @param exchangeRate :number -> exchange rate
- * @param freight :number -> global freight
  * @param size :number -> Size of the panel
  * @param yeild :number -> Yeild percentage
  * @param margin :number -> Margin percentage
@@ -31,6 +30,7 @@ export function createFormula(
   equation = equation.replaceAll("size", size.toString());
   equation = equation.replaceAll("yeild", yeild.toString());
   equation = equation.replaceAll("margin", margin.toString());
+  equation = equation.replaceAll("freight", "1");
   const removeDangerous = equation.replace(/[^\[0-9-*+/. ]/, "");
   return removeDangerous;
 }
@@ -42,7 +42,6 @@ export function createFormula(
  * @param amount :number -> The amount of materials or processes
  * @param unitPrice :number -> The unit price
  * @param exchangeRate :number -> exchange rate
- * @param freight :number -> global freight
  * @param size :number -> Size of the panel
  * @param yeild :number -> Yeild percentage
  * @param margin :number -> Margin percentage

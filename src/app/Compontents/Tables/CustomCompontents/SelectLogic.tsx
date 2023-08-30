@@ -1,7 +1,9 @@
+import { materialAtom } from "Library/Atoms/AtomStorage";
 import { dictionaryMap, rowMapPrice } from "Library/Types";
+import { useAtom } from "jotai";
 
 interface selectLogic {
-  supplier: dictionaryMap[];
+  supplier: string[];
   material: rowMapPrice[];
 }
 /**
@@ -24,18 +26,18 @@ export function filterMaterials(materials: rowMapPrice[], supplier: string) {
  * @returns Returns an array of 2 elements, First DictionaryMap[] used to create the supplier select.
  * The second will be every material used for the material select
  */
-export default function SelectLogic(suppliers: rowMapPrice[][]): selectLogic {
+export default function SelectLogic(): selectLogic {
+  const [suppliers] = useAtom(materialAtom);
   const materials: rowMapPrice[] = [];
-  let uniqueSupplier: dictionaryMap[] = [];
+  let uniqueSupplier: string[] = [];
+
   suppliers.forEach((element: rowMapPrice[]) => {
-    if (element.length > 0) {
-      uniqueSupplier.push({
-        label: element[0].supplier,
-        value: element[0].supplier,
-      });
-    }
     for (let i = 0; i < element.length; i++) {
       const { label, value, custom, formula, price, supplier } = element[i];
+      if (uniqueSupplier.includes(supplier)) {
+      } else {
+        uniqueSupplier.push(element[i].supplier);
+      }
       materials.push({
         value: value + supplier + price,
         label: label,

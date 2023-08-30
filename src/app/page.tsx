@@ -1,5 +1,4 @@
 "use client";
-import { IconCurrencyDollar } from "@tabler/icons-react";
 import { Button, NumberInput, Textarea } from "@mantine/core";
 import { FrontTable } from "app/Compontents/Tables/FrontTable";
 import { useReactToPrint } from "react-to-print";
@@ -7,46 +6,50 @@ import React, { useRef, lazy, Suspense } from "react";
 import { useAtom } from "jotai";
 import { IconPrinter } from "@tabler/icons-react";
 import {
+  currencySelectorAtom,
   noteAtom,
-  partsAtom,
   soldAtom,
   termsAtom,
 } from "Library/Atoms/FrontPageAtoms";
-import {
-  fullTotalAtom,
-  marginTotalAtom,
-  unitTotalAtom,
-  yeildTotalAtom,
-} from "Library/Atoms/TotalAtom";
+import { materialFilmTotalAtom } from "Library/Atoms/TotalAtom";
+import { IconCurrencyDollar } from "@tabler/icons-react";
 
 import {
   exchangeRateAtom,
   marginAtom,
+  upPanelAtom,
   yeildAtom,
 } from "Library/Atoms/AtomStorage";
 import { percision } from "Library/ConstantValues";
-import TotalLabel from "./Compontents/TotalLabel";
-import { USDTotalFrontAtom } from "Library/Atoms/TotalAtomUSD";
-import { testerTemplate } from "DataBases/Tester";
-import JsonToTemplate from "JsonReader/JsonToTemplate";
+import TotalLabel from "app/Compontents/Labels/TotalLabel";
+import TotalLabelUSD from "app/Compontents/Labels/TotalLabelUSD";
 
 const FrontPagePrint = lazy(
   () => import("app/Compontents/PrintingElement/FrontPagePrint")
 );
 
 export default function page() {
-  const [fullTotal] = useAtom(fullTotalAtom);
+  const [materialTotal] = useAtom(materialFilmTotalAtom);
   const [note, setNote] = useAtom(noteAtom);
-  const [part, setPart] = useAtom(partsAtom);
   const [sold, setSold] = useAtom(soldAtom);
   const [terms, setTerms] = useAtom(termsAtom);
   const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAtom);
   const [yeild, setYeild] = useAtom(yeildAtom);
   const [margin, setMargin] = useAtom(marginAtom);
-  const [yeildTotal] = useAtom(yeildTotalAtom);
-  const [marginTotal] = useAtom(marginTotalAtom);
-  const [USDTotal] = useAtom(USDTotalFrontAtom);
-  const [unitTotal] = useAtom(unitTotalAtom);
+  const [selector] = useAtom(currencySelectorAtom);
+
+  let [numberOfUnits] = useAtom(upPanelAtom);
+
+  if (numberOfUnits === 0) {
+    numberOfUnits = 1;
+  }
+
+  const fullTotal =
+    selector === "CAD" ? materialTotal : materialTotal / Number(exchangeRate);
+  const yeildTotal = fullTotal / yeild;
+  const marginTotal = yeildTotal / margin;
+  const USDTotal = marginTotal / Number(exchangeRate);
+  const unitTotal = USDTotal / numberOfUnits;
 
   const SoldToText: string =
     "Buyer Name, Customer Name, Address\nCity, State, Country, Phone, #E-mail";
@@ -153,17 +156,15 @@ export default function page() {
             total={marginTotal}
             hoverText={"Yeild Total/Margin"}
           />
-          <TotalLabel
+          <TotalLabelUSD
             title={"USD Total"}
             total={USDTotal}
             hoverText={"Margin Total/USD"}
-            USDSelector={"USD"}
           />
-          <TotalLabel
+          <TotalLabelUSD
             title={"Unit Total"}
             total={unitTotal}
             hoverText={"USD Total/#-Up-Per-Panel"}
-            USDSelector={"USD"}
           />
         </div>
       </div>

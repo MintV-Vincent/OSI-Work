@@ -1,20 +1,19 @@
 import { Button, Table } from "@mantine/core";
-import { dictionaryMap, materialRowMap, rowMapPrice } from "Library/Types";
+import { materialRowMap, rowMapPrice } from "Library/Types";
 import React from "react";
 import SelectLogic from "app/Compontents/Tables/CustomCompontents/SelectLogic";
-import TotalRows from "./Rows/TotalRows";
-import HeaderRow from "./Rows/HeaderRow";
+import TotalRows from "app/Compontents/Tables/Rows/TotalRows";
+import HeaderRow from "app/Compontents/Tables/Rows/HeaderRow";
 import { materialHeader } from "Library/Headers";
 import { useAtom } from "jotai";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
-import { materialAtom } from "Library/Atoms/AtomStorage";
 import { materialTotalAtom } from "Library/Atoms/TotalAtom";
-import SupplierSelect from "./CustomCompontents/SupplierSelect";
-import MaterialSelect from "./CustomCompontents/MaterialSelect";
-import AmountInput from "./CustomCompontents/AmountInput";
+import SupplierSelect from "app/Compontents/Tables/CustomCompontents/SupplierSelect";
+import MaterialSelect from "app/Compontents/Tables/CustomCompontents/MaterialSelect";
+import AmountInput from "app/Compontents/Tables/CustomCompontents/AmountInput";
 import { createMaterialRow } from "Functions/Create/MapCreate";
-import AddMaterialButton from "./CustomCompontents/AddMaterialButton";
 import { materialTotalUSDAtom } from "Library/Atoms/TotalAtomUSD";
+import { AddMaterialButton } from "app/Compontents/Tables/CustomCompontents/AddMaterialButton";
 
 const tableSize: string = " ";
 
@@ -24,10 +23,9 @@ export function PriceTable() {
   const [materialRows, setMaterialRow] = useAtom(materialTableAtom);
   const [total] = useAtom(materialTotalAtom);
   const [USDTotal] = useAtom(materialTotalUSDAtom);
-  const [database] = useAtom(materialAtom);
-  const array = SelectLogic(database);
+  const array = SelectLogic();
   const materials: rowMapPrice[] = array.material;
-  const supplier: dictionaryMap[] = array.supplier;
+  const supplier: string[] = array.supplier;
 
   return (
     <Table striped withBorder verticalSpacing="w-10">

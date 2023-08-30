@@ -2,7 +2,7 @@
 import { NavBar } from "./Compontents/NavBar";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { JotaiProvider } from "./Compontents/JotaiProvider";
+import { JotaiProvider } from "app/Compontents/JotaiProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 

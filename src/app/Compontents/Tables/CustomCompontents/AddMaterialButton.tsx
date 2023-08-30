@@ -6,7 +6,7 @@ const AddSupplierForm = lazy(
   () => import("app/Compontents/Forms/AddSupplierForm")
 );
 
-export default function AddMaterialButton({}) {
+export function AddMaterialButton({}) {
   const [status, setState] = useState(false);
   const handleClick = () => {
     setState((prevStatus) => !prevStatus);

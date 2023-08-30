@@ -5,7 +5,7 @@ import { createMaterialRow, createRowPrice } from "Functions/Create/MapCreate";
 import { useAtom } from "jotai";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { materialAtom } from "Library/Atoms/AtomStorage";
-import ModalForm from "./ModalForm";
+import ModalForm from "app/Compontents/Forms/ModalForm";
 import { rowMapPrice } from "Library/Types";
 import { testCreateFormula } from "Functions/Create/CreateFormula";
 

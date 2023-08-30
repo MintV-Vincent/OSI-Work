@@ -1,7 +1,7 @@
 import { Button, NumberInput, TextInput } from "@mantine/core";
 import { UseFormReturnType } from "@mantine/form";
 import React from "react";
-import SubmitHover from "./HoverInfo/SubmitHover";
+import SubmitHover from "app/Compontents/Forms/HoverInfo/SubmitHover";
 
 interface TextInputInterface {
   form: UseFormReturnType<any>;

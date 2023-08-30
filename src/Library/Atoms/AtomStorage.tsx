@@ -1,50 +1,19 @@
-import { rowMapPrice } from "Library/Types";
-import { createRowPrice } from "../../Functions/Create/MapCreate";
+import { jsonMap, rowMapPrice } from "Library/Types";
+import { createRowPrice } from "Functions/Create/MapCreate";
 import JsonToAtom from "JsonReader/JsonToAtom";
 import { atom } from "jotai";
-import { cover } from "DataBases/JsonCover";
-import { panasonic } from "DataBases/Laminate";
-import { dupont } from "DataBases/Dupont";
-import { arlon } from "DataBases/Arlon";
-import { isola } from "DataBases/JsonIsola";
-import { dryFilm } from "DataBases/Processes";
-import { tapes } from "DataBases/Taiflex";
-import { Mtapes } from "DataBases/3MTapes";
-import { arwisa } from "DataBases/Arwisa";
-import JsonToService from "JsonReader/JsonToService";
+import { readData } from "Directus SDK/directus";
 
-const isolaAtom = atom(JsonToAtom(isola));
-const arlonAtom = atom(JsonToAtom(arlon));
-const dupontAtom = atom(JsonToAtom(dupont));
-const panasonicAtom = atom(JsonToAtom(panasonic));
-const coverAtom = atom(JsonToAtom(cover));
-const tapesAtom = atom(JsonToAtom(tapes));
-const MAtom = atom(JsonToAtom(Mtapes));
-const arwisaAtom = atom(JsonToAtom(arwisa));
+const materialListAtom = atom(
+  readData("Materials", 400).then((v) => JsonToAtom(v))
+);
 const addedAtom = atom<rowMapPrice[]>([]);
 
 export const materialAtom = atom(
-  (get) => {
-    const isola = get(isolaAtom);
-    const arlon = get(arlonAtom);
-    const dupont = get(dupontAtom);
-    const panasonic = get(panasonicAtom);
-    const cover = get(coverAtom);
-    const tapes = get(tapesAtom);
-    const mtapes = get(MAtom);
-    const arwisa = get(arwisaAtom);
+  async (get) => {
+    const materials = await get(materialListAtom);
     const added = get(addedAtom);
-    return [
-      cover,
-      isola,
-      arlon,
-      dupont,
-      panasonic,
-      tapes,
-      mtapes,
-      arwisa,
-      added,
-    ];
+    return [materials, added];
   },
   (
     get,
@@ -56,48 +25,15 @@ export const materialAtom = atom(
     custom: string,
     supplier: string = "Added"
   ) => {
-    const isola = get(isolaAtom);
-    const arlon = get(arlonAtom);
-    const dupont = get(dupontAtom);
-    const panasonic = get(panasonicAtom);
-    const cover = get(coverAtom);
+    const materials = get(materialListAtom);
     const added = get(addedAtom);
-    const tapes = get(tapesAtom);
-    const mtapes = get(MAtom);
-    const arwisa = get(arwisaAtom);
     set(addedAtom, [
       ...added,
       createRowPrice(value, label, formula, custom, supplier, Number(price)),
     ]);
-    return [
-      cover,
-      isola,
-      arlon,
-      dupont,
-      panasonic,
-      tapes,
-      mtapes,
-      arwisa,
-      added,
-    ];
+    return [materials, added];
   }
 );
-
-export const filmProcessAtom = atom(JsonToService(dryFilm));
-// export const filmAtom = atom(
-//   (get) => {
-//     const film = get(filmProcessAtom);
-//     return film;
-//   }
-// (get, set, value: string, label: string, price: number, formula: string) => {
-//   const film = get(filmProcessAtom);
-//   set(filmProcessAtom, [
-//     ...film,
-//     createRowPrice(label, value, price, formula),
-//   ]);
-//   return film;
-// }
-//);
 
 //These atoms are cause a lot of re-renders on calculation need to do something about it !
 export const exchangeRateAtom = atom<number | "">(1);

@@ -83,6 +83,7 @@ export const materialAtom = atom(
 //These atoms are cause a lot of re-renders on calculation need to do something about it !
 export const exchangeRateAtom = atom<number | "">(1);
 export const exchangeRateMaterialAtom = atom<number | "">(1);
+export const exchangeRateAssemblyAtom = atom<number | "">(1);
 export const freightAtom = atom<number | "">(1);
 export const yeildAtom = atom<number>(1);
 export const marginAtom = atom<number>(1);

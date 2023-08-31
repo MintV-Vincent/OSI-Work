@@ -1,18 +1,15 @@
 import { NumberInput } from "@mantine/core";
-import { exchangeRateMaterialAtom, panelAtom } from "Library/Atoms/AtomStorage";
-import { materialTableAtom } from "Library/Atoms/TableAtoms";
+import { exchangeRateAssemblyAtom, panelAtom } from "Library/Atoms/AtomStorage";
 import { IconCurrencyDollar } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import React from "react";
-import { materialRowMap, servicesMap } from "Library/Types";
+import { servicesMap } from "Library/Types";
 import { createFormula } from "Functions/Create/CreateFormula";
 import { percision } from "Library/ConstantValues";
-import { assemblyDataAtom, processAtom } from "Library/Atoms/ServiceStorage";
+import { assemblyDataAtom } from "Library/Atoms/ServiceStorage";
 
-export default function ExchangeRateInput() {
-  const [exchangeRate, setExchangeRate] = useAtom(exchangeRateMaterialAtom);
-  const [materialData, useMaterialData] = useAtom(materialTableAtom);
-  const [processing, setProcesses] = useAtom(processAtom);
+export default function AssemblyExchangeRateInput() {
+  const [exchangeRate, setExchangeRate] = useAtom(exchangeRateAssemblyAtom);
   const [assembly, setAssembly] = useAtom(assemblyDataAtom);
   const [panelSize] = useAtom(panelAtom);
 
@@ -28,20 +25,8 @@ export default function ExchangeRateInput() {
           event = 1;
         }
         setExchangeRate(event);
-        useMaterialData(
-          materialData.map((row: materialRowMap) => {
-            const item = row.item;
-            let newPrice = eval(
-              createFormula(item.formula, row.amount, item.price, event)
-            );
-            return {
-              ...row,
-              price: newPrice,
-            };
-          })
-        );
-        setProcesses(
-          processing.map((row: servicesMap) => {
+        setAssembly(
+          assembly.map((row: servicesMap) => {
             let newPrice = eval(
               createFormula(
                 row.formula,
@@ -51,6 +36,9 @@ export default function ExchangeRateInput() {
                 panelSize
               )
             );
+            if (newPrice == Number.POSITIVE_INFINITY) {
+              newPrice = 0;
+            }
             return {
               ...row,
               price: newPrice,

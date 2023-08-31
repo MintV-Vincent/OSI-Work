@@ -25,7 +25,13 @@ export const totalTitle2: string[] = ["Services", " CAD ($)", " USD ($)"];
 export const valueTitle: string[] = [materialsTitle, processFilmTitle];
 export const valueTitle2: string[] = [serviceTitle, nreTitle];
 
-export const assemblyHeader = [assemblyTitle, "Amount"];
+export const assemblyHeader = [
+  assemblyTitle,
+  "Amount",
+  "Unit Price",
+  "CAD Price",
+  "USD Price",
+];
 
 const finish: string = "Finish";
 const goldFinger: string = "Gold Finger";

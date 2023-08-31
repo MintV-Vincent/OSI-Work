@@ -166,7 +166,7 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
           <label key={row + index}>{row}</label>
         ))}
         <div className="col-span-6" />
-        <label className="col-span-1 ">Unit Price</label>
+        <label className="col-span-1 font-semibold">Unit Price</label>
         {quality?.map((row: string, index: number) => (
           <label key={row + index} className="">
             $ {(fullTotal / Number(row)).toFixed(2)}

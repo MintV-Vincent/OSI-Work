@@ -1,5 +1,6 @@
 import { materialRowMap, servicesMap } from "Library/Types";
 import {
+  exchangeRateAssemblyAtom,
   exchangeRateAtom,
   exchangeRateMaterialAtom,
 } from "Library/Atoms/AtomStorage";
@@ -47,7 +48,7 @@ export const USDFilmTotalAtom = atom(async (get) => {
 
 export const USDAssemblyTotalAtom = atom(async (get) => {
   const typeFilmAtom: any = await get(assemblyTotalAtom);
-  const exchangeRate: any = get(exchangeRateMaterialAtom);
+  const exchangeRate: any = get(exchangeRateAssemblyAtom);
   if (isNaN(exchangeRate) || exchangeRate === 0) {
     return typeFilmAtom / 1;
   }

@@ -5,6 +5,7 @@ import { upPanelAtom } from "Library/Atoms/AtomStorage";
 import { percision } from "Library/ConstantValues";
 import ExchangeRateInput from "app/Compontents/Input/ExchangeRateInput";
 import PanelSelect from "app/Compontents/PanelSelect";
+import AssemblyExchangeRateInput from "app/Compontents/Input/AssemblyExchangeRateInput";
 
 export default function MaterialLayout({
   children,
@@ -15,13 +16,17 @@ export default function MaterialLayout({
   return (
     <div className="flex flex-col mx-10 my-3">
       <div className="grid grid-cols-6">
-        <label className="text-xl text-left col-span-4">1 USD to CAD</label>
+        <label className="text-xl text-left">1 USD to CAD</label>
+        <label className="text-xl text-left col-span-3">
+          Assembly CAD to USD
+        </label>
         <label className="text-xl text-left">#-Up-Per-Panel</label>
         <label className="text-xl pl-[20%] text-left">Panel Size</label>
       </div>
       <div className="grid grid-cols-6">
         <ExchangeRateInput />
-        <div className="col-span-3" />
+        <AssemblyExchangeRateInput />
+        <div className="col-span-2" />
         <NumberInput
           size={"xs"}
           className="col-span-1 w-4/5"

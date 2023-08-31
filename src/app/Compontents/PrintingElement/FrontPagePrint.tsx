@@ -212,7 +212,7 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
       </div>
       <div className="col-span-2 row-span-1" />
       <label className="font-bold col-span-2">TERMS</label>
-      {splitArray(terms)?.map((row: string, index: number) => (
+      {splitArray(final)?.map((row: string, index: number) => (
         <label className="col-span-2 row-span-1" key={row + index}>
           {row ? row : ""}
         </label>

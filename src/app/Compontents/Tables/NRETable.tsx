@@ -73,7 +73,7 @@ export default function NRETable() {
                 hideControls
                 value={row.unitPrice}
                 onChange={(e) => {
-                  onPriceChange(index + 1, e, nre, setNRE);
+                  onPriceChange(index, e, nre, setNRE);
                 }}
                 precision={2}
               />

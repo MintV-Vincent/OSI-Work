@@ -25,7 +25,6 @@ export default function page() {
       </div>
       <div className="grid-span-1 h-[calc(100vh-12rem)] overflow-auto ml-2 z-50">
         <ProcessTable />
-        <ServiceTable />
         <NRETable />
       </div>
     </div>

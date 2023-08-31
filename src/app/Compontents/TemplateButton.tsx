@@ -1,5 +1,5 @@
-import { Box, LoadingOverlay, SegmentedControl } from "@mantine/core";
-import { readData, readDisplay } from "Directus SDK/directus";
+import { SegmentedControl } from "@mantine/core";
+import { readDisplay } from "Directus SDK/directus";
 import { createFormula } from "Functions/Create/CreateFormula";
 import {
   exchangeRateMaterialAtom,
@@ -17,7 +17,21 @@ import {
 } from "Library/Atoms/ServiceStorage";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { useAtom } from "jotai";
-import React, { useState } from "react";
+import React from "react";
+
+interface order {
+  id: string;
+  Process_id: number;
+}
+
+function customIncludes(array: any[], id: number) {
+  for (let i: number = 0; i < array.length; i++) {
+    if (array[i].process_id === id) {
+      return [true, array[i].amount];
+    }
+  }
+  return [false, 0];
+}
 
 export default function TemplateButton() {
   const [material, setMaterial] = useAtom(materialTableAtom);
@@ -41,14 +55,17 @@ export default function TemplateButton() {
    * @param value The amount constant for every id
    * @returns Returns the new atom with the amount set to value based on the id array
    */
-  function setTemplate(setData: any, data: any, id: number[], value: number) {
+  function setTemplate(setData: any, data: any, id: any[]) {
     return setData(
       data.map((row: any) => {
-        if (id === row.id) {
+        const checkId = customIncludes(id, row.id);
+        const checkIdValue = checkId[0];
+        const amount = checkId[1];
+        if (checkIdValue) {
           let newPrice = eval(
             createFormula(
               row.formula,
-              value,
+              amount,
               Number(row.unitPrice),
               exchangeRate,
               panel,
@@ -58,7 +75,7 @@ export default function TemplateButton() {
           );
           return {
             ...row,
-            amount: value,
+            amount: amount,
             price: newPrice,
           };
         }
@@ -77,22 +94,19 @@ export default function TemplateButton() {
         setTechnology(e);
         readDisplay("Template_A").then(
           (result) => {
-            console.log(result);
+            let idArray: any[] = [];
             result.map((row: any) => {
-              setTemplate(setProcesses, processing, row.Process_id, row.amount);
-              // setTemplate(setAssembly, assembly, row.assembly_id, row.amount);
-              // setTemplate(setService, service, row.service_id, row.amount);
-              // setTemplate(setNRE, nre, row.nre_id, row.amount);
+              for (let i: number = 0; i < row.process_id.length; i++) {
+                idArray.push({
+                  process_id: row.process_id[i].Process_id,
+                  amount: row.amount,
+                });
+              }
             });
-          },
-          (error) => {}
-        );
-        readDisplay("Template_A_Process").then(
-          (result) => {
-            console.log(result);
-            result.map((row: any) => {
-              setTemplate(setProcesses, processing, row.Process_id, row.amount);
-            });
+            setTemplate(setProcesses, processing, idArray);
+            // setTemplate(setAssembly, assembly, row.assembly_id, row.amount);
+            // setTemplate(setService, service, row.service_id, row.amount);
+            // setTemplate(setNRE, nre, row.nre_id, row.amount);
           },
           (error) => {}
         );

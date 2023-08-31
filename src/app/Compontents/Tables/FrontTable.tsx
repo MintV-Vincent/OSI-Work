@@ -20,7 +20,7 @@ import {
   specAtom,
 } from "Library/Atoms/FrontPageAtoms";
 import { useEffect, useRef } from "react";
-import TemplateButton from "app/Compontents/Forms/TemplateButton";
+import TemplateButton from "app/Compontents/TemplateButton";
 import QuoteSelect from "./CustomCompontents/QuoteSelect";
 import { IconInfoSquareFilled } from "@tabler/icons-react";
 import PanelSelect from "../PanelSelect";

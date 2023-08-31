@@ -16,17 +16,21 @@ import {
   servicesAtom,
 } from "Library/Atoms/ServiceStorage";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
+import { servicesMap } from "Library/Types";
 import { useAtom } from "jotai";
 import React from "react";
 
-interface order {
-  id: string;
-  Process_id: number;
+interface orderInterface {
+  id: number;
+  amount: number;
 }
 
-function customIncludes(array: any[], id: number) {
+function customIncludes(
+  array: orderInterface[],
+  id: number
+): [boolean, number] {
   for (let i: number = 0; i < array.length; i++) {
-    if (array[i].process_id === id) {
+    if (array[i].id === id) {
       return [true, array[i].amount];
     }
   }
@@ -55,12 +59,13 @@ export default function TemplateButton() {
    * @param value The amount constant for every id
    * @returns Returns the new atom with the amount set to value based on the id array
    */
-  function setTemplate(setData: any, data: any, id: any[]) {
+  function setTemplate(setData: any, data: any, id: orderInterface[]) {
+    console.log(id);
     return setData(
       data.map((row: any) => {
         const checkId = customIncludes(id, row.id);
-        const checkIdValue = checkId[0];
-        const amount = checkId[1];
+        const checkIdValue: boolean = checkId[0];
+        const amount: number = checkId[1];
         if (checkIdValue) {
           let newPrice = eval(
             createFormula(
@@ -94,18 +99,32 @@ export default function TemplateButton() {
         setTechnology(e);
         readDisplay("Template_A").then(
           (result) => {
-            let idArray: any[] = [];
+            let processIdArray: orderInterface[] = [];
+            let serviceIdArray: orderInterface[] = [];
+            let assemblyIdArray: orderInterface[] = [];
             result.map((row: any) => {
               for (let i: number = 0; i < row.process_id.length; i++) {
-                idArray.push({
-                  process_id: row.process_id[i].Process_id,
+                processIdArray.push({
+                  id: row.process_id[i].Process_id,
+                  amount: row.amount,
+                });
+              }
+              for (let i: number = 0; i < row.service_id.length; i++) {
+                serviceIdArray.push({
+                  id: row.service_id[i].Service_id,
+                  amount: row.amount,
+                });
+              }
+              for (let i: number = 0; i < row.assembly_id.length; i++) {
+                assemblyIdArray.push({
+                  id: row.assembly_id[i].Assembly_id,
                   amount: row.amount,
                 });
               }
             });
-            setTemplate(setProcesses, processing, idArray);
-            // setTemplate(setAssembly, assembly, row.assembly_id, row.amount);
-            // setTemplate(setService, service, row.service_id, row.amount);
+            setTemplate(setProcesses, processing, processIdArray);
+            setTemplate(setService, service, serviceIdArray);
+            setTemplate(setAssembly, assembly, assemblyIdArray);
             // setTemplate(setNRE, nre, row.nre_id, row.amount);
           },
           (error) => {}

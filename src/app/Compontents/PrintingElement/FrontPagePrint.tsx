@@ -70,6 +70,13 @@ function addItem(arr: any[], itemArray: servicesMap[]) {
   }
 }
 
+function makeBold(input: string, wordsToBold: string[]) {
+  return input.replace(
+    new RegExp("(\\b)(" + wordsToBold.join("|") + ")(\\b)", "ig"),
+    "$1<b>$2</b>$3"
+  );
+}
+
 export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
   const [notes] = useAtom(noteAtom);
   const [sales] = useAtom(salesAtom);
@@ -89,11 +96,13 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
   const [nre] = useAtom(nreAtom);
 
   const cadSelect = terms.replace("CAD", selector);
-  const final = cadSelect.replace("USD", selector);
+  let final = cadSelect.replace("USD", selector);
 
   let nreArray: any[] = [];
   addItem(nreArray, service);
   addItem(nreArray, nre);
+  const wordsToBold = ["CAD", "USD"];
+  //final = makeBold(final, wordsToBold);
 
   const salesPerson: string = chooseSales(sales);
 

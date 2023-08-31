@@ -22,14 +22,10 @@ export async function readData(
   return result;
 }
 
-export async function readDisplay(
-  dataBase: any,
-  limit: number | undefined = undefined
-) {
+export async function readDisplay(dataBase: any) {
   const result = await client.request(
     readItems(dataBase, {
-      limit: limit,
-      display: ["*"],
+      fields: ["*.Process_id", "*.Service_id", "*.Assembly_id"],
     })
   );
   return result;

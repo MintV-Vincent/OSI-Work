@@ -1,0 +1,19 @@
+To Do List
+1. Template - Gus
+    - Need to create a template for single, double, etc.
+    - Look at Template Button, there is a basic start to template Button
+    - Material Table function has not been created, template only works for service map tables.
+    - Related tables, like service, process, assembly, and material are M2M relationships
+2. Quote Print format
+    - Need to format the printing table to Quote.png
+    - Bold the currency in the terms
+3. NRE Table
+    - Karen wants the price the be entered manually 
+    - She also wants to be able to display CAD prices
+      From karen: 
+      "Rename the section below to NRE, I see NREs on quote only takes in charges in USD on quote. 
+      User will enter NREs manually based on currency set up for the customer, I am not sure if both currencies need to be displaced with exchange rate applied…"
+4. Server
+    - Not connected to any server
+    - See comments on AtomStorage and ServiceStorage for the directus version
+    - Delete database fold when connected to server

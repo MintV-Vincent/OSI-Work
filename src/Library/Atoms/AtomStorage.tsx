@@ -11,6 +11,39 @@ import { Mtapes } from "DataBases/3MTapes";
 import { arwisa } from "DataBases/Arwisa";
 import { rowMapPrice } from "Library/Types";
 
+/*
+const materialListAtom = atom(
+  readData("Materials", 400).then((v) => JsonToAtom(v))
+);
+const addedAtom = atom<rowMapPrice[]>([]);
+
+export const materialAtom = atom(
+  async (get) => {
+    const materials = await get(materialListAtom);
+    const added = get(addedAtom);
+    return [materials, added];
+  },
+  (
+    get,
+    set,
+    value: string,
+    label: string,
+    price: number,
+    formula: string,
+    custom: string,
+    supplier: string = "Added"
+  ) => {
+    const materials = get(materialListAtom);
+    const added = get(addedAtom);
+    set(addedAtom, [
+      ...added,
+      createRowPrice(value, label, formula, custom, supplier, Number(price)),
+    ]);
+    return [materials, added];
+  }
+);
+*/
+
 const isolaAtom = atom(JsonToAtom(isola));
 const arlonAtom = atom(JsonToAtom(arlon));
 const dupontAtom = atom(JsonToAtom(dupont));

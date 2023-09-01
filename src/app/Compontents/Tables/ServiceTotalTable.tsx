@@ -1,23 +1,13 @@
 import { Table } from "@mantine/core";
 import { useAtom } from "jotai";
 import { exchangeRateMaterialAtom } from "Library/Atoms/AtomStorage";
-import {
-  materialFilmTotalAtom,
-  NRETotalAtom,
-  qualityTotalAtom,
-  serviceTotalAtom,
-} from "Library/Atoms/TotalAtom";
-import {
-  USDServiceTotalAtom,
-  USDTotalNREAtom,
-} from "Library/Atoms/TotalAtomUSD";
+import { NRETotalAtom, serviceTotalAtom } from "Library/Atoms/TotalAtom";
+import { USDTotalNREAtom } from "Library/Atoms/TotalAtomUSD";
 
 export default function ServiceTotalTable() {
   const [total] = useAtom(serviceTotalAtom);
   const [exchange] = useAtom(exchangeRateMaterialAtom);
 
-  const [serviceTotal] = useAtom(qualityTotalAtom);
-  const [serviceTotalUSD] = useAtom(USDServiceTotalAtom);
   const [nreTotal] = useAtom(NRETotalAtom);
   const [nreTotalUSD] = useAtom(USDTotalNREAtom);
   const headerClass =
@@ -37,13 +27,6 @@ export default function ServiceTotalTable() {
         </tr>
       </thead>
       <tbody>
-        <tr className={"text-primary"}>
-          <td />
-          <td className="px-3 text-left">Quality Services</td>
-          <td className="px-3 text-right ">{serviceTotal.toFixed(2)}</td>
-          <td className="px-3 text-right ">{serviceTotalUSD.toFixed(2)}</td>
-          <td />
-        </tr>
         <tr className={"text-primary"}>
           <td />
           <td className="px-3 text-left ">NRE</td>

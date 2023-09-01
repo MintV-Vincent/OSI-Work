@@ -36,7 +36,7 @@ export default function AddServiceButton({
         </Suspense>
       }
       button={
-        <Button onClick={() => handleClick()} className="z-50" size="xs">
+        <Button onClick={() => handleClick()} className="z-50 w-28" size="xs">
           Add Row
         </Button>
       }

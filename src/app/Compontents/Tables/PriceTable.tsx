@@ -80,6 +80,7 @@ export function PriceTable() {
           columns={materialHeader.length}
           button={[
             <Button
+              className="w-28"
               size="xs"
               onClick={(e) => {
                 const newRow = createMaterialRow(materialRows.length);

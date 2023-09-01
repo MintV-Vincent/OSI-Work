@@ -2,11 +2,11 @@
 import React from "react";
 import { PriceTable } from "app/Compontents/Tables/PriceTable";
 import { ProcessTable } from "app/Compontents/Tables/ProcessTable";
-import ServiceTable from "app/Compontents/Tables/ServiceTable";
 import { MaterialTotalTable } from "app/Compontents/Tables/MaterialTotalTable";
 import ServiceTotalTable from "app/Compontents/Tables/ServiceTotalTable";
 import { AssemblyTable } from "app/Compontents/Tables/AssemblyTable";
 import NRETable from "app/Compontents/Tables/NRETable";
+import FrontPagePrint from "app/Compontents/PrintingElement/FrontPagePrint";
 
 export default function page() {
   return (

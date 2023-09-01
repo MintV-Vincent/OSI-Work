@@ -21,7 +21,7 @@ export function AddMaterialButton({}) {
         </Suspense>
       }
       button={
-        <Button size="xs" onClick={() => handleClick()} className="z-50">
+        <Button size="xs" onClick={() => handleClick()} className="z-50 w-28">
           Add Material
         </Button>
       }

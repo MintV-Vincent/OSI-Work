@@ -10,11 +10,7 @@ import {
   assemblyTotalAtom,
   materialFilmTotalAtom,
 } from "Library/Atoms/TotalAtom";
-import {
-  processAtom,
-  nreAtom,
-  servicesAtom,
-} from "Library/Atoms/ServiceStorage";
+import { processAtom, nreAtom } from "Library/Atoms/ServiceStorage";
 
 export const materialTotalUSDAtom = atom(async (get) => {
   const typeRowsAtom: any = await get(materialTableAtom);
@@ -53,15 +49,6 @@ export const USDAssemblyTotalAtom = atom(async (get) => {
     return typeFilmAtom / 1;
   }
   return typeFilmAtom / exchangeRate;
-});
-
-export const USDServiceTotalAtom = atom(async (get) => {
-  const typeQualAtom: any = await get(servicesAtom);
-  return typeQualAtom.reduce(
-    (accumulator: number, currentValue: servicesMap) =>
-      accumulator + Number(currentValue.price),
-    0
-  );
 });
 
 export const USDTotalNREAtom = atom(async (get) => {

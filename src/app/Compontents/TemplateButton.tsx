@@ -13,7 +13,6 @@ import {
   assemblyDataAtom,
   nreAtom,
   processAtom,
-  servicesAtom,
 } from "Library/Atoms/ServiceStorage";
 import { materialTableAtom } from "Library/Atoms/TableAtoms";
 import { servicesMap } from "Library/Types";
@@ -42,7 +41,6 @@ export default function TemplateButton() {
   const [materialList, setMaterialList] = useAtom(materialAtom);
   const [processing, setProcesses] = useAtom(processAtom);
   const [assembly, setAssembly] = useAtom(assemblyDataAtom);
-  const [service, setService] = useAtom(servicesAtom);
   const [nre, setNRE] = useAtom(nreAtom);
   const [technology, setTechnology] = useAtom(technologyAtom);
 
@@ -100,7 +98,7 @@ export default function TemplateButton() {
         readDisplay("Template_A").then(
           (result) => {
             let processIdArray: orderInterface[] = [];
-            let serviceIdArray: orderInterface[] = [];
+            let nreIdArray: orderInterface[] = [];
             let assemblyIdArray: orderInterface[] = [];
             result.map((row: any) => {
               for (let i: number = 0; i < row.process_id.length; i++) {
@@ -109,9 +107,9 @@ export default function TemplateButton() {
                   amount: row.amount,
                 });
               }
-              for (let i: number = 0; i < row.service_id.length; i++) {
-                serviceIdArray.push({
-                  id: row.service_id[i].Service_id,
+              for (let i: number = 0; i < row.nre_id.length; i++) {
+                nreIdArray.push({
+                  id: row.nre_id[i].Nre_id,
                   amount: row.amount,
                 });
               }
@@ -123,7 +121,7 @@ export default function TemplateButton() {
               }
             });
             setTemplate(setProcesses, processing, processIdArray);
-            setTemplate(setService, service, serviceIdArray);
+            setTemplate(setNRE, nre, nreIdArray);
             setTemplate(setAssembly, assembly, assemblyIdArray);
             // setTemplate(setNRE, nre, row.nre_id, row.amount);
           },

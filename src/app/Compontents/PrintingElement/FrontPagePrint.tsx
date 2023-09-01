@@ -22,7 +22,7 @@ import {
 } from "Library/Atoms/FrontPageAtoms";
 import { materialFilmTotalAtom } from "Library/Atoms/TotalAtom";
 import { exchangeRateAtom, quoteAtom } from "Library/Atoms/AtomStorage";
-import { nreAtom, servicesAtom } from "Library/Atoms/ServiceStorage";
+import { nreAtom } from "Library/Atoms/ServiceStorage";
 import { servicesMap } from "Library/Types";
 
 const gus: string = "Gus Tarkas, ";
@@ -30,10 +30,20 @@ const chris: string = "Chris Keirstead, ";
 const micheal: string = "Micheal Mordando, ";
 const deb: string = "Deb Dubberly, ";
 
+/**
+ *
+ * @param value The string from text area
+ * @returns Returns an array where a split happens at a newline in the textarea
+ */
 function splitArray(value: string): string[] {
   return value.split("\n");
 }
 
+/**
+ *
+ * @param value The string value of which sales person is selected on the front table
+ * @returns Returns the email of the sales person
+ */
 function chooseEmail(value: string): string {
   switch (value) {
     case "gus":
@@ -48,6 +58,11 @@ function chooseEmail(value: string): string {
   return "";
 }
 
+/**
+ *
+ * @param value The string value of which sales person is selected on the front table
+ * @returns Returns the job of the sales person
+ */
 function chooseSales(value: string): string {
   switch (value) {
     case "gus":
@@ -62,19 +77,17 @@ function chooseSales(value: string): string {
   return "";
 }
 
+/**
+ *
+ * @param arr
+ * @param itemArray
+ */
 function addItem(arr: any[], itemArray: servicesMap[]) {
   for (let i: number = 0; i < itemArray.length; i++) {
     if (itemArray[i].price > 0) {
       arr.push(itemArray[i]);
     }
   }
-}
-
-function makeBold(input: string, wordsToBold: string[]) {
-  return input.replace(
-    new RegExp("(\\b)(" + wordsToBold.join("|") + ")(\\b)", "ig"),
-    "$1<b>$2</b>$3"
-  );
 }
 
 export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
@@ -92,19 +105,13 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
   const [finish] = useAtom(finishAtom);
   const [spec] = useAtom(specAtom);
   const [product] = useAtom(productAtom);
-  const [service] = useAtom(servicesAtom);
   const [nre] = useAtom(nreAtom);
 
   const cadSelect = terms.replace("CAD", selector);
   let final = cadSelect.replace("USD", selector);
 
   let nreArray: any[] = [];
-  addItem(nreArray, service);
   addItem(nreArray, nre);
-  const wordsToBold = ["CAD", "USD"];
-  //final = makeBold(final, wordsToBold);
-
-  const salesPerson: string = chooseSales(sales);
 
   const fullTotal =
     selector === "CAD" ? materialTotal : materialTotal / Number(exchangeRate);

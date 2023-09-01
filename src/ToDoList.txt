@@ -17,3 +17,6 @@ To Do List
     - Not connected to any server
     - See comments on AtomStorage and ServiceStorage for the directus version
     - Delete database fold when connected to server
+5. Directus ID
+    - Table ID and directus ID do not match, the table starts at an index of 0 while directus starts at index 1.
+      This can cause problems when trying to use template button

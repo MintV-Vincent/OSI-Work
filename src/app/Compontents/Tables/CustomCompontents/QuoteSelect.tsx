@@ -8,7 +8,7 @@ import React from "react";
 
 export default function QuoteSelect() {
   const [quoteData, setQuote] = useAtom(quoteTableAtom);
-  const [quoteState, setQuoteState] = useAtom<string | "">(quoteAtom);
+  const [quoteState, setQuoteState] = useAtom<string | null>(quoteAtom);
   return (
     <Select
       size={"xs"}

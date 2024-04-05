@@ -182,10 +182,10 @@ export function FrontTable() {
       name="sales"
       size="xs"
       data={[
-        { label: "Gus", value: "gus" },
-        { label: "Chris", value: "chris" },
-        { label: "Micheal", value: "micheal" },
-        { label: "Deb", value: "deb" },
+        { label: "Bob", value: "1" },
+        { label: "Builder", value: "2" },
+        { label: "John", value: "3" },
+        { label: "Deer", value: "4" },
       ]}
     />
   );

@@ -9,9 +9,7 @@ export const codeAtom = atom<string>("");
 export const partsAtom = atom<string>("");
 export const noteAtom = atom<string>("");
 export const soldAtom = atom<string>("");
-const textTermAtom = atom<string>(
-  "QUOTATION VALID FOR 90 DAYS \nALL PRICES ARE LISTED IN CAD \nNet 30 days; FOB -- PFC (Canada)"
-);
+const textTermAtom = atom<string>("QUOTATION VALID FOR 90 DAYS ");
 export const termsAtom = atom(
   (get) => {
     return get(textTermAtom);

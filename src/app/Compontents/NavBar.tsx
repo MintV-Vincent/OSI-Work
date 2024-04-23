@@ -47,12 +47,6 @@ export function NavBar() {
 
   return (
     <nav className="h-16 flex justify-between items-center bg-primary drop-shadow-lg">
-      <Image
-        className="w-72 h-16 p-2.5"
-        src={Logo}
-        priority={true}
-        alt="PFC FLEX LOGO"
-      />
       <div className="flex h-16">{mainItems}</div>
     </nav>
   );

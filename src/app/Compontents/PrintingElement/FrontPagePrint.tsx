@@ -25,10 +25,10 @@ import { exchangeRateAtom, quoteAtom } from "Library/Atoms/AtomStorage";
 import { nreAtom } from "Library/Atoms/ServiceStorage";
 import { servicesMap } from "Library/Types";
 
-const gus: string = "Gus Tarkas, ";
-const chris: string = "Chris Keirstead, ";
-const micheal: string = "Micheal Mordando, ";
-const deb: string = "Deb Dubberly, ";
+//const gus: string = "Gus Tarkas, ";
+//const chris: string = "Chris Keirstead, ";
+//const micheal: string = "Micheal Mordando, ";
+//const deb: string = "Deb Dubberly, ";
 
 /**
  *
@@ -62,7 +62,7 @@ function chooseEmail(value: string): string {
  *
  * @param value The string value of which sales person is selected on the front table
  * @returns Returns the job of the sales person
- */
+ 
 function chooseSales(value: string): string {
   switch (value) {
     case "gus":
@@ -76,6 +76,7 @@ function chooseSales(value: string): string {
   }
   return "";
 }
+*/
 
 /**
  *
@@ -119,14 +120,7 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
   return (
     <section id="page" ref={ref}>
       <div className="col-span-2 row-span-3 flex justify-between">
-        <div>
-          <Image
-            className="w-auto h-12 ml-4"
-            src={Logo}
-            priority={true}
-            alt="PFC FLEX LOGO"
-          />
-        </div>
+        <div></div>
         <label className="text-3xl font-bold my-auto mr-4">Quotation</label>
       </div>
       <div className="col-span-2 h-0.5 w-full bg-black m-auto" />
@@ -153,20 +147,18 @@ export const FrontPagePrint = React.forwardRef((props: any, ref: any) => {
         <label className="col-span-1 row-span-4 font-semibold">
           Build Site:
         </label>
-        <label className="col-span-3 row-span-1">PFC Flexible Circuits</label>
+        <label className="col-span-3 row-span-1">sdfasdsadas</label>
         <label className="col-span-3 row-span-1">
           11 Canadian Road, Unit #7
         </label>
-        <label className="col-span-3 row-span-1">Toronto, ON M1R5G1</label>
+        <label className="col-span-3 row-span-1">Toronto, ON</label>
         <label className="col-span-3 row-span-1">CANADA</label>
         <div className="col-span-4 row-span-1" />
         <label className="col-span-1 row-span-2 font-semibold">
           Sales Contact:
         </label>
-        <label className="col-span-3 row-span-1">{chooseSales(sales)}</label>
-        <label className="col-span-3 row-span-1 underline">
-          {chooseEmail(sales)}
-        </label>
+        <label className="col-span-3 row-span-1">a</label>
+        <label className="col-span-3 row-span-1 underline"></label>
       </div>
       <div className="col-span-2 row-span-1" />
       <div className="col-span-2 row-span-6 grid grid-cols-6 sub-grid">

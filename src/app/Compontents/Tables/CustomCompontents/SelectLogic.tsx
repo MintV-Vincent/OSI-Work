@@ -1,5 +1,5 @@
 import { materialAtom } from "Library/Atoms/AtomStorage";
-import { dictionaryMap, rowMapPrice } from "Library/Types";
+import { rowMapPrice } from "Library/Types";
 import { useAtom } from "jotai";
 
 interface selectLogic {

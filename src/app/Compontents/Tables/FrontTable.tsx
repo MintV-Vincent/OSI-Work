@@ -1,12 +1,11 @@
 import { HoverCard, SegmentedControl, Table } from "@mantine/core";
-import { rowMap, servicesMap } from "Library/Types";
+import { rowMap } from "Library/Types";
 import { Select } from "@mantine/core";
 import { createRow } from "Functions/Create/MapCreate";
 import GetDate from "Functions/GetFunction/GetDate";
 import { useAtom } from "jotai";
 import { TextInput } from "@mantine/core";
 import SelectLabel from "app/Compontents/SelectLabel";
-import { exchangeRateMaterialAtom, panelAtom } from "Library/Atoms/AtomStorage";
 import {
   assemblyAtom,
   currencySelectorAtom,

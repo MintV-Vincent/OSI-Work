@@ -1,6 +1,4 @@
-import Logo from "Images/Logo.svg";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 interface LinkProps {
@@ -20,6 +18,9 @@ function currentTab(currentRoute: string) {
     if (newArray[i] === "material") {
       return "/material";
     }
+    if (newArray[i] === "front") {
+      return "/front";
+    }
   }
   return "/";
 }
@@ -29,7 +30,8 @@ export function NavBar() {
   const newRoute: string = currentTab(currentRoute);
 
   const mainLinks: LinkProps[] = [
-    { link: "/", label: "Front" },
+    { link: "/", label: "Home" },
+    { link: "/front", label: "Front" },
     { link: "/material", label: "Material" },
   ];
 

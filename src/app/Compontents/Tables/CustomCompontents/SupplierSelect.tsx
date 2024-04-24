@@ -1,6 +1,6 @@
 import { Select } from "@mantine/core";
 import { createMaterialRow, createRowPrice } from "Functions/Create/MapCreate";
-import { dictionaryMap, materialRowMap } from "Library/Types";
+import { materialRowMap } from "Library/Types";
 import React, { useEffect, useRef } from "react";
 interface customSelect {
   rowSupplier: string;

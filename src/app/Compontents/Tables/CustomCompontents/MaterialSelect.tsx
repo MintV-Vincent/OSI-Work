@@ -5,7 +5,6 @@ import { filterMaterials } from "./SelectLogic";
 import { useAtom } from "jotai";
 import {
   exchangeRateMaterialAtom,
-  freightAtom,
   marginAtom,
   panelAtom,
   yeildAtom,

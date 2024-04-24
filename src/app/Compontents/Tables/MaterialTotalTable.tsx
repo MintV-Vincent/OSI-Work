@@ -2,14 +2,12 @@ import { Table } from "@mantine/core";
 import { useAtom } from "jotai";
 import { exchangeRateMaterialAtom } from "Library/Atoms/AtomStorage";
 import {
-  assemblyTotalAtom,
   filmTotalAtom,
   materialFilmTotalAtom,
   materialTotalAtom,
 } from "Library/Atoms/TotalAtom";
 import {
   materialTotalUSDAtom,
-  USDAssemblyTotalAtom,
   USDFilmTotalAtom,
 } from "Library/Atoms/TotalAtomUSD";
 
